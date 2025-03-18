@@ -328,6 +328,20 @@ references:
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2025'
 - type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Imports
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2025'
+  doi: 10.32614/CRAN.package.sf
+  version: '>= 1.0.19'
+- type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
   notes: Imports

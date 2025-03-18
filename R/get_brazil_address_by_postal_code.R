@@ -67,25 +67,27 @@
 #'
 #' @examples
 #' \dontrun{
+#'   library(dplyr)
+#'
 #'   "01014908" |>
 #'     get_brazil_address_by_postal_code(method = "osm") |>
-#'     dplyr::glimpse()
+#'     glimpse()
 #'
 #'   "01014908" |>
 #'     get_brazil_address_by_postal_code(method = "google") |>
-#'     dplyr::glimpse()
+#'     glimpse()
 #'
 #'   "01014908" |>
 #'     get_brazil_address_by_postal_code(method = "qualocep") |>
-#'     dplyr::glimpse()
+#'     glimpse()
 #'
 #'   "01014908" |>
 #'     get_brazil_address_by_postal_code(method = "viacep") |>
-#'     dplyr::glimpse()
+#'     glimpse()
 #'
 #'   c("01014-908", NA, "05650-905") |>
 #'     get_brazil_address_by_postal_code(method = "qualocep") |>
-#'     dplyr::glimpse()
+#'     glimpse()
 #' }
 get_brazil_address_by_postal_code <- function( #nolint
     postal_code, #nolint

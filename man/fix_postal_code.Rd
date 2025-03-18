@@ -81,4 +81,8 @@ fix_postal_code("01253", max_char = 8, pad = TRUE)
 fix_postal_code(NA, max_char = 8, zero_na = TRUE)
 #> [1] "00000000" # Expected
 }
+\seealso{
+Other utility functions: 
+\code{\link{get_map_fill_data}()}
+}
 \concept{utility functions}
