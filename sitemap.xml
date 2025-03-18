@@ -8,6 +8,7 @@
 <url><loc>https://danielvartan.github.io/orbis/index.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/news/index.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/fix_postal_code.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_address_by_postal_code.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_fu.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality_code.html</loc></url>
@@ -19,6 +20,7 @@
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_state_latitude.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_state_longitude.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_country_names.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/get_qualocep_data.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/index.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/orbis-package.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/render_brazil_address.html</loc></url>
