@@ -50,6 +50,7 @@ reference:
   - get_brazil_state_by_utc
   - get_brazil_fu
   - get_brazil_region
+  - render_brazil_address
 
 - title: Utilities
   contents:

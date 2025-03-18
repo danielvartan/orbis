@@ -48,6 +48,7 @@ Other Brazil functions:
 \code{\link{get_brazil_state_capital}()},
 \code{\link{get_brazil_state_code}()},
 \code{\link{get_brazil_state_latitude}()},
-\code{\link{get_brazil_state_longitude}()}
+\code{\link{get_brazil_state_longitude}()},
+\code{\link{render_brazil_address}()}
 }
 \concept{Brazil functions}

@@ -7,10 +7,10 @@
 #' `get_brazil_municipality()` returns a [`tibble`][tibble::tibble] with data
 #' about Brazilian municipalities.
 #'
-#' @param municipality (Optional) A [`character`][base::character()] vector
+#' @param municipality (Optional) A [`character`][base::character] vector
 #'   with the name of the municipalities. If `NULL` the function returns all
 #'   municipalities (Default: `NULL`).
-#' @param state (Optional) A [`character`][base::character()] vector with the
+#' @param state (Optional) A [`character`][base::character] vector with the
 #'   name of the states (Default: `NULL`).
 #' @param year An [`integerish`][checkmate::test_int] number indicating the
 #'   year of the data regarding the municipalities (Default: `2017`).
