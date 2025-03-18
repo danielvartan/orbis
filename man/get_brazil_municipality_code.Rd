@@ -31,8 +31,9 @@ An \code{\link[base:integer]{integer}} vector with the municipalities codes.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 
-\code{get_brazil_municipality()} returns a vector with the codes of Brazilian
-municipalities.
+\code{get_brazil_municipality()} returns a vector with codes of the Brazilian
+Institute of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) for
+Brazilian municipalities.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute

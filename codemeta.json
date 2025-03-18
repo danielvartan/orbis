@@ -196,22 +196,22 @@
     },
     "6": {
       "@type": "SoftwareApplication",
-      "identifier": "groomr",
-      "name": "groomr",
-      "sameAs": "https://github.com/danielvartan/groomr"
-    },
-    "7": {
-      "@type": "SoftwareApplication",
-      "identifier": "here",
-      "name": "here",
-      "version": ">= 1.0.1",
+      "identifier": "glue",
+      "name": "glue",
+      "version": ">= 1.8.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=here"
+      "sameAs": "https://CRAN.R-project.org/package=glue"
+    },
+    "7": {
+      "@type": "SoftwareApplication",
+      "identifier": "groomr",
+      "name": "groomr",
+      "sameAs": "https://github.com/danielvartan/groomr"
     },
     "8": {
       "@type": "SoftwareApplication",
@@ -286,11 +286,24 @@
     },
     "14": {
       "@type": "SoftwareApplication",
+      "identifier": "osfr",
+      "name": "osfr",
+      "version": ">= 0.2.9",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=osfr"
+    },
+    "15": {
+      "@type": "SoftwareApplication",
       "identifier": "prettycheck",
       "name": "prettycheck",
       "sameAs": "https://github.com/danielvartan/prettycheck"
     },
-    "15": {
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -303,7 +316,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "16": {
+    "17": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -316,7 +329,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "17": {
+    "18": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -329,24 +342,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "18": {
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "rutils",
       "name": "rutils",
       "sameAs": "https://github.com/danielvartan/rutils"
-    },
-    "19": {
-      "@type": "SoftwareApplication",
-      "identifier": "sf",
-      "name": "sf",
-      "version": ">= 1.0.19",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=sf"
     },
     "20": {
       "@type": "SoftwareApplication",
@@ -387,22 +387,9 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     },
-    "23": {
-      "@type": "SoftwareApplication",
-      "identifier": "vctrs",
-      "name": "vctrs",
-      "version": ">= 0.6.5",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=vctrs"
-    },
     "SystemRequirements": null
   },
-  "fileSize": "601.376KB",
+  "fileSize": "634.449KB",
   "citation": [
     {
       "@type": "CreativeWork",

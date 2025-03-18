@@ -52,6 +52,11 @@ reference:
   - get_brazil_region
   - render_brazil_address
 
+- title: API
+  contents:
+  - get_brazil_address_by_postal_code
+  - get_qualocep_data
+
 - title: Utilities
   contents:
   - fix_postal_code

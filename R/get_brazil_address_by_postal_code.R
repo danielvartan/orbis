@@ -4,9 +4,9 @@
 #'
 #' `r lifecycle::badge("maturing")`
 #'
-#' `get_brazil_address_by_postal_code()` is a function that retrieves a
-#' Brazilian address based on a postal code. It uses reverse geocoding to
-#' approximate the address based on the postal code.
+#' `get_brazil_address_by_postal_code()` retrieves a Brazilian address based
+#' on a postal code using
+#' [reverse geocoding](https://en.wikipedia.org/wiki/Reverse_geocoding).
 #'
 #' Please note that the accuracy of the results may vary depending on the
 #' method used.
@@ -14,46 +14,78 @@
 #' @details
 #'
 #' The source of the data will depend on the method used. Run
-#' [`?tidygeocoder::geo`][tidygeocoder::geo()] to learn more. The only exception
-#' is the `"qualocep"` and `"viacep"` method. These methods will return the
-#' address data from the [QualoCEP](https://www.qualocep.com/) database and the
-#' [ViaCEP](https://viacep.com.br/) API, respectively.
+#' [`?tidygeocoder::geo`][tidygeocoder::geo] to learn more. The only
+#' exception is the `"qualocep"` and `"viacep"` method. These methods will
+#' return the address data from the [Qual o CEP](https://www.qualocep.com/)
+#' database and the [ViaCEP](https://viacep.com.br/) API, respectively.
 #'
-#' @param postal_code A [`character`][base::character()] vector with the postal
-#'   code(s) to be used to. The postal code must be in the format `XXXXX-XXX` or
-#'   `XXXXXXXX`, where `X` is a digit.
-#' @param method A [`character`][base::character()] value indicating the method
+#' See [`?tidygeocoder::geo`][tidygeocoder::geo] to learn how to use
+#' `method = "google`.
+#'
+#' @param postal_code A [`character`][base::character] vector with the postal
+#'   code(s) to be used to. The postal code must be in the format `XXXXXXXX`,
+#'   where `X` is a digit.
+#' @param method A [`character`][base::character] value indicating the method
 #'   to be used to retrieve the address data. The available options are `"osm"`,
-#'   `"google"`,`"qualocep"`, and `"viacep"` (default: `qualocep`).
+#'   `"google"`,`"qualocep"`, and `"viacep"` (Default: `qualocep`).
 #' @param fix_code A [`logical`][base::logical()] flag indicating if the postal
-#'  code must be fixed before being used (default: `TRUE`).
+#'  code must be fixed before being used (Default: `TRUE`).
 #' @param limit A [`numeric`][base::numeric()] value indicating the maximum
-#'   number of results to return (default: `10`). If the value is `Inf`, all
-#'   postal codes will be used.
-#'
+#'   number of results to return. If the value is `Inf`, all postal codes will
+#'   be used (Default: `10`).
 #'
 #' @return A [`tibble`][dplyr::tibble()] with the following columns:
-#'  - `postal_code`: The postal code.
-#'  - `street`: The street name.
-#'  - `complement`: The address complement.
-#'  - `neighborhood`: The neighborhood.
-#'  - `municipality_code`: The IBGE code for the address municipality.
-#'  - `municipality`: The municipality.
-#'  - `state`: The state.
-#'  - `region`: The region.
-#'  - `address`: The full address.
-#'  - `latitude`: The latitude.
-#'  - `longitude`: The longitude.
+#'   - `postal_code`: A [`character`][base::character] vector with the postal
+#'     codes.
+#'   - `street`: A [`character`][base::character] vector with the full names of
+#'     the streets.
+#'   - `complement`: A [`character`][base::character] vector with the
+#'     complements of the addresses.
+#'   - `neighborhood`: A [`character`][base::character] vector with the
+#'     neighborhoods.
+#'   - `municipality_code`: An [`integer`][base::integer] vector with the codes
+#'     of the Brazilian Institute of Geography and Statistics
+#'     ([IBGE](https://www.ibge.gov.br/)) for Brazilian municipalities.
+#'   - `municipality`: A [`character`][base::character] vector with the names of
+#'     the municipalities.
+#'   - `state_code`: An [`integer`][base::integer] vector with the codes
+#'     of the Brazilian Institute of Geography and Statistics
+#'     ([IBGE](https://www.ibge.gov.br/)) for the Brazilian states.
+#'   - `state`: A [`character`][base::character] vector with the names of the
+#'     states.
+#'   - `region`: A [`character`][base::character] vector with the
+#'     Brazilian regions.
+#'   - `address`: A [`character`][base::character] vector with the
+#'     full addresses.
+#'   - `latitude`: A [`numeric`][base::numeric] vector with the latitude values
+#'     of the postal codes.
+#'   - `longitude`: A [`numeric`][base::numeric] vector with the longitude
+#'     values of the postal codes.
 #'
-#' @noRd
+#' @family API functions
+#' @export
 #'
 #' @examples
 #' \dontrun{
-#' "01223000" |>
-#'   get_brazil_address_by_postal_code() |>
-#'   dplyr::glimpse()
+#'   "01014908" |>
+#'     get_brazil_address_by_postal_code(method = "osm") |>
+#'     dplyr::glimpse()
 #'
-#' c("01223000", NA, "05411002") |> get_brazil_address_by_postal_code()
+#'   "01014908" |>
+#'     get_brazil_address_by_postal_code(method = "google") |>
+#'     dplyr::glimpse()
+#'
+#'   "01014908" |>
+#'     get_brazil_address_by_postal_code(method = "qualocep") |>
+#'     dplyr::glimpse()
+#'
+#'   "01014908" |>
+#'     get_brazil_address_by_postal_code(method = "viacep") |>
+#'     dplyr::glimpse()
+#'
+#'   c("01014-908", NA, "05650-905") |>
+#'     get_brazil_address_by_postal_code(method = "qualocep") |>
+#'     dplyr::glimpse()
 #' }
 get_brazil_address_by_postal_code <- function( #nolint
     postal_code, #nolint
