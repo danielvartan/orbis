@@ -12,7 +12,7 @@ version: 0.0.0.9000
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
-abstract: Tools to facilitate spatial data analysis.
+abstract: A comprehensive suite of tools for simplifying spatial data analysis.
 authors:
 - family-names: Vartanian
   given-names: Daniel

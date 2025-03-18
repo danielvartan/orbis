@@ -19,9 +19,8 @@ Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](h
 
 ## Overview
 
-`orbis` is an R package that provides a set of tools designed to
-facilitate the use of the [Quarto](https://quarto.org/) publishing
-system.
+`orbis` is an R package that offers a comprehensive suite of tools for
+simplifying spatial data analysis.
 
 ## Installation
 
@@ -34,8 +33,8 @@ remotes::install_github("danielvartan/orbis")
 
 ## Usage
 
-`orbis` is equipped with several functions to help you with
-[Quarto](https://quarto.org/), like:
+`orbis` is equipped with several functions to help with your analysis,
+such as:
 
 - [`get_country_names`](https://danielvartan.github.io/orbis/reference/get_country_names.html):
   Get names or codes of all countries present in the ISO 3166-1
