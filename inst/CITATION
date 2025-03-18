@@ -1,0 +1,32 @@
+utils::bibentry(
+  header = "To cite {orbis} in publications use:",
+  bibtype = "Misc",
+  title = paste0(
+    "{orbis}:", " ",
+    "Spatial data analysis tools"
+  ),
+  author = c(
+    person(
+      given = "Daniel",
+      family = "Vartanian",
+      role = c("aut", "cre", "ccp", "cph"),
+      email = "danvartan@gmail.com",
+      comment = c(ORCID = "0000-0001-7782-759X")
+    )
+  ),
+  year = "2025",
+  url = paste0(
+    "https://danielvartan.github.io/",
+    "orbis/"
+  ),
+  note = "R package",
+  textVersion = paste0(
+    "Vartanian, D.", ". ",
+    "(2025)", ". ",
+    "{orbis}:", " ",
+    "Spatial data analysis tools", ". ",
+    "R package", ". ",
+    "https://danielvartan.github.io/",
+    "orbis/"
+  )
+)

@@ -1,0 +1,62 @@
+# (2025-03-02) You may have to install the development version of `bslib` to
+# use `_brands.yml` (`remotes::install_github("rstudio/bslib", force = TRUE)`).
+
+url: https://danielvartan.github.io/orbis/
+
+template:
+  bslib:
+    version: 5
+    brand: "./_brand.yml"
+  math-rendering: mathjax
+  light-switch: true
+  opengraph:
+    image:
+      src: man/figures/og-image.png
+      alt: "{orbis}"
+  params:
+    noindex: false
+
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - news
+    right:
+    - search
+    - lightswitch
+    - github
+  components:
+    home: ~
+    intro: ~
+    articles: ~
+
+reference:
+- title: World
+  contents:
+  - get_country_names
+
+- title: Brazil
+  contents:
+  - get_brazil_state
+  - get_brazil_state_capital
+  - get_brazil_state_code
+  - get_brazil_state_latitude
+  - get_brazil_state_longitude
+  - get_brazil_state_by_utc
+  - get_brazil_fu
+  - get_brazil_region
+
+- title: Utilities
+  contents:
+  - fix_postal_code
+
+authors:
+  Daniel Vartanian:
+    href: https://github.com/danielvartan/
+
+development:
+  mode: auto
+  version_label: warning

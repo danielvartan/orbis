@@ -1,0 +1,74 @@
+meta:
+  name:
+    short: "{orbis}"
+    long: "{orbis}: Spatial Data Analysis Tools"
+  link:
+    home: https://danielvartan.github.io/orbis
+    github: https://github.com/danielvartan/orbis
+  description: |
+    An R package with tools designed to facilitate spatial data analysis.
+
+logo:
+  images:
+    logo:
+      path: man/figures/logo.png
+      alt: "Hex logo"
+    og-image:
+      path: man/figures/og-image.png
+      alt: "Open Graph Image"
+
+color:
+  palette:
+    deep-blue: "#0D0D0D"
+    blue: "#072359"
+    light-blue: "#3243A6"
+    purple: "#5F45BF"
+    lilac: "#9483AF"
+    white: "#FFFFFF"
+    gray: "#212222"
+    black: "#0F0616"
+  background: white
+  primary: blue
+  secondary: light-blue
+  tertiary: lilac
+  success: purple
+  info: purple
+  warning: purple
+  danger: purple
+  light: white
+  dark: black
+
+typography:
+  fonts:
+    - family: Poppins
+      source: google
+    - family: DM Mono
+      source: google
+  base:
+    family: Poppins
+    line-height: 1.5
+    weight: normal
+  headings:
+    color: blue
+    family: Poppins
+    weight: 600
+  link:
+    color: purple
+    decoration: underline
+  monospace: DM Mono
+
+defaults:
+  bootstrap:
+    rules: |
+      [data-bs-theme="dark"] pre, [data-bs-theme="dark"] .text-warning {
+        color: #9483AF !important;
+      }
+
+      [data-bs-theme="dark"] pre, [data-bs-theme="dark"] a {
+        color: #9483AF;
+      }
+
+      [data-bs-theme="dark"] pre, [data-bs-theme="dark"] .nav-link,
+      .navbar-brand {
+        color: var(--bs-navbar-brand-color) !important;
+      }
