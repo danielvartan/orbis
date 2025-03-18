@@ -33,7 +33,7 @@
 get_brazil_state_longitude <- function(x = NULL) {
   checkmate::assert_character(x, null.ok = TRUE)
 
-if (is.null(x)) {
+  if (is.null(x)) {
     c(
       "Acre" = -67.8220778, # Rio Branco
       "Alagoas" = -35.7339264, # Maceió

@@ -55,7 +55,7 @@
 #'
 #' c("01223000", NA, "05411002") |> get_brazil_address_by_postal_code()
 #' }
-get_brazil_address_by_postal_code <- function(
+get_brazil_address_by_postal_code <- function( #nolint
     postal_code, #nolint
     method = "qualocep",
     fix_code = TRUE,
@@ -90,13 +90,13 @@ get_brazil_address_by_postal_code <- function(
   }
 }
 
-get_brazil_address_by_postal_code_osm <- function(
+get_brazil_address_by_postal_code_osm <- function( #nolint
     postal_code, #nolint
     limit = 10
   ) {
   prettycheck::assert_internet()
   checkmate::assert_atomic(postal_code)
-  checkmate::assert_choice(method, c("osm", "google", "qualocep", "viacep"))
+  checkmate::assert_number(limit, lower = 0)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -205,13 +205,13 @@ get_brazil_address_by_postal_code_osm <- function(
   }
 }
 
-get_brazil_address_by_postal_code_google <- function(
+get_brazil_address_by_postal_code_google <- function( #nolint
     postal_code, #nolint
     limit = 10
   ) {
   prettycheck::assert_internet()
   checkmate::assert_atomic(postal_code)
-  checkmate::assert_choice(method, c("osm", "google", "qualocep", "viacep"))
+  checkmate::assert_number(limit, lower = 0)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -356,19 +356,19 @@ get_brazil_address_by_postal_code_google <- function(
     dplyr::select(-dummy)
 }
 
-get_brazil_address_by_postal_code_qualocep <- function(
+get_brazil_address_by_postal_code_qualocep <- function( #nolint
     postal_code, #nolint
     limit = 10
   ) {
   prettycheck::assert_internet()
   checkmate::assert_atomic(postal_code)
-  checkmate::assert_choice(method, c("osm", "google", "qualocep", "viacep"))
+  checkmate::assert_number(limit, lower = 0)
 
   # R CMD Check variable bindings fix
   # nolint start
    street <- complement <- neighborhood <- municipality_code <- NULL
    municipality <- state_code <- state <- latitude <- longitude <- NULL
-   address
+   address <- NULL
   # nolint end
 
   postal_code <- fix_postal_code(postal_code, zero_na = TRUE)
@@ -421,7 +421,10 @@ get_brazil_address_by_postal_code_qualocep <- function(
   }
 }
 
-get_brazil_address_by_postal_code_viacep <- function(postal_code, limit = 10) {
+get_brazil_address_by_postal_code_viacep <- function( #nolint
+    postal_code, #nolint
+    limit = 10
+  ) {
   prettycheck::assert_internet()
   checkmate::assert_atomic(postal_code)
   checkmate::assert_number(limit, lower = 0)

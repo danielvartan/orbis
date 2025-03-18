@@ -39,6 +39,8 @@ such as:
 - [`get_country_names`](https://danielvartan.github.io/orbis/reference/get_country_names.html):
   Get names or codes of all countries present in the ISO 3166-1
   standard.
+- [`get_brazil_municipality`](https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html):
+  Get Brazilian municipalities data.
 - [`get_brazil_state`](https://danielvartan.github.io/orbis/reference/get_brazil_state.html):
   Get Brazilian state names.
 - [`get_brazil_fu`](https://danielvartan.github.io/orbis/reference/get_brazil_fu.html):

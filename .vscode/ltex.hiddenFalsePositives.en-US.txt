@@ -1,0 +1,17 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q# orbis <a href = \"https://danielvartan.github.io/brandr/\"><img src = \"man/figures/logo.png\" align=\"right\" width=\"120\" /></a>\\E$"}
+{"rule":"EN_QUOTES","sentence":"^\\Q# orbis <a href = \"https://danielvartan.github.io/brandr/\"><img src = \"man/figures/logo.png\" align=\"right\" width=\"120\" /></a>\\E$"}
+{"rule":"EN_QUOTES","sentence":"^\\Q```{r}\n#| label: setup\n#| include: false\\E$"}
+{"rule":"LIBRARY","sentence":"^\\Qlibrary(orbis)\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QR'\nlibrary(beepr)\nlibrary(cffr)\nlibrary(codemetar)\nlibrary(groomr) # https://github.com/danielvartan/groomr\nlibrary(here)\nlibrary(rutils) # https://github.com/danielvartan/rutils\n```\\E$"}
+{"rule":"LIBRARY","sentence":"^\\QR'\nlibrary(beepr)\nlibrary(cffr)\nlibrary(codemetar)\nlibrary(groomr) # https://github.com/danielvartan/groomr\nlibrary(here)\nlibrary(rutils) # https://github.com/danielvartan/rutils\n```\\E$"}
+{"rule":"EN_QUOTES","sentence":"^\\QR'\nlibrary(beepr)\nlibrary(cffr)\nlibrary(codemetar)\nlibrary(groomr) # https://github.com/danielvartan/groomr\nlibrary(here)\nlibrary(rutils) # https://github.com/danielvartan/rutils\n```\\E$"}
+{"rule":"COMPREHENSIVE","sentence":"^\\Q`orbis` is an R package that offers a comprehensive suite of tools for simplifying spatial data analysis.\\E$"}
+{"rule":"EN_QUOTES","sentence":"^\\Q``` r\nremotes::install_github(\"danielvartan/orbis\")\n```\\E$"}
+{"rule":"GITHUB","sentence":"^\\Q``` r\nremotes::install_github(\"danielvartan/orbis\")\n```\\E$"}
+{"rule":"WORD_CONTAINS_UNDERSCORE","sentence":"^\\Q- [`get_country_names`](https://danielvartan.github.io/orbis/reference/get_country_names.html): Get names or codes of all countries present in the ISO 3166-1 standard.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q- [`get_brazil_state`](https://danielvartan.github.io/orbis/reference/get_brazil_state.html): Get Brazilian state names.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q- [`get_brazil_fu`](https://danielvartan.github.io/orbis/reference/get_brazil_fu.html): Get Brazilian federative unit abbreviations.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q- [`get_brazil_region`](https://danielvartan.github.io/orbis/reference/get_brazil_region.html): Get Brazilian regions.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q<br>\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q- [`get_brazil_municipality`](https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html): Get Brazilian municipalities data.\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\Q- [`get_brazil_municipality`](https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html): Get Brazilian municipalities data.\\E$"}

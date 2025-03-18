@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools to facilitate spatial data analysis.
+A comprehensive suite of tools for simplifying spatial data analysis.
 }
 \seealso{
 Useful links:

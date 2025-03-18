@@ -41,6 +41,8 @@ Instituto Brasileiro de Geografia e Estatística. (n.d.). \emph{Território}
 \seealso{
 Other Brazil functions: 
 \code{\link{get_brazil_fu}()},
+\code{\link{get_brazil_municipality}()},
+\code{\link{get_brazil_municipality_code}()},
 \code{\link{get_brazil_region}()},
 \code{\link{get_brazil_state}()},
 \code{\link{get_brazil_state_by_utc}()},

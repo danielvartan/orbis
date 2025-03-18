@@ -2,6 +2,8 @@
 
 export(fix_postal_code)
 export(get_brazil_fu)
+export(get_brazil_municipality)
+export(get_brazil_municipality_code)
 export(get_brazil_region)
 export(get_brazil_state)
 export(get_brazil_state_by_utc)

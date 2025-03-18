@@ -189,6 +189,23 @@ references:
   doi: 10.32614/CRAN.package.lifecycle
   version: '>= 1.0.4'
 - type: software
+  title: lubridate
+  abstract: 'lubridate: Make Dealing with Dates a Little Easier'
+  notes: Imports
+  url: https://lubridate.tidyverse.org
+  repository: https://CRAN.R-project.org/package=lubridate
+  authors:
+  - family-names: Spinu
+    given-names: Vitalie
+    email: spinuvit@gmail.com
+  - family-names: Grolemund
+    given-names: Garrett
+  - family-names: Wickham
+    given-names: Hadley
+  year: '2025'
+  doi: 10.32614/CRAN.package.lubridate
+  version: '>= 1.9.4'
+- type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
@@ -414,6 +431,24 @@ references:
   doi: 10.32614/CRAN.package.covr
   version: '>= 3.6.4'
 - type: software
+  title: fs
+  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  notes: Suggests
+  url: https://fs.r-lib.org
+  repository: https://CRAN.R-project.org/package=fs
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.fs
+  version: '>= 1.6.5'
+- type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
@@ -460,4 +495,21 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.2.2'
+- type: software
+  title: tibble
+  abstract: 'tibble: Simple Data Frames'
+  notes: Suggests
+  url: https://tibble.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=tibble
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.tibble
+  version: '>= 3.2.1'
 

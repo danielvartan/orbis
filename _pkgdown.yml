@@ -40,6 +40,8 @@ reference:
 
 - title: Brazil
   contents:
+  - get_brazil_municipality
+  - get_brazil_municipality_code
   - get_brazil_state
   - get_brazil_state_capital
   - get_brazil_state_code
