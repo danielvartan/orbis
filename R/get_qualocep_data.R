@@ -21,13 +21,14 @@
 #'   path to a Qual o CEP dataset file. If `NULL`, the dataset will be
 #'   downloaded from the package's [OSF repository](https://osf.io/9ky4g/).
 #'   (Default: `NULL`).
-#' @param pattern A [`character`][base::character] string with the pattern
-#'   of the Qual o CEP dataset file to download. Click
+#' @param pattern (Optional) A [`character`][base::character] string with
+#'   the pattern of the Qual o CEP dataset file to download. Click
 #'   [here](https://osf.io/k5hyq/files/osfstorage) to see the available
 #'   patterns (Default: `"2024-11-12.rds"`).
-#' @param force A [`logical`][base::logical] flag to force the download
-#'   of the Qual o CEP dataset file. If `TRUE`, the dataset will be downloaded
-#'   even if it already exists in the temporary directory. (Default: `FALSE`).
+#' @param force (Optional) A [`logical`][base::logical] flag to force the
+#'   download of the Qual o CEP dataset file. If `TRUE`, the dataset will
+#'   be downloaded even if it already exists in the temporary directory
+#'   (Default: `FALSE`).
 #'
 #' @return A [`tibble`][tibble::tibble] containing the Qual o CEP dataset with
 #'   the following columns:

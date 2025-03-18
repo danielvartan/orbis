@@ -12,10 +12,11 @@
 #'   municipalities (Default: `NULL`).
 #' @param state (Optional) A [`character`][base::character] vector with the
 #'   name of the states (Default: `NULL`).
-#' @param year An [`integerish`][checkmate::test_int] number indicating the
-#'   year of the data regarding the municipalities (Default: `2017`).
-#' @param force A [`logical`][base::logical] flag indicating whether to force
-#'   the download of the data again (Default: `FALSE`).
+#' @param year (Optional) An [`integerish`][checkmate::test_int] number
+#'   indicating the year of the data regarding the municipalities
+#'   (Default: `2017`).
+#' @param force (Optional) A [`logical`][base::logical] flag indicating
+#'   whether to force the download of the data again (Default: `FALSE`).
 #'
 #' @return A [`tibble`][tibble::tibble] with the following columns:
 #'   - `municipality`: The municipality name.

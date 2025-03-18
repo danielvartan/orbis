@@ -9,25 +9,28 @@
 #'
 #' @param postal_code A [`character`][base::character] vector with postal code
 #'   numbers.
-#' @param min_char An [integerish][checkmate::test_integerish] number with the
-#'   minimum number of characters (Default: `3`).
-#' @param max_char An [integerish][checkmate::test_integerish] number with the
-#'  maximum number of characters (Default: `8`).
-#' @param squish A [`logical`][base::logical] flag indicating whether to squish
-#'   (i.e., remove leading, trailing, and extra spaces) the postal code numbers
+#' @param min_char (Optional) An [integerish][checkmate::test_integerish]
+#'   number with the minimum number of characters (Default: `3`).
+#' @param max_char (Optional) An [integerish][checkmate::test_integerish]
+#'   number with the maximum number of characters (Default: `8`).
+#' @param squish (Optional) A [`logical`][base::logical] flag indicating
+#'   whether to squish (i.e., remove leading, trailing, and extra spaces)
+#'   the postal code numbers (Default: `TRUE`).
+#' @param remove_non_numeric (Optional) A [`logical`][base::logical] flag
+#'   indicating whether to remove non-numeric characters from the postal
+#'   code numbers (Default: `TRUE`).
+#' @param remove_number_sequences (Optional) A [`logical`][base::logical]
+#'   flag indicating whether to remove number sequences from the postal
+#'   code numbers. This is useful to remove postal code numbers like
+#'   `11111111` (Default: `TRUE`).
+#' @param trunc (Optional) A [`logical`][base::logical] flag indicating
+#'   whether to truncate the postal code numbers to `max_char` width
 #'   (Default: `TRUE`).
-#' @param remove_non_numeric A [`logical`][base::logical] flag indicating
-#'   whether to remove non-numeric characters from the postal code numbers
-#'   (Default: `TRUE`).
-#' @param remove_number_sequences A [`logical`][base::logical] flag indicating
-#'   whether to remove number sequences from the postal code numbers. This is
-#'   useful to remove postal code numbers like `11111111` (Default: `TRUE`).
-#' @param trunc A [`logical`][base::logical] flag indicating whether to
-#'   truncate the postal code numbers to `max_char` width (Default: `TRUE`).
-#' @param pad A [`logical`][base::logical] flag indicating whether to pad the
-#'   postal code numbers with zeros to `max_char` width (Default: `TRUE`).
-#' @param zero_na A [`logical`][base::logical] flag indicating whether to
-#'   replace `NA` values with zeros (Default: `FALSE`).
+#' @param pad (Optional) A [`logical`][base::logical] flag indicating
+#'   whether to pad the postal code numbers with zeros to `max_char`
+#'   width (Default: `TRUE`).
+#' @param zero_na (Optional) A [`logical`][base::logical] flag indicating
+#'   whether to replace `NA` values with zeros (Default: `FALSE`).
 #'
 #' @return A [`character`][base::character] vector with fixed postal code
 #'   numbers.

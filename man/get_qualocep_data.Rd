@@ -12,14 +12,15 @@ path to a Qual o CEP dataset file. If \code{NULL}, the dataset will be
 downloaded from the package's \href{https://osf.io/9ky4g/}{OSF repository}.
 (Default: \code{NULL}).}
 
-\item{pattern}{A \code{\link[base:character]{character}} string with the pattern
-of the Qual o CEP dataset file to download. Click
+\item{pattern}{(Optional) A \code{\link[base:character]{character}} string with
+the pattern of the Qual o CEP dataset file to download. Click
 \href{https://osf.io/k5hyq/files/osfstorage}{here} to see the available
 patterns (Default: \code{"2024-11-12.rds"}).}
 
-\item{force}{A \code{\link[base:logical]{logical}} flag to force the download
-of the Qual o CEP dataset file. If \code{TRUE}, the dataset will be downloaded
-even if it already exists in the temporary directory. (Default: \code{FALSE}).}
+\item{force}{(Optional) A \code{\link[base:logical]{logical}} flag to force the
+download of the Qual o CEP dataset file. If \code{TRUE}, the dataset will
+be downloaded even if it already exists in the temporary directory
+(Default: \code{FALSE}).}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble}} containing the Qual o CEP dataset with

@@ -19,11 +19,13 @@ municipalities (Default: \code{NULL}).}
 \item{state}{(Optional) A \code{\link[base:character]{character}} vector with the
 name of the states (Default: \code{NULL}).}
 
-\item{year}{An \code{\link[checkmate:checkInt]{integerish}} number indicating the
-year of the data regarding the municipalities (Default: \code{2017}).}
+\item{year}{(Optional) An \code{\link[checkmate:checkInt]{integerish}} number
+indicating the year of the data regarding the municipalities
+(Default: \code{2017}).}
 
-\item{names}{A \code{\link[base:logical]{logical}} flag indicating whether to return
-the names of the municipalities as names of the vector (Default: \code{TRUE}).}
+\item{names}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to return the names of the municipalities as names of the
+vector (Default: \code{TRUE}).}
 }
 \value{
 An \code{\link[base:integer]{integer}} vector with the municipalities codes.

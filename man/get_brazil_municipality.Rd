@@ -19,11 +19,12 @@ municipalities (Default: \code{NULL}).}
 \item{state}{(Optional) A \code{\link[base:character]{character}} vector with the
 name of the states (Default: \code{NULL}).}
 
-\item{year}{An \code{\link[checkmate:checkInt]{integerish}} number indicating the
-year of the data regarding the municipalities (Default: \code{2017}).}
+\item{year}{(Optional) An \code{\link[checkmate:checkInt]{integerish}} number
+indicating the year of the data regarding the municipalities
+(Default: \code{2017}).}
 
-\item{force}{A \code{\link[base:logical]{logical}} flag indicating whether to force
-the download of the data again (Default: \code{FALSE}).}
+\item{force}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to force the download of the data again (Default: \code{FALSE}).}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble}} with the following columns:

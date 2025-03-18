@@ -7,17 +7,17 @@
 #' `get_map_fill_data()` prepares data to be used as fill in a map.
 #'
 #' @param data A [`tibble`][tibble::tibble] with the data to be used as fill.
-#' @param col_fill A [`character`][base::character] string with the column
-#'   name to be used as fill. If `NULL`, the function will count the number of
-#'   occurrences of each value in `col_code` (Default: `NULL`).
+#' @param col_fill (Optional) A [`character`][base::character] string with
+#'   the column name to be used as fill. If `NULL`, the function will count
+#'   the number of occurrences of each value in `col_code` (Default: `NULL`).
 #' @param col_code A [`character`][base::character] string with the column
 #'   name to be used as reference.
-#' @param name_col_value A [`character`][base::character] string with the name
-#'   of the column to be used as value (Default: `"n"`).
-#' @param name_col_ref A [`character`][base::character] string with the name
-#'   of the column to be used as reference (Default: `col_code`).
-#' @param quiet A [`logical`][base::logical] flag to suppress messages
-#'   (Default: `FALSE`).
+#' @param name_col_value (Optional) A [`character`][base::character] string
+#'   with the name of the column to be used as value (Default: `"n"`).
+#' @param name_col_ref (Optional) A [`character`][base::character] string
+#'   with the name of the column to be used as reference (Default: `col_code`).
+#' @param quiet (Optional) A [`logical`][base::logical] flag to suppress
+#'   messages (Default: `FALSE`).
 #'
 #' @return A [`tibble`][tibble::tibble()].
 #'

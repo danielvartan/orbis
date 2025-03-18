@@ -20,32 +20,35 @@ fix_postal_code(
 \item{postal_code}{A \code{\link[base:character]{character}} vector with postal code
 numbers.}
 
-\item{min_char}{An \link[checkmate:checkIntegerish]{integerish} number with the
-minimum number of characters (Default: \code{3}).}
+\item{min_char}{(Optional) An \link[checkmate:checkIntegerish]{integerish}
+number with the minimum number of characters (Default: \code{3}).}
 
-\item{max_char}{An \link[checkmate:checkIntegerish]{integerish} number with the
-maximum number of characters (Default: \code{8}).}
+\item{max_char}{(Optional) An \link[checkmate:checkIntegerish]{integerish}
+number with the maximum number of characters (Default: \code{8}).}
 
-\item{squish}{A \code{\link[base:logical]{logical}} flag indicating whether to squish
-(i.e., remove leading, trailing, and extra spaces) the postal code numbers
+\item{squish}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to squish (i.e., remove leading, trailing, and extra spaces)
+the postal code numbers (Default: \code{TRUE}).}
+
+\item{remove_non_numeric}{(Optional) A \code{\link[base:logical]{logical}} flag
+indicating whether to remove non-numeric characters from the postal
+code numbers (Default: \code{TRUE}).}
+
+\item{remove_number_sequences}{(Optional) A \code{\link[base:logical]{logical}}
+flag indicating whether to remove number sequences from the postal
+code numbers. This is useful to remove postal code numbers like
+\code{11111111} (Default: \code{TRUE}).}
+
+\item{trunc}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to truncate the postal code numbers to \code{max_char} width
 (Default: \code{TRUE}).}
 
-\item{remove_non_numeric}{A \code{\link[base:logical]{logical}} flag indicating
-whether to remove non-numeric characters from the postal code numbers
-(Default: \code{TRUE}).}
+\item{pad}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to pad the postal code numbers with zeros to \code{max_char}
+width (Default: \code{TRUE}).}
 
-\item{remove_number_sequences}{A \code{\link[base:logical]{logical}} flag indicating
-whether to remove number sequences from the postal code numbers. This is
-useful to remove postal code numbers like \code{11111111} (Default: \code{TRUE}).}
-
-\item{trunc}{A \code{\link[base:logical]{logical}} flag indicating whether to
-truncate the postal code numbers to \code{max_char} width (Default: \code{TRUE}).}
-
-\item{pad}{A \code{\link[base:logical]{logical}} flag indicating whether to pad the
-postal code numbers with zeros to \code{max_char} width (Default: \code{TRUE}).}
-
-\item{zero_na}{A \code{\link[base:logical]{logical}} flag indicating whether to
-replace \code{NA} values with zeros (Default: \code{FALSE}).}
+\item{zero_na}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to replace \code{NA} values with zeros (Default: \code{FALSE}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with fixed postal code
