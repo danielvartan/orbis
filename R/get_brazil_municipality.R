@@ -122,7 +122,7 @@ get_brazil_municipality <- function(
         federal_unit,
         country
       ) |>
-      rutils::shush()
+      shush()
 
     readr::write_rds(brazil_municipalities_data, brazil_municipalities_file)
   }
@@ -132,7 +132,7 @@ get_brazil_municipality <- function(
   } else {
     municipality <-
       municipality |>
-      groomr::to_ascii() |>
+      to_ascii() |>
       stringr::str_to_lower() |>
       stringr::str_remove_all("[^a-z'\\- ]") |>
       stringr::str_squish()
@@ -146,7 +146,7 @@ get_brazil_municipality <- function(
 
       state <-
         state |>
-        groomr::to_ascii() |>
+        to_ascii() |>
         stringr::str_to_lower() |>
         stringr::str_remove_all("[^a-z'\\- ]") |>
         stringr::str_squish()
@@ -159,14 +159,14 @@ get_brazil_municipality <- function(
         data <-
           brazil_municipalities_data |>
           dplyr::filter(
-            groomr::to_ascii(tolower(municipality)) %in% .env$municipality[i]
+            to_ascii(tolower(municipality)) %in% .env$municipality[i]
           )
       } else {
         data <-
           brazil_municipalities_data |>
           dplyr::filter(
-            groomr::to_ascii(tolower(municipality)) %in% .env$municipality[i] &
-              groomr::to_ascii(tolower(state)) %in% .env$state[i]
+            to_ascii(tolower(municipality)) %in% .env$municipality[i] &
+              to_ascii(tolower(state)) %in% .env$state[i]
           )
       }
 

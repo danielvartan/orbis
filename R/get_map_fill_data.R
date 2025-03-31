@@ -79,10 +79,10 @@ get_map_fill_data <- function(
           "using the mean."
         )
       ) |>
-        rutils::shush(quiet)
+        shush(quiet)
 
       out |>
-        dplyr::summarise(
+        dplyr::summarize(
           !!as.symbol(name_col_value) := mean(!!as.symbol(name_col_value)),
           .by = !!as.symbol(name_col_ref)
         )

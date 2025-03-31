@@ -62,7 +62,7 @@ get_brazil_state_code <- function(x = NULL) {
     ) |>
       methods::as("integer")
   } else {
-    x <- x |> groomr::to_ascii() |> tolower()
+    x <- x |> to_ascii() |> tolower()
 
     dplyr::case_match(
       x,

@@ -35,7 +35,7 @@ get_brazil_state_capital <- function(x = NULL) {
   # Use `tools::showNonASCIIfile` to show non-ASCII characters.
   # tools::showNonASCIIfile(here::here("R", "get_brazil_state_capital.R"))
 
-  if (!is.null(x)) x <- x |> groomr::to_ascii() |> tolower()
+  if (!is.null(x)) x <- x |> to_ascii() |> tolower()
 
   if (is.null(x)) {
     c(

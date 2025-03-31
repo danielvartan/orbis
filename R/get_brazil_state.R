@@ -35,7 +35,7 @@ get_brazil_state <- function(x = NULL) {
   # Use `tools::showNonASCIIfile` to show non-ASCII characters.
   # tools::showNonASCIIfile(here::here("R", "get_brazil_state.R"))
 
-  if (!is.null(x)) x <- x |> groomr::to_ascii() |> tolower()
+  if (!is.null(x)) x <- x |> to_ascii() |> tolower()
 
   region_choices <- c(
     "central-west", "north", "northeast", "south", "southeast"

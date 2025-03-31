@@ -36,7 +36,6 @@ Imports:
     purrr (>= 1.0.2),
     readr (>= 2.1.5),
     rlang (>= 1.1.4),
-    rutils,
     sf (>= 1.0.19),
     stringr (>= 1.5.1),
     tidygeocoder (>= 1.0.5),
@@ -52,7 +51,6 @@ Suggests:
 Remotes:
     github::danielvartan/groomr,
     github::danielvartan/prettycheck,
-    github::danielvartan/rutils
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

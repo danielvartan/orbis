@@ -30,7 +30,7 @@
 get_brazil_region <- function(x = NULL) {
   checkmate::assert_character(x, null.ok = TRUE)
 
-  if (!is.null(x)) x <- x |> groomr::to_ascii() |> tolower()
+  if (!is.null(x)) x <- x |> to_ascii() |> tolower()
 
   if (is.null(x)) {
     c("Central-West", "North", "Northeast", "South", "Southeast")

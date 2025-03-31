@@ -10,7 +10,7 @@ testthat::test_that("get_map_fill_data() | General test", {
 
   get_map_fill_data(data, col_fill = "value", col_code = "state") |>
     dplyr::pull(n) |>
-    rutils::shush() |>
+    shush() |>
     testthat::expect_equal(c(2.5, 3.5, 4.5))
 })
 

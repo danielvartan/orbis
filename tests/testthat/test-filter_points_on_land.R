@@ -8,7 +8,7 @@
 #   geometry <-
 #     geobr::read_state(code = "SP", showProgress = FALSE) |>
 #     dplyr::pull(geom) |>
-#     rutils::shush()
+#     shush()
 
 #   filter_points_on_land(data, geometry) |>
 #     tidyr::pivot_longer(cols = everything()) |>

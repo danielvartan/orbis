@@ -64,7 +64,7 @@ get_brazil_state_latitude <- function(x = NULL) {
       "Tocantins" = -10.1837852 # Palmas
     )
   } else {
-    x <- x |> groomr::to_ascii() |> tolower()
+    x <- x |> to_ascii() |> tolower()
 
     dplyr::case_match(
       x,
