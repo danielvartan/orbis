@@ -317,17 +317,6 @@ references:
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.1.4'
 - type: software
-  title: rutils
-  abstract: 'rutils: Utility Functions for R'
-  notes: Imports
-  url: https://danielvartan.github.io/rutils/
-  authors:
-  - family-names: Vartanian
-    given-names: Daniel
-    email: danvartan@gmail.com
-    orcid: https://orcid.org/0000-0001-7782-759X
-  year: '2025'
-- type: software
   title: sf
   abstract: 'sf: Simple Features for R'
   notes: Imports
@@ -340,7 +329,7 @@ references:
     orcid: https://orcid.org/0000-0001-8049-7069
   year: '2025'
   doi: 10.32614/CRAN.package.sf
-  version: '>= 1.0.19'
+  version: '>= 1.0.20'
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'

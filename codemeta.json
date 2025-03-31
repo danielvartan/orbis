@@ -344,15 +344,9 @@
     },
     "19": {
       "@type": "SoftwareApplication",
-      "identifier": "rutils",
-      "name": "rutils",
-      "sameAs": "https://github.com/danielvartan/rutils"
-    },
-    "20": {
-      "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
-      "version": ">= 1.0.19",
+      "version": ">= 1.0.20",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -361,7 +355,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "21": {
+    "20": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -374,7 +368,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "22": {
+    "21": {
       "@type": "SoftwareApplication",
       "identifier": "tidygeocoder",
       "name": "tidygeocoder",
@@ -387,7 +381,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
     },
-    "23": {
+    "22": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -402,7 +396,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "646.41KB",
+  "fileSize": "653.772KB",
   "citation": [
     {
       "@type": "CreativeWork",
