@@ -28,7 +28,8 @@ whether to return the names of the municipalities as names of the
 vector (Default: \code{TRUE}).}
 }
 \value{
-An \code{\link[base:integer]{integer}} vector with the municipalities codes.
+An \code{\link[base:integer]{integer}} vector with the IBGE codes of
+Brazilian municipalities.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}

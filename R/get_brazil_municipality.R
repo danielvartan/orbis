@@ -19,7 +19,6 @@
 #'   whether to force the download of the data again (Default: `FALSE`).
 #'
 #' @return A [`tibble`][tibble::tibble] with the following columns:
-#'   - `country`: The country name.
 #'   - `region_code`: The region code.
 #'   - `region`: The region name.
 #'   - `state_code`: The state code.
@@ -96,7 +95,6 @@ get_brazil_municipality <- function(
         municipality = name_muni
       ) |>
       dplyr::mutate(
-        country = "Brazil",
         region = get_brazil_region(federal_unit),
         region_code = get_brazil_region_code(region),
         state_code = as.integer(state_code),

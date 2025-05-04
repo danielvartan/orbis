@@ -29,7 +29,6 @@ whether to force the download of the data again (Default: \code{FALSE}).}
 \value{
 A \code{\link[tibble:tibble]{tibble}} with the following columns:
 \itemize{
-\item \code{country}: The country name.
 \item \code{region_code}: The region code.
 \item \code{region}: The region name.
 \item \code{state_code}: The state code.
