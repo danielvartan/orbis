@@ -44,16 +44,17 @@ reference:
 
 - title: Brazil
   contents:
-  - get_brazil_municipality
-  - get_brazil_municipality_code
+  - get_brazil_region_code
+  - get_brazil_region
+  - get_brazil_state_code
   - get_brazil_state
   - get_brazil_state_capital
-  - get_brazil_state_code
   - get_brazil_state_latitude
   - get_brazil_state_longitude
   - get_brazil_state_by_utc
   - get_brazil_fu
-  - get_brazil_region
+  - get_brazil_municipality_code
+  - get_brazil_municipality
   - render_brazil_address
 
 - title: API

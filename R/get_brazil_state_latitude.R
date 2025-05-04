@@ -10,7 +10,7 @@
 #' @details
 #'
 #' The data from this function is based on Google's Geocoding API gathered via
-#' the [`tidygeocoder`][tidygeocoder] R package.
+#' the [`tidygeocoder`][tidygeocoder::tidygeocoder] R package.
 #'
 #' @param x (Optional) A [`character`][base::character] vector with the names
 #'   of Brazilian states or federal units. If `NULL`, returns all state

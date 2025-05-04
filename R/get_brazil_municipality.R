@@ -19,12 +19,14 @@
 #'   whether to force the download of the data again (Default: `FALSE`).
 #'
 #' @return A [`tibble`][tibble::tibble] with the following columns:
-#'   - `municipality`: The municipality name.
-#'   - `municipality_code`: The municipality code.
+#'   - `country`: The country name.
+#'   - `region_code`: The region code.
+#'   - `region`: The region name.
 #'   - `state_code`: The state code.
 #'   - `state`: The state name.
 #'   - `federal_unit`: The state abbreviation.
-#'   - `country`: The country name.
+#'   - `municipality_code`: The municipality code.
+#'   - `municipality`: The municipality name.
 #'
 #' @template details_brazil_b
 #' @family Brazil functions
@@ -57,7 +59,8 @@ get_brazil_municipality <- function(
   # R CMD Check variable bindings fix
   # nolint start
   geom  <- code_state <- abbrev_state <- code_muni <- name_muni <- NULL
-  state_code <- federal_unit <- municipality_code <- country <- .env <- NULL
+  region <- region_code <- state_code <- federal_unit <- NULL
+  municipality_code <- country <- .env <- NULL
   # nolint end
 
   # Use `stringi::stri_escape_unicode` to escape unicode characters.
@@ -80,7 +83,12 @@ get_brazil_municipality <- function(
         showProgress = FALSE
       ) |>
       dplyr::as_tibble() |>
-      dplyr::select(-geom) |>
+      dplyr::select(
+        code_muni,
+        name_muni,
+        code_state,
+        abbrev_state
+      ) |>
       dplyr::rename(
         state_code = code_state,
         federal_unit = abbrev_state,
@@ -89,6 +97,8 @@ get_brazil_municipality <- function(
       ) |>
       dplyr::mutate(
         country = "Brazil",
+        region = get_brazil_region(federal_unit),
+        region_code = get_brazil_region_code(region),
         state_code = as.integer(state_code),
         state = orbis::get_brazil_state(federal_unit),
         municipality_code = as.integer(municipality_code),
@@ -115,12 +125,14 @@ get_brazil_municipality <- function(
         )
       ) |>
       dplyr::relocate(
-        municipality,
-        municipality_code,
+        country,
+        region_code,
+        region,
         state_code,
         state,
         federal_unit,
-        country
+        municipality_code,
+        municipality
       ) |>
       shush()
 

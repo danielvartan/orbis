@@ -29,12 +29,14 @@ whether to force the download of the data again (Default: \code{FALSE}).}
 \value{
 A \code{\link[tibble:tibble]{tibble}} with the following columns:
 \itemize{
-\item \code{municipality}: The municipality name.
-\item \code{municipality_code}: The municipality code.
+\item \code{country}: The country name.
+\item \code{region_code}: The region code.
+\item \code{region}: The region name.
 \item \code{state_code}: The state code.
 \item \code{state}: The state name.
 \item \code{federal_unit}: The state abbreviation.
-\item \code{country}: The country name.
+\item \code{municipality_code}: The municipality code.
+\item \code{municipality}: The municipality name.
 }
 }
 \description{
@@ -46,12 +48,12 @@ about Brazilian municipalities.
 \details{
 The data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) via the
-\code{\link{geobr}} R package.
+\code{\link[geobr:geobr]{geobr}} R package.
 
-The \code{\link{geobr}} package is produced by Brazil's Institute for Applied
-Economic Research (\href{https://www.ipea.gov.br/}{IPEA}) and access the
+The \code{\link[geobr:geobr]{geobr}} package is produced by Brazil's Institute for
+Applied Economic Research (\href{https://www.ipea.gov.br/}{IPEA}) and access the
 Brazilian Institute of Geography and Statistics (IBGE) data. You can see a
-list of all \code{\link{geobr}} datasets by running
+list of all \code{\link[geobr:geobr]{geobr}} datasets by running
 \code{\link[geobr:list_geobr]{geobr::list_geobr()}}.
 }
 \examples{
@@ -68,6 +70,7 @@ Other Brazil functions:
 \code{\link{get_brazil_fu}()},
 \code{\link{get_brazil_municipality_code}()},
 \code{\link{get_brazil_region}()},
+\code{\link{get_brazil_region_code}()},
 \code{\link{get_brazil_state}()},
 \code{\link{get_brazil_state_by_utc}()},
 \code{\link{get_brazil_state_capital}()},

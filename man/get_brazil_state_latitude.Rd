@@ -23,7 +23,7 @@ Brazilian state capitals.
 }
 \details{
 The data from this function is based on Google's Geocoding API gathered via
-the \code{\link{tidygeocoder}} R package.
+the \code{\link[tidygeocoder:tidygeocoder-package]{tidygeocoder}} R package.
 }
 \examples{
 get_brazil_state_latitude()
@@ -40,6 +40,7 @@ Other Brazil functions:
 \code{\link{get_brazil_municipality}()},
 \code{\link{get_brazil_municipality_code}()},
 \code{\link{get_brazil_region}()},
+\code{\link{get_brazil_region_code}()},
 \code{\link{get_brazil_state}()},
 \code{\link{get_brazil_state_by_utc}()},
 \code{\link{get_brazil_state_capital}()},

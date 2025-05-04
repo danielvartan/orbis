@@ -20,7 +20,7 @@
 #'
 #' @examples
 #' get_brazil_region()
-#' #> [1] "Central-West" "North" "Northeast" "South" "Southeast" # Expected
+#' #> [1] "North" "Northeast" "South" "Southeast" "Central-West" # Expected
 #'
 #' get_brazil_region("sao paulo")
 #' #> [1] "Southeast" # Expected
@@ -33,7 +33,7 @@ get_brazil_region <- function(x = NULL) {
   if (!is.null(x)) x <- x |> to_ascii() |> tolower()
 
   if (is.null(x)) {
-    c("Central-West", "North", "Northeast", "South", "Southeast")
+    c("North", "Northeast", "South", "Southeast", "Central-West")
   } else {
 
     dplyr::case_match(

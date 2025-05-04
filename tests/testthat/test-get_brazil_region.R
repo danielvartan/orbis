@@ -1,7 +1,7 @@
 testthat::test_that("get_brazil_region() | General test", {
   get_brazil_region(NULL) |>
     testthat::expect_equal(
-      c("Central-West", "North", "Northeast", "South", "Southeast")
+      c("North", "Northeast", "South", "Southeast", "Central-West")
     )
 
   get_brazil_region("sao paulo") |>
