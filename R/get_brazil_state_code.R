@@ -12,7 +12,7 @@
 #'   of Brazilian states or federal units. If `NULL`, returns all state codes
 #'   (Default: `NULL`).
 #'
-#' @return A [`character`][base::character()] vector with the IBGE codes of
+#' @return An [`integer`][base::integer()] vector with the IBGE codes of
 #'   Brazilian states.
 #'
 #' @template details_brazil_a

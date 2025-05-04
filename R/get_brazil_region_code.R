@@ -12,8 +12,8 @@
 #'   of Brazilian regions. If `NULL`, returns all Brazilian region codes
 #'   (Default: `NULL`).
 #'
-#' @return A [`character`][base::character()] vector with the Brazilian
-#'   region codes.
+#' @return An [`integer`][base::integer()] vector with the IBGE codes of
+#'   Brazilian regions.
 #'
 #' @template details_brazil_a
 #' @family Brazil functions
@@ -21,7 +21,6 @@
 #'
 #' @examples
 #' get_brazil_region_code()
-#' #> [1] 1 2 3 4 5 # Expected
 #'
 #' get_brazil_region_code("north")
 #' #> [1] 1 # Expected
@@ -34,7 +33,14 @@ get_brazil_region_code <- function(x = NULL) {
   if (!is.null(x)) x <- x |> to_ascii() |> tolower()
 
   if (is.null(x)) {
-    1:5
+    c(
+      "North" = 1,
+      "Northeast" = 2,
+      "Southeast" = 3,
+      "South" = 4,
+      "Central-West" = 5
+    ) |>
+      methods::as("integer")
   } else {
 
     dplyr::case_match(
@@ -44,6 +50,7 @@ get_brazil_region_code <- function(x = NULL) {
       "southeast" ~ 3,
       "south" ~ 4,
       c("central-west", "central", "west") ~ 5,
-    )
+    ) |>
+      as.integer()
   }
 }

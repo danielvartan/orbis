@@ -12,8 +12,8 @@ of Brazilian regions. If \code{NULL}, returns all Brazilian region codes
 (Default: \code{NULL}).}
 }
 \value{
-A \code{\link[base:character]{character}} vector with the Brazilian
-region codes.
+An \code{\link[base:integer]{integer}} vector with the IBGE codes of
+Brazilian regions.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
@@ -28,7 +28,6 @@ of Geography and Statistics (IBGE, n.d.).
 }
 \examples{
 get_brazil_region_code()
-#> [1] 1 2 3 4 5 # Expected
 
 get_brazil_region_code("north")
 #> [1] 1 # Expected

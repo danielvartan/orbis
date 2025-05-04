@@ -33,11 +33,8 @@ testthat::test_that("get_brazil_state_code() | General test", {
         methods::as("integer")
     )
 
-  get_brazil_state_code("acre") |>
-    testthat::expect_equal(12)
-
-  get_brazil_state_code("ac") |>
-    testthat::expect_equal(12)
+  get_brazil_state_code("acre") |> testthat::expect_equal(12)
+  get_brazil_state_code("ac") |> testthat::expect_equal(12)
 })
 
 testthat::test_that("get_brazil_state_code() | Error test", {

@@ -12,7 +12,7 @@ of Brazilian states or federal units. If \code{NULL}, returns all state codes
 (Default: \code{NULL}).}
 }
 \value{
-A \code{\link[base:character]{character}} vector with the IBGE codes of
+An \code{\link[base:integer]{integer}} vector with the IBGE codes of
 Brazilian states.
 }
 \description{
