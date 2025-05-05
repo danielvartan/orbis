@@ -12,12 +12,13 @@
 #' The data from this function is based on Google's Geocoding API gathered via
 #' the [`tidygeocoder`][tidygeocoder::tidygeocoder] R package.
 #'
-#' @param x (Optional) A [`character`][base::character] vector with the names
-#'   of Brazilian states or federal units. If `NULL`, returns all state
-#'   latitudes (Default: `NULL`).
+#' @param x (optional) An [`atomic`][base::is.atomic()] vector containing the
+#'   names of Brazilian states or federal units. Municipality and state codes
+#'   are also supported. If `NULL`, returns a vector with all state latitudes
+#'   (default: `NULL`).
 #'
 #' @return A [`character`][base::character] vector with the latitude of
-#'   Brazilian states.
+#'   Brazilian state capitals.
 #'
 #' @family Brazil functions
 #' @export
@@ -25,13 +26,25 @@
 #' @examples
 #' get_brazil_state_latitude()
 #'
+#' get_brazil_state_latitude("sp")
+#' #> [1] -23.55065 # Expected
+#'
 #' get_brazil_state_latitude("sao paulo")
 #' #> [1] -23.55065 # Expected
 #'
-#' get_brazil_state_latitude("sp")
+#' get_brazil_state_latitude(35) # State of São Paulo
 #' #> [1] -23.55065 # Expected
+#'
+#' get_brazil_state_latitude(3550308) # Municipality of São Paulo
+#' #> [1] -23.55065 # Expected
+#'
+#' get_brazil_state_latitude(35503081) # >7 digits
+#' #> [1] NA # Expected
+#'
+#' get_brazil_state_latitude(3912345) # Non-existent state code
+#' #> [1] NA # Expected
 get_brazil_state_latitude <- function(x = NULL) {
-  checkmate::assert_character(x, null.ok = TRUE)
+  checkmate::assert_atomic(x)
 
   if (is.null(x)) {
     c(
@@ -62,6 +75,37 @@ get_brazil_state_latitude <- function(x = NULL) {
       "S\u00e3o Paulo" = -23.5506507, # São Paulo
       "Sergipe" = -10.9162061, # Aracaju
       "Tocantins" = -10.1837852 # Palmas
+    )
+  }  else if (is.numeric(x)) {
+    dplyr::case_when(
+      !dplyr::between(nchar(x), 1, 7) ~ NA_real_,
+      stringr::str_starts(x, "12") ~ -9.9765362, # Rio Branco (AC)
+      stringr::str_starts(x, "27") ~ -9.6476843, # Maceió (AL)
+      stringr::str_starts(x, "16") ~ 0.0401529, # Macapá (AP)
+      stringr::str_starts(x, "13") ~ -3.1316333, # Manaus (AM)
+      stringr::str_starts(x, "29") ~ -12.9822499, # Salvador (BA)
+      stringr::str_starts(x, "23") ~ -3.7304512, # Fortaleza (CE)
+      stringr::str_starts(x, "53") ~ -15.7934036, # Brasília (DF)
+      stringr::str_starts(x, "32") ~ -20.3200917, # Vitória (ES)
+      stringr::str_starts(x, "52") ~ -16.6808820, # Goiânia (GO)
+      stringr::str_starts(x, "21") ~ -2.5295265, # São Luís (MA)
+      stringr::str_starts(x, "51") ~ -15.5986686, # Cuiabá (MT)
+      stringr::str_starts(x, "50") ~ -20.4640173, # Campo Grande (MS)
+      stringr::str_starts(x, "31") ~ -19.9227318, # Belo Horizonte (MG)
+      stringr::str_starts(x, "15") ~ -1.4505600, # Belém (PA)
+      stringr::str_starts(x, "25") ~ -7.1215981, # João Pessoa (PB)
+      stringr::str_starts(x, "41") ~ -25.4295963, # Curitiba (PR)
+      stringr::str_starts(x, "26") ~ -8.0584933, # Recife (PE)
+      stringr::str_starts(x, "22") ~ -5.0874608, # Teresina (PI)
+      stringr::str_starts(x, "33") ~ -22.9110137, # Rio de Janeiro (RJ)
+      stringr::str_starts(x, "24") ~ -5.8053980, # Natal (RN)
+      stringr::str_starts(x, "43") ~ -30.0324999, # Porto Alegre (RS)
+      stringr::str_starts(x, "11") ~ -8.7494525, # Porto Velho (RO)
+      stringr::str_starts(x, "14") ~ 2.8208478, # Boa Vista (RR)
+      stringr::str_starts(x, "42") ~ -27.5973002, # Florianópolis (SC)
+      stringr::str_starts(x, "35") ~ -23.5506507, # São Paulo (SP)
+      stringr::str_starts(x, "28") ~ -10.9162061, # Aracaju (SE)
+      stringr::str_starts(x, "17") ~ -10.1837852 # Palmas (TO)
     )
   } else {
     x <- x |> to_ascii() |> tolower()

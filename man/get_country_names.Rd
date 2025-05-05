@@ -7,7 +7,7 @@
 get_country_names(format = "common name")
 }
 \arguments{
-\item{format}{(Optional) A \code{\link[base:character]{character}} string indicating
+\item{format}{(optional) A \code{\link[base:character]{character}} string indicating
 the format to be returned. The options are:
 \itemize{
 \item \code{"name"}: The name of the country.

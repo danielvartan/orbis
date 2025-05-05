@@ -18,7 +18,7 @@
 #' Debian's [`iso-codes`](https://salsa.debian.org/iso-codes-team/iso-codes)
 #' package for the data.
 #'
-#' @param format (Optional) A [`character`][base::character] string indicating
+#' @param format (optional) A [`character`][base::character] string indicating
 #'   the format to be returned. The options are:
 #'   - `"name"`: The name of the country.
 #'   - `"common name"`: The common name of the country.

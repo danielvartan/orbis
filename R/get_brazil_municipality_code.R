@@ -8,9 +8,9 @@
 #' Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) for
 #' Brazilian municipalities.
 #'
-#' @param names (Optional) A [`logical`][base::logical()] flag indicating
+#' @param names (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to return the names of the municipalities as names of the
-#'   vector (Default: `TRUE`).
+#'   vector (default: `TRUE`).
 #'
 #' @return An [`integer`][base::integer()] vector with the IBGE codes of
 #'   Brazilian municipalities.

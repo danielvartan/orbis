@@ -7,9 +7,10 @@
 get_brazil_region(x = NULL)
 }
 \arguments{
-\item{x}{(Optional) A \code{\link[base:character]{character}} vector with the names
-of Brazilian states or federal unit abbreviations. If \code{NULL}, returns all
-Brazilian regions (Default: \code{NULL}).}
+\item{x}{(optional) An \code{\link[base:is.recursive]{atomic}} vector containing the
+names, abbreviations, or numeric codes of Brazilian states or federal
+units. Region and municipality codes are also supported. If \code{NULL},
+returns a vector with all Brazilian regions. (default: \code{NULL})}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the names of
@@ -29,11 +30,23 @@ of Geography and Statistics (IBGE, n.d.).
 get_brazil_region()
 #> [1] "North" "Northeast" "South" "Southeast" "Central-West" # Expected
 
+get_brazil_region("sp")
+#> [1] "Southeast" # Expected
+
 get_brazil_region("sao paulo")
 #> [1] "Southeast" # Expected
 
-get_brazil_region("sp")
+get_brazil_region(c(1, 4))
+#> [1] "North" "South" # Expected
+
+get_brazil_region(35) # State of São Paulo
 #> [1] "Southeast" # Expected
+
+get_brazil_region(3550308) # Municipality of São Paulo
+#> [1] "Southeast" # Expected
+
+get_brazil_region(35503081) # >7 digits
+#> [1] NA # Expected
 }
 \references{
 Instituto Brasileiro de Geografia e Estatística. (n.d.). \emph{Território}

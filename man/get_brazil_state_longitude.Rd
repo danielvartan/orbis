@@ -7,13 +7,14 @@
 get_brazil_state_longitude(x = NULL)
 }
 \arguments{
-\item{x}{(Optional) A \code{\link[base:character]{character}} vector with the names
-of Brazilian states or federal units. If \code{NULL}, returns all state
-longitudes (Default: \code{NULL}).}
+\item{x}{(optional) An \code{\link[base:is.recursive]{atomic}} vector containing the
+names of Brazilian states or federal units. Municipality and state codes
+are also supported. If \code{NULL}, returns a vector with all state longitudes
+(default: \code{NULL}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the longitude of
-Brazilian states.
+Brazilian state capitals.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
@@ -28,11 +29,23 @@ the \code{\link[tidygeocoder:tidygeocoder-package]{tidygeocoder}} R package.
 \examples{
 get_brazil_state_longitude()
 
+get_brazil_state_longitude("sp")
+#> [1] -46.63338 # Expected
+
 get_brazil_state_longitude("sao paulo")
 #> [1] -46.63338 # Expected
 
-get_brazil_state_longitude("sp")
+get_brazil_state_longitude(35) # State of São Paulo
 #> [1] -46.63338 # Expected
+
+get_brazil_state_longitude(3550308) # Municipality of São Paulo
+#> [1] -46.63338 # Expected
+
+get_brazil_state_longitude(35503081) # >7 digits
+#> [1] NA # Expected
+
+get_brazil_state_longitude(3912345) # Non-existent state code
+#> [1] NA # Expected
 }
 \seealso{
 Other Brazil functions: 

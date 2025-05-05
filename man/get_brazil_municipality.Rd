@@ -12,19 +12,19 @@ get_brazil_municipality(
 )
 }
 \arguments{
-\item{municipality}{(Optional) A \code{\link[base:character]{character}} vector
+\item{municipality}{(optional) A \code{\link[base:character]{character}} vector
 with the name of the municipalities. If \code{NULL} the function returns all
-municipalities (Default: \code{NULL}).}
+municipalities (default: \code{NULL}).}
 
-\item{state}{(Optional) A \code{\link[base:character]{character}} vector with the
-name of the states (Default: \code{NULL}).}
+\item{state}{(optional) A \code{\link[base:character]{character}} vector with the
+name of the states (default: \code{NULL}).}
 
-\item{year}{(Optional) An \code{\link[checkmate:checkInt]{integerish}} number
+\item{year}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 indicating the year of the data regarding the municipalities
-(Default: \code{2017}).}
+(default: \code{2017}).}
 
-\item{force}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
-whether to force the download of the data again (Default: \code{FALSE}).}
+\item{force}{(optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to force the download of the data again (default: \code{FALSE}).}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble}} with the following columns:

@@ -14,23 +14,23 @@ render_brazil_address(
 )
 }
 \arguments{
-\item{street}{(Optional) A \code{\link[base:character]{character}} vector with the
-street names (Default: \code{NA_character}).}
+\item{street}{(optional) A \code{\link[base:character]{character}} vector with the
+street names (default: \code{NA_character}).}
 
-\item{complement}{(Optional) A \code{\link[base:character]{character}} vector with
-the complement of the address (Default: \code{NA_character}).}
+\item{complement}{(optional) A \code{\link[base:character]{character}} vector with
+the complement of the address (default: \code{NA_character}).}
 
-\item{neighborhood}{(Optional) A \code{\link[base:character]{character}} vector with
-the neighborhood names (Default: \code{NA_character}).}
+\item{neighborhood}{(optional) A \code{\link[base:character]{character}} vector with
+the neighborhood names (default: \code{NA_character}).}
 
-\item{municipality}{(Optional) A \code{\link[base:character]{character}} vector
-with the name of the municipalities (Default: \code{NA_character}).}
+\item{municipality}{(optional) A \code{\link[base:character]{character}} vector
+with the name of the municipalities (default: \code{NA_character}).}
 
-\item{state}{(Optional) A \code{\link[base:character]{character}} vector with the
-name of the states (Default: \code{NA_character}).}
+\item{state}{(optional) A \code{\link[base:character]{character}} vector with the
+name of the states (default: \code{NA_character}).}
 
-\item{postal_code}{(Optional) A \code{\link[base:character]{character}} vector with
-the postal codes (Default: \code{NA_character}).}
+\item{postal_code}{(optional) A \code{\link[base:character]{character}} vector with
+the postal codes (default: \code{NA_character}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the formatted address.

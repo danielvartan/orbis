@@ -12,20 +12,20 @@ get_brazil_municipality_code(
 )
 }
 \arguments{
-\item{municipality}{(Optional) A \code{\link[base:character]{character}} vector
+\item{municipality}{(optional) A \code{\link[base:character]{character}} vector
 with the name of the municipalities. If \code{NULL} the function returns all
-municipalities (Default: \code{NULL}).}
+municipalities (default: \code{NULL}).}
 
-\item{state}{(Optional) A \code{\link[base:character]{character}} vector with the
-name of the states (Default: \code{NULL}).}
+\item{state}{(optional) A \code{\link[base:character]{character}} vector with the
+name of the states (default: \code{NULL}).}
 
-\item{year}{(Optional) An \code{\link[checkmate:checkInt]{integerish}} number
+\item{year}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 indicating the year of the data regarding the municipalities
-(Default: \code{2017}).}
+(default: \code{2017}).}
 
-\item{names}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+\item{names}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to return the names of the municipalities as names of the
-vector (Default: \code{TRUE}).}
+vector (default: \code{TRUE}).}
 }
 \value{
 An \code{\link[base:integer]{integer}} vector with the IBGE codes of

@@ -7,9 +7,10 @@
 get_brazil_state_code(x = NULL)
 }
 \arguments{
-\item{x}{(Optional) A \code{\link[base:character]{character}} vector with the names
-of Brazilian states or federal units. If \code{NULL}, returns all state codes
-(Default: \code{NULL}).}
+\item{x}{(optional) An \code{\link[base:is.recursive]{atomic}} vector containing the
+names of Brazilian states or federal units. Municipality codes are also
+supported. If \code{NULL}, returns a vector with all state codes
+(default: \code{NULL}).}
 }
 \value{
 An \code{\link[base:integer]{integer}} vector with the IBGE codes of
@@ -29,11 +30,20 @@ of Geography and Statistics (IBGE, n.d.).
 \examples{
 get_brazil_state_code()
 
+get_brazil_state_code("ac")
+#> [1] 12 # Expected
+
 get_brazil_state_code("acre")
 #> [1] 12 # Expected
 
-get_brazil_state_code("ac")
-#> [1] 12 # Expected
+get_brazil_state_code(3550308) # São Paulo
+#> [1] 35 # Expected
+
+get_brazil_state_code(35503081) # >7 digits
+#> [1] NA # Expected
+
+get_brazil_state_code(3912345) # Non-existent state code
+#> [1] NA # Expected
 }
 \references{
 Instituto Brasileiro de Geografia e Estatística. (n.d.). \emph{Território}

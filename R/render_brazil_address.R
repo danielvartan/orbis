@@ -6,18 +6,18 @@
 #'
 #' `render_brazil_address()`
 #'
-#' @param street (Optional) A [`character`][base::character] vector with the
-#'   street names (Default: `NA_character`).
-#' @param complement (Optional) A [`character`][base::character] vector with
-#'   the complement of the address (Default: `NA_character`).
-#' @param neighborhood (Optional) A [`character`][base::character] vector with
-#'   the neighborhood names (Default: `NA_character`).
-#' @param municipality (Optional) A [`character`][base::character] vector
-#'   with the name of the municipalities (Default: `NA_character`).
-#' @param state (Optional) A [`character`][base::character] vector with the
-#'   name of the states (Default: `NA_character`).
-#' @param postal_code (Optional) A [`character`][base::character] vector with
-#'   the postal codes (Default: `NA_character`).
+#' @param street (optional) A [`character`][base::character] vector with the
+#'   street names (default: `NA_character`).
+#' @param complement (optional) A [`character`][base::character] vector with
+#'   the complement of the address (default: `NA_character`).
+#' @param neighborhood (optional) A [`character`][base::character] vector with
+#'   the neighborhood names (default: `NA_character`).
+#' @param municipality (optional) A [`character`][base::character] vector
+#'   with the name of the municipalities (default: `NA_character`).
+#' @param state (optional) A [`character`][base::character] vector with the
+#'   name of the states (default: `NA_character`).
+#' @param postal_code (optional) A [`character`][base::character] vector with
+#'   the postal codes (default: `NA_character`).
 #'
 #' @return A [`character`][base::character] vector with the formatted address.
 #'
@@ -81,10 +81,10 @@ render_brazil_address <- function(
         dplyr::case_when(
           !(municipality[i] %in% c(NA, "", "NA")) &
             !(state[i] %in% c(NA, "", "NA")) ~
-            "{municipality[i]}-{orbis::get_brazil_fu(state[i])}, ",
+            "{municipality[i]}-{get_brazil_fu(state[i])}, ",
           (municipality[i] %in% c(NA, "", "NA")) &
             !(state[i] %in% c(NA, "", "NA")) ~
-            "{orbis::get_brazil_fu(state[i])}, ",
+            "{get_brazil_fu(state[i])}, ",
           !(municipality[i] %in% c(NA, "", "NA")) ~ "{municipality[i]}, ",
           TRUE ~ ""
         ),

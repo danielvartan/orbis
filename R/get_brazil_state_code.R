@@ -8,9 +8,10 @@
 #' of Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) codes for
 #' Brazilian states.
 #'
-#' @param x (Optional) A [`character`][base::character()] vector with the names
-#'   of Brazilian states or federal units. If `NULL`, returns all state codes
-#'   (Default: `NULL`).
+#' @param x (optional) An [`atomic`][base::is.atomic()] vector containing the
+#'   names of Brazilian states or federal units. Municipality codes are also
+#'   supported. If `NULL`, returns a vector with all state codes
+#'   (default: `NULL`).
 #'
 #' @return An [`integer`][base::integer()] vector with the IBGE codes of
 #'   Brazilian states.
@@ -22,13 +23,22 @@
 #' @examples
 #' get_brazil_state_code()
 #'
+#' get_brazil_state_code("ac")
+#' #> [1] 12 # Expected
+#'
 #' get_brazil_state_code("acre")
 #' #> [1] 12 # Expected
 #'
-#' get_brazil_state_code("ac")
-#' #> [1] 12 # Expected
+#' get_brazil_state_code(3550308) # São Paulo
+#' #> [1] 35 # Expected
+#'
+#' get_brazil_state_code(35503081) # >7 digits
+#' #> [1] NA # Expected
+#'
+#' get_brazil_state_code(3912345) # Non-existent state code
+#' #> [1] NA # Expected
 get_brazil_state_code <- function(x = NULL) {
-  checkmate::assert_character(x, null.ok = TRUE)
+  checkmate::assert_atomic(x)
 
   if (is.null(x)) {
     c(
@@ -61,8 +71,15 @@ get_brazil_state_code <- function(x = NULL) {
       "Tocantins" = 17
     ) |>
       methods::as("integer")
+  } else if (is.numeric(x)) {
+    x <- dplyr::case_when(
+      !dplyr::between(nchar(x), 2, 7) ~ NA_integer_,
+      TRUE ~ x |> stringr::str_sub(1, 2) |> as.integer()
+    )
+
+    dplyr::case_when(x %in% get_brazil_state_code() ~ x)
   } else {
-    x <- x |> to_ascii() |> tolower()
+    x <- x |> as.character() |> to_ascii() |> tolower()
 
     dplyr::case_match(
       x,

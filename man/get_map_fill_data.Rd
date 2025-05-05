@@ -16,21 +16,21 @@ get_map_fill_data(
 \arguments{
 \item{data}{A \code{\link[tibble:tibble]{tibble}} with the data to be used as fill.}
 
-\item{col_fill}{(Optional) A \code{\link[base:character]{character}} string with
+\item{col_fill}{(optional) A \code{\link[base:character]{character}} string with
 the column name to be used as fill. If \code{NULL}, the function will count
-the number of occurrences of each value in \code{col_code} (Default: \code{NULL}).}
+the number of occurrences of each value in \code{col_code} (default: \code{NULL}).}
 
 \item{col_code}{A \code{\link[base:character]{character}} string with the column
 name to be used as reference.}
 
-\item{name_col_value}{(Optional) A \code{\link[base:character]{character}} string
-with the name of the column to be used as value (Default: \code{"n"}).}
+\item{name_col_value}{(optional) A \code{\link[base:character]{character}} string
+with the name of the column to be used as value (default: \code{"n"}).}
 
-\item{name_col_ref}{(Optional) A \code{\link[base:character]{character}} string
-with the name of the column to be used as reference (Default: \code{col_code}).}
+\item{name_col_ref}{(optional) A \code{\link[base:character]{character}} string
+with the name of the column to be used as reference (default: \code{col_code}).}
 
-\item{quiet}{(Optional) A \code{\link[base:logical]{logical}} flag to suppress
-messages (Default: \code{FALSE}).}
+\item{quiet}{(optional) A \code{\link[base:logical]{logical}} flag to suppress
+messages (default: \code{FALSE}).}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble}}.

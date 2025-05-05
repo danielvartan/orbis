@@ -20,35 +20,35 @@ fix_postal_code(
 \item{postal_code}{A \code{\link[base:character]{character}} vector with postal code
 numbers.}
 
-\item{min_char}{(Optional) An \link[checkmate:checkIntegerish]{integerish}
-number with the minimum number of characters (Default: \code{3}).}
+\item{min_char}{(optional) An \link[checkmate:checkIntegerish]{integerish}
+number with the minimum number of characters (default: \code{3}).}
 
-\item{max_char}{(Optional) An \link[checkmate:checkIntegerish]{integerish}
-number with the maximum number of characters (Default: \code{8}).}
+\item{max_char}{(optional) An \link[checkmate:checkIntegerish]{integerish}
+number with the maximum number of characters (default: \code{8}).}
 
-\item{squish}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+\item{squish}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to squish (i.e., remove leading, trailing, and extra spaces)
-the postal code numbers (Default: \code{TRUE}).}
+the postal code numbers (default: \code{TRUE}).}
 
-\item{remove_non_numeric}{(Optional) A \code{\link[base:logical]{logical}} flag
+\item{remove_non_numeric}{(optional) A \code{\link[base:logical]{logical}} flag
 indicating whether to remove non-numeric characters from the postal
-code numbers (Default: \code{TRUE}).}
+code numbers (default: \code{TRUE}).}
 
-\item{remove_number_sequences}{(Optional) A \code{\link[base:logical]{logical}}
+\item{remove_number_sequences}{(optional) A \code{\link[base:logical]{logical}}
 flag indicating whether to remove number sequences from the postal
 code numbers. This is useful to remove postal code numbers like
-\code{11111111} (Default: \code{TRUE}).}
+\code{11111111} (default: \code{TRUE}).}
 
-\item{trunc}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+\item{trunc}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to truncate the postal code numbers to \code{max_char} width
-(Default: \code{TRUE}).}
+(default: \code{TRUE}).}
 
-\item{pad}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
+\item{pad}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to pad the postal code numbers with zeros to \code{max_char}
-width (Default: \code{TRUE}).}
+width (default: \code{TRUE}).}
 
-\item{zero_na}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
-whether to replace \code{NA} values with zeros (Default: \code{FALSE}).}
+\item{zero_na}{(optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to replace \code{NA} values with zeros (default: \code{FALSE}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with fixed postal code

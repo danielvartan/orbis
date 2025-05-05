@@ -32,14 +32,23 @@ testthat::test_that("get_brazil_state_latitude() | General test", {
       )
     )
 
-  get_brazil_state_latitude("acre") |>
-    testthat::expect_equal(-9.9765362)
+  get_brazil_state_latitude("ac") |> testthat::expect_equal(-9.9765362)
+  get_brazil_state_latitude("acre") |>  testthat::expect_equal(-9.9765362)
 
-  get_brazil_state_latitude("ac") |>
-    testthat::expect_equal(-9.9765362)
+  get_brazil_state_latitude("sp") |> testthat::expect_equal(-23.5506507)
+  get_brazil_state_latitude("sao paulo") |> testthat::expect_equal(-23.5506507)
+  get_brazil_state_latitude(35) |> testthat::expect_equal(-23.5506507)
+  get_brazil_state_latitude(3550308) |> testthat::expect_equal(-23.5506507)
+  get_brazil_state_latitude(35503081) |> testthat::expect_equal(NA_real_)
+  get_brazil_state_latitude(3912345) |> testthat::expect_equal(NA_real_)
+
+  get_brazil_state_code() |>
+    unname() |>
+    get_brazil_state_latitude() |>
+    testthat::expect_equal(get_brazil_state_latitude() |> unname())
 })
 
 testthat::test_that("get_brazil_state_latitude() | Error test", {
-  # checkmate::assert_character(x, null.ok = TRUE)
-  get_brazil_state_latitude(1) |> testthat::expect_error()
+  # checkmate::assert_atomic(x)
+  get_brazil_state_latitude(x = mtcars) |> testthat::expect_error()
 })

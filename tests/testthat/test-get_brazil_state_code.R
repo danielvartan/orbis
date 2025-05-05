@@ -33,11 +33,15 @@ testthat::test_that("get_brazil_state_code() | General test", {
         methods::as("integer")
     )
 
-  get_brazil_state_code("acre") |> testthat::expect_equal(12)
   get_brazil_state_code("ac") |> testthat::expect_equal(12)
+  get_brazil_state_code("acre") |> testthat::expect_equal(12)
+  get_brazil_state_code(355) |> testthat::expect_equal(35)
+  get_brazil_state_code(3550308) |> testthat::expect_equal(35)
+  get_brazil_state_code(35503081) |> testthat::expect_equal(NA_integer_)
+  get_brazil_state_code(390) |> testthat::expect_equal(NA_integer_)
 })
 
 testthat::test_that("get_brazil_state_code() | Error test", {
-  # checkmate::assert_character(x, null.ok = TRUE)
-  get_brazil_state_code(x = 1) |> testthat::expect_error()
+  # checkmate::assert_atomic(x)
+  get_brazil_state_code(x = mtcars) |> testthat::expect_error()
 })

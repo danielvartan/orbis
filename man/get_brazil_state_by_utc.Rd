@@ -7,13 +7,13 @@
 get_brazil_state_by_utc(utc = -3, type = "fu")
 }
 \arguments{
-\item{utc}{(Optional) An \code{\link[checkmate:checkInt]{integerish}} number
+\item{utc}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 with the UTC offset. Available choices are \code{-5}, \code{-4}, \code{-3}, or \code{-2}
-(Default: \code{-3}).}
+(default: \code{-3}).}
 
-\item{type}{(Optional) A \code{\link[base:character]{character}} string specifying
+\item{type}{(optional) A \code{\link[base:character]{character}} string specifying
 the type of value to return. Available choices are \code{"state"} or \code{"fu"}
-(Default: \code{"fu"}).}
+(default: \code{"fu"}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the names of

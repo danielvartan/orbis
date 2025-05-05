@@ -16,17 +16,17 @@ get_brazil_address_by_postal_code(
 code(s) to be used to. The postal code must be in the format \code{XXXXXXXX},
 where \code{X} is a digit.}
 
-\item{method}{(Optional) A \code{\link[base:character]{character}} value indicating
+\item{method}{(optional) A \code{\link[base:character]{character}} value indicating
 the method to be used to retrieve the address data. The available options
 are \code{"osm"}, \code{"google"},\code{"qualocep"}, and \code{"viacep"}
-(Default: \code{qualocep}).}
+(default: \code{qualocep}).}
 
-\item{fix_code}{(Optional) A \code{\link[base:logical]{logical}} flag indicating
-if the postal code must be fixed before being used (Default: \code{TRUE}).}
+\item{fix_code}{(optional) A \code{\link[base:logical]{logical}} flag indicating
+if the postal code must be fixed before being used (default: \code{TRUE}).}
 
-\item{limit}{(Optional) A \code{\link[base:numeric]{numeric}} value indicating
+\item{limit}{(optional) A \code{\link[base:numeric]{numeric}} value indicating
 the maximum number of results to return. If the value is \code{Inf}, all
-postal codes will be used (Default: \code{10}).}
+postal codes will be used (default: \code{10}).}
 }
 \value{
 A \code{\link[dplyr:reexports]{tibble}} with the following columns:

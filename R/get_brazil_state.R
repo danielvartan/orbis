@@ -6,9 +6,11 @@
 #'
 #' `get_brazil_state()` returns a vector with the names of Brazilian states.
 #'
-#' @param x (Optional) A [`character`][base::character()] vector with the names
-#'   of Brazilian federal units or regions. If `NULL`, returns all state names
-#'   (Default: `NULL`).
+#' @param x (optional) An [`atomic`][base::is.atomic()] vector containing the
+#'   names or numeric codes of Brazilian regions or federal units.
+#'   Municipality codes are also supported. If `NULL`,
+#'   returns a [`character`][base::character()] vector with all Brazilian
+#'   state names (default: `NULL`).
 #'
 #' @return A [`character`][base::character()] vector with the names of
 #'   Brazilian states.
@@ -23,11 +25,30 @@
 #' get_brazil_state("rj")
 #' #> [1] "Rio de Janeiro" # Expected
 #'
+#' get_brazil_state("rio de janeiro")
+#' #> [1] "Rio de Janeiro" # Expected
+#'
+#' get_brazil_state(33)
+#' #> [1] "Rio de Janeiro" # Expected
+#'
+#' get_brazil_state(3302700) # Maricá
+#' #> [1] "Rio de Janeiro" # Expected
+#'
+#' get_brazil_state(33027001) # >7 digits
+#' #> [1] NA # Expected
+#'
+#' get_brazil_state(39027001) # Non-existent state code
+#' #> [1] NA # Expected
+#'
 #' get_brazil_state("southeast")
-#' #> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro"
+#' #> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" # Expected
+#' #> [4] "São Paulo"
+#'
+#' get_brazil_state(3)
+#' #> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" # Expected
 #' #> [4] "São Paulo"
 get_brazil_state <- function(x = NULL) {
-  checkmate::assert_character(x, null.ok = TRUE)
+  checkmate::assert_atomic(x)
 
   # Use `stringi::stri_escape_unicode` to escape unicode characters.
   # stringi::stri_escape_unicode("")
@@ -35,13 +56,14 @@ get_brazil_state <- function(x = NULL) {
   # Use `tools::showNonASCIIfile` to show non-ASCII characters.
   # tools::showNonASCIIfile(here::here("R", "get_brazil_state.R"))
 
-  if (!is.null(x)) x <- x |> to_ascii() |> tolower()
-
   region_choices <- c(
-    "central-west", "north", "northeast", "south", "southeast"
+    "north", "northeast", "south", "southeast", "central-west"
   )
 
-  if (length(x) > 1 && any(x %in% region_choices, na.rm = TRUE)) {
+  if (
+    length(x) > 1 &&
+      (any(x %in% region_choices, na.rm = TRUE) ||any(nchar(x) == 1))
+  ) {
     cli::cli_abort(
       paste0(
         "When searching for ",
@@ -61,37 +83,77 @@ get_brazil_state <- function(x = NULL) {
       "Rond\u00f4nia", "Roraima", "Santa Catarina", "S\u00e3o Paulo",
       "Sergipe", "Tocantins"
     )
-  } else if (length(x) == 1 && all(x %in% region_choices)) {
-    out <- character()
+  } else if (
+    length(x) == 1 &&
+      (all(x %in% region_choices) || all(nchar(x) == 1))
+  ) {
+    x <- x |> as.character() |> to_ascii() |> tolower()
 
-    for (i in x) {
-      out <- c(
-        out,
-        switch(
-          i,
-          "central-eest" = c(
-            "Distrito Federal", "Goi\u00e1s", "Mato Grosso",
-            "Mato Grosso do Sul"
-          ),
-          "north" = c(
-            "Acre", "Amap\u00e1", "Amazonas", "Par\u00e1", "Rond\u00f4nia",
-            "Roraima", "Tocantins"
-          ),
-          "northeast" = c(
-            "Alagoas", "Bahia", "Cear\u00e1", "Maranh\u00e3o", "Para\u00edba",
-            "Pernambuco", "Piau\u00ed", "Rio Grande do Norte", "Sergipe"
-          ),
-          "south" = c("Paran\u00e1", "Rio Grande do Sul", "Santa Catarina"),
-          "southeast" = c(
-            "Esp\u00edrito Santo", "Minas Gerais", "Rio de Janeiro",
-            "S\u00e3o Paulo"
-          )
-        )
+    region_code <- dplyr::case_match(
+      x,
+      c("north", "1") ~ "north",
+      c("northeast", "2") ~ "northeast",
+      c("southeast", "3") ~ "southeast",
+      c("south", "4") ~ "south",
+      c("central-west", "5") ~ "central-west"
+    )
+
+    out <- switch(
+      region_code,
+      "north" = c(
+        "Acre", "Amap\u00e1", "Amazonas", "Par\u00e1", "Rond\u00f4nia",
+        "Roraima", "Tocantins"
+      ),
+      "northeast" = c(
+        "Alagoas", "Bahia", "Cear\u00e1", "Maranh\u00e3o", "Para\u00edba",
+        "Pernambuco", "Piau\u00ed", "Rio Grande do Norte", "Sergipe"
+      ),
+      "southeast" = c(
+        "Esp\u00edrito Santo", "Minas Gerais", "Rio de Janeiro",
+        "S\u00e3o Paulo"
+      ),
+      "south" = c("Paran\u00e1", "Rio Grande do Sul", "Santa Catarina"),
+      "central-west" = c(
+        "Distrito Federal", "Goi\u00e1s", "Mato Grosso",
+        "Mato Grosso do Sul"
       )
-    }
+    )
 
     if (length(out) == 0) as.character(NA) else out
+  } else if (is.numeric(x)) {
+    dplyr::case_when(
+      !dplyr::between(nchar(x), 1, 7) ~ NA_character_,
+      stringr::str_starts(x, "12") ~ "Acre",
+      stringr::str_starts(x, "27") ~ "Alagoas",
+      stringr::str_starts(x, "16") ~ "Amap\u00e1",
+      stringr::str_starts(x, "13") ~ "Amazonas",
+      stringr::str_starts(x, "29") ~ "Bahia",
+      stringr::str_starts(x, "23") ~ "Cear\u00e1",
+      stringr::str_starts(x, "53") ~ "Distrito Federal",
+      stringr::str_starts(x, "32") ~ "Esp\u00edrito Santo",
+      stringr::str_starts(x, "52") ~ "Goi\u00e1s",
+      stringr::str_starts(x, "21") ~ "Maranh\u00e3o",
+      stringr::str_starts(x, "51") ~ "Mato Grosso",
+      stringr::str_starts(x, "50") ~ "Mato Grosso do Sul",
+      stringr::str_starts(x, "31") ~ "Minas Gerais",
+      stringr::str_starts(x, "15") ~ "Par\u00e1",
+      stringr::str_starts(x, "25") ~ "Para\u00edba",
+      stringr::str_starts(x, "41") ~ "Paran\u00e1",
+      stringr::str_starts(x, "26") ~ "Pernambuco",
+      stringr::str_starts(x, "22") ~ "Piau\u00ed",
+      stringr::str_starts(x, "33") ~ "Rio de Janeiro",
+      stringr::str_starts(x, "24") ~ "Rio Grande do Norte",
+      stringr::str_starts(x, "43") ~ "Rio Grande do Sul",
+      stringr::str_starts(x, "11") ~ "Rond\u00f4nia",
+      stringr::str_starts(x, "14") ~ "Roraima",
+      stringr::str_starts(x, "42") ~ "Santa Catarina",
+      stringr::str_starts(x, "35") ~ "S\u00e3o Paulo",
+      stringr::str_starts(x, "28") ~ "Sergipe",
+      stringr::str_starts(x, "17") ~ "Tocantins"
+    )
   } else {
+    x <- x |> as.character() |> to_ascii() |> tolower()
+
     dplyr::case_match(
       x,
       c("acre", "ac") ~ "Acre",

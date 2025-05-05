@@ -7,9 +7,11 @@
 get_brazil_fu(x = NULL)
 }
 \arguments{
-\item{x}{(Optional) A \code{\link[base:character]{character}} vector with the names
-of Brazilian states or regions. If \code{NULL}, returns all federal unit
-abbreviations (Default: \code{NULL}).}
+\item{x}{(optional) An \code{\link[base:is.recursive]{atomic}} vector containing the
+names or numeric codes of Brazilian regions or federal units.
+Municipality codes are also supported. If \code{NULL},
+returns a \code{\link[base:character]{character}} vector with all Brazilian
+federal unit abbreviations (default: \code{NULL}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the abbreviations of
@@ -28,10 +30,28 @@ of Geography and Statistics (IBGE, n.d.).
 \examples{
 get_brazil_fu()
 
+get_brazil_fu("sp")
+#> [1] "SP" # Expected
+
 get_brazil_fu("sao paulo")
 #> [1] "SP" # Expected
 
+get_brazil_fu(35)
+#> [1] "SP" # Expected
+
+get_brazil_fu(3550308) # Municipality of São Paulo
+#> [1] "SP" # Expected
+
+get_brazil_fu(35503081) # >7 digits
+#> [1] NA # Expected
+
+get_brazil_fu(39027001) # Non-existent state code
+#> [1] NA # Expected
+
 get_brazil_fu("southeast")
+#> [1] "ES" "MG" "RJ" "SP" # Expected
+
+get_brazil_fu(3)
 #> [1] "ES" "MG" "RJ" "SP" # Expected
 }
 \references{

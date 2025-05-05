@@ -7,9 +7,11 @@
 get_brazil_state(x = NULL)
 }
 \arguments{
-\item{x}{(Optional) A \code{\link[base:character]{character}} vector with the names
-of Brazilian federal units or regions. If \code{NULL}, returns all state names
-(Default: \code{NULL}).}
+\item{x}{(optional) An \code{\link[base:is.recursive]{atomic}} vector containing the
+names or numeric codes of Brazilian regions or federal units.
+Municipality codes are also supported. If \code{NULL},
+returns a \code{\link[base:character]{character}} vector with all Brazilian
+state names (default: \code{NULL}).}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the names of
@@ -30,8 +32,27 @@ get_brazil_state()
 get_brazil_state("rj")
 #> [1] "Rio de Janeiro" # Expected
 
+get_brazil_state("rio de janeiro")
+#> [1] "Rio de Janeiro" # Expected
+
+get_brazil_state(33)
+#> [1] "Rio de Janeiro" # Expected
+
+get_brazil_state(3302700) # Maricá
+#> [1] "Rio de Janeiro" # Expected
+
+get_brazil_state(33027001) # >7 digits
+#> [1] NA # Expected
+
+get_brazil_state(39027001) # Non-existent state code
+#> [1] NA # Expected
+
 get_brazil_state("southeast")
-#> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro"
+#> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" # Expected
+#> [4] "São Paulo"
+
+get_brazil_state(3)
+#> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" # Expected
 #> [4] "São Paulo"
 }
 \references{

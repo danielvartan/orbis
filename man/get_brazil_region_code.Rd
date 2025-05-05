@@ -7,9 +7,9 @@
 get_brazil_region_code(x = NULL)
 }
 \arguments{
-\item{x}{(Optional) A \code{\link[base:character]{character}} vector with the names
-of Brazilian regions. If \code{NULL}, returns all Brazilian region codes
-(Default: \code{NULL}).}
+\item{x}{(optional) A \code{\link[base:character]{character}} vector containing
+the names of Brazilian regions, states, or federal units. If \code{NULL},
+returns a named vector with all Brazilian region codes (default: \code{NULL}).}
 }
 \value{
 An \code{\link[base:integer]{integer}} vector with the IBGE codes of
@@ -34,6 +34,12 @@ get_brazil_region_code("north")
 
 get_brazil_region_code(c("north", "central-west"))
 #> [1] 1 5 # Expected
+
+get_brazil_region_code("sao paulo")
+#> [1] 3 # Expected
+
+get_brazil_region_code("sp")
+#> [1] 3 # Expected
 }
 \references{
 Instituto Brasileiro de Geografia e Estatística. (n.d.). \emph{Território}

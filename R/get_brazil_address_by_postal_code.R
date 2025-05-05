@@ -25,15 +25,15 @@
 #' @param postal_code A [`character`][base::character] vector with the postal
 #'   code(s) to be used to. The postal code must be in the format `XXXXXXXX`,
 #'   where `X` is a digit.
-#' @param method (Optional) A [`character`][base::character] value indicating
+#' @param method (optional) A [`character`][base::character] value indicating
 #'   the method to be used to retrieve the address data. The available options
 #'   are `"osm"`, `"google"`,`"qualocep"`, and `"viacep"`
-#'   (Default: `qualocep`).
-#' @param fix_code (Optional) A [`logical`][base::logical()] flag indicating
-#'   if the postal code must be fixed before being used (Default: `TRUE`).
-#' @param limit (Optional) A [`numeric`][base::numeric()] value indicating
+#'   (default: `qualocep`).
+#' @param fix_code (optional) A [`logical`][base::logical()] flag indicating
+#'   if the postal code must be fixed before being used (default: `TRUE`).
+#' @param limit (optional) A [`numeric`][base::numeric()] value indicating
 #'   the maximum number of results to return. If the value is `Inf`, all
-#'   postal codes will be used (Default: `10`).
+#'   postal codes will be used (default: `10`).
 #'
 #' @return A [`tibble`][dplyr::tibble()] with the following columns:
 #'   - `postal_code`: A [`character`][base::character] vector with the postal

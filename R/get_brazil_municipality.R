@@ -7,16 +7,16 @@
 #' `get_brazil_municipality()` returns a [`tibble`][tibble::tibble] with data
 #' about Brazilian municipalities.
 #'
-#' @param municipality (Optional) A [`character`][base::character] vector
+#' @param municipality (optional) A [`character`][base::character] vector
 #'   with the name of the municipalities. If `NULL` the function returns all
-#'   municipalities (Default: `NULL`).
-#' @param state (Optional) A [`character`][base::character] vector with the
-#'   name of the states (Default: `NULL`).
-#' @param year (Optional) An [`integerish`][checkmate::test_int] number
+#'   municipalities (default: `NULL`).
+#' @param state (optional) A [`character`][base::character] vector with the
+#'   name of the states (default: `NULL`).
+#' @param year (optional) An [`integerish`][checkmate::test_int] number
 #'   indicating the year of the data regarding the municipalities
-#'   (Default: `2017`).
-#' @param force (Optional) A [`logical`][base::logical] flag indicating
-#'   whether to force the download of the data again (Default: `FALSE`).
+#'   (default: `2017`).
+#' @param force (optional) A [`logical`][base::logical] flag indicating
+#'   whether to force the download of the data again (default: `FALSE`).
 #'
 #' @return A [`tibble`][tibble::tibble] with the following columns:
 #'   - `region_code`: The region code.

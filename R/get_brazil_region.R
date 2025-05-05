@@ -7,9 +7,10 @@
 #' `get_brazil_region()` returns a vector with the names of
 #' [Brazilian regions](https://en.wikipedia.org/wiki/Regions_of_Brazil).
 #'
-#' @param x (Optional) A [`character`][base::character()] vector with the names
-#'   of Brazilian states or federal unit abbreviations. If `NULL`, returns all
-#'   Brazilian regions (Default: `NULL`).
+#' @param x (optional) An [`atomic`][base::is.atomic()] vector containing the
+#'   names, abbreviations, or numeric codes of Brazilian states or federal
+#'   units. Region and municipality codes are also supported. If `NULL`,
+#'   returns a vector with all Brazilian regions. (default: `NULL`)
 #'
 #' @return A [`character`][base::character()] vector with the names of
 #'   Brazilian regions.
@@ -22,19 +23,39 @@
 #' get_brazil_region()
 #' #> [1] "North" "Northeast" "South" "Southeast" "Central-West" # Expected
 #'
+#' get_brazil_region("sp")
+#' #> [1] "Southeast" # Expected
+#'
 #' get_brazil_region("sao paulo")
 #' #> [1] "Southeast" # Expected
 #'
-#' get_brazil_region("sp")
+#' get_brazil_region(c(1, 4))
+#' #> [1] "North" "South" # Expected
+#'
+#' get_brazil_region(35) # State of São Paulo
 #' #> [1] "Southeast" # Expected
+#'
+#' get_brazil_region(3550308) # Municipality of São Paulo
+#' #> [1] "Southeast" # Expected
+#'
+#' get_brazil_region(35503081) # >7 digits
+#' #> [1] NA # Expected
 get_brazil_region <- function(x = NULL) {
-  checkmate::assert_character(x, null.ok = TRUE)
-
-  if (!is.null(x)) x <- x |> to_ascii() |> tolower()
+  checkmate::assert_atomic(x)
 
   if (is.null(x)) {
     c("North", "Northeast", "South", "Southeast", "Central-West")
+  } else if (is.numeric(x)) {
+    dplyr::case_when(
+      !dplyr::between(nchar(x), 1, 7) ~ NA_character_,
+      stringr::str_starts(x, "1") ~ "North",
+      stringr::str_starts(x, "2") ~ "Northeast",
+      stringr::str_starts(x, "3") ~ "Southeast",
+      stringr::str_starts(x, "4") ~ "South",
+      stringr::str_starts(x, "5") ~ "Central-West"
+    )
   } else {
+    x <- x |> as.character() |> to_ascii() |> tolower()
 
     dplyr::case_match(
       x,

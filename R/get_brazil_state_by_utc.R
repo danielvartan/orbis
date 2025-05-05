@@ -15,12 +15,12 @@
 #' (Released 2024-09-04) from the Internet Assigned Numbers Authority
 #' (IANA, 2024)
 #'
-#' @param utc (Optional) An [`integerish`][checkmate::test_int] number
+#' @param utc (optional) An [`integerish`][checkmate::test_int] number
 #'   with the UTC offset. Available choices are `-5`, `-4`, `-3`, or `-2`
-#'  (Default: `-3`).
-#' @param type (Optional) A [`character`][base::character] string specifying
+#'  (default: `-3`).
+#' @param type (optional) A [`character`][base::character] string specifying
 #'   the type of value to return. Available choices are `"state"` or `"fu"`
-#'   (Default: `"fu"`).
+#'   (default: `"fu"`).
 #'
 #' @return A [`character`][base::character] vector with the names of
 #'   Brazilian states or abbreviations of Brazilian federal units.
