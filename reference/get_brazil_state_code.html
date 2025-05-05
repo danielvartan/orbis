@@ -67,9 +67,10 @@ Brazilian states.</p>
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>(Optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the names
-of Brazilian states or federal units. If <code>NULL</code>, returns all state codes
-(Default: <code>NULL</code>).</p></dd>
+<dd><p>(optional) An <code><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">atomic</a></code> vector containing the
+names of Brazilian states or federal units. Municipality codes are also
+supported. If <code>NULL</code>, returns a vector with all state codes
+(default: <code>NULL</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -121,13 +122,25 @@ of Geography and Statistics (IBGE, n.d.).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           São Paulo             Sergipe           Tocantins </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  35                  28                  17 </span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state_code</span><span class="op">(</span><span class="st">"ac"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12</span>
+<span class="r-in"><span><span class="co">#&gt; [1] 12 # Expected</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_brazil_state_code</span><span class="op">(</span><span class="st">"acre"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12</span>
 <span class="r-in"><span><span class="co">#&gt; [1] 12 # Expected</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_brazil_state_code</span><span class="op">(</span><span class="st">"ac"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12</span>
-<span class="r-in"><span><span class="co">#&gt; [1] 12 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state_code</span><span class="op">(</span><span class="fl">3550308</span><span class="op">)</span> <span class="co"># São Paulo</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 35</span>
+<span class="r-in"><span><span class="co">#&gt; [1] 35 # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state_code</span><span class="op">(</span><span class="fl">35503081</span><span class="op">)</span> <span class="co"># &gt;7 digits</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-in"><span><span class="co">#&gt; [1] NA # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state_code</span><span class="op">(</span><span class="fl">3912345</span><span class="op">)</span> <span class="co"># Non-existent state code</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-in"><span><span class="co">#&gt; [1] NA # Expected</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

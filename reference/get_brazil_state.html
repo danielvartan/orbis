@@ -61,9 +61,11 @@ get_brazil_state() returns a vector with the names of Brazilian states."><meta p
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>(Optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the names
-of Brazilian federal units or regions. If <code>NULL</code>, returns all state names
-(Default: <code>NULL</code>).</p></dd>
+<dd><p>(optional) An <code><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">atomic</a></code> vector containing the
+names or numeric codes of Brazilian regions or federal units.
+Municipality codes are also supported. If <code>NULL</code>,
+returns a <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with all Brazilian
+state names (default: <code>NULL</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -114,9 +116,34 @@ of Geography and Statistics (IBGE, n.d.).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rio de Janeiro"</span>
 <span class="r-in"><span><span class="co">#&gt; [1] "Rio de Janeiro" # Expected</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="st">"rio de janeiro"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rio de Janeiro"</span>
+<span class="r-in"><span><span class="co">#&gt; [1] "Rio de Janeiro" # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="fl">33</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rio de Janeiro"</span>
+<span class="r-in"><span><span class="co">#&gt; [1] "Rio de Janeiro" # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="fl">3302700</span><span class="op">)</span> <span class="co"># Maricá</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Rio de Janeiro"</span>
+<span class="r-in"><span><span class="co">#&gt; [1] "Rio de Janeiro" # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="fl">33027001</span><span class="op">)</span> <span class="co"># &gt;7 digits</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-in"><span><span class="co">#&gt; [1] NA # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="fl">39027001</span><span class="op">)</span> <span class="co"># Non-existent state code</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-in"><span><span class="co">#&gt; [1] NA # Expected</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="st">"southeast"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" "São Paulo"     </span>
-<span class="r-in"><span><span class="co">#&gt; [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro"</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" # Expected</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; [4] "São Paulo"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_brazil_state</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" "São Paulo"     </span>
+<span class="r-in"><span><span class="co">#&gt; [1] "Espírito Santo" "Minas Gerais"   "Rio de Janeiro" # Expected</span></span></span>
 <span class="r-in"><span><span class="co">#&gt; [4] "São Paulo"</span></span></span>
 </code></pre></div>
     </div>
