@@ -62,7 +62,10 @@ get_brazil_state <- function(x = NULL) {
 
   if (
     length(x) > 1 &&
-      (any(x %in% region_choices, na.rm = TRUE) ||any(nchar(x) == 1))
+      (
+        any(x %in% region_choices, na.rm = TRUE) ||
+          any(nchar(x) == 1, na.rm = TRUE)
+      )
   ) {
     cli::cli_abort(
       paste0(
@@ -85,7 +88,10 @@ get_brazil_state <- function(x = NULL) {
     )
   } else if (
     length(x) == 1 &&
-      (all(x %in% region_choices) || all(nchar(x) == 1))
+      (
+        all(x %in% region_choices, na.rm = TRUE) ||
+          all(nchar(x) == 1, na.rm = TRUE)
+      )
   ) {
     x <- x |> as.character() |> to_ascii() |> tolower()
 

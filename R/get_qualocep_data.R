@@ -1,6 +1,3 @@
-# [Qual o CEP](https://www.qualocep.com) is a database of Brazilian addresses
-# and postal codes, geocoded made using the Google Geocoding API.
-
 #' Get Qual o CEP data
 #'
 #' @description
@@ -71,10 +68,10 @@
 #'   get_qualocep_data()
 #' }
 get_qualocep_data <- function(
-    file = NULL, #nolint
-    pattern = "2024-11-12.rds",
-    force = FALSE
-  ) {
+  file = NULL,
+  pattern = "2024-11-12.rds",
+  force = FALSE
+) {
   checkmate::assert_string(file, null.ok = TRUE)
   checkmate::assert_string(pattern, pattern = "\\.rds$")
   checkmate::assert_flag(force)

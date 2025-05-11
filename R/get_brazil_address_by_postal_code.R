@@ -91,11 +91,11 @@
 #'     glimpse()
 #' }
 get_brazil_address_by_postal_code <- function( #nolint
-    postal_code, #nolint
-    method = "qualocep",
-    fix_code = TRUE,
-    limit = 10
-  ) {
+  postal_code,
+  method = "qualocep",
+  fix_code = TRUE,
+  limit = 10
+) {
   prettycheck::assert_internet()
   checkmate::assert_atomic(postal_code)
   checkmate::assert_choice(method, c("osm", "google", "qualocep", "viacep"))

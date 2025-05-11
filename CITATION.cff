@@ -71,10 +71,10 @@ references:
   authors:
   - family-names: Csárdi
     given-names: Gábor
-    email: csardi.gabor@gmail.com
+    email: gabor@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.cli
-  version: '>= 3.6.3'
+  version: '>= 3.6.5'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -101,6 +101,24 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.1.4'
+- type: software
+  title: fs
+  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  notes: Imports
+  url: https://fs.r-lib.org
+  repository: https://CRAN.R-project.org/package=fs
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.fs
+  version: '>= 1.6.6'
 - type: software
   title: geobr
   abstract: 'geobr: Download Official Spatial Data Sets of Brazil'
@@ -136,7 +154,7 @@ references:
   version: '>= 1.8.0'
 - type: software
   title: groomr
-  abstract: 'groomr: General Tidy Functions'
+  abstract: 'groomr: Tidy Tools'
   notes: Imports
   url: https://github.com/danielvartan/groomr/
   authors:
@@ -173,7 +191,7 @@ references:
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
   doi: 10.32614/CRAN.package.jsonlite
-  version: '>= 1.8.9'
+  version: '>= 2.0.0'
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -234,7 +252,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: osfr
   abstract: 'osfr: Interface to the ''Open Science Framework'' (''OSF'')'
@@ -273,14 +291,14 @@ references:
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
   - family-names: Henry
     given-names: Lionel
-    email: lionel@rstudio.com
+    email: lionel@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.purrr
-  version: '>= 1.0.2'
+  version: '>= 1.0.4'
 - type: software
   title: readr
   abstract: 'readr: Read Rectangular Text Data'
@@ -315,7 +333,7 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.rlang
-  version: '>= 1.1.4'
+  version: '>= 1.1.6'
 - type: software
   title: sf
   abstract: 'sf: Simple Features for R'
@@ -368,7 +386,7 @@ references:
     orcid: https://orcid.org/0000-0002-6738-9845
   year: '2025'
   doi: 10.32614/CRAN.package.tidygeocoder
-  version: '>= 1.0.5'
+  version: '>= 1.0.6'
 - type: software
   title: tidyr
   abstract: 'tidyr: Tidy Messy Data'
@@ -422,24 +440,6 @@ references:
   doi: 10.32614/CRAN.package.covr
   version: '>= 3.6.4'
 - type: software
-  title: fs
-  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
-  notes: Suggests
-  url: https://fs.r-lib.org
-  repository: https://CRAN.R-project.org/package=fs
-  authors:
-  - family-names: Hester
-    given-names: Jim
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Csárdi
-    given-names: Gábor
-    email: csardi.gabor@gmail.com
-  year: '2025'
-  doi: 10.32614/CRAN.package.fs
-  version: '>= 1.6.5'
-- type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
@@ -452,7 +452,7 @@ references:
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2025'
   doi: 10.32614/CRAN.package.knitr
-  version: '>= 1.49'
+  version: '>= 1.50'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
@@ -468,9 +468,6 @@ references:
     given-names: Jim
     email: james.hester@rstudio.com
   year: '2025'
-  identifiers:
-  - type: url
-    value: https://docs.ropensci.org/spelling/
   doi: 10.32614/CRAN.package.spelling
   version: '>= 2.3.1'
 - type: software
@@ -485,7 +482,7 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.testthat
-  version: '>= 3.2.2'
+  version: '>= 3.2.3'
 - type: software
   title: tibble
   abstract: 'tibble: Simple Data Frames'

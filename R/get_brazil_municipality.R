@@ -40,11 +40,11 @@
 #'
 #' get_brazil_municipality(municipality = c("Belém", "São Paulo"))
 get_brazil_municipality <- function(
-    municipality = NULL, #nolint
-    state = NULL,
-    year = 2017,
-    force = FALSE
-  ) {
+  municipality = NULL,
+  state = NULL,
+  year = 2017,
+  force = FALSE
+) {
   prettycheck::assert_internet()
   checkmate::assert_character(municipality, null.ok = TRUE)
   checkmate::assert_character(state, null.ok = TRUE)

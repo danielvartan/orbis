@@ -36,13 +36,13 @@
 #'
 #' get_map_fill_data(data, col_fill = "value", col_code = "state")
 get_map_fill_data <- function(
-    data, #nolint
-    col_fill = NULL,
-    col_code,
-    name_col_value = "n",
-    name_col_ref = col_code,
-    quiet = FALSE
-  ) {
+  data,
+  col_fill = NULL,
+  col_code,
+  name_col_value = "n",
+  name_col_ref = col_code,
+  quiet = FALSE
+) {
   checkmate::assert_tibble(data)
   checkmate::assert_string(col_fill, null.ok = TRUE)
   checkmate::assert_choice(col_fill, names(data), null.ok = TRUE)

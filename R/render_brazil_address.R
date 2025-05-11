@@ -34,13 +34,13 @@
 #'   postal_code = c("01002-020", "01217-010")
 #' )
 render_brazil_address <- function(
-    street = NA_character_, #nolint
-    complement = NA_character_,
-    neighborhood = NA_character_,
-    municipality = NA_character_,
-    state = NA_character_,
-    postal_code = NA_character_
-  ) {
+  street = NA_character_,
+  complement = NA_character_,
+  neighborhood = NA_character_,
+  municipality = NA_character_,
+  state = NA_character_,
+  postal_code = NA_character_
+) {
   checkmate::assert_character(street)
   checkmate::assert_character(complement)
   checkmate::assert_character(neighborhood)

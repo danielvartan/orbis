@@ -1,9 +1,9 @@
 get_geocode_by_address <- function(
-    address = NULL, # nolint
-    method = "qualocep",
-    limit = 10, # Inf for all.
-    ...
-  ) {
+  address = NULL,
+  method = "qualocep",
+  limit = 10, # Inf for all.
+  ...
+) {
   prettycheck::assert_internet()
   checkmate::assert_character(address, null.ok = TRUE)
   checkmate::assert_choice(method, c("osm", "google", "qualocep"))

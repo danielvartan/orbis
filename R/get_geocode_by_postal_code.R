@@ -1,10 +1,10 @@
 get_geocode_by_postal_code <- function(
-    postal_code, #nolint
-    method = "qualocep",
-    fix_code = TRUE, # Just for Brazilian postal codes.
-    limit = 10, # Inf for all.
-    suffix = ", Brazil"
-  ) {
+  postal_code,
+  method = "qualocep",
+  fix_code = TRUE, # Just for Brazilian postal codes.
+  limit = 10, # Inf for all.
+  suffix = ", Brazil"
+) {
   prettycheck::assert_internet()
   checkmate::assert_atomic(postal_code)
   checkmate::assert_choice(method, c("osm", "google", "qualocep"))

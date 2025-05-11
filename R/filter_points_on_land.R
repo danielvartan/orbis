@@ -5,7 +5,7 @@
 #' `r lifecycle::badge("maturing")`
 #'
 #' `filter_points_on_land()` filters latitude/longitude points that intersects
-#'   with a given geometry.
+#' with a given geometry.
 #'
 #' @param data A [`tibble`][tibble::tibble] with the data points to be filtered.
 #'   It must have columns `longitude` and `latitude`.

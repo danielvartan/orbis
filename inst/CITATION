@@ -24,8 +24,8 @@ utils::bibentry(
     "Vartanian, D.", ". ",
     "(2025)", ". ",
     "{orbis}:", " ",
-    "Spatial data analysis tools", ". ",
-    "R package", ". ",
+    "Spatial data analysis tools",
+    "[Computer Software, R package]", ". ",
     "https://danielvartan.github.io/",
     "orbis/"
   )

@@ -1,4 +1,3 @@
-
 #' Fix postal code numbers
 #'
 #' @description
@@ -63,16 +62,16 @@
 #' fix_postal_code(NA, max_char = 8, zero_na = TRUE)
 #' #> [1] "00000000" # Expected
 fix_postal_code <- function(
-    postal_code, #nolint
-    min_char = 3,
-    max_char = 8,
-    squish = TRUE,
-    remove_non_numeric = TRUE,
-    remove_number_sequences = TRUE,
-    trunc = TRUE, # To `max_char` width
-    pad = TRUE, # To `max_char` width
-    zero_na = FALSE # To `max_char` width
-  ) {
+  postal_code,
+  min_char = 3,
+  max_char = 8,
+  squish = TRUE,
+  remove_non_numeric = TRUE,
+  remove_number_sequences = TRUE,
+  trunc = TRUE, # To `max_char` width
+  pad = TRUE, # To `max_char` width
+  zero_na = FALSE # To `max_char` width
+) {
   checkmate::assert_atomic(postal_code)
   checkmate::assert_int(min_char, lower = 1)
   checkmate::assert_int(max_char, lower = 1)

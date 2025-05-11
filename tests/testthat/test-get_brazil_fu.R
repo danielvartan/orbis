@@ -21,6 +21,8 @@ testthat::test_that("get_brazil_fu() | General test", {
     unname() |>
     get_brazil_fu() |>
     testthat::expect_equal(get_brazil_fu())
+
+  get_brazil_fu(NA) |> testthat::expect_equal(NA_character_)
 })
 
 testthat::test_that("get_brazil_fu() | Error test", {

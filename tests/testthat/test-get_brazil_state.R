@@ -31,13 +31,15 @@ testthat::test_that("get_brazil_state() | General test", {
     unname() |>
     get_brazil_state() |>
     testthat::expect_equal(get_brazil_state())
+
+  get_brazil_state(NA) |> testthat::expect_equal(NA_character_)
 })
 
 testthat::test_that("get_brazil_state() | Error test", {
   # checkmate::assert_atomic(x)
   get_brazil_state(x = mtcars) |> testthat::expect_error()
 
-  # If(length(x) > 1 && ...
+  # If (length(x) > 1 && ...
   get_brazil_state(c("north", "north")) |> testthat::expect_error()
   get_brazil_state(1:2) |> testthat::expect_error()
 
