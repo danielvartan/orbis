@@ -299,7 +299,7 @@ get_brazil_address_by_postal_code_google <- function( #nolint
       vars <- character()
 
       for (i in x$types) {
-        if (any(i %in% selected_vars)) {
+        if (any(i %in% selected_vars, na.rm = TRUE)) {
           vars <- c(vars, i[i %in% selected_vars])
         } else {
           vars <- c(vars, basename(tempfile("dump_var_")))
@@ -426,7 +426,7 @@ get_brazil_address_by_postal_code_qualocep <- function( #nolint
       by = "postal_code"
     )
 
-  if (any(c("latitude", "longitude") %in% names(qualocep_data))) {
+  if (any(c("latitude", "longitude") %in% names(qualocep_data), na.rm = TRUE)) {
     out |>
       dplyr::select(
         postal_code, street, complement, neighborhood, municipality_code,

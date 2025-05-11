@@ -115,7 +115,7 @@ get_geocode_by_postal_code_qualocep <- function( #nolint
       by = "postal_code"
     )
 
-  if (any(c("latitude", "longitude") %in% names(qualocep_data))) {
+  if (any(c("latitude", "longitude") %in% names(qualocep_data), na.rm = TRUE)) {
     out |> dplyr::select(postal_code, latitude, longitude)
   } else {
     out |>

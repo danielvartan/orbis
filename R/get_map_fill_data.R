@@ -70,7 +70,7 @@ get_map_fill_data <- function(
       dplyr::select(!!as.symbol(name_col_ref), !!as.symbol(name_col_value)) |>
       tidyr::drop_na()
 
-    if (any(duplicated(out[[name_col_ref]]))) {
+    if (any(duplicated(out[[name_col_ref]]), na.rm = TRUE)) {
       cli::cli_alert_warning(
         paste0(
           "There are duplicated values in ",
