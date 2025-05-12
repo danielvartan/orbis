@@ -183,19 +183,6 @@
     },
     "5": {
       "@type": "SoftwareApplication",
-      "identifier": "fs",
-      "name": "fs",
-      "version": ">= 1.6.6",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=fs"
-    },
-    "6": {
-      "@type": "SoftwareApplication",
       "identifier": "geobr",
       "name": "geobr",
       "version": ">= 1.9.1",
@@ -207,7 +194,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=geobr"
     },
-    "7": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "glue",
       "name": "glue",
@@ -220,13 +207,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=glue"
     },
-    "8": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "groomr",
       "name": "groomr",
       "sameAs": "https://github.com/danielvartan/groomr"
     },
-    "9": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "ISOcodes",
       "name": "ISOcodes",
@@ -239,7 +226,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ISOcodes"
     },
-    "10": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -252,7 +239,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -265,7 +252,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "12": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -278,7 +265,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "13": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -291,13 +278,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "14": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods",
       "version": ">= 4.4"
     },
-    "15": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "osfr",
       "name": "osfr",
@@ -310,13 +297,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=osfr"
     },
-    "16": {
+    "15": {
       "@type": "SoftwareApplication",
       "identifier": "prettycheck",
       "name": "prettycheck",
       "sameAs": "https://github.com/danielvartan/prettycheck"
     },
-    "17": {
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -329,7 +316,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "18": {
+    "17": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -342,7 +329,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "19": {
+    "18": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -355,7 +342,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "20": {
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -368,7 +355,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "21": {
+    "20": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -381,7 +368,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "22": {
+    "21": {
       "@type": "SoftwareApplication",
       "identifier": "tidygeocoder",
       "name": "tidygeocoder",
@@ -394,7 +381,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
     },
-    "23": {
+    "22": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -409,7 +396,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "678.674KB",
+  "fileSize": "684.156KB",
   "citation": [
     {
       "@type": "CreativeWork",

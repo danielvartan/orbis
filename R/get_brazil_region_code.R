@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_region_code()` returns a vector with the Brazilian Institute
 #' of Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) codes for
 #' Brazilian regions.

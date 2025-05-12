@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `filter_points_on_land()` filters latitude/longitude points that intersects
 #' with a given geometry.
 #'

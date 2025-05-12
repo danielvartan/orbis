@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `fix_postal_code()` provides tools to fix postal code numbers.
 #'
 #' @param postal_code A [`character`][base::character] vector with postal code

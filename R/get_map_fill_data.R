@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `get_map_fill_data()` prepares data to be used as fill in a map.
 #'
 #' @param data A [`tibble`][tibble::tibble] with the data to be used as fill.

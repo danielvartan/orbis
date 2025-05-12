@@ -2,9 +2,8 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
-#' `render_brazil_address()`
+#' `render_brazil_address()` returns a vector with formatted Brazilian
+#' addresses.
 #'
 #' @param street (optional) A [`character`][base::character] vector with the
 #'   street names (default: `NA_character`).

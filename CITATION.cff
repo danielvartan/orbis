@@ -102,24 +102,6 @@ references:
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.1.4'
 - type: software
-  title: fs
-  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
-  notes: Imports
-  url: https://fs.r-lib.org
-  repository: https://CRAN.R-project.org/package=fs
-  authors:
-  - family-names: Hester
-    given-names: Jim
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Csárdi
-    given-names: Gábor
-    email: csardi.gabor@gmail.com
-  year: '2025'
-  doi: 10.32614/CRAN.package.fs
-  version: '>= 1.6.6'
-- type: software
   title: geobr
   abstract: 'geobr: Download Official Spatial Data Sets of Brazil'
   notes: Imports
@@ -156,7 +138,7 @@ references:
   title: groomr
   abstract: 'groomr: Tidy Tools'
   notes: Imports
-  url: https://github.com/danielvartan/groomr/
+  url: https://danielvartan.github.io/groomr/
   authors:
   - family-names: Vartanian
     given-names: Daniel
@@ -439,6 +421,24 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.covr
   version: '>= 3.6.4'
+- type: software
+  title: fs
+  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  notes: Suggests
+  url: https://fs.r-lib.org
+  repository: https://CRAN.R-project.org/package=fs
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.fs
+  version: '>= 1.6.6'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'

@@ -17,8 +17,6 @@ An \code{\link[base:integer]{integer}} vector with the IBGE codes of
 Brazilian states.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_brazil_state_code()} returns a vector with the Brazilian Institute
 of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) codes for
 Brazilian states.

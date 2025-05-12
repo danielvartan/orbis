@@ -36,8 +36,6 @@ messages (default: \code{FALSE}).}
 A \code{\link[tibble:tibble]{tibble}}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{get_map_fill_data()} prepares data to be used as fill in a map.
 }
 \examples{

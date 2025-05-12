@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_state_longitude()` returns a vector with the longitude of
 #' Brazilian state capitals.
 #'

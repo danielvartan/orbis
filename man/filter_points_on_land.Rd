@@ -17,8 +17,6 @@ filtering.}
 A \code{\link[tibble:tibble]{tibble}}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{filter_points_on_land()} filters latitude/longitude points that intersects
 with a given geometry.
 }

@@ -17,8 +17,6 @@ A \code{\link[base:character]{character}} vector with the names of
 Brazilian regions.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_brazil_region()} returns a vector with the names of
 \href{https://en.wikipedia.org/wiki/Regions_of_Brazil}{Brazilian regions}.
 }

@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_state()` returns a vector with the names of Brazilian states.
 #'
 #' @param x (optional) An [`atomic`][base::is.atomic()] vector containing the

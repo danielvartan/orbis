@@ -55,8 +55,6 @@ A \code{\link[base:character]{character}} vector with fixed postal code
 numbers.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{fix_postal_code()} provides tools to fix postal code numbers.
 }
 \examples{

@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_municipality()` returns a [`tibble`][tibble::tibble] with data
 #' about Brazilian municipalities.
 #'

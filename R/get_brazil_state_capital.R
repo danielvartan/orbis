@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_state_capital()` returns a vector with the capital names of
 #' Brazilian states or federal units.
 #'

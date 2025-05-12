@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_state_latitude()` returns a vector with the latitude of
 #' Brazilian state capitals.
 #'

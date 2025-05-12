@@ -20,8 +20,6 @@ A \code{\link[base:character]{character}} vector with the names of
 Brazilian states or abbreviations of Brazilian federal units.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_brazil_state_by_utc()} returns a vector with the names of
 Brazilian states or abbreviations of Brazilian federal units by the
 \href{https://en.wikipedia.org/wiki/Coordinated_Universal_Time}{UTC}

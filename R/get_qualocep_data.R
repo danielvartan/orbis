@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_qualocep_data()` retrieves a validated dataset of Qual o CEP from the
 #' package's [OSF repository](https://osf.io/9ky4g/).
 #'

@@ -36,9 +36,8 @@ the postal codes (default: \code{NA_character}).}
 A \code{\link[base:character]{character}} vector with the formatted address.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
-\code{render_brazil_address()}
+\code{render_brazil_address()} returns a vector with formatted Brazilian
+addresses.
 }
 \examples{
 render_brazil_address(

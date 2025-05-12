@@ -39,8 +39,6 @@ A \code{\link[tibble:tibble]{tibble}} with the following columns:
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_brazil_municipality()} returns a \code{\link[tibble:tibble]{tibble}} with data
 about Brazilian municipalities.
 }

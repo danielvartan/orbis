@@ -17,8 +17,6 @@ A \code{\link[base:character]{character}} vector with the longitude of
 Brazilian state capitals.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_brazil_state_longitude()} returns a vector with the longitude of
 Brazilian state capitals.
 }

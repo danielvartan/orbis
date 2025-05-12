@@ -53,16 +53,14 @@ list.
 
 ## License
 
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-10D810.svg)](https://choosealicense.com/licenses/mit/)
+[![](https://img.shields.io/badge/License-MIT-10D810.svg)](https://choosealicense.com/licenses/mit/)
 
 `orbis` code is released under the [MIT
 license](https://opensource.org/license/mit).
 
 ## Contributing
 
-[![Contributor
-Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
+[![](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 
 Contributions are welcome, including bug reports. Take a moment to
 review our [Guidelines for

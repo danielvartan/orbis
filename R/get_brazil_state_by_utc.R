@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_state_by_utc()` returns a vector with the names of
 #' Brazilian states or abbreviations of Brazilian federal units by the
 #' [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)

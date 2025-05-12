@@ -60,8 +60,6 @@ values of the postal codes.
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{get_brazil_address_by_postal_code()} retrieves a Brazilian address based
 on a postal code using
 \href{https://en.wikipedia.org/wiki/Reverse_geocoding}{reverse geocoding}.

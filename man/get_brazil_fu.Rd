@@ -18,8 +18,6 @@ A \code{\link[base:character]{character}} vector with the abbreviations of
 Brazilian federal units.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_brazil_fu()} returns a vector with the abbreviations of
 Brazilian federal units.
 }

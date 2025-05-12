@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_country_names()` returns a vector with the names or codes of all
 #' countries present in the ISO 3166-1 standard.
 #'

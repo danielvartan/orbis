@@ -62,6 +62,10 @@ reference:
   - get_brazil_address_by_postal_code
   - get_qualocep_data
 
+- title: WorldClim
+  contents:
+  - get_wc_url
+
 - title: Utilities
   contents:
   - fix_postal_code

@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_fu()` returns a vector with the abbreviations of
 #' Brazilian federal units.
 #'

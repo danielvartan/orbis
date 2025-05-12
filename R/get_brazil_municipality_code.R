@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_municipality()` returns a vector with codes of the Brazilian
 #' Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) for
 #' Brazilian municipalities.

@@ -59,8 +59,6 @@ values of the postal codes (retrieved using Google Geocoding API).
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_qualocep_data()} retrieves a validated dataset of Qual o CEP from the
 package's \href{https://osf.io/9ky4g/}{OSF repository}.
 }

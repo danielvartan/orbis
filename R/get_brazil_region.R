@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_brazil_region()` returns a vector with the names of
 #' [Brazilian regions](https://en.wikipedia.org/wiki/Regions_of_Brazil).
 #'
