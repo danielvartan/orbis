@@ -34,13 +34,11 @@ navbar:
     articles: ~
 
 reference:
-- title: Geometry
+- title: APIs
   contents:
-  - filter_points_on_land
-
-- title: World
-  contents:
-  - get_country_names
+  - get_brazil_address_by_postal_code
+  - get_qualocep_data
+  - get_sidra_by_year
 
 - title: Brazil
   contents:
@@ -57,14 +55,18 @@ reference:
   - get_brazil_municipality
   - render_brazil_address
 
-- title: API
+- title: Geometry
   contents:
-  - get_brazil_address_by_postal_code
-  - get_qualocep_data
+  - filter_points_on_land
+
+- title: World
+  contents:
+  - get_country_names
 
 - title: WorldClim
   contents:
   - get_wc_url
+  - wc_to_ascii
 
 - title: Utilities
   contents:

@@ -71,4 +71,8 @@ get_wc_url(c("hcd", "hmwd", "fcd"), "5m")
 
 get_wc_osf_id(c("hcd", "hmwd", "fcd"), "5m")
 }
+\seealso{
+Other WorldClim functions: 
+\code{\link{wc_to_ascii}()}
+}
 \concept{WorldClim functions}

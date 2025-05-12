@@ -102,6 +102,24 @@ references:
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.1.4'
 - type: software
+  title: fs
+  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  notes: Imports
+  url: https://fs.r-lib.org
+  repository: https://CRAN.R-project.org/package=fs
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.fs
+  version: '>= 1.6.6'
+- type: software
   title: geobr
   abstract: 'geobr: Download Official Spatial Data Sets of Brazil'
   notes: Imports
@@ -331,6 +349,19 @@ references:
   doi: 10.32614/CRAN.package.sf
   version: '>= 1.0.20'
 - type: software
+  title: sidrar
+  abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
+  notes: Imports
+  url: https://github.com/rpradosiqueira/sidrar/
+  repository: https://CRAN.R-project.org/package=sidrar
+  authors:
+  - family-names: Prado Siqueira
+    given-names: Renato
+    email: rpradosiqueira@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.sidrar
+  version: '>= 0.2.9'
+- type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
   notes: Imports
@@ -343,6 +374,20 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.stringr
   version: '>= 1.5.1'
+- type: software
+  title: terra
+  abstract: 'terra: Spatial Data Analysis'
+  notes: Imports
+  url: https://rspatial.org/
+  repository: https://CRAN.R-project.org/package=terra
+  authors:
+  - family-names: Hijmans
+    given-names: Robert J.
+    email: r.hijmans@gmail.com
+    orcid: https://orcid.org/0000-0001-5872-2872
+  year: '2025'
+  doi: 10.32614/CRAN.package.terra
+  version: '>= 1.8.42'
 - type: software
   title: tidygeocoder
   abstract: 'tidygeocoder: Geocoding Made Easy'
@@ -422,23 +467,19 @@ references:
   doi: 10.32614/CRAN.package.covr
   version: '>= 3.6.4'
 - type: software
-  title: fs
-  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  title: curl
+  abstract: 'curl: A Modern and Flexible Web Client for R'
   notes: Suggests
-  url: https://fs.r-lib.org
-  repository: https://CRAN.R-project.org/package=fs
+  url: https://jeroen.r-universe.dev/curl
+  repository: https://CRAN.R-project.org/package=curl
   authors:
-  - family-names: Hester
-    given-names: Jim
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Csárdi
-    given-names: Gábor
-    email: csardi.gabor@gmail.com
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
-  doi: 10.32614/CRAN.package.fs
-  version: '>= 1.6.6'
+  doi: 10.32614/CRAN.package.curl
+  version: '>= 6.2.2'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -453,6 +494,19 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.knitr
   version: '>= 1.50'
+- type: software
+  title: rvest
+  abstract: 'rvest: Easily Harvest (Scrape) Web Pages'
+  notes: Suggests
+  url: https://rvest.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=rvest
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.rvest
+  version: '>= 1.0.4'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
@@ -500,4 +554,17 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.tibble
   version: '>= 3.2.1'
+- type: software
+  title: zip
+  abstract: 'zip: Cross-Platform ''zip'' Compression'
+  notes: Suggests
+  url: https://r-lib.github.io/zip/
+  repository: https://CRAN.R-project.org/package=zip
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.zip
+  version: '>= 2.3.2'
 
