@@ -38,7 +38,7 @@ remotes::install_github("danielvartan/orbis")
 such as:
 
 - [`filter_points_on_land`](https://danielvartan.github.io/orbis/reference/Filter_points_on_land.html):
-  filters latitude/longitude points that intersects with a given
+  Filters latitude/longitude points that intersects with a given
   [`sf`](https://r-spatial.github.io/sf/) geometry.
 - [`get_country_names`](https://danielvartan.github.io/orbis/reference/get_country_names.html):
   Get names or codes of all countries present in the [ISO

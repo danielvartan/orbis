@@ -59,7 +59,7 @@ remotes::install_github("danielvartan/orbis")
 
 `orbis` is equipped with several functions to help with your analysis, such as:
 
-- [`filter_points_on_land`](https://danielvartan.github.io/orbis/reference/Filter_points_on_land.html): filters latitude/longitude points that intersects with a given [`sf`](https://r-spatial.github.io/sf/) geometry.
+- [`filter_points_on_land`](https://danielvartan.github.io/orbis/reference/Filter_points_on_land.html): Filters latitude/longitude points that intersects with a given [`sf`](https://r-spatial.github.io/sf/) geometry.
 - [`get_country_names`](https://danielvartan.github.io/orbis/reference/get_country_names.html): Get names or codes of all countries present in the [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) standard.
 - [`get_brazil_region`](https://danielvartan.github.io/orbis/reference/get_brazil_region.html): Get Brazilian regions.
 - [`get_brazil_fu`](https://danielvartan.github.io/orbis/reference/get_brazil_fu.html): Get Brazilian federative unit abbreviations.
