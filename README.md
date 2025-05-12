@@ -19,6 +19,10 @@ MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense
 `orbis` is an R package that offers a comprehensive suite of tools for
 simplifying spatial data analysis.
 
+> If you find this project useful, please consider giving it a star!  
+> [![GitHub repo
+> stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
+
 ## Installation
 
 You can install `orbis` using the
@@ -63,7 +67,9 @@ list.
 [![](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 `orbis` code is released under the [MIT
-license](https://opensource.org/license/mit).
+license](https://opensource.org/license/mit). This means you can use,
+modify, and distribute the code as long as you include the original
+license in any copies of the software that you distribute.
 
 ## Contributing
 
