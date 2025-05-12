@@ -46,10 +46,12 @@ A \code{\link[base:character]{character}} vector containing the file paths
 of the converted ASCII files.
 }
 \description{
-\code{wc_to_ascii()} facilitates the conversion of one or more WorldClim GeoTIFF
-(\code{.tif}) files to ASCII raster (\code{.asc}) format. Optionally, rasters can be
-cropped and/or aggregated using a provided polygon of class
-\code{\link[terra:SpatVector-class]{SpatVector}}.
+\code{wc_to_ascii()} facilitates the conversion of one or more
+\href{https://worldclim.org/}{WorldClim}
+\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to
+\href{https://en.wikipedia.org/wiki/Esri_grid}{ASCII} raster format.
+Optionally, rasters can be cropped and/or aggregated using a provided polygon
+of class \code{\link[terra:SpatVector-class]{SpatVector}}.
 }
 \examples{
 \dontrun{

@@ -2,10 +2,12 @@
 #'
 #' @description
 #'
-#' `wc_to_ascii()` facilitates the conversion of one or more WorldClim GeoTIFF
-#' (`.tif`) files to ASCII raster (`.asc`) format. Optionally, rasters can be
-#' cropped and/or aggregated using a provided polygon of class
-#' [`SpatVector`][terra::SpatVector-class].
+#' `wc_to_ascii()` facilitates the conversion of one or more
+#' [WorldClim](https://worldclim.org/)
+#' [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to
+#' [ASCII](https://en.wikipedia.org/wiki/Esri_grid) raster format.
+#' Optionally, rasters can be cropped and/or aggregated using a provided polygon
+#' of class [`SpatVector`][terra::SpatVector-class].
 #'
 #' @param file A [`character`][base::character()] vector of file paths to the
 #'   WorldClim GeoTIFF files to be converted. The files must have a `.tif`

@@ -461,7 +461,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "700.708KB",
+  "fileSize": "700.968KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -482,7 +482,7 @@
   ],
   "releaseNotes": "https://github.com/danielvartan/orbis/blob/master/NEWS.md",
   "readme": "https://github.com/danielvartan/orbis/blob/main/README.md",
-  "contIntegration": ["https://github.com/danielvartan/orbis/actions/workflows/check-standard.yaml", "https://app.codecov.io/gh/danielvartan/orbis?branch=main"],
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html#maturing"],
+  "contIntegration": ["https://github.com/danielvartan/orbis/actions", "https://app.codecov.io/gh/danielvartan/orbis"],
+  "developmentStatus": "https://www.repostatus.org/#active",
   "keywords": ["api-client", "brazil", "r", "rstats", "spatial-data", "worldclim"]
 }
