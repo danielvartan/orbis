@@ -5,13 +5,17 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Convert WorldClim GeoTIFF files to ASCII format — wc_to_ascii"><meta name="description" content="wc_to_ascii() facilitates the conversion of one or more WorldClim GeoTIFF
-(.tif) files to ASCII raster (.asc) format. Optionally, rasters can be
-cropped and/or aggregated using a provided polygon of class
-SpatVector."><meta property="og:description" content="wc_to_ascii() facilitates the conversion of one or more WorldClim GeoTIFF
-(.tif) files to ASCII raster (.asc) format. Optionally, rasters can be
-cropped and/or aggregated using a provided polygon of class
-SpatVector."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="{orbis}"></head><body>
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Convert WorldClim GeoTIFF files to ASCII format — wc_to_ascii"><meta name="description" content="wc_to_ascii() facilitates the conversion of one or more
+WorldClim
+GeoTIFF files to
+ASCII raster format.
+Optionally, rasters can be cropped and/or aggregated using a provided polygon
+of class SpatVector."><meta property="og:description" content="wc_to_ascii() facilitates the conversion of one or more
+WorldClim
+GeoTIFF files to
+ASCII raster format.
+Optionally, rasters can be cropped and/or aggregated using a provided polygon
+of class SpatVector."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="{orbis}"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -51,10 +55,12 @@ SpatVector."><meta property="og:image" content="https://danielvartan.github.io/o
     </div>
 
     <div class="ref-description section level2">
-    <p><code>wc_to_ascii()</code> facilitates the conversion of one or more WorldClim GeoTIFF
-(<code>.tif</code>) files to ASCII raster (<code>.asc</code>) format. Optionally, rasters can be
-cropped and/or aggregated using a provided polygon of class
-<code><a href="https://rspatial.github.io/terra/reference/SpatVector-class.html" class="external-link">SpatVector</a></code>.</p>
+    <p><code>wc_to_ascii()</code> facilitates the conversion of one or more
+<a href="https://worldclim.org/" class="external-link">WorldClim</a>
+<a href="https://en.wikipedia.org/wiki/GeoTIFF" class="external-link">GeoTIFF</a> files to
+<a href="https://en.wikipedia.org/wiki/Esri_grid" class="external-link">ASCII</a> raster format.
+Optionally, rasters can be cropped and/or aggregated using a provided polygon
+of class <code><a href="https://rspatial.github.io/terra/reference/SpatVector-class.html" class="external-link">SpatVector</a></code>.</p>
     </div>
 
     <div class="section level2">
@@ -148,7 +154,7 @@ of the converted ASCII files.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">zip_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/curl_download.html" class="external-link">curl_download</a></span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">zip_file</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/curl/man/curl_download.html" class="external-link">curl_download</a></span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">zip_file</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">zip_file</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>    <span class="fu">zip</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/zip/reference/unzip.html" class="external-link">unzip</a></span><span class="op">(</span>exdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
