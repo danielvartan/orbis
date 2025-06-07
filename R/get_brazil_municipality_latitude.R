@@ -13,7 +13,8 @@
 #' @return A [`numeric`][base::numeric] vector with the latitude of the
 #'   Brazilian municipalities.
 #'
-#' @inheritParams get_brazil_municipality get_brazil_municipality_code
+#' @inheritParams get_brazil_municipality
+#' @inheritParams get_brazil_municipality_code
 #' @template details_brazil_b
 #' @family Brazil functions
 #' @export

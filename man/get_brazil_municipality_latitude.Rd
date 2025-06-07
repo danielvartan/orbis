@@ -7,6 +7,7 @@
 get_brazil_municipality_latitude(
   municipality_code,
   year = lubridate::year(Sys.Date()),
+  coords_method = "geobr",
   names = TRUE,
   ...
 )
@@ -20,6 +21,16 @@ to obtain codes from municipality names and states.}
 \item{year}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 indicating the year of the data regarding the municipalities
 (default: \code{Sys.Date() |> lubridate::year()}).}
+
+\item{coords_method}{(optional) A string indicating the method to retrieve
+the latitude and longitude coordinates of the municipalities. Options are:
+\itemize{
+\item \code{"geobr"}: Uses \code{\link[geobr:read_municipal_seat]{read_municipal_seat()}}
+from the \code{\link[geobr:geobr]{geobr}} package to retrieve the coordinates.
+\item \code{"geocodebr"}: Uses the \code{\link[geocodebr:geocode]{geocode()}} from the
+\code{\link[geocodebr:geocodebr]{geocodebr}} package to retrieve the coordinates.
+(default: \code{"geobr"}).
+}}
 
 \item{names}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to return the names of the municipalities as names of the

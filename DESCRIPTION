@@ -28,7 +28,6 @@ Imports:
     glue (>= 1.8.0),
     groomr,
     ISOcodes (>= 2025.5.18),
-    jsonlite (>= 2.0.0),
     lifecycle (>= 1.0.4),
     lubridate (>= 1.9.4),
     magrittr (>= 2.0.3),

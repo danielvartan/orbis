@@ -73,8 +73,4 @@ Please note the year of the pattern. Some values could be
   get_qualocep_data()
 }
 }
-\seealso{
-Other API functions: 
-\code{\link{get_brazil_address_by_postal_code}()}
-}
 \concept{API functions}

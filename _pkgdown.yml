@@ -36,7 +36,6 @@ navbar:
 reference:
 - title: APIs
   contents:
-  - get_brazil_address_by_postal_code
   - get_qualocep_data
   - get_sidra_by_year
 
