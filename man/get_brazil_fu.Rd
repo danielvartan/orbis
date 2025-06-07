@@ -60,6 +60,9 @@ Instituto Brasileiro de Geografia e Estatística. (n.d.). \emph{Território}
 Other Brazil functions: 
 \code{\link{get_brazil_municipality}()},
 \code{\link{get_brazil_municipality_code}()},
+\code{\link{get_brazil_municipality_coords}()},
+\code{\link{get_brazil_municipality_latitude}()},
+\code{\link{get_brazil_municipality_longitude}()},
 \code{\link{get_brazil_region}()},
 \code{\link{get_brazil_region_code}()},
 \code{\link{get_brazil_state}()},

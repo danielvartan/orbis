@@ -9,6 +9,8 @@
 #' @param names (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to return the names of the municipalities as names of the
 #'   vector (default: `TRUE`).
+#' @param ... (optional) Additional arguments passed to
+#'   [`get_brazil_municipality()`][get_brazil_municipality].
 #'
 #' @return An [`integer`][base::integer()] vector with the IBGE codes of
 #'   Brazilian municipalities.
@@ -27,19 +29,17 @@
 #'
 #' get_brazil_municipality_code(municipality = c("Rio de Janeiro", "São Paulo"))
 get_brazil_municipality_code <- function(
-    municipality, # nolint
-    state = NULL,
-    year = 2017,
-    names = TRUE
-  ) {
+  municipality,
+  state = NULL,
+  year = Sys.Date() |> lubridate::year(),
+  names = TRUE,
+  ...
+) {
   prettycheck::assert_internet()
   checkmate::assert_character(municipality)
   checkmate::assert_character(state, null.ok = TRUE)
-  checkmate::assert_int(
-    year,
-    lower = 1900,
-    upper = Sys.Date() |> lubridate::year()
-  )
+  checkmate::assert_integerish(year)
+  checkmate::assert_character(as.character(year), pattern = "^[0-9]{4}$")
   checkmate::assert_flag(names)
 
   # R CMD Check variable bindings fix
@@ -47,7 +47,7 @@ get_brazil_municipality_code <- function(
   municipality_code <- federal_unit <- NULL
   # nolint end
 
-  out <- get_brazil_municipality(municipality, state, year = year)
+  out <- get_brazil_municipality(municipality, state, year = year, ...)
 
   if (isTRUE(names)) {
     out |>

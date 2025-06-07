@@ -65,27 +65,11 @@ testthat::test_that("get_brazil_municipality() | Error test", {
   ) |>
     testthat::expect_error()
 
-  # checkmate::assert_int( ...
+  # checkmate::assert_integerish(year)
   get_brazil_municipality(
     municipality = NULL,
     state = NULL,
     year = 1.5,
-    force = FALSE
-  ) |>
-    testthat::expect_error()
-
-  get_brazil_municipality(
-    municipality = NULL,
-    state = NULL,
-    year = 1899,
-    force = FALSE
-  ) |>
-    testthat::expect_error()
-
-  get_brazil_municipality(
-    municipality = NULL,
-    state = NULL,
-    year = 3000,
     force = FALSE
   ) |>
     testthat::expect_error()

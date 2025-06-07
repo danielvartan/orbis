@@ -48,7 +48,7 @@ uncheck it, reload the page, and click the share button again.
 You need to provide the function with separate parts of the API URL. For
 example:
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{|-------- Start ------|--- Years ----|----- End -----|
+\if{html}{\out{<div class="sourceCode text">}}\preformatted{|-------- Start ------|--- Years ----|----- End -----|
 /t/6407/n6/all/v/606/p/2021,2022,2023/c2/6794/c58/1140
 }\if{html}{\out{</div>}}
 

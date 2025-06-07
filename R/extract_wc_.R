@@ -1,25 +1,31 @@
+extract_wc_variable <- function(file) {
+  checkmate::assert_character(file)
+
+  file |> stringr::str_extract("(?<=(m|s)_)[a-z]*(?=_)")
+}
+
 extract_wc_resolution <- function(file) {
   checkmate::assert_character(file)
 
-  file |> stringr::str_extract("(?<=wc2.1_).*(?=_)")
+  file |> stringr::str_extract("(?<=wc2.1_).*(m|s)(?=_)")
 }
 
 extract_wc_month <- function(file) {
   checkmate::assert_character(file)
 
-  file |> stringr::str_extract("(?<=-)[0-9]{2}(?=.asc)")
+  file |> stringr::str_extract("(?<=-)[0-9]{2}(?=.[A-Za-z])")
 }
 
 extract_wc_year <- function(file) {
   checkmate::assert_character(file)
 
-  file |> stringr::str_extract("(?<=_)[0-9]{4}(?=-[0-9]{2}.asc)")
+  file |> stringr::str_extract("(?<=_)[0-9]{4}(?=-[0-9]{2}.[A-Za-z])")
 }
 
 extract_wc_year_month <- function(file) {
   checkmate::assert_character(file)
 
-  file |> stringr::str_extract("(?<=_)[0-9]{4}-[0-9]{2}(?=.asc)")
+  file |> stringr::str_extract("(?<=_)[0-9]{4}-[0-9]{2}(?=.[A-Za-z])")
 }
 
 extract_wc_year_group <- function(file) {

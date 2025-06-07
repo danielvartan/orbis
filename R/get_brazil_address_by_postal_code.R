@@ -2,6 +2,10 @@
 #'
 #' @description
 #'
+#' **Note**: The [`geocodebr`][geocodebr::geocodebr] package is now the
+#' recommended way to retrieve Brazilian addresses by postal code. It is
+#' faster and more efficient than this function.
+#'
 #' `get_brazil_address_by_postal_code()` retrieves a Brazilian address based
 #' on a postal code using
 #' [reverse geocoding](https://en.wikipedia.org/wiki/Reverse_geocoding).

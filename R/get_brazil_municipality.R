@@ -12,7 +12,14 @@
 #'   name of the states (default: `NULL`).
 #' @param year (optional) An [`integerish`][checkmate::test_int] number
 #'   indicating the year of the data regarding the municipalities
-#'   (default: `2017`).
+#'   (default: `Sys.Date() |> lubridate::year()`).
+#' @param coords_method (optional) A string indicating the method to retrieve
+#'   the latitude and longitude coordinates of the municipalities. Options are:
+#'   - `"geobr"`: Uses [`read_municipal_seat()`][geobr::read_municipal_seat]
+#'     from the [`geobr`][geobr::geobr] package to retrieve the coordinates.
+#'   - `"geocodebr"`: Uses the [`geocode()`][geocodebr::geocode] from the
+#'     [`geocodebr`][geocodebr::geocodebr] package to retrieve the coordinates.
+#'  (default: `"geobr"`).
 #' @param force (optional) A [`logical`][base::logical] flag indicating
 #'   whether to force the download of the data again (default: `FALSE`).
 #'
@@ -24,8 +31,10 @@
 #'   - `federal_unit`: The state abbreviation.
 #'   - `municipality_code`: The municipality code.
 #'   - `municipality`: The municipality name.
+#'   - `latitude`: The municipality latitude.
+#'   - `longitude`: The municipality longitude.
 #'
-#' @template details_brazil_b
+#' @template details_brazil_c
 #' @family Brazil functions
 #' @export
 #'
@@ -40,17 +49,16 @@
 get_brazil_municipality <- function(
   municipality = NULL,
   state = NULL,
-  year = 2017,
+  year = Sys.Date() |> lubridate::year(),
+  coords_method = "geobr",
   force = FALSE
 ) {
   prettycheck::assert_internet()
   checkmate::assert_character(municipality, null.ok = TRUE)
   checkmate::assert_character(state, null.ok = TRUE)
-  checkmate::assert_int(
-    year,
-    lower = 1900,
-    upper = Sys.Date() |> lubridate::year()
-  )
+  checkmate::assert_integerish(year)
+  checkmate::assert_character(as.character(year), pattern = "^[0-9]{4}$")
+  checkmate::assert_choice(coords_method, c("geobr", "geocodebr"))
   checkmate::assert_flag(force)
 
   # R CMD Check variable bindings fix
@@ -70,14 +78,19 @@ get_brazil_municipality <- function(
     tempdir(), paste0("brazil-municipalities-", year, ".rds")
   )
 
-  if (checkmate::test_file_exists(brazil_municipalities_file) &&
-        isFALSE(force)) {
+  if (
+    checkmate::test_file_exists(brazil_municipalities_file) &&
+      isFALSE(force)
+  ) {
     brazil_municipalities_data <- readr::read_rds(brazil_municipalities_file)
   } else {
     brazil_municipalities_data <-
       geobr::read_municipality(
-        year = year,
-        showProgress = FALSE
+        year =
+          year |> #nolint
+          get_closest_geobr_year(type = "municipality"),
+        showProgress = FALSE,
+        cache = !force
       ) |>
       dplyr::as_tibble() |>
       dplyr::select(
@@ -129,8 +142,19 @@ get_brazil_municipality <- function(
         federal_unit,
         municipality_code,
         municipality
-      ) |>
-      shush()
+      )
+
+    brazil_municipalities_data <-
+      brazil_municipalities_data |>
+      dplyr::left_join(
+        get_brazil_municipality_coords(
+          year = year,
+          coords_method = coords_method,
+          force = force
+        ) |>
+          shush(ifelse(coords_method == "geobr", TRUE, FALSE)),
+        by = "municipality_code"
+      )
 
     readr::write_rds(brazil_municipalities_data, brazil_municipalities_file)
   }

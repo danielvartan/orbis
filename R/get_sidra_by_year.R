@@ -27,7 +27,7 @@
 #' You need to provide the function with separate parts of the API URL. For
 #' example:
 #'
-#' ```
+#' ```text
 #' |-------- Start ------|--- Years ----|----- End -----|
 #' /t/6407/n6/all/v/606/p/2021,2022,2023/c2/6794/c58/1140
 #' ```

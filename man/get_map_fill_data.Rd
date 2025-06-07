@@ -52,6 +52,7 @@ get_map_fill_data(data, col_fill = "value", col_code = "state")
 }
 \seealso{
 Other utility functions: 
-\code{\link{fix_postal_code}()}
+\code{\link{fix_postal_code}()},
+\code{\link{get_closest_geobr_year}()}
 }
 \concept{utility functions}

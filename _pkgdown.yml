@@ -53,6 +53,9 @@ reference:
   - get_brazil_fu
   - get_brazil_municipality_code
   - get_brazil_municipality
+  - get_brazil_municipality_coords
+  - get_brazil_municipality_latitude
+  - get_brazil_municipality_longitude
   - render_brazil_address
 
 - title: Geometry
@@ -71,6 +74,7 @@ reference:
 - title: Utilities
   contents:
   - fix_postal_code
+  - get_closest_geobr_year
   - get_map_fill_data
 
 authors:

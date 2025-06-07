@@ -73,7 +73,7 @@
       "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
-      "version": ">= 6.2.2",
+      "version": ">= 6.2.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -94,6 +94,19 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "geocodebr",
+      "name": "geocodebr",
+      "version": ">= 0.2.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=geocodebr"
     },
     {
       "@type": "SoftwareApplication",
@@ -151,7 +164,7 @@
       "@type": "SoftwareApplication",
       "identifier": "zip",
       "name": "zip",
-      "version": ">= 2.3.2",
+      "version": ">= 2.3.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -256,7 +269,7 @@
       "@type": "SoftwareApplication",
       "identifier": "ISOcodes",
       "name": "ISOcodes",
-      "version": ">= 2024.2.12",
+      "version": ">= 2025.5.18",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -385,7 +398,7 @@
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
-      "version": ">= 1.0.20",
+      "version": ">= 1.0.21",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -424,7 +437,7 @@
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
-      "version": ">= 1.8.42",
+      "version": ">= 1.8.50",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -461,7 +474,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "701.301KB",
+  "fileSize": "706.098KB",
   "citation": [
     {
       "@type": "CreativeWork",
