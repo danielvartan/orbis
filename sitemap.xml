@@ -13,6 +13,9 @@
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_fu.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality_code.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality_coords.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality_latitude.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_municipality_longitude.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_region.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_region_code.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_state.html</loc></url>
@@ -21,6 +24,7 @@
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_state_code.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_state_latitude.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_brazil_state_longitude.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/get_closest_geobr_year.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_country_names.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_map_fill_data.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/get_qualocep_data.html</loc></url>
