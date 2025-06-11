@@ -69,8 +69,11 @@ of class <code><a href="https://rspatial.github.io/terra/reference/SpatVector-cl
 <span>  <span class="va">file</span>,</span>
 <span>  dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">file</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
 <span>  shape <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  box <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  dateline_fix <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  aggregate <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  overwrite <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dx <span class="op">=</span> <span class="op">-</span><span class="fl">45</span>,</span>
 <span>  na_flag <span class="op">=</span> <span class="op">-</span><span class="fl">9999</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -97,6 +100,20 @@ representing the polygon to crop the raster data. The function will crop
 the raster data to the extent of this polygon (default: <code>NULL</code>).</p></dd>
 
 
+<dt id="arg-box">box<a class="anchor" aria-label="anchor" href="#arg-box"></a></dt>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> vector of length 4
+specifying the bounding box for cropping the raster data in the format
+<code>c(xmin, ymin, xmax, ymax)</code> (default: <code>NULL</code>).</p></dd>
+
+
+<dt id="arg-dateline-fix">dateline_fix<a class="anchor" aria-label="anchor" href="#arg-dateline-fix"></a></dt>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> flag indicating
+whether to apply a dateline fix to the raster data. This is particularly
+useful when working with rasters and vectors that span the dateline (e.g.
+the Russian territory). See <code><a href="shift_and_crop.html">shift_and_crop</a></code> to learn more
+(default: <code>TRUE</code>).</p></dd>
+
+
 <dt id="arg-aggregate">aggregate<a class="anchor" aria-label="anchor" href="#arg-aggregate"></a></dt>
 <dd><p>(optional) An <code><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></code> value specifying
 the aggregation factor. The function will aggregate the raster data by this
@@ -108,6 +125,12 @@ factor. See <code><a href="https://rspatial.github.io/terra/reference/aggregate.
 <dd><p>(optional) A <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> flag indicating
 whether to overwrite existing files in the output directory
 (default: <code>TRUE</code>).</p></dd>
+
+
+<dt id="arg-dx">dx<a class="anchor" aria-label="anchor" href="#arg-dx"></a></dt>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying the
+horizontal distance in degrees to shift the raster data. This is only
+relevant if <code>dateline_fix</code> is set to <code>TRUE</code> (default: <code>-45</code>).</p></dd>
 
 
 <dt id="arg-na-flag">na_flag<a class="anchor" aria-label="anchor" href="#arg-na-flag"></a></dt>
