@@ -35,20 +35,29 @@ navbar:
 
 reference:
 - title: Rasters
+  desc: >
+    Functions to manipulate [`SpatRaster`][terra::SpatRaster] objects.
   contents:
   - shift_and_crop
   - shift_and_rotate
 
-- title: Points
+- title: Vectors
+  desc: >
+    Functions to manipulate [`SpatVector`][terra::SpatVector] and
+    [`sf`][sf::sf] objects.
   contents:
   - filter_points_on_land
 
 - title: APIs
+  desc: >
+    Client functions for accessing external data sources via APIs.
   contents:
   - get_qualocep_data
   - get_sidra_by_year
 
 - title: Brazil
+  desc: >
+    Functions to access Brazilian geographic and administrative data.
   contents:
   - get_brazil_region_code
   - get_brazil_region
@@ -67,15 +76,21 @@ reference:
   - render_brazil_address
 
 - title: World
+  desc: >
+    Functions to access geographic and administrative data for the world.
   contents:
   - get_country_names
 
 - title: WorldClim
+  desc: >
+    Functions to access and manipulate [WorldClim](https://worldclim.org/) data.
   contents:
   - get_wc_url
   - wc_to_ascii
 
 - title: Utilities
+  desc: >
+    Miscellaneous utility functions for spatial data manipulation.
   contents:
   - fix_postal_code
   - get_closest_geobr_year
@@ -86,5 +101,5 @@ authors:
     href: https://github.com/danielvartan/
 
 development:
-  mode: auto
+  mode: unreleased
   version_label: warning

@@ -29,6 +29,7 @@ library(terra)
 
 cat(
   badger::badge_repostatus("active"),
+  badger::badge_cran_release(),
   badger::badge_github_actions(action = "R-CMD-check.yaml"),
   badger::badge_codecov() |> rutils::shush(),
   badger::badge_license(
