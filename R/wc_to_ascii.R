@@ -17,6 +17,14 @@
 #' @param shape (optional) A [`SpatVector`][terra::SpatVector-class] object
 #'   representing the polygon to crop the raster data. The function will crop
 #'   the raster data to the extent of this polygon (default: `NULL`).
+#' @param box (optional) A [`numeric`][base::numeric()] vector of length 4
+#'   specifying the bounding box for cropping the raster data in the format
+#'   `c(xmin, ymin, xmax, ymax)` (default: `NULL`).
+#' @param dateline_fix (optional) A [`logical`][base::logical()] flag indicating
+#'   whether to apply a dateline fix to the raster data. This is particularly
+#'   useful when working with rasters and vectors that span the dateline (e.g.
+#'   the Russian territory). See [`shift_and_crop`] to learn more
+#'   (default: `TRUE`).
 #' @param aggregate (optional) An [`integer`][base::integer()] value specifying
 #'   the aggregation factor. The function will aggregate the raster data by this
 #'   factor. See [`aggregate()`][terra::aggregate()] for more details
@@ -24,6 +32,9 @@
 #' @param overwrite (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to overwrite existing files in the output directory
 #'   (default: `TRUE`).
+#' @param dx (optional) A [`numeric`][base::numeric()] value specifying the
+#'   horizontal distance in degrees to shift the raster data. This is only
+#'   relevant if `dateline_fix` is set to `TRUE` (default: `-45`).
 #' @param na_flag (optional) An [`integer`][base::integer()] value specifying
 #'   the NoData value for the output ASCII files (default: `-9999`).
 #' @param ... Additional arguments passed to
@@ -78,17 +89,23 @@ wc_to_ascii <- function(
   file,
   dir = dirname(file[1]),
   shape = NULL,
+  box = NULL,
+  dateline_fix = TRUE,
   aggregate = NULL,
   overwrite = TRUE,
+  dx = -45,
   na_flag = -9999, # ESRI default
   ...
 ) {
   checkmate::assert_character(file)
   checkmate::assert_file_exists(file, access = "r", extension = "tif")
   checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
+  checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
+  checkmate::assert_flag(dateline_fix)
   checkmate::assert_int(aggregate, null.ok = TRUE)
   checkmate::assert_directory_exists(dir, access = "rw")
   checkmate::assert_flag(overwrite)
+  checkmate::assert_number(dx, finite = TRUE)
   checkmate::assert_int(na_flag)
 
   # R CMD Check variable bindings fix
@@ -105,6 +122,23 @@ wc_to_ascii <- function(
           "See the {.strong terra} R package for more details."
         )
       )
+    }
+  }
+
+  if (!is.null(shape)) {
+    shape_x_min <- round(terra::ext(shape)[1])
+    shape_x_max <- round(terra::ext(shape)[2])
+
+    if (
+      isTRUE(dateline_fix) &&
+        shape_x_min == -180 &&
+        shape_x_max == 180
+    ) {
+      cli::cli_progress_step(
+        "Applying dateline fix to {.strong {cli::col_blue('shape')}}."
+      )
+
+      shape <- shape |> shift_and_rotate(dx = dx)
     }
   }
 
@@ -157,6 +191,14 @@ wc_to_ascii <- function(
     data_i <- i |> terra::rast()
 
     if (!is.null(shape)) {
+      if (
+        isTRUE(dateline_fix) &&
+          shape_x_min == -180 &&
+          shape_x_max == 180
+      ) {
+        data_i <- data_i |> shift_and_rotate(dx = dx)
+      }
+
       data_i <-
         data_i |>
         terra::crop(
@@ -167,6 +209,8 @@ wc_to_ascii <- function(
           extend = TRUE
         )
     }
+
+    if (!is.null(box)) data_i <- data_i |> terra::crop(box)
 
     if (!is.null(aggregate)) {
       data_i <- data_i |> terra::aggregate(fact = aggregate)

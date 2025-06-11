@@ -6,3 +6,14 @@ groomr
 rutils
 Codecov
 danielvartan
+dplyr
+fs
+readr
+terra
+sidra
+SIDRA
+tibble
+rnorm
+rast
+xyz
+gadm

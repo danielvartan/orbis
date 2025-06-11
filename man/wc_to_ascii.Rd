@@ -8,8 +8,11 @@ wc_to_ascii(
   file,
   dir = dirname(file[1]),
   shape = NULL,
+  box = NULL,
+  dateline_fix = TRUE,
   aggregate = NULL,
   overwrite = TRUE,
+  dx = -45,
   na_flag = -9999,
   ...
 )
@@ -26,6 +29,16 @@ directory for the converted ASCII files (default: \code{dirname(file[1])}).}
 representing the polygon to crop the raster data. The function will crop
 the raster data to the extent of this polygon (default: \code{NULL}).}
 
+\item{box}{(optional) A \code{\link[base:numeric]{numeric}} vector of length 4
+specifying the bounding box for cropping the raster data in the format
+\code{c(xmin, ymin, xmax, ymax)} (default: \code{NULL}).}
+
+\item{dateline_fix}{(optional) A \code{\link[base:logical]{logical}} flag indicating
+whether to apply a dateline fix to the raster data. This is particularly
+useful when working with rasters and vectors that span the dateline (e.g.
+the Russian territory). See \code{\link{shift_and_crop}} to learn more
+(default: \code{TRUE}).}
+
 \item{aggregate}{(optional) An \code{\link[base:integer]{integer}} value specifying
 the aggregation factor. The function will aggregate the raster data by this
 factor. See \code{\link[terra:aggregate]{aggregate()}} for more details
@@ -34,6 +47,10 @@ factor. See \code{\link[terra:aggregate]{aggregate()}} for more details
 \item{overwrite}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to overwrite existing files in the output directory
 (default: \code{TRUE}).}
+
+\item{dx}{(optional) A \code{\link[base:numeric]{numeric}} value specifying the
+horizontal distance in degrees to shift the raster data. This is only
+relevant if \code{dateline_fix} is set to \code{TRUE} (default: \code{-45}).}
 
 \item{na_flag}{(optional) An \code{\link[base:integer]{integer}} value specifying
 the NoData value for the output ASCII files (default: \code{-9999}).}
