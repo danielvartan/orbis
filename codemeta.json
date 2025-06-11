@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/danielvartan/orbis/",
   "issueTracker": "https://github.com/danielvartan/orbis/issues/",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.0",
+  "version": "0.1.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -474,7 +474,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "947.463KB",
+  "fileSize": "938.143KB",
   "citation": [
     {
       "@type": "CreativeWork",

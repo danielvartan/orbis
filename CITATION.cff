@@ -8,7 +8,7 @@ message: 'To cite package "orbis" in publications use:'
 type: software
 license: MIT
 title: 'orbis: Spatial Data Analysis Tools'
-version: 0.1.0
+version: 0.1.0.9000
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
