@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_closest_geobr_year.R
 \name{get_closest_geobr_year}
 \alias{get_closest_geobr_year}
-\title{Get the closest year available in \code{geobr} package}
+\title{Get the closest year available in the \code{geobr} package}
 \usage{
 get_closest_geobr_year(year, type = "country", verbose = TRUE)
 }

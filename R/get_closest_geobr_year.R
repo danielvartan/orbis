@@ -1,4 +1,4 @@
-#' Get the closest year available in `geobr` package
+#' Get the closest year available in the `geobr` package
 #'
 #' @description
 #'

@@ -34,6 +34,15 @@ navbar:
     articles: ~
 
 reference:
+- title: Rasters
+  contents:
+  - shift_and_crop
+  - shift_and_rotate
+
+- title: Points
+  contents:
+  - filter_points_on_land
+
 - title: APIs
   contents:
   - get_qualocep_data
@@ -56,10 +65,6 @@ reference:
   - get_brazil_municipality_latitude
   - get_brazil_municipality_longitude
   - render_brazil_address
-
-- title: Geometry
-  contents:
-  - filter_points_on_land
 
 - title: World
   contents:

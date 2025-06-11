@@ -10,8 +10,7 @@ Authors@R: c(
             comment = c(ORCID = "0000-0001-7782-759X")
         )
     )
-Description: A comprehensive suite of tools for simplifying spatial data
-    analysis.
+Description: A suite of tools for simplifying spatial data analysis.
 License: MIT + file LICENSE
 URL: https://danielvartan.github.io/orbis/,
     https://github.com/danielvartan/orbis/
@@ -47,6 +46,7 @@ Suggests:
     bslib (>= 0.9.0),
     covr (>= 3.6.4),
     curl (>= 6.2.3),
+    geodata (>= 0.6.2),
     knitr (>= 1.50),
     rvest (>= 1.0.4),
     spelling (>= 2.3.1),

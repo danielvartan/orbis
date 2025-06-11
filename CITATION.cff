@@ -12,7 +12,7 @@ version: 0.0.0.9000
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
-abstract: A comprehensive suite of tools for simplifying spatial data analysis.
+abstract: A suite of tools for simplifying spatial data analysis.
 authors:
 - family-names: Vartanian
   given-names: Daniel
@@ -136,6 +136,25 @@ references:
   doi: 10.32614/CRAN.package.geobr
   version: '>= 1.9.1'
 - type: software
+  title: geocodebr
+  abstract: 'geocodebr: Geolocalização De Endereços Brasileiros (Geocoding Brazilian
+    Addresses)'
+  notes: Imports
+  url: https://ipeagit.github.io/geocodebr/
+  repository: https://CRAN.R-project.org/package=geocodebr
+  authors:
+  - family-names: Pereira
+    given-names: Rafael H. M.
+    email: rafa.pereira.br@gmail.com
+    orcid: https://orcid.org/0000-0003-2125-7465
+  - family-names: Herszenhut
+    given-names: Daniel
+    email: dhersz@gmail.com
+    orcid: https://orcid.org/0000-0001-8066-1105
+  year: '2025'
+  doi: 10.32614/CRAN.package.geocodebr
+  version: '>= 0.2.0'
+- type: software
   title: glue
   abstract: 'glue: Interpreted String Literals'
   notes: Imports
@@ -178,20 +197,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.ISOcodes
   version: '>= 2025.5.18'
-- type: software
-  title: jsonlite
-  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
-  notes: Imports
-  url: https://jeroen.r-universe.dev/jsonlite
-  repository: https://CRAN.R-project.org/package=jsonlite
-  authors:
-  - family-names: Ooms
-    given-names: Jeroen
-    email: jeroenooms@gmail.com
-    orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2025'
-  doi: 10.32614/CRAN.package.jsonlite
-  version: '>= 2.0.0'
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -481,6 +486,24 @@ references:
   doi: 10.32614/CRAN.package.curl
   version: '>= 6.2.3'
 - type: software
+  title: geodata
+  abstract: 'geodata: Download Geographic Data'
+  notes: Suggests
+  url: https://github.com/rspatial/geodata/issues/
+  repository: https://CRAN.R-project.org/package=geodata
+  authors:
+  - family-names: Hijmans
+    given-names: Robert J.
+  - family-names: Barbosa
+    given-names: Márcia
+  - family-names: Ghosh
+    given-names: Aniruddha
+  - family-names: Mandel
+    given-names: Alex
+  year: '2025'
+  doi: 10.32614/CRAN.package.geodata
+  version: '>= 0.6.2'
+- type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
@@ -494,25 +517,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.knitr
   version: '>= 1.50'
-- type: software
-  title: geocodebr
-  abstract: 'geocodebr: Geolocalização De Endereços Brasileiros (Geocoding Brazilian
-    Addresses)'
-  notes: Suggests
-  url: https://ipeagit.github.io/geocodebr/
-  repository: https://CRAN.R-project.org/package=geocodebr
-  authors:
-  - family-names: Pereira
-    given-names: Rafael H. M.
-    email: rafa.pereira.br@gmail.com
-    orcid: https://orcid.org/0000-0003-2125-7465
-  - family-names: Herszenhut
-    given-names: Daniel
-    email: dhersz@gmail.com
-    orcid: https://orcid.org/0000-0001-8066-1105
-  year: '2025'
-  doi: 10.32614/CRAN.package.geocodebr
-  version: '>= 0.2.0'
 - type: software
   title: rvest
   abstract: 'rvest: Easily Harvest (Scrape) Web Pages'

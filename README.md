@@ -16,8 +16,8 @@ MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense
 
 ## Overview
 
-`orbis` is an R package that offers a comprehensive suite of tools for
-simplifying spatial data analysis.
+`orbis` is an R package that offers a suite of tools for simplifying
+spatial data analysis.
 
 > If you find this project useful, please consider giving it a star!  
 > [![GitHub repo
@@ -40,27 +40,67 @@ such as:
 - [`filter_points_on_land`](https://danielvartan.github.io/orbis/reference/Filter_points_on_land.html):
   Filters latitude/longitude points that intersects with a given
   [`sf`](https://r-spatial.github.io/sf/) geometry.
-- [`get_country_names`](https://danielvartan.github.io/orbis/reference/get_country_names.html):
-  Get names or codes of all countries present in the [ISO
-  3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) standard.
-- [`get_brazil_region`](https://danielvartan.github.io/orbis/reference/get_brazil_region.html):
-  Get Brazilian regions.
-- [`get_brazil_fu`](https://danielvartan.github.io/orbis/reference/get_brazil_fu.html):
-  Get Brazilian federative unit abbreviations.
-- [`get_brazil_state`](https://danielvartan.github.io/orbis/reference/get_brazil_state.html):
-  Get Brazilian state names.
 - [`get_brazil_municipality`](https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html):
   Get Brazilian municipalities data.
 - [`get_sidra_by_year`](https://danielvartan.github.io/orbis/reference/get_sidra_by_year.html):
   Get and aggregate data by year from
   [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
+- [`shift_and_rotate`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html):
+  Shift and rotate raster or vector data.
+- [`shift and_crop`](https://danielvartan.github.io/orbis/reference/shift_and_crop.html):
+  Shift, rotate, and crop a raster using a vector.
 - [`wc_to_ascii`](https://danielvartan.github.io/orbis/reference/wc_to_ascii.html):
   Convert [WorldClim](https://worldclim.org/)
   [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to
   [ASCII](https://en.wikipedia.org/wiki/Esri_grid) raster format.
 
-Click [here](https://danielvartan.github.io/orbis/) to see the full
-list.
+Example:
+
+``` r
+library(dplyr)
+library(geodata)
+library(orbis)
+library(terra)
+```
+
+``` r
+raster <-
+  expand.grid(
+    seq(-179.75, 179.75, by = 0.5),
+    seq(-89.75, 89.75, by = 0.5)
+  ) |>
+  as_tibble() |>
+  rename(x = Var1, y = Var2) |>
+  mutate(value = rnorm(259200)) |>
+  rast(type = "xyz") %>%
+  `crs<-`("epsg:4326")
+
+world_shape <- world(path = tempdir())
+raster <- raster |> crop(world_shape, mask = TRUE)
+
+raster |> plot()
+```
+
+![](man/figures/readme-shift-and-crop-1-1.png)
+
+``` r
+vector <- gadm(country = "rus", level = 0, path = tempdir())
+
+vector |> plot()
+```
+
+![](man/figures/readme-shift-and-crop-2-1.png)
+
+``` r
+raster |>
+  shift_and_crop(vector, dx = -45) |>
+  plot()
+```
+
+![](man/figures/readme-shift-and-crop-3-1.png)
+
+Click [here](https://danielvartan.github.io/orbis/reference/) to see the
+full list of functions.
 
 ## License
 
