@@ -1,4 +1,4 @@
-#' Shift and rotate a raster or vector
+#' Shift and rotate a raster or a vector
 #'
 #' @description
 #'

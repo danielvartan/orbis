@@ -36,15 +36,14 @@ navbar:
 reference:
 - title: Rasters
   desc: >
-    Functions to manipulate [`SpatRaster`][terra::SpatRaster] objects.
+    Functions to manipulate `SpatRaster` objects.
   contents:
   - shift_and_crop
   - shift_and_rotate
 
 - title: Vectors
   desc: >
-    Functions to manipulate [`SpatVector`][terra::SpatVector] and
-    [`sf`][sf::sf] objects.
+    Functions to manipulate `SpatVector` and `sf` objects.
   contents:
   - filter_points_on_land
 

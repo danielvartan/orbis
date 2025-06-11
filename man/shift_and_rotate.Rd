@@ -2,7 +2,7 @@
 % Please edit documentation in R/shift_and_rotate.R
 \name{shift_and_rotate}
 \alias{shift_and_rotate}
-\title{Shift and rotate a raster or vector}
+\title{Shift and rotate a raster or a vector}
 \usage{
 shift_and_rotate(x, dx = -45, precision = 5, overlap_tol = 0.1)
 }
