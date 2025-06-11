@@ -24,8 +24,8 @@
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Spatial Data Analysis Tools">
-<meta name="description" content="A comprehensive suite of tools for simplifying spatial data analysis.">
-<meta property="og:description" content="A comprehensive suite of tools for simplifying spatial data analysis.">
+<meta name="description" content="A suite of tools for simplifying spatial data analysis.">
+<meta property="og:description" content="A suite of tools for simplifying spatial data analysis.">
 <meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png">
 <meta property="og:image:alt" content="{orbis}">
 </head>
@@ -81,7 +81,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p><code>orbis</code> is an R package that offers a comprehensive suite of tools for simplifying spatial data analysis.</p>
+<p><code>orbis</code> is an R package that offers a suite of tools for simplifying spatial data analysis.</p>
 <blockquote>
 <p>If you find this project useful, please consider giving it a star!   <a href="https://github.com/danielvartan/orbis/" class="external-link"><img src="https://img.shields.io/github/stars/danielvartan/orbis" alt="GitHub repo stars"></a></p>
 </blockquote>
@@ -101,21 +101,50 @@
 <li>
 <a href="https://danielvartan.github.io/orbis/reference/Filter_points_on_land.html"><code>filter_points_on_land</code></a>: Filters latitude/longitude points that intersects with a given <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> geometry.</li>
 <li>
-<a href="https://danielvartan.github.io/orbis/reference/get_country_names.html"><code>get_country_names</code></a>: Get names or codes of all countries present in the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3" class="external-link">ISO 3166-1</a> standard.</li>
-<li>
-<a href="https://danielvartan.github.io/orbis/reference/get_brazil_region.html"><code>get_brazil_region</code></a>: Get Brazilian regions.</li>
-<li>
-<a href="https://danielvartan.github.io/orbis/reference/get_brazil_fu.html"><code>get_brazil_fu</code></a>: Get Brazilian federative unit abbreviations.</li>
-<li>
-<a href="https://danielvartan.github.io/orbis/reference/get_brazil_state.html"><code>get_brazil_state</code></a>: Get Brazilian state names.</li>
-<li>
 <a href="https://danielvartan.github.io/orbis/reference/get_brazil_municipality.html"><code>get_brazil_municipality</code></a>: Get Brazilian municipalities data.</li>
 <li>
 <a href="https://danielvartan.github.io/orbis/reference/get_sidra_by_year.html"><code>get_sidra_by_year</code></a>: Get and aggregate data by year from <a href="https://sidra.ibge.gov.br/" class="external-link">SIDRA</a> API (to avoid overloading).</li>
 <li>
+<a href="https://danielvartan.github.io/orbis/reference/shift_and_rotate.html"><code>shift_and_rotate</code></a>: Shift and rotate raster or vector data.</li>
+<li>
+<a href="https://danielvartan.github.io/orbis/reference/shift_and_crop.html"><code>shift and_crop</code></a>: Shift, rotate, and crop a raster using a vector.</li>
+<li>
 <a href="https://danielvartan.github.io/orbis/reference/wc_to_ascii.html"><code>wc_to_ascii</code></a>: Convert <a href="https://worldclim.org/" class="external-link">WorldClim</a> <a href="https://en.wikipedia.org/wiki/GeoTIFF" class="external-link">GeoTIFF</a> files to <a href="https://en.wikipedia.org/wiki/Esri_grid" class="external-link">ASCII</a> raster format.</li>
 </ul>
-<p>Click <a href="https://danielvartan.github.io/orbis/">here</a> to see the full list.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">geodata</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danielvartan.github.io/orbis/">orbis</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">raster</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">179.75</span>, <span class="fl">179.75</span>, by <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">89.75</span>, <span class="fl">89.75</span>, by <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Var1</span>, y <span class="op">=</span> <span class="va">Var2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">259200</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"xyz"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">`crs&lt;-`</span><span class="op">(</span><span class="st">"epsg:4326"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">world_shape</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/world.html" class="external-link">world</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">raster</span> <span class="op">&lt;-</span> <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">world_shape</span>, mask <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/readme-shift-and-crop-1-1.png"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html" class="external-link">gadm</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"rus"</span>, level <span class="op">=</span> <span class="fl">0</span>, path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">vector</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/readme-shift-and-crop-2-1.png"></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">raster</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/shift_and_crop.html">shift_and_crop</a></span><span class="op">(</span><span class="va">vector</span>, dx <span class="op">=</span> <span class="op">-</span><span class="fl">45</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/readme-shift-and-crop-3-1.png"></p>
+<p>Click <a href="https://danielvartan.github.io/orbis/reference/">here</a> to see the full list of functions.</p>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
