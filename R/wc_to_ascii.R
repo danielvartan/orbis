@@ -126,14 +126,7 @@ wc_to_ascii <- function(
   }
 
   if (!is.null(shape)) {
-    shape_x_min <- round(terra::ext(shape)[1])
-    shape_x_max <- round(terra::ext(shape)[2])
-
-    if (
-      isTRUE(dateline_fix) &&
-        shape_x_min == -180 &&
-        shape_x_max == 180
-    ) {
+    if (isTRUE(dateline_fix) && isTRUE(test_dateline(shape))) {
       cli::cli_progress_step(
         "Applying dateline fix to {.strong {cli::col_blue('shape')}}."
       )
@@ -191,11 +184,7 @@ wc_to_ascii <- function(
     data_i <- i |> terra::rast()
 
     if (!is.null(shape)) {
-      if (
-        isTRUE(dateline_fix) &&
-          shape_x_min == -180 &&
-          shape_x_max == 180
-      ) {
+      if (isTRUE(dateline_fix) && isTRUE(test_dateline(shape))) {
         data_i <- data_i |> shift_and_rotate(dx = dx)
       }
 
@@ -237,6 +226,7 @@ wc_to_ascii <- function(
         filename = asc_file,
         overwrite = overwrite,
         NAflag = na_flag,
+        verbose = FALSE,
         ...
       )
 
