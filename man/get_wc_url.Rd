@@ -2,12 +2,9 @@
 % Please edit documentation in R/get_wc_url.R
 \name{get_wc_url}
 \alias{get_wc_url}
-\alias{get_wc_osf_id}
 \title{Get paths to WorldClim data}
 \usage{
 get_wc_url(series, resolution = "all")
-
-get_wc_osf_id(series, resolution = NULL)
 }
 \arguments{
 \item{series}{A \code{\link[base:character]{character}} vector with the name of the
@@ -36,28 +33,17 @@ OSF ID(s) of the WorldClim data series.
 }
 \description{
 \code{get_wc_url()} returns the URL(s) of a WorldClim data series.
-
-\code{get_wc_osf_id()} returns the Open Science Framework
-(\href{https://osf.io/}{OSF}) ID(s) for the
-\href{https://github.com/sustentarea/logoclim}{LogoClim} WorldClim data series
-backup.
 }
 \examples{
 get_wc_url("hcd")
-
-get_wc_osf_id("hcd")
 
 get_wc_url("historical climate data")
 
 get_wc_url("hmwd")
 
-get_wc_osf_id("hmwd")
-
 get_wc_url("historical monthly weather data")
 
 get_wc_url("fcd")
-
-get_wc_osf_id("fcd")
 
 get_wc_url("future climate data")
 
@@ -65,11 +51,7 @@ get_wc_url("future climate data", "10m")
 
 get_wc_url(c("hcd", "hmwd", "fcd"))
 
-get_wc_osf_id(c("hcd", "hmwd", "fcd"))
-
 get_wc_url(c("hcd", "hmwd", "fcd"), "5m")
-
-get_wc_osf_id(c("hcd", "hmwd", "fcd"), "5m")
 }
 \seealso{
 Other WorldClim functions: 
