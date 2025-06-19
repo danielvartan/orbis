@@ -216,7 +216,7 @@ wc_to_ascii <- function(
       asc_file <- paste0(
         stringr::str_extract(asc_file, ".*(?=.asc)"),
         suffix,
-        stringr::str_extract(names(data_i), "[0-9]{2}$"),
+        stringr::str_extract(names(data_i), "[0-9]{1,2}$"),
         ".asc"
       )
     }
