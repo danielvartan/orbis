@@ -11,13 +11,19 @@ Retrieval System (SIDRA) API for a specified
 range of years.
 This function addresses the SIDRA API's limitations on the volume of data
 that can be downloaded in a single request. It downloads data for each year
-individually and then combines the results into a single tibble."><meta property="og:description" content="get_sidra_by_year() retrieves data from the Brazilian Institute of
+individually and then combines the results into a single tibble.
+Note: This function requires an active internet connection and the
+sidrar package to be
+installed."><meta property="og:description" content="get_sidra_by_year() retrieves data from the Brazilian Institute of
 Geography and Statistics (IBGE) Automatic
 Retrieval System (SIDRA) API for a specified
 range of years.
 This function addresses the SIDRA API's limitations on the volume of data
 that can be downloaded in a single request. It downloads data for each year
-individually and then combines the results into a single tibble."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
+individually and then combines the results into a single tibble.
+Note: This function requires an active internet connection and the
+sidrar package to be
+installed."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -64,6 +70,9 @@ range of years.</p>
 <p>This function addresses the SIDRA API's limitations on the volume of data
 that can be downloaded in a single request. It downloads data for each year
 individually and then combines the results into a single tibble.</p>
+<p><strong>Note:</strong> This function requires an active internet connection and the
+<a href="https://CRAN.R-project.org/package=sidrar" class="external-link"><code>sidrar</code></a> package to be
+installed.</p>
     </div>
 
     <div class="section level2">
@@ -76,7 +85,7 @@ individually and then combines the results into a single tibble.</p>
 
 
 <dl><dt id="arg-years">years<a class="anchor" aria-label="anchor" href="#arg-years"></a></dt>
-<dd><p>A <code><a href="https://mllg.github.io/checkmate/reference/checkIntegerish.html" class="external-link">integerish</a></code> vector with the
+<dd><p>An <code><a href="https://mllg.github.io/checkmate/reference/checkIntegerish.html" class="external-link">integerish</a></code> vector with the
 years to download.</p></dd>
 
 

@@ -6,8 +6,16 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Brazilian municipalities geographic coordinates — get_brazil_municipality_coords"><meta name="description" content="get_brazil_municipality_coords() returns a tibble
-with the latitude and longitude coordinates of Brazilian municipalities."><meta property="og:description" content="get_brazil_municipality_coords() returns a tibble
-with the latitude and longitude coordinates of Brazilian municipalities."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
+with the latitude and longitude coordinates of Brazilian municipalities.
+Note: This function requires an internet connection to work and the
+geobr or
+geocodebr package to be
+installed, depending on the chosen method for retrieving coordinates."><meta property="og:description" content="get_brazil_municipality_coords() returns a tibble
+with the latitude and longitude coordinates of Brazilian municipalities.
+Note: This function requires an internet connection to work and the
+geobr or
+geocodebr package to be
+installed, depending on the chosen method for retrieving coordinates."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -49,13 +57,17 @@ with the latitude and longitude coordinates of Brazilian municipalities."><meta 
     <div class="ref-description section level2">
     <p><code>get_brazil_municipality_coords()</code> returns a <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></code>
 with the latitude and longitude coordinates of Brazilian municipalities.</p>
+<p><strong>Note:</strong> This function requires an internet connection to work and the
+<a href="https://ipeagit.github.io/geobr/" class="external-link"><code>geobr</code></a> or
+<a href="https://ipeagit.github.io/geocodebr/" class="external-link"><code>geocodebr</code></a> package to be
+installed, depending on the chosen method for retrieving coordinates.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_brazil_municipality_coords</span><span class="op">(</span></span>
 <span>  municipality_code <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  year <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  coords_method <span class="op">=</span> <span class="st">"geobr"</span>,</span>
 <span>  force <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -77,7 +89,7 @@ returns all municipalities (default: <code>NULL</code>).</p></dd>
 <dt id="arg-year">year<a class="anchor" aria-label="anchor" href="#arg-year"></a></dt>
 <dd><p>(optional) An <code><a href="https://mllg.github.io/checkmate/reference/checkInt.html" class="external-link">integerish</a></code> number
 indicating the year of the data regarding the municipalities
-(default: <code>Sys.Date() |&gt; lubridate::year()</code>).</p></dd>
+(default: <code>Sys.Date() |&gt; substr(1, 4) |&gt; as.numeric()</code>).</p></dd>
 
 
 <dt id="arg-coords-method">coords_method<a class="anchor" aria-label="anchor" href="#arg-coords-method"></a></dt>
@@ -131,48 +143,15 @@ Institute of Geography and Statistics (IBGE) data.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_brazil_municipality_coords</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 5,565</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ municipality_code <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1100015<span style="color: #949494;">, </span>1100023<span style="color: #949494;">, </span>1100031<span style="color: #949494;">, </span>1100049<span style="color: #949494;">, </span>1100056<span style="color: #949494;">, </span>1100064…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ latitude          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -11.935540<span style="color: #949494;">, </span>-9.908463<span style="color: #949494;">, </span>-13.499763<span style="color: #949494;">, </span>-11.433865<span style="color: #949494;">, </span>-13.1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ longitude         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -61.99982<span style="color: #949494;">, </span>-63.03327<span style="color: #949494;">, </span>-60.54431<span style="color: #949494;">, </span>-61.44294<span style="color: #949494;">, </span>-60.8184…</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="fu">get_brazil_municipality_coords</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550308</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   municipality_code latitude longitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           3<span style="text-decoration: underline;">550</span>308    -<span style="color: #BB0000;">23.6</span>     -<span style="color: #BB0000;">46.6</span></span>
+<span class="r-in"><span>  <span class="fu">get_brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550308</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    municipality_code latitude longitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           3<span style="text-decoration: underline;">550</span>001    -<span style="color: #BB0000;">23.2</span>     -<span style="color: #BB0000;">45.3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           3<span style="text-decoration: underline;">550</span>100    -<span style="color: #BB0000;">22.7</span>     -<span style="color: #BB0000;">48.6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3<span style="text-decoration: underline;">550</span>209    -<span style="color: #BB0000;">23.9</span>     -<span style="color: #BB0000;">48.0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           3<span style="text-decoration: underline;">550</span>308    -<span style="color: #BB0000;">23.6</span>     -<span style="color: #BB0000;">46.6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           3<span style="text-decoration: underline;">550</span>407    -<span style="color: #BB0000;">22.5</span>     -<span style="color: #BB0000;">47.9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           3<span style="text-decoration: underline;">550</span>506    -<span style="color: #BB0000;">22.8</span>     -<span style="color: #BB0000;">49.7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           3<span style="text-decoration: underline;">550</span>605    -<span style="color: #BB0000;">23.5</span>     -<span style="color: #BB0000;">47.1</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           3<span style="text-decoration: underline;">550</span>704    -<span style="color: #BB0000;">23.8</span>     -<span style="color: #BB0000;">45.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           3<span style="text-decoration: underline;">550</span>803    -<span style="color: #BB0000;">21.7</span>     -<span style="color: #BB0000;">46.8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>           3<span style="text-decoration: underline;">550</span>902    -<span style="color: #BB0000;">21.5</span>     -<span style="color: #BB0000;">47.6</span></span>
+<span class="r-in"><span>  <span class="fu">get_brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3304557</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   municipality_code latitude longitude</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           3<span style="text-decoration: underline;">304</span>557    -<span style="color: #BB0000;">22.9</span>     -<span style="color: #BB0000;">43.2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           3<span style="text-decoration: underline;">550</span>308    -<span style="color: #BB0000;">23.6</span>     -<span style="color: #BB0000;">46.6</span></span>
+<span class="r-in"><span>  <span class="fu">get_brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3304557</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
