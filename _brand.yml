@@ -1,7 +1,7 @@
 meta:
   name:
-    short: "{orbis}"
-    long: "{orbis}: Spatial Data Analysis Tools"
+    short: "orbis"
+    long: "orbis: Spatial Data Analysis Tools"
   link:
     home: https://danielvartan.github.io/orbis
     github: https://github.com/danielvartan/orbis

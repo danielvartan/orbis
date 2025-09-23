@@ -7,20 +7,20 @@
   "relatedLink": "https://danielvartan.github.io/orbis/",
   "codeRepository": "https://github.com/danielvartan/orbis/",
   "issueTracker": "https://github.com/danielvartan/orbis/issues/",
-  "license": "https://spdx.org/licenses/MIT",
+  "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.1.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.0 (2025-04-11)",
+  "runtimePlatform": "R version 4.5.1 (2025-06-13)",
   "author": [
     {
       "@type": "Person",
       "givenName": "Daniel",
       "familyName": "Vartanian",
-      "email": "danvartan@gmail.com",
+      "email": "danielvartan@proton.me",
       "@id": "https://orcid.org/0000-0001-7782-759X"
     }
   ],
@@ -29,7 +29,7 @@
       "@type": "Person",
       "givenName": "Daniel",
       "familyName": "Vartanian",
-      "email": "danvartan@gmail.com",
+      "email": "danielvartan@proton.me",
       "@id": "https://orcid.org/0000-0001-7782-759X"
     }
   ],
@@ -38,7 +38,7 @@
       "@type": "Person",
       "givenName": "Daniel",
       "familyName": "Vartanian",
-      "email": "danvartan@gmail.com",
+      "email": "danielvartan@proton.me",
       "@id": "https://orcid.org/0000-0001-7782-759X"
     }
   ],
@@ -73,7 +73,7 @@
       "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
-      "version": ">= 6.2.3",
+      "version": ">= 7.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -112,7 +112,7 @@
       "@type": "SoftwareApplication",
       "identifier": "rvest",
       "name": "rvest",
-      "version": ">= 1.0.4",
+      "version": ">= 1.0.5",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -125,7 +125,7 @@
       "@type": "SoftwareApplication",
       "identifier": "spelling",
       "name": "spelling",
-      "version": ">= 2.3.1",
+      "version": ">= 2.3.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -151,7 +151,7 @@
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
-      "version": ">= 3.2.1",
+      "version": ">= 3.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -179,13 +179,13 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 4.3"
+      "version": ">= 4.4"
     },
     "2": {
       "@type": "SoftwareApplication",
       "identifier": "checkmate",
       "name": "checkmate",
-      "version": ">= 2.3.2",
+      "version": ">= 2.3.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -250,7 +250,7 @@
       "@type": "SoftwareApplication",
       "identifier": "geocodebr",
       "name": "geocodebr",
-      "version": ">= 0.2.0",
+      "version": ">= 0.2.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -321,7 +321,7 @@
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
-      "version": ">= 2.0.3",
+      "version": ">= 2.0.4",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -359,7 +359,7 @@
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
-      "version": ">= 1.0.4",
+      "version": ">= 1.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -424,7 +424,7 @@
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
-      "version": ">= 1.5.1",
+      "version": ">= 1.5.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -437,7 +437,7 @@
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
-      "version": ">= 1.8.50",
+      "version": ">= 1.8.60",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -474,7 +474,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "938.143KB",
+  "fileSize": "929.425KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -484,18 +484,18 @@
           "@type": "Person",
           "givenName": "Daniel",
           "familyName": "Vartanian",
-          "email": "danvartan@gmail.com",
+          "email": "danielvartan@proton.me",
           "@id": "https://orcid.org/0000-0001-7782-759X"
         }
       ],
-      "name": "{orbis}: Spatial data analysis tools",
-      "url": "https://danielvartan.github.io/orbis/",
+      "name": "orbis: Spatial data analysis tools",
+      "url": "https://danielvartan.github.io/orbis",
       "description": "R package"
     }
   ],
-  "releaseNotes": "https://github.com/danielvartan/orbis/blob/master/NEWS.md",
+  "releaseNotes": "https://github.com/danielvartan/orbis/blob/main/NEWS.md",
   "readme": "https://github.com/danielvartan/orbis/blob/main/README.md",
   "contIntegration": ["https://github.com/danielvartan/orbis/actions", "https://app.codecov.io/gh/danielvartan/orbis"],
   "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["api-client", "brazil", "r", "rstats", "spatial-data", "worldclim"]
+  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "r-programming-language", "sf", "sidra", "spatial-analysis", "terra"]
 }

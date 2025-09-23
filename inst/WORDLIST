@@ -2,6 +2,7 @@ API's
 Brasileiro
 CEP
 Estatística
+GPLv
 GeoTIFF
 Geocoding
 Geografia
@@ -9,7 +10,6 @@ IANA
 IBGE
 IPEA
 Instituto
-LogoClim
 NoData
 ORCID
 OSF
@@ -27,8 +27,6 @@ geocoded
 períodos
 possível
 quando
-rasters
 relativos
-repo
 tibble
 uncheck

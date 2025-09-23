@@ -1,6 +1,3 @@
-# (2025-03-02) You may have to install the development version of `bslib` to
-# use `_brands.yml` (`remotes::install_github("rstudio/bslib", force = TRUE)`).
-
 url: https://danielvartan.github.io/orbis/
 
 template:
@@ -12,7 +9,7 @@ template:
   opengraph:
     image:
       src: man/figures/og-image.png
-      alt: "{orbis}"
+      alt: "orbis"
   params:
     noindex: false
 

@@ -6,7 +6,7 @@
 cff-version: 1.2.0
 message: 'To cite package "orbis" in publications use:'
 type: software
-license: MIT
+license: GPL-3.0-or-later
 title: 'orbis: Spatial Data Analysis Tools'
 version: 0.1.0.9000
 identifiers:
@@ -16,7 +16,7 @@ abstract: A suite of tools for simplifying spatial data analysis.
 authors:
 - family-names: Vartanian
   given-names: Daniel
-  email: danvartan@gmail.com
+  email: danielvartan@proton.me
   orcid: https://orcid.org/0000-0001-7782-759X
 preferred-citation:
   type: generic
@@ -24,17 +24,17 @@ preferred-citation:
   authors:
   - family-names: Vartanian
     given-names: Daniel
-    email: danvartan@gmail.com
+    email: danielvartan@proton.me
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2025'
-  url: https://danielvartan.github.io/orbis/
+  url: https://danielvartan.github.io/orbis
   notes: R package
 repository-code: https://github.com/danielvartan/orbis/issues/
 url: https://danielvartan.github.io/orbis/
 contact:
 - family-names: Vartanian
   given-names: Daniel
-  email: danvartan@gmail.com
+  email: danielvartan@proton.me
   orcid: https://orcid.org/0000-0001-7782-759X
 references:
 - type: software
@@ -47,7 +47,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -61,7 +61,7 @@ references:
     orcid: https://orcid.org/0000-0001-9754-0393
   year: '2025'
   doi: 10.32614/CRAN.package.checkmate
-  version: '>= 2.3.2'
+  version: '>= 2.3.3'
 - type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
@@ -153,7 +153,7 @@ references:
     orcid: https://orcid.org/0000-0001-8066-1105
   year: '2025'
   doi: 10.32614/CRAN.package.geocodebr
-  version: '>= 0.2.0'
+  version: '>= 0.2.1'
 - type: software
   title: glue
   abstract: 'glue: Interpreted String Literals'
@@ -243,10 +243,10 @@ references:
     email: stefan@stefanbache.dk
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.magrittr
-  version: '>= 2.0.3'
+  version: '>= 2.0.4'
 - type: software
   title: methods
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -303,7 +303,7 @@ references:
     email: lionel@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.purrr
-  version: '>= 1.0.4'
+  version: '>= 1.1.0'
 - type: software
   title: readr
   abstract: 'readr: Read Rectangular Text Data'
@@ -378,7 +378,7 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.stringr
-  version: '>= 1.5.1'
+  version: '>= 1.5.2'
 - type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'
@@ -392,7 +392,7 @@ references:
     orcid: https://orcid.org/0000-0001-5872-2872
   year: '2025'
   doi: 10.32614/CRAN.package.terra
-  version: '>= 1.8.50'
+  version: '>= 1.8.60'
 - type: software
   title: tidygeocoder
   abstract: 'tidygeocoder: Geocoding Made Easy'
@@ -459,19 +459,6 @@ references:
   doi: 10.32614/CRAN.package.bslib
   version: '>= 0.9.0'
 - type: software
-  title: covr
-  abstract: 'covr: Test Coverage for Packages'
-  notes: Suggests
-  url: https://covr.r-lib.org
-  repository: https://CRAN.R-project.org/package=covr
-  authors:
-  - family-names: Hester
-    given-names: Jim
-    email: james.f.hester@gmail.com
-  year: '2025'
-  doi: 10.32614/CRAN.package.covr
-  version: '>= 3.6.4'
-- type: software
   title: curl
   abstract: 'curl: A Modern and Flexible Web Client for R'
   notes: Suggests
@@ -484,7 +471,7 @@ references:
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
   doi: 10.32614/CRAN.package.curl
-  version: '>= 6.2.3'
+  version: '>= 7.0.0'
 - type: software
   title: geodata
   abstract: 'geodata: Download Geographic Data'
@@ -529,7 +516,7 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.rvest
-  version: '>= 1.0.4'
+  version: '>= 1.0.5'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
@@ -546,7 +533,7 @@ references:
     email: james.hester@rstudio.com
   year: '2025'
   doi: 10.32614/CRAN.package.spelling
-  version: '>= 2.3.1'
+  version: '>= 2.3.2'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -576,7 +563,7 @@ references:
     email: hadley@rstudio.com
   year: '2025'
   doi: 10.32614/CRAN.package.tibble
-  version: '>= 3.2.1'
+  version: '>= 3.3.0'
 - type: software
   title: zip
   abstract: 'zip: Cross-Platform ''zip'' Compression'
