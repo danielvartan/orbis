@@ -5,7 +5,6 @@
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
 #' @importFrom dplyr %>%
-#' @importFrom lifecycle deprecate_soft
 #' @importFrom rlang !! :=
 ## usethis namespace: end
 NULL

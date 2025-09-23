@@ -5,6 +5,10 @@
 #' `get_country_names()` returns a vector with the names or codes of all
 #' countries present in the ISO 3166-1 standard.
 #'
+#' **Note:** This function requires the
+#' [`ISOcodes`](https://CRAN.R-project.org/package=ISOcodes ) package to be
+#' installed.
+#'
 #' @details
 #'
 #' The data from this function is based on data from the International
@@ -39,6 +43,8 @@ get_country_names <- function(format = "common name") {
   )
 
   checkmate::assert_choice(format, format_options)
+
+  require_pkg("ISOcodes")
 
   # R CMD Check variable bindings fix
   # nolint start

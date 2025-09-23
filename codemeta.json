@@ -123,6 +123,32 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "version": ">= 1.0.21",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "sidrar",
+      "name": "sidrar",
+      "version": ">= 0.2.9",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sidrar"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "spelling",
       "name": "spelling",
       "version": ">= 2.3.2",
@@ -274,12 +300,6 @@
     },
     "9": {
       "@type": "SoftwareApplication",
-      "identifier": "groomr",
-      "name": "groomr",
-      "sameAs": "https://github.com/danielvartan/groomr"
-    },
-    "10": {
-      "@type": "SoftwareApplication",
       "identifier": "ISOcodes",
       "name": "ISOcodes",
       "version": ">= 2025.5.18",
@@ -291,7 +311,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ISOcodes"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -304,7 +324,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "12": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -317,7 +337,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "13": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -330,13 +350,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "14": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods",
       "version": ">= 4.4"
     },
-    "15": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "osfr",
       "name": "osfr",
@@ -349,13 +369,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=osfr"
     },
-    "16": {
-      "@type": "SoftwareApplication",
-      "identifier": "prettycheck",
-      "name": "prettycheck",
-      "sameAs": "https://github.com/danielvartan/prettycheck"
-    },
-    "17": {
+    "15": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -368,7 +382,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "18": {
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -381,7 +395,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "19": {
+    "17": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -394,33 +408,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "20": {
-      "@type": "SoftwareApplication",
-      "identifier": "sf",
-      "name": "sf",
-      "version": ">= 1.0.21",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=sf"
-    },
-    "21": {
-      "@type": "SoftwareApplication",
-      "identifier": "sidrar",
-      "name": "sidrar",
-      "version": ">= 0.2.9",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=sidrar"
-    },
-    "22": {
+    "18": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -433,7 +421,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "23": {
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -446,7 +434,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "24": {
+    "20": {
       "@type": "SoftwareApplication",
       "identifier": "tidygeocoder",
       "name": "tidygeocoder",
@@ -459,7 +447,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
     },
-    "25": {
+    "21": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -474,7 +462,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "929.425KB",
+  "fileSize": "941.421KB",
   "citation": [
     {
       "@type": "CreativeWork",

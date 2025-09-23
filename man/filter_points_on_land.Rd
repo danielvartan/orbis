@@ -19,26 +19,31 @@ A \code{\link[tibble:tibble]{tibble}}.
 \description{
 \code{filter_points_on_land()} filters latitude/longitude points that intersects
 with a given geometry.
+
+\strong{Note:} This function requires the \href{https://r-spatial.github.io/sf/}{\code{sf}}
+package to be installed.
 }
 \examples{
-library(curl)
-library(dplyr)
-library(geobr)
-library(sf)
+\dontrun{
+  library(curl)
+  library(dplyr)
+  library(geobr)
+  library(sf)
 
-if (has_internet()) {
-  data <- tibble(
-    latitude = get_brazil_state_latitude(),
-    longitude = get_brazil_state_longitude()
-  )
+  if (has_internet()) {
+    data <- tibble(
+      latitude = get_brazil_state_latitude(),
+      longitude = get_brazil_state_longitude()
+    )
 
-  data
+    data
 
-  geometry <- read_state(code = "SP") |> pull(geom)
+    geometry <- read_state(code = "SP") |> pull(geom)
 
-  geometry |> st_bbox()
+    geometry |> st_bbox()
 
-  filter_points_on_land(data, geometry)
+    filter_points_on_land(data, geometry)
+  }
 }
 }
 \concept{\code{sf} functions}

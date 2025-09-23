@@ -67,8 +67,8 @@ get_brazil_state_code <- function(x = NULL) {
       "S\u00e3o Paulo" = 35,
       "Sergipe" = 28,
       "Tocantins" = 17
-    ) |>
-      methods::as("integer")
+    ) %>%
+      `storage.mode<-`("integer") # methods::as("integer")
   } else if (is.numeric(x)) {
     x <- dplyr::case_when(
       !dplyr::between(nchar(x), 2, 7) ~ NA_integer_,

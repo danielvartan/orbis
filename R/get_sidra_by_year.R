@@ -11,6 +11,10 @@
 #' that can be downloaded in a single request. It downloads data for each year
 #' individually and then combines the results into a single tibble.
 #'
+#' **Note:** This function requires an active internet connection and the
+#' [`sidrar`](https://CRAN.R-project.org/package=sidrar) package to be
+#' installed.
+#'
 #' @details
 #'
 #' To construct the API call, follow these steps:
@@ -35,7 +39,7 @@
 #' If you have difficulty identifying the correct segments, try adjusting the
 #' table settings, selecting different years, and examining how the URL changes.
 #'
-#' @param years A [`integerish`][checkmate::check_integerish()] vector with the
+#' @param years An [`integerish`][checkmate::check_integerish()] vector with the
 #'   years to download.
 #' @param api_start A string specifying the initial part of the SIDRA API URL,
 #'   up to (but not including) the year segment. See the Details section for
@@ -59,10 +63,12 @@
 #'   )
 #' }
 get_sidra_by_year <- function(years, api_start, api_end) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_integerish(years)
   checkmate::assert_string(api_start)
   checkmate::assert_string(api_start)
+
+  require_pkg("sidrar")
 
   # R CMD Check variable bindings fix
   # nolint start

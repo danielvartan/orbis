@@ -5,7 +5,7 @@ get_geocode_by_postal_code <- function(
   limit = 10, # Inf for all.
   suffix = ", Brazil"
 ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_atomic(postal_code)
   checkmate::assert_choice(method, c("osm", "google", "qualocep"))
   checkmate::assert_flag(fix_code)
@@ -40,9 +40,11 @@ get_geocode_by_postal_code_tidygeocoder <- function( #nolint
 ) {
   postal_code <- orbis::fix_postal_code(postal_code, zero_na = FALSE)
 
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_character(postal_code, pattern = "^\\d{8}$")
   checkmate::assert_number(limit)
+
+  require_pkg("tidygeocoder")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -92,7 +94,7 @@ get_geocode_by_postal_code_qualocep <- function( #nolint
   ) {
   postal_code <- postal_code |> orbis::fix_postal_code(zero_na = TRUE)
 
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_character(postal_code, pattern = "^\\d{8}$")
   checkmate::assert_number(limit)
 

@@ -18,3 +18,29 @@ test_dateline <- function(vector) {
     FALSE
   }
 }
+
+assert_identical <- function(..., type = "value") {
+  checkmate::assert_choice(type, choices = c("value", "length", "class"))
+
+  values <- list(...)
+
+  if (length(values) < 2) {
+    cli::cli_abort("At least two objects must be provided for comparison.")
+  }
+
+  reference <- values[[1]]
+
+  for (i in seq_along(values)[-1]) {
+    current <- values[[i]]
+
+    if (type == "value" && !identical(reference, current)) {
+      cli::cli_abort("Objects are not identical in value.")
+    } else if (type == "length" && length(reference) != length(current)) {
+      cli::cli_abort("Objects do not have the same length.")
+    } else if (type == "class" && !identical(class(reference), class(current))) {
+      cli::cli_abort("Objects do not have the same class.")
+    }
+  }
+
+  invisible()
+}

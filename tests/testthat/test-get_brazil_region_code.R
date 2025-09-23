@@ -7,8 +7,8 @@ testthat::test_that("get_brazil_region_code() | General test", {
         "Southeast" = 3,
         "South" = 4,
         "Central-West" = 5
-      ) |>
-        methods::as("integer")
+      ) %>%
+        `storage.mode<-`("integer") # methods::as("integer")
     )
 
   get_brazil_region_code("north") |> testthat::expect_equal(1)

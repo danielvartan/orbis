@@ -43,8 +43,8 @@ get_brazil_region_code <- function(x = NULL) {
       "Southeast" = 3,
       "South" = 4,
       "Central-West" = 5
-    ) |>
-      methods::as("integer")
+    ) %>%
+      `storage.mode<-`("integer") # methods::as("integer")
   } else {
     dplyr::case_match(
       x,

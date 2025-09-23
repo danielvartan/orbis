@@ -5,6 +5,9 @@
 #' `get_qualocep_data()` retrieves a validated dataset of Qual o CEP from the
 #' package's [OSF repository](https://osf.io/9ky4g/).
 #'
+#' **Note:** This function requires an internet connection to work and the
+#' [`osfr`](https://docs.ropensci.org/osfr/) package to be installed.
+#'
 #' @details
 #'
 #' [Qual o CEP](https://www.qualocep.com) is a database of Brazilian addresses
@@ -74,6 +77,8 @@ get_qualocep_data <- function(
   checkmate::assert_string(pattern, pattern = "\\.rds$")
   checkmate::assert_flag(force)
 
+  require_pkg("osfr")
+
   qualocep_temp_file <- file.path(tempdir(), pattern)
 
   if (!is.null(file)) {
@@ -84,7 +89,7 @@ get_qualocep_data <- function(
                isFALSE(force)) {
     readr::read_rds(qualocep_temp_file)
   } else {
-    prettycheck::assert_internet()
+    assert_internet()
 
     cli::cli_progress_step("Downloading Qual o CEP data from OSF.")
 

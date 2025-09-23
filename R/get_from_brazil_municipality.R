@@ -2,7 +2,7 @@ get_from_brazil_municipality <- function( #nolint
   x,
   col_filter,
   col_return,
-  year = Sys.Date() |> lubridate::year(),
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   names = TRUE,
   ...
 ) {

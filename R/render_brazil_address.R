@@ -5,6 +5,9 @@
 #' `render_brazil_address()` returns a vector with formatted Brazilian
 #' addresses.
 #'
+#' **Note:** This function requires the [`glue`](https://glue.tidyverse.org/)
+#' package to be installed.
+#'
 #' @param street (optional) A [`character`][base::character] vector with the
 #'   street names (default: `NA_character`).
 #' @param complement (optional) A [`character`][base::character] vector with
@@ -49,10 +52,12 @@ render_brazil_address <- function(
     postal_code,
     pattern = "^\\d{8}$|^\\d{5}-\\d{3}$"
   )
-  prettycheck::assert_identical(
+  assert_identical(
     street, complement, neighborhood, municipality, state, postal_code,
     type = "length"
   )
+
+  require_pkg("glue")
 
   # R CMD Check variable bindings fix
   # nolint start

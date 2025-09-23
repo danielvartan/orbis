@@ -4,7 +4,7 @@ get_geocode_by_address <- function(
   limit = 10, # Inf for all.
   ...
 ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_character(address, null.ok = TRUE)
   checkmate::assert_choice(method, c("osm", "google", "qualocep"))
   checkmate::assert_number(limit)
@@ -26,9 +26,11 @@ get_geocode_by_address_tidygeocoder <- function( #nolint
     method = "osm",
     limit = 10
   ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_character(address)
   checkmate::assert_number(limit)
+
+  require_pkg("tidygeocoder")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -73,7 +75,7 @@ get_geocode_by_address_qualocep <- function( #nolint
     mean_values = TRUE,
     ...
   ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_number(limit)
 
   # R CMD Check variable bindings fix

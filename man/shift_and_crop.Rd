@@ -41,32 +41,34 @@ This function is particularly useful for working with rasters and vectors
 that span the dateline (e.g. the Russian territory).
 }
 \examples{
-library(dplyr)
-library(geodata)
-library(terra)
+\dontrun{
+  library(dplyr)
+  library(geodata)
+  library(terra)
 
-if (curl::has_internet()) {
-  raster <-
-    expand.grid(
-      seq(-179.75, 179.75, by = 0.5),
-      seq(-89.75, 89.75, by = 0.5)
-    ) |>
-    as_tibble() |>
-    rename(x = Var1, y = Var2) |>
-    mutate(value = rnorm(259200)) |>
-    rast(type = "xyz") \%>\%
-    `crs<-`("epsg:4326")
+  if (curl::has_internet()) {
+    raster <-
+      expand.grid(
+        seq(-179.75, 179.75, by = 0.5),
+        seq(-89.75, 89.75, by = 0.5)
+      ) |>
+      as_tibble() |>
+      rename(x = Var1, y = Var2) |>
+      mutate(value = rnorm(259200)) |>
+      rast(type = "xyz") \%>\%
+      `crs<-`("epsg:4326")
 
-  world_shape <- world(path = tempdir())
-  raster <- raster |> crop(world_shape, mask = TRUE)
+    world_shape <- world(path = tempdir())
+    raster <- raster |> crop(world_shape, mask = TRUE)
 
-  raster |> plot()
+    raster |> plot()
 
-  vector <- gadm(country = "rus", level = 0, path = tempdir())
+    vector <- gadm(country = "rus", level = 0, path = tempdir())
 
-  vector |> plot()
+    vector |> plot()
 
-  raster |> shift_and_crop(vector, -45) |> plot()
+    raster |> shift_and_crop(vector, -45) |> plot()
+  }
 }
 }
 \seealso{

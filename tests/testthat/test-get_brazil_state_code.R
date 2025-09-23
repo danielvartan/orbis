@@ -29,8 +29,8 @@ testthat::test_that("get_brazil_state_code() | General test", {
         "São Paulo" = 35,
         "Sergipe" = 28,
         "Tocantins" = 17
-      ) |>
-        methods::as("integer")
+      ) %>%
+        `storage.mode<-`("integer") # methods::as("integer")
     )
 
   get_brazil_state_code("ac") |> testthat::expect_equal(12)

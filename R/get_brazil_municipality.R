@@ -5,6 +5,11 @@
 #' `get_brazil_municipality()` returns a [`tibble`][tibble::tibble] with data
 #' about Brazilian municipalities.
 #'
+#' **Note:** This function requires an internet connection to work and the
+#' [`geobr`](https://ipeagit.github.io/geobr/) or
+#' [`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be
+#' installed, depending on the chosen method for retrieving coordinates.
+#'
 #' @param municipality (optional) A [`character`][base::character] vector
 #'   with the name of the municipalities. If `NULL` the function returns all
 #'   municipalities (default: `NULL`).
@@ -12,7 +17,7 @@
 #'   name of the states (default: `NULL`).
 #' @param year (optional) An [`integerish`][checkmate::test_int] number
 #'   indicating the year of the data regarding the municipalities
-#'   (default: `Sys.Date() |> lubridate::year()`).
+#'   (default: `Sys.Date() |> substr(1, 4) |> as.numeric()`).
 #' @param coords_method (optional) A string indicating the method to retrieve
 #'   the latitude and longitude coordinates of the municipalities. Options are:
 #'   - `"geobr"`: Uses [`read_municipal_seat()`][geobr::read_municipal_seat]
@@ -39,27 +44,31 @@
 #' @export
 #'
 #' @examples
-#' get_brazil_municipality() |> dplyr::glimpse()
+#' \dontrun{
+#'   get_brazil_municipality() |> dplyr::glimpse()
 #'
-#' get_brazil_municipality(municipality = "Belém")
+#'   get_brazil_municipality(municipality = "Belém")
 #'
-#' get_brazil_municipality(municipality = "Belém", state = "Pará")
+#'   get_brazil_municipality(municipality = "Belém", state = "Pará")
 #'
-#' get_brazil_municipality(municipality = c("Belém", "São Paulo"))
+#'   get_brazil_municipality(municipality = c("Belém", "São Paulo"))
+#' }
 get_brazil_municipality <- function(
   municipality = NULL,
   state = NULL,
-  year = Sys.Date() |> lubridate::year(),
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   coords_method = "geobr",
   force = FALSE
 ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_character(municipality, null.ok = TRUE)
   checkmate::assert_character(state, null.ok = TRUE)
   checkmate::assert_integerish(year)
   checkmate::assert_character(as.character(year), pattern = "^[0-9]{4}$")
   checkmate::assert_choice(coords_method, c("geobr", "geocodebr"))
   checkmate::assert_flag(force)
+
+  require_pkg("geobr")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -111,13 +120,13 @@ get_brazil_municipality <- function(
         state_code = as.integer(state_code),
         state = orbis::get_brazil_state(federal_unit),
         municipality_code = as.integer(municipality_code),
-        municipality = groomr::to_title_case_pt(
+        municipality = to_title_case_pt(
           municipality,
           articles = TRUE,
           conjunctions = FALSE,
           oblique_pronouns = FALSE,
           prepositions = FALSE,
-          custom = c(
+          custom_rules = c(
             # E
             "(.)\\bE( )\\b" = "\\1e\\2",
             # Às
@@ -170,7 +179,7 @@ get_brazil_municipality <- function(
       stringr::str_squish()
 
     if (!is.null(state)) {
-      prettycheck::assert_identical(
+      assert_identical(
         municipality,
         state,
         type = "length"

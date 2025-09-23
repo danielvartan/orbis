@@ -7,7 +7,7 @@
 get_brazil_municipality(
   municipality = NULL,
   state = NULL,
-  year = lubridate::year(Sys.Date()),
+  year = as.numeric(substr(Sys.Date(), 1, 4)),
   coords_method = "geobr",
   force = FALSE
 )
@@ -22,7 +22,7 @@ name of the states (default: \code{NULL}).}
 
 \item{year}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 indicating the year of the data regarding the municipalities
-(default: \code{Sys.Date() |> lubridate::year()}).}
+(default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
 \item{coords_method}{(optional) A string indicating the method to retrieve
 the latitude and longitude coordinates of the municipalities. Options are:
@@ -54,6 +54,11 @@ A \code{\link[tibble:tibble]{tibble}} with the following columns:
 \description{
 \code{get_brazil_municipality()} returns a \code{\link[tibble:tibble]{tibble}} with data
 about Brazilian municipalities.
+
+\strong{Note:} This function requires an internet connection to work and the
+\href{https://ipeagit.github.io/geobr/}{\code{geobr}} or
+\href{https://ipeagit.github.io/geocodebr/}{\code{geocodebr}} package to be
+installed, depending on the chosen method for retrieving coordinates.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute
@@ -65,13 +70,15 @@ Research (\href{https://www.ipea.gov.br/}{IPEA}) and access the Brazilian
 Institute of Geography and Statistics (IBGE) data.
 }
 \examples{
-get_brazil_municipality() |> dplyr::glimpse()
+\dontrun{
+  get_brazil_municipality() |> dplyr::glimpse()
 
-get_brazil_municipality(municipality = "Belém")
+  get_brazil_municipality(municipality = "Belém")
 
-get_brazil_municipality(municipality = "Belém", state = "Pará")
+  get_brazil_municipality(municipality = "Belém", state = "Pará")
 
-get_brazil_municipality(municipality = c("Belém", "São Paulo"))
+  get_brazil_municipality(municipality = c("Belém", "São Paulo"))
+}
 }
 \seealso{
 Other Brazil functions: 

@@ -6,7 +6,7 @@
 \usage{
 get_brazil_municipality_latitude(
   municipality_code,
-  year = lubridate::year(Sys.Date()),
+  year = as.numeric(substr(Sys.Date(), 1, 4)),
   coords_method = "geobr",
   names = TRUE,
   ...
@@ -20,7 +20,7 @@ to obtain codes from municipality names and states.}
 
 \item{year}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 indicating the year of the data regarding the municipalities
-(default: \code{Sys.Date() |> lubridate::year()}).}
+(default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
 \item{coords_method}{(optional) A string indicating the method to retrieve
 the latitude and longitude coordinates of the municipalities. Options are:
@@ -59,13 +59,15 @@ list of all \code{\link[geobr:geobr]{geobr}} datasets by running
 \code{\link[geobr:list_geobr]{geobr::list_geobr()}}.
 }
 \examples{
-get_brazil_municipality_latitude(3550308)
+\dontrun{
+  get_brazil_municipality_latitude(3550308)
 
-get_brazil_municipality_latitude(c(3550308, 3500204))
+  get_brazil_municipality_latitude(c(3550308, 3500204))
 
-get_brazil_municipality_latitude(c(3550308, 1000, 3500204))
+  get_brazil_municipality_latitude(c(3550308, 1000, 3500204))
 
-get_brazil_municipality_latitude(c(3550308, NA, 3500204))
+  get_brazil_municipality_latitude(c(3550308, NA, 3500204))
+}
 }
 \seealso{
 Other Brazil functions: 

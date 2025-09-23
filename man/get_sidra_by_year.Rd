@@ -7,7 +7,7 @@
 get_sidra_by_year(years, api_start, api_end)
 }
 \arguments{
-\item{years}{A \code{\link[checkmate:checkIntegerish]{integerish}} vector with the
+\item{years}{An \code{\link[checkmate:checkIntegerish]{integerish}} vector with the
 years to download.}
 
 \item{api_start}{A string specifying the initial part of the SIDRA API URL,
@@ -31,6 +31,10 @@ range of years.
 This function addresses the SIDRA API's limitations on the volume of data
 that can be downloaded in a single request. It downloads data for each year
 individually and then combines the results into a single tibble.
+
+\strong{Note:} This function requires an active internet connection and the
+\href{https://CRAN.R-project.org/package=sidrar}{\code{sidrar}} package to be
+installed.
 }
 \details{
 To construct the API call, follow these steps:

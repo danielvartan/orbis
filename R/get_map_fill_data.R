@@ -57,7 +57,7 @@ get_map_fill_data <- function(
       tidyr::drop_na() |>
       dplyr::count(!!as.symbol(name_col_ref))
   } else {
-    prettycheck::assert_numeric(data[[col_fill]], null_ok = TRUE)
+    checkmate::assert_numeric(data[[col_fill]], null.ok = TRUE)
 
     out <-
       data |>

@@ -7,7 +7,7 @@
 get_brazil_municipality_code(
   municipality,
   state = NULL,
-  year = lubridate::year(Sys.Date()),
+  year = as.numeric(substr(Sys.Date(), 1, 4)),
   names = TRUE,
   ...
 )
@@ -22,7 +22,7 @@ name of the states (default: \code{NULL}).}
 
 \item{year}{(optional) An \code{\link[checkmate:checkInt]{integerish}} number
 indicating the year of the data regarding the municipalities
-(default: \code{Sys.Date() |> lubridate::year()}).}
+(default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
 \item{names}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to return the names of the municipalities as names of the
@@ -52,13 +52,15 @@ list of all \code{\link[geobr:geobr]{geobr}} datasets by running
 \code{\link[geobr:list_geobr]{geobr::list_geobr()}}.
 }
 \examples{
-get_brazil_municipality_code(municipality = "Belém")
+\dontrun{
+  get_brazil_municipality_code(municipality = "Belém")
 
-get_brazil_municipality_code(municipality = "Belém", names = FALSE)
+  get_brazil_municipality_code(municipality = "Belém", names = FALSE)
 
-get_brazil_municipality_code(municipality = "Belém", state = "Pará")
+  get_brazil_municipality_code(municipality = "Belém", state = "Pará")
 
-get_brazil_municipality_code(municipality = c("Rio de Janeiro", "São Paulo"))
+  get_brazil_municipality_code(municipality = c("Rio de Janeiro", "São Paulo"))
+}
 }
 \seealso{
 Other Brazil functions: 

@@ -38,6 +38,9 @@ A \code{\link[base:character]{character}} vector with the formatted address.
 \description{
 \code{render_brazil_address()} returns a vector with formatted Brazilian
 addresses.
+
+\strong{Note:} This function requires the \href{https://glue.tidyverse.org/}{\code{glue}}
+package to be installed.
 }
 \examples{
 render_brazil_address(

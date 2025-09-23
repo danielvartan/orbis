@@ -21,21 +21,23 @@
 #' @export
 #'
 #' @examples
-#' get_brazil_municipality_code(municipality = "Belém")
+#' \dontrun{
+#'   get_brazil_municipality_code(municipality = "Belém")
 #'
-#' get_brazil_municipality_code(municipality = "Belém", names = FALSE)
+#'   get_brazil_municipality_code(municipality = "Belém", names = FALSE)
 #'
-#' get_brazil_municipality_code(municipality = "Belém", state = "Pará")
+#'   get_brazil_municipality_code(municipality = "Belém", state = "Pará")
 #'
-#' get_brazil_municipality_code(municipality = c("Rio de Janeiro", "São Paulo"))
+#'   get_brazil_municipality_code(municipality = c("Rio de Janeiro", "São Paulo"))
+#' }
 get_brazil_municipality_code <- function(
   municipality,
   state = NULL,
-  year = Sys.Date() |> lubridate::year(),
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   names = TRUE,
   ...
 ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_character(municipality)
   checkmate::assert_character(state, null.ok = TRUE)
   checkmate::assert_integerish(year)

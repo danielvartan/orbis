@@ -5,7 +5,7 @@
 #   )
 
 #   if (checkmate::test_file_exists(brazil_municipalities_file)) {
-#     fs::file_delete(brazil_municipalities_file)
+#     file.remove(brazil_municipalities_file)
 #   }
 
 #   get_brazil_municipality(
@@ -45,7 +45,7 @@
 # })
 
 testthat::test_that("get_brazil_municipality() | Error test", {
-  # prettycheck::assert_internet()
+  # assert_internet()
 
   # checkmate::assert_character(municipality, null.ok = TRUE)
   get_brazil_municipality(

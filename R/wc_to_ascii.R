@@ -147,7 +147,7 @@ wc_to_ascii <- function(
     asc_file <-
       stringr::str_replace(i, "(?i)tif$", "asc") |>
       basename() %>%
-      fs::path(dir, .)
+      file.path(dir, .)
 
     # To adjust `historical-climate-data bioclimatic` files.
     if (!stringr::str_detect(asc_file, "[0-9]{4}")) {

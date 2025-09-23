@@ -105,7 +105,7 @@ testthat::test_that("render_brazil_address() | Error test", {
   ) |>
     testthat::expect_error()
 
-  # prettycheck::assert_identical( ...
+  # assert_identical( ...
   render_brazil_address(
     street = NA_character_,
     complement = NA_character_,

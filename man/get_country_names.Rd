@@ -25,6 +25,10 @@ all countries present in the ISO 3166-1 standard.
 \description{
 \code{get_country_names()} returns a vector with the names or codes of all
 countries present in the ISO 3166-1 standard.
+
+\strong{Note:} This function requires the
+\href{https://CRAN.R-project.org/package=ISOcodes}{\code{ISOcodes}} package to be
+installed.
 }
 \details{
 The data from this function is based on data from the International

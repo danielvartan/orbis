@@ -20,16 +20,18 @@
 #' @export
 #'
 #' @examples
-#' get_brazil_municipality_longitude(3550308)
+#' \dontrun{
+#'   get_brazil_municipality_longitude(3550308)
 #'
-#' get_brazil_municipality_longitude(c(3550308, 3500204))
+#'   get_brazil_municipality_longitude(c(3550308, 3500204))
 #'
-#' get_brazil_municipality_longitude(c(3550308, 1000, 3500204))
+#'   get_brazil_municipality_longitude(c(3550308, 1000, 3500204))
 #'
-#' get_brazil_municipality_longitude(c(3550308, NA, 3500204))
+#'   get_brazil_municipality_longitude(c(3550308, NA, 3500204))
+#' }
 get_brazil_municipality_longitude <- function( #nolint
   municipality_code,
-  year = Sys.Date() |> lubridate::year(),
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   coords_method = "geobr",
   names = TRUE,
   ...

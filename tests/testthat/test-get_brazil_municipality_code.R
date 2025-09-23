@@ -18,7 +18,7 @@
 # })
 
 testthat::test_that("get_brazil_municipality_code() | Error test", {
-  # prettycheck::assert_internet()
+  # assert_internet()
 
   # checkmate::assert_character(municipality)
   get_brazil_municipality_code(

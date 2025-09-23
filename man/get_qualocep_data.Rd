@@ -61,6 +61,9 @@ values of the postal codes (retrieved using Google Geocoding API).
 \description{
 \code{get_qualocep_data()} retrieves a validated dataset of Qual o CEP from the
 package's \href{https://osf.io/9ky4g/}{OSF repository}.
+
+\strong{Note:} This function requires an internet connection to work and the
+\href{https://docs.ropensci.org/osfr/}{\code{osfr}} package to be installed.
 }
 \details{
 \href{https://www.qualocep.com}{Qual o CEP} is a database of Brazilian addresses

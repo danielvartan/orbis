@@ -30,7 +30,8 @@ You can install `orbis` using the
 [`remotes`](https://github.com/r-lib/remotes) package:
 
 ``` r
-remotes::install_github("danielvartan/orbis")
+# install.packages("remotes")
+remotes::install_github("danielvartan/orbis", dependencies = TRUE)
 ```
 
 ## Usage

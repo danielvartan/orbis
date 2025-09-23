@@ -172,17 +172,6 @@ references:
   doi: 10.32614/CRAN.package.glue
   version: '>= 1.8.0'
 - type: software
-  title: groomr
-  abstract: 'groomr: Tidy Tools'
-  notes: Imports
-  url: https://danielvartan.github.io/groomr/
-  authors:
-  - family-names: Vartanian
-    given-names: Daniel
-    email: danvartan@gmail.com
-    orcid: https://orcid.org/0000-0001-7782-759X
-  year: '2025'
-- type: software
   title: ISOcodes
   abstract: 'ISOcodes: Selected ISO Codes'
   notes: Imports
@@ -277,17 +266,6 @@ references:
   doi: 10.32614/CRAN.package.osfr
   version: '>= 0.2.9'
 - type: software
-  title: prettycheck
-  abstract: 'prettycheck: Pretty assertive programming'
-  notes: Imports
-  url: https://danielvartan.github.io/prettycheck/
-  authors:
-  - family-names: Vartanian
-    given-names: Daniel
-    email: danvartan@gmail.com
-    orcid: https://orcid.org/0000-0001-7782-759X
-  year: '2025'
-- type: software
   title: purrr
   abstract: 'purrr: Functional Programming Tools'
   notes: Imports
@@ -339,33 +317,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.1.6'
-- type: software
-  title: sf
-  abstract: 'sf: Simple Features for R'
-  notes: Imports
-  url: https://r-spatial.github.io/sf/
-  repository: https://CRAN.R-project.org/package=sf
-  authors:
-  - family-names: Pebesma
-    given-names: Edzer
-    email: edzer.pebesma@uni-muenster.de
-    orcid: https://orcid.org/0000-0001-8049-7069
-  year: '2025'
-  doi: 10.32614/CRAN.package.sf
-  version: '>= 1.0.21'
-- type: software
-  title: sidrar
-  abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
-  notes: Imports
-  url: https://github.com/rpradosiqueira/sidrar/
-  repository: https://CRAN.R-project.org/package=sidrar
-  authors:
-  - family-names: Prado Siqueira
-    given-names: Renato
-    email: rpradosiqueira@gmail.com
-  year: '2025'
-  doi: 10.32614/CRAN.package.sidrar
-  version: '>= 0.2.9'
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
@@ -517,6 +468,33 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.rvest
   version: '>= 1.0.5'
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Suggests
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2025'
+  doi: 10.32614/CRAN.package.sf
+  version: '>= 1.0.21'
+- type: software
+  title: sidrar
+  abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
+  notes: Suggests
+  url: https://github.com/rpradosiqueira/sidrar/
+  repository: https://CRAN.R-project.org/package=sidrar
+  authors:
+  - family-names: Prado Siqueira
+    given-names: Renato
+    email: rpradosiqueira@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.sidrar
+  version: '>= 0.2.9'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'

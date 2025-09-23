@@ -5,6 +5,11 @@
 #' `get_brazil_municipality_coords()` returns a [`tibble`][tibble::tibble]
 #' with the latitude and longitude coordinates of Brazilian municipalities.
 #'
+#' **Note:** This function requires an internet connection to work and the
+#' [`geobr`](https://ipeagit.github.io/geobr/) or
+#' [`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be
+#' installed, depending on the chosen method for retrieving coordinates.
+#'
 #' @param municipality_code (optional) An
 #'   [`integerish`][checkmate::test_integerish] vector with the IBGE codes of
 #'   Brazilian municipalities. Use
@@ -23,20 +28,22 @@
 #' @export
 #'
 #' @examples
-#' get_brazil_municipality_coords() |> dplyr::glimpse()
+#' \dontrun{
+#'   get_brazil_municipality_coords() |> dplyr::glimpse()
 #'
-#' get_brazil_municipality_coords(municipality_code = 3550308)
+#'   get_brazil_municipality_coords(municipality_code = 3550308)
 #'
-#' get_brazil_municipality_coords(municipality_code = 3550)
+#'   get_brazil_municipality_coords(municipality_code = 3550)
 #'
-#' get_brazil_municipality_coords(municipality_code = c(3550308, 3304557))
+#'   get_brazil_municipality_coords(municipality_code = c(3550308, 3304557))
+#' }
 get_brazil_municipality_coords <- function(
   municipality_code = NULL,
-  year = Sys.Date() |> lubridate::year(),
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   coords_method = "geobr",
   force = FALSE
 ) {
-  prettycheck::assert_internet()
+  assert_internet()
   checkmate::assert_integerish(municipality_code, null.ok = TRUE)
   checkmate::assert_integer(
     nchar(municipality_code),
@@ -56,6 +63,8 @@ get_brazil_municipality_coords <- function(
   # nolint end
 
   if (coords_method == "geobr") {
+    require_pkg("geobr")
+
     out <-
       geobr::read_municipal_seat(
         year = year |> get_closest_geobr_year(type = "municipal_seat"),
@@ -77,6 +86,8 @@ get_brazil_municipality_coords <- function(
       ) |>
       dplyr::select(municipality_code, latitude, longitude)
   } else if (coords_method == "geocodebr") {
+    require_pkg("geobr", "geocodebr")
+
     out <-
       geobr::read_municipality(
         year = year |> get_closest_geobr_year(type = "municipality"),
