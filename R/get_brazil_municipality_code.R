@@ -28,7 +28,7 @@
 #'
 #'   get_brazil_municipality_code(municipality = "Belém", state = "Pará")
 #'
-#'   get_brazil_municipality_code(municipality = c("Rio de Janeiro", "São Paulo"))
+#'   get_brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
 #' }
 get_brazil_municipality_code <- function(
   municipality,

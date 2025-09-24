@@ -47,4 +47,3 @@ test_check("orbis")
 # usethis::use_revdep()
 # usethis::use_tidy_description()
 # usethis::use_version()
-

@@ -20,25 +20,59 @@ test_dateline <- function(vector) {
 }
 
 assert_identical <- function(..., type = "value") {
-  checkmate::assert_choice(type, choices = c("value", "length", "class"))
-
   values <- list(...)
 
-  if (length(values) < 2) {
-    cli::cli_abort("At least two objects must be provided for comparison.")
-  }
+  assert_length(values, lower = 2)
+  checkmate::assert_choice(type, choices = c("value", "length", "class"))
 
   reference <- values[[1]]
 
   for (i in seq_along(values)[-1]) {
     current <- values[[i]]
 
-    if (type == "value" && !identical(reference, current)) {
+    if ((type == "value") && (!identical(reference, current))) {
       cli::cli_abort("Objects are not identical in value.")
-    } else if (type == "length" && length(reference) != length(current)) {
+    } else if ((type == "length") && (length(reference) != length(current))) {
       cli::cli_abort("Objects do not have the same length.")
-    } else if (type == "class" && !identical(class(reference), class(current))) {
+    } else if (
+      (type == "class") &&
+        (!identical(class(reference), class(current)))
+    ) {
       cli::cli_abort("Objects do not have the same class.")
+    }
+  }
+
+  invisible()
+}
+
+assert_length <- function(x, n = NULL, lower = NULL) {
+  checkmate::assert_int(n, lower = 1, null.ok = TRUE)
+  checkmate::assert_int(lower, null.ok = TRUE)
+
+  .name <- deparse(substitute(x)) #nolint
+
+  if (!is.null(n) && !is.null(lower)) {
+    cli::cli_abort("Only one of {.var n} or {.var lower} can be provided.")
+  }
+
+  if (!is.null(n)) {
+    if (!length(x) == n) {
+      cli::cli_abort(
+        paste0(
+          "{.strong {cli::col_red(.name)}} must have length {.val {n}}."
+        )
+      )
+    }
+  }
+
+  if (!is.null(lower)) {
+    if (length(x) < lower) {
+      cli::cli_abort(
+        paste0(
+          "{.strong {cli::col_red(.name)}} must have at least ",
+          "{.val {lower}} elements."
+        )
+      )
     }
   }
 
