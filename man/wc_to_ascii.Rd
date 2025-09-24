@@ -13,7 +13,7 @@ wc_to_ascii(
   aggregate = NULL,
   overwrite = TRUE,
   dx = -45,
-  na_flag = -9999,
+  na_flag = -99,
   ...
 )
 }
@@ -53,7 +53,8 @@ horizontal distance in degrees to shift the raster data. This is only
 relevant if \code{dateline_fix} is set to \code{TRUE} (default: \code{-45}).}
 
 \item{na_flag}{(optional) An \code{\link[base:integer]{integer}} value specifying
-the NoData value for the output ASCII files (default: \code{-9999}).}
+the NoData value for the output ASCII files. See the \emph{Details} section
+to learn more (default: \code{-99}).}
 
 \item{...}{Additional arguments passed to
 \code{\link[terra:writeRaster]{writeRaster()}} for writing the ASCII files.}
@@ -65,10 +66,20 @@ of the converted ASCII files.
 \description{
 \code{wc_to_ascii()} facilitates the conversion of one or more
 \href{https://worldclim.org/}{WorldClim}
-\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to
-\href{https://en.wikipedia.org/wiki/Esri_grid}{ASCII} raster format.
-Optionally, rasters can be cropped and/or aggregated using a provided polygon
-of class \code{\link[terra:SpatVector-class]{SpatVector}}.
+\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to the \href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} raster format. Optionally,
+rasters can be cropped and/or aggregated using a provided polygon of class
+\code{\link[terra:SpatVector-class]{SpatVector}}.
+}
+\details{
+\subsection{\code{na_flag} parameter}{
+
+According to the Esri ASCII raster format documentation, the default value
+for \code{NODATA_VALUE} (the \code{NA} flag) is \code{-9999}. However, using four digits of
+precision significantly inflates file size. For WorldClim data, two
+significant digits (\code{-99}) are sufficient, since the only variables with
+negative values are temperatures, and the lowest temperature ever recorded on
+Earth is above that.
+}
 }
 \examples{
 \dontrun{
@@ -80,7 +91,7 @@ of class \code{\link[terra:SpatVector-class]{SpatVector}}.
   library(stringr)
   library(zip)
 
-  # Download the WorldClim data from the website
+  # Download the WorldClim Data
 
   url <-
     get_wc_url("hcd") |>
@@ -101,11 +112,11 @@ of class \code{\link[terra:SpatVector-class]{SpatVector}}.
     dir_ls(tempdir(), regexp = "\\\\.tif$") |>
     magrittr::extract(1)
 
-  # Run the function
+  # Run the Function
 
   asc_file <- tif_file |> wc_to_ascii()
 
-  # Check the output
+  # Check the Output
 
   asc_file |> read_lines(n_max = 6)
 }

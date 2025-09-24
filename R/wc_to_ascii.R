@@ -4,10 +4,21 @@
 #'
 #' `wc_to_ascii()` facilitates the conversion of one or more
 #' [WorldClim](https://worldclim.org/)
-#' [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to
-#' [ASCII](https://en.wikipedia.org/wiki/Esri_grid) raster format.
-#' Optionally, rasters can be cropped and/or aggregated using a provided polygon
-#' of class [`SpatVector`][terra::SpatVector-class].
+#' [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to the [Esri ASCII
+#' Grid](https://en.wikipedia.org/wiki/Esri_grid) raster format. Optionally,
+#' rasters can be cropped and/or aggregated using a provided polygon of class
+#' [`SpatVector`][terra::SpatVector-class].
+#'
+#' @details
+#'
+#' ## `na_flag` parameter
+#'
+#' According to the Esri ASCII raster format documentation, the default value
+#' for `NODATA_VALUE` (the `NA` flag) is `-9999`. However, using four digits of
+#' precision significantly inflates file size. For WorldClim data, two
+#' significant digits (`-99`) are sufficient, since the only variables with
+#' negative values are temperatures, and the lowest temperature ever recorded on
+#' Earth is above that.
 #'
 #' @param file A [`character`][base::character()] vector of file paths to the
 #'   WorldClim GeoTIFF files to be converted. The files must have a `.tif`
@@ -36,7 +47,8 @@
 #'   horizontal distance in degrees to shift the raster data. This is only
 #'   relevant if `dateline_fix` is set to `TRUE` (default: `-45`).
 #' @param na_flag (optional) An [`integer`][base::integer()] value specifying
-#'   the NoData value for the output ASCII files (default: `-9999`).
+#'   the NoData value for the output ASCII files. See the *Details* section
+#'   to learn more (default: `-99`).
 #' @param ... Additional arguments passed to
 #'   [`writeRaster()`][terra::writeRaster()] for writing the ASCII files.
 #'
@@ -56,7 +68,7 @@
 #'   library(stringr)
 #'   library(zip)
 #'
-#'   # Download the WorldClim data from the website
+#'   # Download the WorldClim Data
 #'
 #'   url <-
 #'     get_wc_url("hcd") |>
@@ -77,11 +89,11 @@
 #'     dir_ls(tempdir(), regexp = "\\.tif$") |>
 #'     magrittr::extract(1)
 #'
-#'   # Run the function
+#'   # Run the Function
 #'
 #'   asc_file <- tif_file |> wc_to_ascii()
 #'
-#'   # Check the output
+#'   # Check the Output
 #'
 #'   asc_file |> read_lines(n_max = 6)
 #' }
@@ -94,7 +106,7 @@ wc_to_ascii <- function(
   aggregate = NULL,
   overwrite = TRUE,
   dx = -45,
-  na_flag = -9999, # ESRI default
+  na_flag = -99,
   ...
 ) {
   checkmate::assert_character(file)
