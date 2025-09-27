@@ -21,10 +21,10 @@ utils::bibentry(
   ),
   note = "R package",
   textVersion = paste0(
-    "Vartanian, D.", ". ",
+    "Vartanian, D", ". ",
     "(2025)", ". ",
     "orbis:", " ",
-    "Spatial data analysis tools",
+    "Spatial data analysis tools", " ",
     "[Computer software]", ". ",
     "https://danielvartan.github.io/",
     "orbis"

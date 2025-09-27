@@ -84,6 +84,45 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "fs",
+      "name": "fs",
+      "version": ">= 1.6.6",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=fs"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "geobr",
+      "name": "geobr",
+      "version": ">= 1.9.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=geobr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "geocodebr",
+      "name": "geocodebr",
+      "version": ">= 0.2.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=geocodebr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "geodata",
       "name": "geodata",
       "version": ">= 0.6.2",
@@ -97,6 +136,45 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "glue",
+      "name": "glue",
+      "version": ">= 1.8.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=glue"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
+      "version": ">= 1.4.7",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "ISOcodes",
+      "name": "ISOcodes",
+      "version": ">= 2025.5.18",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ISOcodes"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
       "version": ">= 1.50",
@@ -107,6 +185,19 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "osfr",
+      "name": "osfr",
+      "version": ">= 0.2.9",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=osfr"
     },
     {
       "@type": "SoftwareApplication",
@@ -188,6 +279,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "tidygeocoder",
+      "name": "tidygeocoder",
+      "version": ">= 1.0.6",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "zip",
       "name": "zip",
       "version": ">= 2.3.3",
@@ -248,97 +352,6 @@
     },
     "5": {
       "@type": "SoftwareApplication",
-      "identifier": "fs",
-      "name": "fs",
-      "version": ">= 1.6.6",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=fs"
-    },
-    "6": {
-      "@type": "SoftwareApplication",
-      "identifier": "geobr",
-      "name": "geobr",
-      "version": ">= 1.9.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=geobr"
-    },
-    "7": {
-      "@type": "SoftwareApplication",
-      "identifier": "geocodebr",
-      "name": "geocodebr",
-      "version": ">= 0.2.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=geocodebr"
-    },
-    "8": {
-      "@type": "SoftwareApplication",
-      "identifier": "glue",
-      "name": "glue",
-      "version": ">= 1.8.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=glue"
-    },
-    "9": {
-      "@type": "SoftwareApplication",
-      "identifier": "ISOcodes",
-      "name": "ISOcodes",
-      "version": ">= 2025.5.18",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ISOcodes"
-    },
-    "10": {
-      "@type": "SoftwareApplication",
-      "identifier": "lifecycle",
-      "name": "lifecycle",
-      "version": ">= 1.0.4",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
-    },
-    "11": {
-      "@type": "SoftwareApplication",
-      "identifier": "lubridate",
-      "name": "lubridate",
-      "version": ">= 1.9.4",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=lubridate"
-    },
-    "12": {
-      "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
       "version": ">= 2.0.4",
@@ -350,26 +363,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "13": {
-      "@type": "SoftwareApplication",
-      "identifier": "methods",
-      "name": "methods",
-      "version": ">= 4.4"
-    },
-    "14": {
-      "@type": "SoftwareApplication",
-      "identifier": "osfr",
-      "name": "osfr",
-      "version": ">= 0.2.9",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=osfr"
-    },
-    "15": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -382,7 +376,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "16": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -395,7 +389,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "17": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -408,7 +402,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "18": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -421,7 +415,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "19": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -434,20 +428,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "20": {
-      "@type": "SoftwareApplication",
-      "identifier": "tidygeocoder",
-      "name": "tidygeocoder",
-      "version": ">= 1.0.6",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
-    },
-    "21": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -462,7 +443,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "941.421KB",
+  "fileSize": "952.266KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -485,5 +466,5 @@
   "readme": "https://github.com/danielvartan/orbis/blob/main/README.md",
   "contIntegration": ["https://github.com/danielvartan/orbis/actions", "https://app.codecov.io/gh/danielvartan/orbis"],
   "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "r-programming-language", "sf", "sidra", "spatial-analysis", "terra"]
+  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "sidra", "spatial-analysis", "terra"]
 }

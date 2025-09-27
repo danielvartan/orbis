@@ -11,7 +11,7 @@ Authors@R: c(
         )
     )
 Description: A suite of tools for simplifying spatial data analysis.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 URL: https://danielvartan.github.io/orbis/,
     https://github.com/danielvartan/orbis/
 BugReports: https://github.com/danielvartan/orbis/issues/
@@ -37,6 +37,7 @@ Suggests:
     geocodebr (>= 0.2.1),
     geodata (>= 0.6.2),
     glue (>= 1.8.0),
+    httr (>= 1.4.7),
     ISOcodes (>= 2025.5.18),
     knitr (>= 1.50),
     osfr (>= 0.2.9),
