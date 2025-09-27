@@ -26,8 +26,11 @@ assert_internet <- function() {
 require_pkg <- function(...) {
   out <- list(...)
 
-  lapply(out, checkmate::assert_string,
-         pattern = "^[A-Za-z][A-Za-z0-9.]+[A-Za-z0-9]$")
+  lapply(
+    out,
+    checkmate::assert_string,
+    pattern = "^[A-Za-z][A-Za-z0-9.]+[A-Za-z0-9]*$"
+  )
 
   if (!identical(unique(unlist(out)), unlist(out))) {
     cli::cli_abort("'...' cannot have duplicated values.")
@@ -193,4 +196,149 @@ to_title_case_pt <- function(
       "(\\b\\p{L}')\\p{Ll}|(\\p{Ll}')\\p{Ll}",
       function(m) paste0(substr(m, 1, 2), toupper(substr(m, 3, 3)))
     )
+}
+
+# Borrowed from `rutils`: github.com/danielvartan/rutils
+get_file_size <- function(file) {
+  checkmate::assert_character(file)
+
+  require_pkg("fs", "httr")
+
+  url_pattern <- paste0(
+    "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
+    "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
+  )
+
+  file <- stringr::str_trim(file)
+  out <- character()
+
+  for (i in seq_along(file)) {
+    if (stringr::str_detect(file[i], url_pattern)) {
+      out[i] <- get_file_size_by_url(file[i])
+    } else {
+      out[i] <- fs::file_size(file[i])
+    }
+  }
+
+  out |> fs::fs_bytes()
+}
+
+# Borrowed from `rutils`: github.com/danielvartan/rutils
+get_file_size_by_url <- function(file) {
+  url_pattern <- paste0(
+    "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
+    "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
+  )
+
+  assert_internet()
+  checkmate::assert_character(file, pattern = url_pattern)
+
+  require_pkg("fs", "httr")
+
+  out <- character()
+
+  for (i in seq_along(file)) {
+    request <- try({file[i] |> httr::HEAD()}, silent = TRUE) #nolint
+
+    if (inherits(request, "try-error")) {
+      out[i] <- NA
+    } else if (!is.null(request$headers$`Content-Length`)) {
+      out[i] <- as.numeric(request$headers$`content-length`)
+    } else {
+      out[i] <- NA
+    }
+  }
+
+  out |> fs::fs_bytes()
+}
+
+# Borrowed from `rutils`: github.com/danielvartan/rutils
+count_na <- function(x) {
+  checkmate::assert_atomic(x)
+
+  length(which(is.na(x)))
+}
+
+# Borrowed from `rutils`: github.com/danielvartan/rutils
+download_file <- function(
+  url,
+  dir = ".",
+  broken_links = FALSE
+) {
+  url_pattern <- paste0(
+    "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
+    "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
+  )
+
+  checkmate::assert_character(url, pattern = url_pattern, any.missing = FALSE)
+  checkmate::assert_string(dir)
+  checkmate::assert_directory_exists(dir, access = "w")
+
+  require_pkg("curl", "fs")
+
+  # R CMD Check variable bindings fix
+  # nolint start
+  . <- NULL
+  # nolint end
+
+  cli::cli_alert_info(
+    paste0(
+      "Downloading ",
+      "{.strong {cli::col_red(length(url))}} ",
+      "{cli::qty(length(url))}",
+      "file{?s} to {.strong {dir}}"
+    )
+  )
+
+  if (length(url) > 1) cli::cat_line()
+
+  cli::cli_progress_bar(
+    name = "Downloading files",
+    total = length(url),
+    clear = FALSE
+  )
+
+  broken_links <- character()
+
+  for (i in url) {
+    test <- try(
+      i |>
+        curl::curl_download(
+          destfile = fs::path(dir, basename(i)),
+          quiet = TRUE
+        ),
+      silent = TRUE
+    )
+
+    if (inherits(test, "try-error")) {
+      cli::cli_alert_info(
+        "The file {.strong {basename(i)}} could not be downloaded."
+      )
+
+      broken_links <- c(broken_links, i)
+    }
+
+    cli::cli_progress_update()
+  }
+
+  cli::cli_progress_done()
+
+  if (isTRUE(broken_links)) {
+    invisible(broken_links)
+  } else {
+    url |>
+      magrittr::extract(!url %in% broken_links) %>%
+      fs::path(dir, basename(.)) |>
+      invisible()
+  }
+}
+
+# Borrowed from `rutils`: github.com/danielvartan/rutils
+long_string <- function(x) {
+  checkmate::assert_string(x)
+
+  x |>
+    strwrap() |>
+    paste0(collapse = " ") |>
+    gsub(x = _, pattern = "\\s+", replacement = " ")
 }
