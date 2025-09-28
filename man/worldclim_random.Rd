@@ -41,8 +41,8 @@ worldclim_random("fcd")
 }
 \seealso{
 Other WorldClim functions: 
-\code{\link{get_wc_url}()},
-\code{\link{wc_to_ascii}()},
-\code{\link{worldclim_extract_variable}()}
+\code{\link{worldclim_extract_variable}()},
+\code{\link{worldclim_to_ascii}()},
+\code{\link{worldclim_url}()}
 }
 \concept{WorldClim functions}

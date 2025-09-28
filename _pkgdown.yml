@@ -46,53 +46,53 @@ reference:
 
 - title: APIs
   desc: >
-    Client functions for accessing external data sources via APIs.
+    Client functions for accessing external data sources.
   contents:
-  - get_qualocep_data
-  - get_sidra_by_year
+  - qualocep_download
+  - sidra_download_by_year
 
 - title: Brazil
   desc: >
     Functions to access Brazilian geographic and administrative data.
   contents:
-  - get_brazil_region_code
-  - get_brazil_region
-  - get_brazil_state_code
-  - get_brazil_state
-  - get_brazil_state_capital
-  - get_brazil_state_latitude
-  - get_brazil_state_longitude
-  - get_brazil_state_by_utc
-  - get_brazil_fu
-  - get_brazil_municipality_code
-  - get_brazil_municipality
-  - get_brazil_municipality_coords
-  - get_brazil_municipality_latitude
-  - get_brazil_municipality_longitude
-  - render_brazil_address
+  - brazil_municipality
+  - brazil_municipality_code
+  - brazil_municipality_coords
+  - brazil_municipality_latitude
+  - brazil_municipality_longitude
+  - brazil_state
+  - brazil_state_code
+  - brazil_state_capital
+  - brazil_state_latitude
+  - brazil_state_longitude
+  - brazil_state_by_utc
+  - brazil_fu
+  - brazil_region
+  - brazil_region_code
+  - brazil_render_address
 
 - title: World
   desc: >
-    Functions to access geographic and administrative data for the world.
+    Functions to access world geographic and administrative data.
   contents:
-  - get_country_names
+  - country_names
 
 - title: WorldClim
   desc: >
     Functions to access and manipulate [WorldClim](https://worldclim.org/) data.
   contents:
-  - get_wc_url
-  - wc_to_ascii
   - worldclim_extract_variable
+  - worldclim_to_ascii
   - worldclim_random
+  - worldclim_url
 
 - title: Utilities
   desc: >
     Utility functions for spatial data manipulation.
   contents:
+  - closest_geobr_year
   - fix_postal_code
-  - get_closest_geobr_year
-  - get_map_fill_data
+  - map_fill_data
   - remove_unique_outliers
   - unique_outliers
 

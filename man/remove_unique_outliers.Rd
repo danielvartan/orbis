@@ -63,9 +63,9 @@ temp_file |> rast() |> values(mat = FALSE)
 }
 \seealso{
 Other utility functions: 
+\code{\link{closest_geobr_year}()},
 \code{\link{fix_postal_code}()},
-\code{\link{get_closest_geobr_year}()},
-\code{\link{get_map_fill_data}()},
+\code{\link{map_fill_data}()},
 \code{\link{unique_outliers}()}
 }
 \concept{utility functions}

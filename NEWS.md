@@ -1,7 +1,8 @@
 # orbis 0.1.0.9000 (development version)
 
 - Moved several dependencies to *Suggests* in the DESCRIPTION file.
-- Removed `get_wc_osf_id()` function as it is no longer needed.
+- Removed `get_` from the names of functions.
+- Renamed `wc_*()` functions to `worldclim_*()` for clarity.
 - Added `unique_outliers()` and `remove_unique_outliers()` to handle unique outliers in data.
 - Added `worldclim_random()` and `worldclim_extract_*()` to deal with [WorldClim](https://www.worldclim.org/) data.
 - Changed package license from [MIT](https://opensource.org/license/mit) to [GPLv3](https://www.gnu.org/licenses/gpl-3.0).

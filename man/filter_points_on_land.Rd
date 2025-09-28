@@ -32,8 +32,8 @@ package to be installed.
 
   if (has_internet()) {
     data <- tibble(
-      latitude = get_brazil_state_latitude(),
-      longitude = get_brazil_state_longitude()
+      latitude = brazil_state_latitude(),
+      longitude = brazil_state_longitude()
     )
 
     data

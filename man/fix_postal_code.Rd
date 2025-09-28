@@ -84,8 +84,8 @@ fix_postal_code(NA, max_char = 8, zero_na = TRUE)
 }
 \seealso{
 Other utility functions: 
-\code{\link{get_closest_geobr_year}()},
-\code{\link{get_map_fill_data}()},
+\code{\link{closest_geobr_year}()},
+\code{\link{map_fill_data}()},
 \code{\link{remove_unique_outliers}()},
 \code{\link{unique_outliers}()}
 }

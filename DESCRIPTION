@@ -22,6 +22,7 @@ Imports:
     cli (>= 3.6.5),
     dplyr (>= 1.1.4),
     here (>= 1.0.2),
+    lifecycle (>= 1.0.4),
     magrittr (>= 2.0.4),
     purrr (>= 1.1.0),
     readr (>= 2.1.5),

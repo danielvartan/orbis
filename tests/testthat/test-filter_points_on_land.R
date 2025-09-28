@@ -1,8 +1,8 @@
 # Error with MacOS Latest: Probably because it can't connect to the internet
 # testthat::test_that("filter_points_on_land() | General test", {
 #   data <- tibble(
-#     latitude = get_brazil_state_latitude(),
-#     longitude = get_brazil_state_longitude()
+#     latitude = brazil_state_latitude(),
+#     longitude = brazil_state_longitude()
 #   )
 
 #   geometry <-
@@ -16,8 +16,8 @@
 #     unname() |>
 #     testthat::expect_equal(
 #       c(
-#         get_brazil_state_latitude("sp"),
-#         get_brazil_state_longitude("sp")
+#         brazil_state_latitude("sp"),
+#         brazil_state_longitude("sp")
 #       )
 #     )
 # })
