@@ -84,9 +84,9 @@ Climate Data).</p></li>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other WorldClim functions:
-<code><a href="get_wc_url.html">get_wc_url</a>()</code>,
-<code><a href="wc_to_ascii.html">wc_to_ascii</a>()</code>,
-<code><a href="worldclim_extract_variable.html">worldclim_extract_variable</a>()</code></p></div>
+<code><a href="worldclim_extract_variable.html">worldclim_extract_variable</a>()</code>,
+<code><a href="worldclim_to_ascii.html">worldclim_to_ascii</a>()</code>,
+<code><a href="worldclim_url.html">worldclim_url</a>()</code></p></div>
     </div>
 
     <div class="section level2">
@@ -97,20 +97,20 @@ Climate Data).</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "historical-climate-data" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $resolution</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 Minutes (~340 km2 at the Equator) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                "10m" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Minutes (~85 km2 at the Equator) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                               "5m" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $variable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Average Minimum Temperature (°C) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           "tmin" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Average Temperature (°C) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   "tavg" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $month</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> September </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> February </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1970-2000 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1974 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1983 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">worldclim_random</span><span class="op">(</span><span class="st">"hmwd"</span><span class="op">)</span></span></span>
@@ -119,19 +119,19 @@ Climate Data).</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "historical-monthly-weather-data" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $resolution</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 Seconds (~1 km2  at the Equator) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               "30s" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 Minutes (~340 km2 at the Equator) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                "10m" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $variable</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Precipitation (mm) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                   "prec" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $month</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> January </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> September </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         9 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1978</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1987</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">worldclim_random</span><span class="op">(</span><span class="st">"fcd"</span><span class="op">)</span></span></span>
@@ -144,23 +144,27 @@ Climate Data).</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                               "30s" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $variable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Average Maximum Temperature (°C) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                           "tmax" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bioclimatic Variables </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                "bioc" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $bioclimatic_variable</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> BIO3 - Isothermality (BIO2 / BIO7) (×100) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                         3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $model</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "GISS-E2-1-G"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MIROC6"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ssp</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  SSP-245 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "ssp245" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $month</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> November </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       11 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> January </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2041-2060 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2055 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2048 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
