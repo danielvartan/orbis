@@ -134,6 +134,7 @@ Earth is above that.
 \seealso{
 Other WorldClim functions: 
 \code{\link{get_wc_url}()},
+\code{\link{worldclim_extract_variable}()},
 \code{\link{worldclim_random}()}
 }
 \concept{WorldClim functions}

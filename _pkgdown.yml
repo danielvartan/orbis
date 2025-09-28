@@ -83,6 +83,7 @@ reference:
   contents:
   - get_wc_url
   - wc_to_ascii
+  - worldclim_extract_variable
   - worldclim_random
 
 - title: Utilities
