@@ -56,11 +56,17 @@
 #'
 #' @examples
 #' \dontrun{
-#'   sidra_download_by_year(
-#'     years = 2010:2011,
-#'     api_start = "/t/1612/n6/all/v/109/p/",
-#'     api_end = "/c81/2692"
-#'   )
+#'   library(curl)
+#'   library(dplyr)
+#'
+#'   if (has_internet()) {
+#'     sidra_download_by_year(
+#'       years = 2010:2011,
+#'       api_start = "/t/1612/n6/all/v/109/p/",
+#'       api_end = "/c81/2692"
+#'     ) |>
+#'       glimpse()
+#'   }
 #' }
 sidra_download_by_year <- function(years, api_start, api_end) {
   assert_internet()

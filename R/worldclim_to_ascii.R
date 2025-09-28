@@ -83,34 +83,36 @@
 #'   library(stringr)
 #'   library(zip)
 #'
-#'   # Download the WorldClim Data
+#'   if (has_internet()) {
+#'     # Download the WorldClim Data
 #'
-#'   url <-
-#'     worldclim_url("hcd") |>
-#'     rvest::read_html() |>
-#'     rvest::html_elements("a") |>
-#'     rvest::html_attr("href") |>
-#'     stringr::str_subset("geodata") |>
-#'     magrittr::extract(1)
+#'     url <-
+#'       worldclim_url("hcd") |>
+#'       rvest::read_html() |>
+#'       rvest::html_elements("a") |>
+#'       rvest::html_attr("href") |>
+#'       stringr::str_subset("geodata") |>
+#'       magrittr::extract(1)
 #'
-#'   zip_file <- basename(url)
+#'     zip_file <- basename(url)
 #'
-#'   curl::curl_download(url, path(tempdir(), zip_file))
+#'     curl_download(url, path(tempdir(), zip_file))
 #'
-#'   path(tempdir(), zip_file) |>
-#'     zip::unzip(exdir = tempdir())
+#'     path(tempdir(), zip_file) |>
+#'       zip::unzip(exdir = tempdir())
 #'
-#'   tif_file <-
-#'     dir_ls(tempdir(), regexp = "\\.tif$") |>
-#'     magrittr::extract(1)
+#'     tif_file <-
+#'       dir_ls(tempdir(), regexp = "\\.tif$") |>
+#'       magrittr::extract(1)
 #'
-#'   # Run the Function
+#'     # Transform to ASCII
 #'
-#'   asc_file <- tif_file |> worldclim_to_ascii()
+#'     asc_file <- tif_file |> worldclim_to_ascii()
 #'
-#'   # Check the Output
+#'     # Check the Output
 #'
-#'   asc_file |> read_lines(n_max = 6)
+#'     asc_file |> read_lines(n_max = 11)
+#'   }
 #' }
 worldclim_to_ascii <- function(
   file,

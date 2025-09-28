@@ -45,13 +45,18 @@
 #'
 #' @examples
 #' \dontrun{
-#'   brazil_municipality() |> dplyr::glimpse()
+#'   library(curl)
+#'   library(dplyr)
 #'
-#'   brazil_municipality(municipality = "Belém")
+#'   if (has_internet()) {
+#'     brazil_municipality() |> glimpse()
 #'
-#'   brazil_municipality(municipality = "Belém", state = "Pará")
+#'     brazil_municipality(municipality = "Belém")
 #'
-#'   brazil_municipality(municipality = c("Belém", "São Paulo"))
+#'     brazil_municipality(municipality = "Belém", state = "Pará")
+#'
+#'     brazil_municipality(municipality = c("Belém", "São Paulo"))
+#'   }
 #' }
 brazil_municipality <- function(
   municipality = NULL,
@@ -76,12 +81,6 @@ brazil_municipality <- function(
   region <- region_code <- state_code <- federal_unit <- NULL
   municipality_code <- country <- .env <- NULL
   # nolint end
-
-  # Use `stringi::stri_escape_unicode` to escape unicode characters.
-  # stringi::stri_escape_unicode("")
-
-  # Use `tools::showNonASCIIfile` to show non-ASCII characters.
-  # tools::showNonASCIIfile(here::here("R", "brazil_state.R"))
 
   brazil_municipalities_file <- file.path(
     tempdir(), paste0("brazil-municipalities-", year, ".rds")

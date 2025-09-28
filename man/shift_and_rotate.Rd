@@ -35,13 +35,16 @@ that span the dateline (e.g., the Russian territory).
 }
 \examples{
 \dontrun{
+  library(curl)
   library(dplyr)
   library(geodata)
+  library(ggplot2)
   library(terra)
+  library(tidyterra)
 
-  ## Raster example
+  if (has_internet()) {
+    ## Raster example
 
-  if (curl::has_internet()) {
     raster <-
       expand.grid(
         seq(-179.75, 179.75, by = 0.5),
@@ -56,37 +59,57 @@ that span the dateline (e.g., the Russian territory).
     world_shape <- world(path = tempdir())
     raster <- raster |> crop(world_shape, mask = TRUE)
 
-    raster |> plot()
+    plot_raster <- function(raster) {
+      plot <-
+        ggplot() +
+        geom_spatraster(data = raster) +
+        scale_fill_continuous(
+          palette = c("#072359", "#3243A6", "#9483AF"),
+          na.value = "white"
+        ) +
+        labs(fill = NULL)
 
-    raster |> shift_and_rotate(-45) |> plot()
+      print(plot)
+    }
 
-    raster |> shift_and_rotate(-90) |> plot()
+    raster |> plot_raster()
 
-    raster |> shift_and_rotate(-135) |> plot()
+    raster |> shift_and_rotate(-45) |> plot_raster()
 
-    raster |> shift_and_rotate(-180) |> plot()
+    raster |> shift_and_rotate(-90) |> plot_raster()
 
-    raster |> plot()
+    raster |> shift_and_rotate(-135) |> plot_raster()
 
-    raster |> shift_and_rotate(45) |> plot()
+    raster |> shift_and_rotate(-180) |> plot_raster()
 
-    raster |> shift_and_rotate(90) |> plot()
+    raster |> plot_raster()
 
-    raster |> shift_and_rotate(135) |> plot()
+    raster |> shift_and_rotate(45) |> plot_raster()
 
-    raster |> shift_and_rotate(180) |> plot()
-  }
+    raster |> shift_and_rotate(90) |> plot_raster()
 
-  ## Vector example
+    raster |> shift_and_rotate(135) |> plot_raster()
 
-  if (curl::has_internet()) {
+    raster |> shift_and_rotate(180) |> plot_raster()
+
+    ## Vector example
+
     vector <- gadm(country = "rus", level = 0, path = tempdir())
 
-    vector |> plot()
+    plot_vector <- function(vector) {
+      plot <-
+        vector |>
+        ggplot() +
+        geom_spatvector(fill = "#3243A6", color = "white")
 
-    vector |> shift_and_rotate(-45) |> plot()
+      print(plot)
+    }
 
-    vector |> shift_and_rotate(45) |> plot()
+    vector |> plot_vector()
+
+    vector |> shift_and_rotate(-45) |> plot_vector()
+
+    vector |> shift_and_rotate(45) |> plot_vector()
   }
 }
 }

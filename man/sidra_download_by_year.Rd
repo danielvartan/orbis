@@ -61,11 +61,17 @@ table settings, selecting different years, and examining how the URL changes.
 }
 \examples{
 \dontrun{
-  sidra_download_by_year(
-    years = 2010:2011,
-    api_start = "/t/1612/n6/all/v/109/p/",
-    api_end = "/c81/2692"
-  )
+  library(curl)
+  library(dplyr)
+
+  if (has_internet()) {
+    sidra_download_by_year(
+      years = 2010:2011,
+      api_start = "/t/1612/n6/all/v/109/p/",
+      api_end = "/c81/2692"
+    ) |>
+      glimpse()
+  }
 }
 }
 \concept{other functions.}

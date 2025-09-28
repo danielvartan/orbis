@@ -38,6 +38,7 @@ Suggests:
     geobr (>= 1.9.1),
     geocodebr (>= 0.2.1),
     geodata (>= 0.6.2),
+    ggplot2 (>= 4.0.0),
     glue (>= 1.8.0),
     httr (>= 1.4.7),
     ISOcodes (>= 2025.5.18),
@@ -51,6 +52,7 @@ Suggests:
     testthat (>= 3.2.3),
     tibble (>= 3.3.0),
     tidygeocoder (>= 1.0.6),
+    tidyterra (>= 0.7.2),
     zip (>= 2.3.3)
 Config/testthat/edition: 3
 Encoding: UTF-8

@@ -1,4 +1,4 @@
-#' Get data to fill a map
+#' Prepare data to fill a map
 #'
 #' @description
 #'
@@ -23,16 +23,42 @@
 #' @export
 #'
 #' @examples
-#' library(dplyr)
+#' \dontrun{
+#'   library(curl)
+#'   library(dplyr)
+#'   library(geodata)
+#'   library(ggplot2)
+#'   library(terra)
+#'   library(tidyterra)
 #'
-#' data <- tibble(
-#'   state = c("SP", "RJ", "MG", "SP", "RJ", "MG"),
-#'   value = c(1, 2, 3, 4, 5, 6)
-#' )
+#'   if (has_internet()) {
+#'     brazil_states <- geodata::gadm("BRA", level = 1, path = tempdir())
 #'
-#' map_fill_data(data, col_fill = NULL, col_code = "state")
+#'     brazil_states |>
+#'       ggplot() +
+#'       geom_spatvector(fill = "#5F45BF", color = "white")
 #'
-#' map_fill_data(data, col_fill = "value", col_code = "state")
+#'     data <- tibble(
+#'       state = sample(brazil_states$NAME_1, size = 1000, replace = TRUE),
+#'       value = sample(1:1000, size = 1000, replace = TRUE)
+#'     )
+#'
+#'     data
+#'
+#'     data <- map_fill_data(data, col_fill = "value", col_code = "state")
+#'
+#'     data
+#'
+#'     left_join(brazil_states, data, by = c("NAME_1" = "state")) |>
+#'       ggplot() +
+#'       geom_spatvector(aes(fill = n), color = "white") +
+#'       scale_fill_continuous(
+#'           palette = c("#072359", "#3243A6", "#9483AF"),
+#'           na.value = "white"
+#'       ) +
+#'       labs(fill = NULL)
+#'   }
+#' }
 map_fill_data <- function(
   data,
   col_fill = NULL,

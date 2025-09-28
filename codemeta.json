@@ -253,6 +253,12 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "stats",
+      "name": "stats",
+      "version": ">= 4.4"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 3.2.3",
@@ -352,6 +358,32 @@
     },
     "5": {
       "@type": "SoftwareApplication",
+      "identifier": "here",
+      "name": "here",
+      "version": ">= 1.0.2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=here"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "lifecycle",
+      "name": "lifecycle",
+      "version": ">= 1.0.4",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
+    },
+    "7": {
+      "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
       "version": ">= 2.0.4",
@@ -363,7 +395,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "6": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -376,7 +408,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "7": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -389,7 +421,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "8": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -402,7 +434,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "9": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -415,7 +447,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "10": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -428,7 +460,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "11": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -443,7 +475,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "952.266KB",
+  "fileSize": "1090.428KB",
   "citation": [
     {
       "@type": "CreativeWork",

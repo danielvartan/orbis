@@ -22,3 +22,4 @@
 ^pkgdown$
 ^R/\.post-render\.R$
 ^README\.qmd$
+^ttf$

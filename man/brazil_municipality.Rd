@@ -71,13 +71,18 @@ Institute of Geography and Statistics (IBGE) data.
 }
 \examples{
 \dontrun{
-  brazil_municipality() |> dplyr::glimpse()
+  library(curl)
+  library(dplyr)
 
-  brazil_municipality(municipality = "Belém")
+  if (has_internet()) {
+    brazil_municipality() |> glimpse()
 
-  brazil_municipality(municipality = "Belém", state = "Pará")
+    brazil_municipality(municipality = "Belém")
 
-  brazil_municipality(municipality = c("Belém", "São Paulo"))
+    brazil_municipality(municipality = "Belém", state = "Pará")
+
+    brazil_municipality(municipality = c("Belém", "São Paulo"))
+  }
 }
 }
 \seealso{

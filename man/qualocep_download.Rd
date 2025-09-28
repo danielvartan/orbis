@@ -73,7 +73,12 @@ Please note the year of the pattern. Some values could be
 }
 \examples{
 \dontrun{
-  qualocep_download()
+  library(curl)
+  library(dplyr)
+
+  if (has_internet()) {
+    qualocep_download() |> glimpse()
+  }
 }
 }
 \concept{API functions}

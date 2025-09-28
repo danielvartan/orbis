@@ -60,13 +60,17 @@ list of all \code{\link[geobr:geobr]{geobr}} datasets by running
 }
 \examples{
 \dontrun{
-  brazil_municipality_latitude(3550308)
+  library(curl)
 
-  brazil_municipality_latitude(c(3550308, 3500204))
+  if (has_internet()) {
+    brazil_municipality_latitude(3550308)
 
-  brazil_municipality_latitude(c(3550308, 1000, 3500204))
+    brazil_municipality_latitude(c(3550308, 3500204))
 
-  brazil_municipality_latitude(c(3550308, NA, 3500204))
+    brazil_municipality_latitude(c(3550308, 1000, 3500204))
+
+    brazil_municipality_latitude(c(3550308, NA, 3500204))
+  }
 }
 }
 \seealso{

@@ -64,13 +64,17 @@ Institute of Geography and Statistics (IBGE) data.
 }
 \examples{
 \dontrun{
-  brazil_municipality_coords() |> dplyr::glimpse()
+  library(curl)
 
-  brazil_municipality_coords(municipality_code = 3550308)
+  if (has_internet()) {
+    brazil_municipality_coords() |> dplyr::glimpse()
 
-  brazil_municipality_coords(municipality_code = 3550)
+    brazil_municipality_coords(municipality_code = 3550308)
 
-  brazil_municipality_coords(municipality_code = c(3550308, 3304557))
+    brazil_municipality_coords(municipality_code = 3550)
+
+    brazil_municipality_coords(municipality_code = c(3550308, 3304557))
+  }
 }
 }
 \seealso{

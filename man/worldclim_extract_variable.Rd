@@ -46,28 +46,28 @@ files <- c(
 )
 
 files |> worldclim_extract_variable()
-#> [1] "tavg" "tmin" "tmax"
+#> [1] "tavg" "tmin" "tmax" # Expected
 
 files |> worldclim_extract_resolution()
-#> [1] "10m" "30s" "5m"
+#> [1] "10m" "30s" "5m" # Expected
 
 files |> worldclim_extract_month()
-#> [1] "06" "10" "05"
+#> [1] "06" "10" "05" # Expected
 
 files |> worldclim_extract_year()
-#> [1] "1970-2000" "1962"      "2081-2100"
+#> [1] "1970-2000" "1962"      "2081-2100" # Expected
 
 files |> worldclim_extract_year_month()
-#> [1] "1970-2000-06" "1962-10"      "2081-2100-05"
+#> [1] "1970-2000-06" "1962-10"      "2081-2100-05" # Expected
 
 files |> worldclim_extract_year_group()
-#> [1] NA         NA         "2081-2100"
+#> [1] NA         NA         "2081-2100" # Expected
 
 files |> worldclim_extract_gcm()
-#> [1] NA            NA            "GISS-E2-1-G"
+#> [1] NA            NA            "GISS-E2-1-G" # Expected
 
 files |> worldclim_extract_ssp()
-#> [1] NA       NA       "ssp370"
+#> [1] NA       NA       "ssp370" # Expected
 }
 \seealso{
 Other WorldClim functions: 

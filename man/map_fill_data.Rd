@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_fill_data.R
 \name{map_fill_data}
 \alias{map_fill_data}
-\title{Get data to fill a map}
+\title{Prepare data to fill a map}
 \usage{
 map_fill_data(
   data,
@@ -39,16 +39,42 @@ A \code{\link[tibble:tibble]{tibble}}.
 \code{map_fill_data()} prepares data to be used as fill in a map.
 }
 \examples{
-library(dplyr)
+\dontrun{
+  library(curl)
+  library(dplyr)
+  library(geodata)
+  library(ggplot2)
+  library(terra)
+  library(tidyterra)
 
-data <- tibble(
-  state = c("SP", "RJ", "MG", "SP", "RJ", "MG"),
-  value = c(1, 2, 3, 4, 5, 6)
-)
+  if (has_internet()) {
+    brazil_states <- geodata::gadm("BRA", level = 1, path = tempdir())
 
-map_fill_data(data, col_fill = NULL, col_code = "state")
+    brazil_states |>
+      ggplot() +
+      geom_spatvector(fill = "#5F45BF", color = "white")
 
-map_fill_data(data, col_fill = "value", col_code = "state")
+    data <- tibble(
+      state = sample(brazil_states$NAME_1, size = 1000, replace = TRUE),
+      value = sample(1:1000, size = 1000, replace = TRUE)
+    )
+
+    data
+
+    data <- map_fill_data(data, col_fill = "value", col_code = "state")
+
+    data
+
+    left_join(brazil_states, data, by = c("NAME_1" = "state")) |>
+      ggplot() +
+      geom_spatvector(aes(fill = n), color = "white") +
+      scale_fill_continuous(
+          palette = c("#072359", "#3243A6", "#9483AF"),
+          na.value = "white"
+      ) +
+      labs(fill = NULL)
+  }
+}
 }
 \seealso{
 Other utility functions: 

@@ -53,13 +53,17 @@ list of all \code{\link[geobr:geobr]{geobr}} datasets by running
 }
 \examples{
 \dontrun{
-  brazil_municipality_code(municipality = "Belém")
+  library(curl)
 
-  brazil_municipality_code(municipality = "Belém", names = FALSE)
+  if (has_internet()) {
+    brazil_municipality_code(municipality = "Belém")
 
-  brazil_municipality_code(municipality = "Belém", state = "Pará")
+    brazil_municipality_code(municipality = "Belém", names = FALSE)
 
-  brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
+    brazil_municipality_code(municipality = "Belém", state = "Pará")
+
+    brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
+  }
 }
 }
 \seealso{

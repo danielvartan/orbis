@@ -22,6 +22,7 @@
 #' \dontrun{
 #'   library(curl)
 #'   library(dplyr)
+#'   library(ggplot2)
 #'   library(geobr)
 #'   library(sf)
 #'
@@ -33,11 +34,35 @@
 #'
 #'     data
 #'
-#'     geometry <- read_state(code = "SP") |> pull(geom)
+#'     plot_points <- function(data, vector) {
+#'       plot <-
+#'         data |>
+#'         ggplot(aes(x = longitude, y = latitude)) +
+#'         geom_sf(
+#'           data = vector,
+#'           color = "gray75",
+#'           fill = "white",
+#'           inherit.aes = FALSE
+#'         ) +
+#'         geom_point(color = "#3243A6") +
+#'         labs(x = "Longitude", y = "Latitude")
 #'
-#'     geometry |> st_bbox()
+#'       print(plot)
+#'     }
 #'
-#'     filter_points_on_land(data, geometry)
+#'     brazil_state_vector <- read_state()
+#'
+#'     data |> plot_points(brazil_state_vector)
+#'
+#'     sp_state_vector <- read_state(code = "SP")
+#'
+#'     sp_state_vector |> st_bbox()
+#'
+#'     data <- filter_points_on_land(data, sp_state_vector |> pull(geom))
+#'
+#'     data
+#'
+#'     data |> plot_points(brazil_state_vector)
 #'   }
 #' }
 filter_points_on_land <- function(data, geometry) {
