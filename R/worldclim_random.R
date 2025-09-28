@@ -97,8 +97,8 @@ worldclim_random <- function(series = "hcd") {
   )
 
   model_choices <- c(
-    "ACCESS-CM2", "BCC-CSM2-MR", "CMCC-ESM2", "EC-EARTH3-VEG", "FIO-ESM-2-0",
-    "GFDL-ESM4", "GISS-E2-1-G", "HADGEM3-GC31-LL", "INM-CM5-0", "IPSL-CM6A-LR",
+    "ACCESS-CM2", "BCC-CSM2-MR", "CMCC-ESM2", "EC-Earth3-Veg", "FIO-ESM-2-0",
+    "GFDL-ESM4", "GISS-E2-1-G", "HadGEM3-GC31-LL", "INM-CM5-0", "IPSL-CM6A-LR",
     "MIROC6", "MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL"
   )
 
@@ -131,6 +131,10 @@ worldclim_random <- function(series = "hcd") {
         list(bioclimatic_variable = bioclimatic_variable_choices |> sample(1)),
         after = 3
       )
+    } else if (out$variable == "elev") {
+      out[c("month", "year")] <- NULL
+
+      out
     } else {
       out
     }
