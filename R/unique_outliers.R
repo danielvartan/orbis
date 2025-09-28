@@ -1,4 +1,4 @@
-#' Return unique outliers of a numeric vector
+#' Return unique outliers
 #'
 #' @description
 #'

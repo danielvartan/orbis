@@ -2,7 +2,7 @@
 % Please edit documentation in R/unique_outliers.R
 \name{unique_outliers}
 \alias{unique_outliers}
-\title{Return unique outliers of a numeric vector}
+\title{Return unique outliers}
 \usage{
 unique_outliers(x, n_iqr = 1.5)
 }

@@ -55,6 +55,7 @@ get_wc_url(c("hcd", "hmwd", "fcd"), "5m")
 }
 \seealso{
 Other WorldClim functions: 
-\code{\link{wc_to_ascii}()}
+\code{\link{wc_to_ascii}()},
+\code{\link{worldclim_random}()}
 }
 \concept{WorldClim functions}
