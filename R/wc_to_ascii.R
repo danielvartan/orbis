@@ -1,4 +1,4 @@
-#' Convert WorldClim GeoTIFF files to ASCII format
+#' Convert WorldClim GeoTIFF files to Esri ASCII Grid
 #'
 #' @description
 #'
@@ -36,6 +36,21 @@
 #'   useful when working with rasters and vectors that span the dateline (e.g.
 #'   the Russian territory). See [`shift_and_crop`] to learn more
 #'   (default: `TRUE`).
+#' @param extreme_outlier_fix (optional) A [`logical`][base::logical()] flag
+#'   indicating whether to transform to `NA` values 10 times the interquartile
+#'   range
+#'   ([IQR](https://en.wikipedia.org/wiki/Interquartile_range))
+#'   below the first quartile or above the third quartile of the data values
+#'   without duplications. This is useful to remove abnormal values in the
+#'   raster data (default: `FALSE`).
+#' @param extreme_outlier_fix (optional) A [`logical`][base::logical()] flag
+#'   indicating whether to replace extreme outliers with `NA`. Extreme outliers
+#'   are defined as values more than 10 times the interquartile range
+#'   ([IQR](https://en.wikipedia.org/wiki/Interquartile_range))
+#'   below the first or above the third quartile. The quartiles and IQR are
+#'   calculated using the unique (deduplicated) values of the data, and the
+#'   resulting thresholds are applied to the full dataset. This helps remove
+#'   abnormal values in raster data.
 #' @param aggregate (optional) An [`integer`][base::integer()] value specifying
 #'   the aggregation factor. The function will aggregate the raster data by this
 #'   factor. See [`aggregate()`][terra::aggregate()] for more details
@@ -103,6 +118,7 @@ wc_to_ascii <- function(
   shape = NULL,
   box = NULL,
   dateline_fix = TRUE,
+  extreme_outlier_fix = TRUE,
   aggregate = NULL,
   overwrite = TRUE,
   dx = -45,
@@ -114,11 +130,14 @@ wc_to_ascii <- function(
   checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
   checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
   checkmate::assert_flag(dateline_fix)
+  checkmate::assert_flag(extreme_outlier_fix)
   checkmate::assert_int(aggregate, null.ok = TRUE)
   checkmate::assert_directory_exists(dir, access = "rw")
   checkmate::assert_flag(overwrite)
   checkmate::assert_number(dx, finite = TRUE)
   checkmate::assert_int(na_flag)
+
+  require_pkg("fs", "readr", "stats")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -241,6 +260,8 @@ wc_to_ascii <- function(
         verbose = FALSE,
         ...
       )
+
+    if (isTRUE(extreme_outlier_fix)) remove_unique_outliers(asc_file, 10)
 
     out <- c(out, asc_file)
 

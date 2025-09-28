@@ -2,7 +2,7 @@
 % Please edit documentation in R/wc_to_ascii.R
 \name{wc_to_ascii}
 \alias{wc_to_ascii}
-\title{Convert WorldClim GeoTIFF files to ASCII format}
+\title{Convert WorldClim GeoTIFF files to Esri ASCII Grid}
 \usage{
 wc_to_ascii(
   file,
@@ -10,6 +10,7 @@ wc_to_ascii(
   shape = NULL,
   box = NULL,
   dateline_fix = TRUE,
+  extreme_outlier_fix = TRUE,
   aggregate = NULL,
   overwrite = TRUE,
   dx = -45,
@@ -38,6 +39,15 @@ whether to apply a dateline fix to the raster data. This is particularly
 useful when working with rasters and vectors that span the dateline (e.g.
 the Russian territory). See \code{\link{shift_and_crop}} to learn more
 (default: \code{TRUE}).}
+
+\item{extreme_outlier_fix}{(optional) A \code{\link[base:logical]{logical}} flag
+indicating whether to replace extreme outliers with \code{NA}. Extreme outliers
+are defined as values more than 10 times the interquartile range
+(\href{https://en.wikipedia.org/wiki/Interquartile_range}{IQR})
+below the first or above the third quartile. The quartiles and IQR are
+calculated using the unique (deduplicated) values of the data, and the
+resulting thresholds are applied to the full dataset. This helps remove
+abnormal values in raster data.}
 
 \item{aggregate}{(optional) An \code{\link[base:integer]{integer}} value specifying
 the aggregation factor. The function will aggregate the raster data by this

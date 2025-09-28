@@ -86,11 +86,13 @@ reference:
 
 - title: Utilities
   desc: >
-    Miscellaneous utility functions for spatial data manipulation.
+    Utility functions for spatial data manipulation.
   contents:
   - fix_postal_code
   - get_closest_geobr_year
   - get_map_fill_data
+  - remove_unique_outliers
+  - unique_outliers
 
 authors:
   Daniel Vartanian:

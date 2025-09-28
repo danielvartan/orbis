@@ -53,6 +53,8 @@ get_map_fill_data(data, col_fill = "value", col_code = "state")
 \seealso{
 Other utility functions: 
 \code{\link{fix_postal_code}()},
-\code{\link{get_closest_geobr_year}()}
+\code{\link{get_closest_geobr_year}()},
+\code{\link{remove_unique_outliers}()},
+\code{\link{unique_outliers}()}
 }
 \concept{utility functions}
