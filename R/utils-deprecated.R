@@ -38,7 +38,7 @@ get_brazil_municipality_coords <- function(...) {
   brazil_municipality_coords(...)
 }
 
-get_brazil_municipality_latitude <- function(...) {
+get_brazil_municipality_latitude <- function(...) { #nolint
   lifecycle::deprecate_warn(
     "0.2.0",
     "get_brazil_municipality_latitude()",
@@ -48,7 +48,7 @@ get_brazil_municipality_latitude <- function(...) {
   brazil_municipality_latitude(...)
 }
 
-get_brazil_municipality_longitude <- function(...) {
+get_brazil_municipality_longitude <- function(...) { #nolint
   lifecycle::deprecate_warn(
     "0.2.0",
     "get_brazil_municipality_longitude()",

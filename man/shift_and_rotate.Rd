@@ -18,8 +18,8 @@ left (default: \code{-45}).}
 digits to use when rounding longitude and latitude coordinates
 (default: \code{5}).}
 
-\item{overlap_tolerance}{(optional) A numeric value specifying the tolerance for
-overlapping geometries when combining vectors. This value controls the
+\item{overlap_tolerance}{(optional) A numeric value specifying the tolerance
+for overlapping geometries when combining vectors. This value controls the
 allowable error when merging overlapping geometries (default: \code{0.1}).}
 }
 \value{

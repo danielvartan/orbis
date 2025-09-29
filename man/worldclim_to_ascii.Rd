@@ -109,10 +109,10 @@ library(zip)
   if (has_internet()) {
     url <-
       worldclim_url("hcd") |>
-      rvest::read_html() |>
-      rvest::html_elements("a") |>
-      rvest::html_attr("href") |>
-      stringr::str_subset("geodata") |>
+      read_html() |>
+      html_elements("a") |>
+      html_attr("href") |>
+      str_subset("geodata") |>
       magrittr::extract(1)
 
     zip_file <- basename(url)
@@ -126,7 +126,6 @@ library(zip)
       magrittr::extract(1)
   }
 }
-
 
 # Transform Data to Esri ASCII -----
 

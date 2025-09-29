@@ -16,8 +16,8 @@
 #' @param precision (optional) A numeric value specifying the number of decimal
 #'   digits to use when rounding longitude and latitude coordinates
 #'   (default: `5`).
-#' @param overlap_tolerance (optional) A numeric value specifying the tolerance for
-#'   overlapping geometries when combining vectors. This value controls the
+#' @param overlap_tolerance (optional) A numeric value specifying the tolerance
+#'   for overlapping geometries when combining vectors. This value controls the
 #'   allowable error when merging overlapping geometries (default: `0.1`).
 #'
 #' @return A object of the same class as `x` that has been shifted and rotated

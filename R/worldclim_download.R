@@ -93,10 +93,10 @@ worldclim_download <- function(
     dplyr::arrange(size) |>
     dplyr::mutate(
       size_cum_sum =
-        size |>
-        tidyr::replace_na() |>
-        cumsum() |>
-        fs::as_fs_bytes()
+        size |> #nolint
+          tidyr::replace_na() |> #nolint
+          cumsum() |>
+          fs::as_fs_bytes()
     )
 
   cli::cli_alert_info(
@@ -157,7 +157,7 @@ worldclim_download <- function(
       )
 
       if (fs::file_exists(i)) {
-         i |> zip::unzip(overwrite = TRUE, exdir = dir_res)
+        i |> zip::unzip(overwrite = TRUE, exdir = dir_res)
 
         cli::cli_progress_update()
       }

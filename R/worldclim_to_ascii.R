@@ -110,7 +110,6 @@
 #'   }
 #' }
 #'
-#'
 #' # Transform Data to Esri ASCII -----
 #'
 #' \dontrun{
@@ -190,39 +189,8 @@ worldclim_to_ascii <- function(
     asc_file <-
       stringr::str_replace(i, "(?i)tif$", "asc") |>
       basename() %>%
-      file.path(dir, .)
-
-    # To adjust `historical-climate-data bioclimatic` files.
-    if (!stringr::str_detect(asc_file, "[0-9]{4}")) {
-      if (stringr::str_detect(asc_file, "(?i)_bio_")) {
-        asc_file <- asc_file |> stringr::str_replace("(?i)_bio_", "_bioc_")
-
-        if (!stringr::str_detect(asc_file, "[0-9]{2}\\.asc$")) {
-          asc_file <- paste0(
-            stringr::str_extract(asc_file, ".*(?=[0-9]{1}\\.asc)"),
-            "0",
-            stringr::str_extract(asc_file, "[0-9]{1}\\.asc$")
-          )
-        }
-
-        asc_file <- paste0(
-          stringr::str_extract(asc_file, ".*(?=[0-9]{2}\\.asc)"),
-          "1970-2000_",
-          stringr::str_extract(asc_file, "[0-9]{2}\\.asc$")
-        )
-      } else if (stringr::str_detect(asc_file, "_[0-9]{2}\\.asc$")) {
-        asc_file <- paste0(
-          stringr::str_extract(asc_file, ".*(?=[0-9]{2}\\.asc)"),
-          "1970-2000-",
-          stringr::str_extract(asc_file, "[0-9]{2}\\.asc$")
-        )
-      } else {
-        asc_file <- paste0(
-          stringr::str_extract(asc_file, ".*(?=\\.asc)"),
-          "_1970-2000.asc"
-        )
-      }
-    }
+      file.path(dir, .) |>
+      adjust_hcd_file_name()
 
     data_i <- i |> terra::rast()
 
@@ -244,21 +212,7 @@ worldclim_to_ascii <- function(
 
     if (!is.null(box)) data_i <- data_i |> terra::crop(box)
 
-    # To adjust `future-climate-data` files.
-    if (!length(names(data_i)) == 1) {
-      if (stringr::str_detect(names(data_i)[1], "^bio")) {
-        suffix <- "_"
-      } else {
-        suffix <- "-"
-      }
-
-      asc_file <- paste0(
-        stringr::str_extract(asc_file, ".*(?=.asc)"),
-        suffix,
-        stringr::str_extract(names(data_i), "[0-9]{1,2}$"),
-        ".asc"
-      )
-    }
+    asc_file <- asc_file |> adjust_fcd_file_name(data_i)
 
     data_i |>
       terra::writeRaster(
@@ -277,4 +231,64 @@ worldclim_to_ascii <- function(
   }
 
   out
+}
+
+adjust_hcd_file_name <- function(asc_file) {
+  checkmate::assert_string(asc_file)
+
+  # To adjust `historical-climate-data bioclimatic` files.
+  if (!stringr::str_detect(asc_file, "[0-9]{4}")) {
+    if (stringr::str_detect(asc_file, "(?i)_bio_")) {
+      asc_file <- asc_file |> stringr::str_replace("(?i)_bio_", "_bioc_")
+
+      if (!stringr::str_detect(asc_file, "[0-9]{2}\\.asc$")) {
+        asc_file <- paste0(
+          stringr::str_extract(asc_file, ".*(?=[0-9]{1}\\.asc)"),
+          "0",
+          stringr::str_extract(asc_file, "[0-9]{1}\\.asc$")
+        )
+      }
+
+      paste0(
+        stringr::str_extract(asc_file, ".*(?=[0-9]{2}\\.asc)"),
+        "1970-2000_",
+        stringr::str_extract(asc_file, "[0-9]{2}\\.asc$")
+      )
+    } else if (stringr::str_detect(asc_file, "_[0-9]{2}\\.asc$")) {
+      paste0(
+        stringr::str_extract(asc_file, ".*(?=[0-9]{2}\\.asc)"),
+        "1970-2000-",
+        stringr::str_extract(asc_file, "[0-9]{2}\\.asc$")
+      )
+    } else {
+      paste0(
+        stringr::str_extract(asc_file, ".*(?=\\.asc)"),
+        "_1970-2000.asc"
+      )
+    }
+  } else {
+    asc_file
+  }
+}
+
+adjust_fcd_file_name <- function(asc_file, data_i) {
+  checkmate::assert_character(asc_file)
+  checkmate::assert_class(data_i, "SpatRaster")
+
+  if (!length(names(data_i)) == 1) {
+    if (stringr::str_detect(names(data_i)[1], "^bio")) {
+      suffix <- "_"
+    } else {
+      suffix <- "-"
+    }
+
+    paste0(
+      stringr::str_extract(asc_file, ".*(?=.asc)"),
+      suffix,
+      stringr::str_extract(names(data_i), "[0-9]{1,2}$"),
+      ".asc"
+    )
+  } else {
+    asc_file
+  }
 }

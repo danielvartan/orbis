@@ -91,7 +91,7 @@ remove_unique_outliers <- function(file, n_iqr = 1.5) {
   invisible()
 }
 
-remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) {
+remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) { #nolint
   require_pkg("fs", "stats")
 
   checkmate::assert_string(file)
@@ -139,7 +139,7 @@ remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) {
   invisible()
 }
 
-remove_unique_outliers.asc <- function(file, n_iqr = 1.5) {
+remove_unique_outliers.asc <- function(file, n_iqr = 1.5) { #nolint
   require_pkg("fs", "stats")
 
   checkmate::assert_string(file)
