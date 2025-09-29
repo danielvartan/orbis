@@ -94,11 +94,11 @@ indicating the year of the data regarding the municipalities
 
 <dt id="arg-coords-method">coords_method<a class="anchor" aria-label="anchor" href="#arg-coords-method"></a></dt>
 <dd><p>(optional) A string indicating the method to retrieve
-the latitude and longitude coordinates of the municipalities. Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://ipeagit.github.io/geobr/reference/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
+the latitude and longitude coordinates of the municipalities
+(default: <code>"geobr"</code>). Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://ipeagit.github.io/geobr/reference/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
 from the <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package to retrieve the coordinates.</p></li>
 <li><p><code>"geocodebr"</code>: Uses the <code><a href="https://ipeagit.github.io/geocodebr/reference/geocode.html" class="external-link">geocode()</a></code> from the
-<code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> package to retrieve the coordinates.
-(default: <code>"geobr"</code>).</p></li>
+<code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> package to retrieve the coordinates.</p></li>
 </ul></dd>
 
 
@@ -120,7 +120,8 @@ of Geography and Statistics (<a href="https://www.ibge.gov.br/" class="external-
 <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> and <code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> R packages.</p>
 <p>Both packages are produced by Brazil's Institute for Applied Economic
 Research (<a href="https://www.ipea.gov.br/" class="external-link">IPEA</a>) and access the Brazilian
-Institute of Geography and Statistics (IBGE) data.</p>
+Institute of Geography and Statistics (<a href="https://www.ibge.gov.br/" class="external-link">IBGE</a>)
+data.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -143,15 +144,68 @@ Institute of Geography and Statistics (IBGE) data.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_coords</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jeroen.r-universe.dev/curl" class="external-link">curl</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550308</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_coords</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,565 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="font-weight: bold;">municipality_code</span> <span style="font-weight: bold;">latitude</span> <span style="font-weight: bold;">longitude</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1<span style="text-decoration: underline;">100</span>015   -<span style="color: #BB0000;">11.9</span>      -<span style="color: #BB0000;">62.0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           1<span style="text-decoration: underline;">100</span>023    -<span style="color: #BB0000;">9.91</span>     -<span style="color: #BB0000;">63.0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>           1<span style="text-decoration: underline;">100</span>031   -<span style="color: #BB0000;">13.5</span>      -<span style="color: #BB0000;">60.5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>           1<span style="text-decoration: underline;">100</span>049   -<span style="color: #BB0000;">11.4</span>      -<span style="color: #BB0000;">61.4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>           1<span style="text-decoration: underline;">100</span>056   -<span style="color: #BB0000;">13.2</span>      -<span style="color: #BB0000;">60.8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>           1<span style="text-decoration: underline;">100</span>064   -<span style="color: #BB0000;">13.1</span>      -<span style="color: #BB0000;">60.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5,559 more rows</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550308</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="font-weight: bold;">municipality_code</span> <span style="font-weight: bold;">latitude</span> <span style="font-weight: bold;">longitude</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           3<span style="text-decoration: underline;">550</span>308    -<span style="color: #BB0000;">23.6</span>     -<span style="color: #BB0000;">46.6</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3304557</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fl">3550</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="font-weight: bold;">municipality_code</span> <span style="font-weight: bold;">latitude</span> <span style="font-weight: bold;">longitude</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           3<span style="text-decoration: underline;">550</span>001    -<span style="color: #BB0000;">23.2</span>     -<span style="color: #BB0000;">45.3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           3<span style="text-decoration: underline;">550</span>100    -<span style="color: #BB0000;">22.7</span>     -<span style="color: #BB0000;">48.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>           3<span style="text-decoration: underline;">550</span>209    -<span style="color: #BB0000;">23.9</span>     -<span style="color: #BB0000;">48.0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>           3<span style="text-decoration: underline;">550</span>308    -<span style="color: #BB0000;">23.6</span>     -<span style="color: #BB0000;">46.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>           3<span style="text-decoration: underline;">550</span>407    -<span style="color: #BB0000;">22.5</span>     -<span style="color: #BB0000;">47.9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>           3<span style="text-decoration: underline;">550</span>506    -<span style="color: #BB0000;">22.8</span>     -<span style="color: #BB0000;">49.7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more rows</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_coords</span><span class="op">(</span>municipality_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3304557</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2025</span> is <span style="font-weight: bold;">2010</span>. Using year <span style="font-weight: bold;">2010</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="font-weight: bold;">municipality_code</span> <span style="font-weight: bold;">latitude</span> <span style="font-weight: bold;">longitude</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           3<span style="text-decoration: underline;">304</span>557    -<span style="color: #BB0000;">22.9</span>     -<span style="color: #BB0000;">43.2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           3<span style="text-decoration: underline;">550</span>308    -<span style="color: #BB0000;">23.6</span>     -<span style="color: #BB0000;">46.6</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

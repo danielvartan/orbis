@@ -99,35 +99,39 @@ the <code><a href="https://jessecambon.github.io/tidygeocoder/reference/tidygeoc
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">brazil_state_longitude</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Acre             Alagoas               Amapá            Amazonas </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -67.82208           -35.73393           -51.05696           -59.98250 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Bahia               Ceará    Distrito Federal      Espírito Santo </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -38.48128           -38.52180           -47.88232           -40.33767 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Goiás            Maranhão         Mato Grosso  Mato Grosso do Sul </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -49.25327           -44.29639           -56.09913           -54.61629 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        Minas Gerais                Pará             Paraíba              Paraná </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -43.94509           -48.46825           -34.88203           -49.27127 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          Pernambuco               Piauí      Rio de Janeiro Rio Grande do Norte </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -34.88482           -42.80496           -43.20937           -35.20809 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Rio Grande do Sul            Rondônia             Roraima      Santa Catarina </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -51.23038           -63.87354           -60.67196           -48.54961 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                Acre             Alagoas               Amapá </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -67.8220778         -35.7339264         -51.0569588 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            Amazonas               Bahia               Ceará </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -59.9825041         -38.4812772         -38.5217989 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Distrito Federal      Espírito Santo               Goiás </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -47.8823172         -40.3376682         -49.2532691 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            Maranhão         Mato Grosso  Mato Grosso do Sul </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -44.2963942         -56.0991301         -54.6162947 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Minas Gerais                Pará             Paraíba </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -43.9450948         -48.4682453         -34.8820280 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              Paraná          Pernambuco               Piauí </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -49.2712724         -34.8848193         -42.8049571 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Rio de Janeiro Rio Grande do Norte   Rio Grande do Sul </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -43.2093727         -35.2080905         -51.2303767 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            Rondônia             Roraima      Santa Catarina </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -63.8735438         -60.6719582         -48.5496098 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           São Paulo             Sergipe           Tocantins </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -46.63338           -37.07747           -48.33364 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         -46.6333824         -37.0774655         -48.3336423 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">brazil_state_longitude</span><span class="op">(</span><span class="st">"sp"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.63338</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.6333824</span>
 <span class="r-in"><span><span class="co">#&gt; [1] -46.63338 # Expected</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">brazil_state_longitude</span><span class="op">(</span><span class="st">"sao paulo"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.63338</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.6333824</span>
 <span class="r-in"><span><span class="co">#&gt; [1] -46.63338 # Expected</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">brazil_state_longitude</span><span class="op">(</span><span class="fl">35</span><span class="op">)</span> <span class="co"># State of São Paulo</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.63338</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.6333824</span>
 <span class="r-in"><span><span class="co">#&gt; [1] -46.63338 # Expected</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">brazil_state_longitude</span><span class="op">(</span><span class="fl">3550308</span><span class="op">)</span> <span class="co"># Municipality of São Paulo</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.63338</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -46.6333824</span>
 <span class="r-in"><span><span class="co">#&gt; [1] -46.63338 # Expected</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">brazil_state_longitude</span><span class="op">(</span><span class="fl">35503081</span><span class="op">)</span> <span class="co"># &gt;7 digits</span></span></span>

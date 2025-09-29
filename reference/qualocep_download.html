@@ -5,11 +5,25 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Qual o CEP data — qualocep_download"><meta name="description" content="qualocep_download() retrieves a validated dataset of Qual o CEP from the
-package's OSF repository.
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Qual o CEP data — qualocep_download"><meta name="description" content="qualocep_download() retrieves a validated dataset from
+Qual o CEP hosted on the package's
+OSF repository.
+Qual o CEP is a database of Brazilian addresses
+and postal codes, geocoded using the Google Geocoding API. Users should
+verify the year of the data, as some values may be outdated.
+When possible, consider using the
+geocodebr
+package, which provides more up-to-date geocoded information.
 Note: This function requires an internet connection to work and the
-osfr package to be installed."><meta property="og:description" content="qualocep_download() retrieves a validated dataset of Qual o CEP from the
-package's OSF repository.
+osfr package to be installed."><meta property="og:description" content="qualocep_download() retrieves a validated dataset from
+Qual o CEP hosted on the package's
+OSF repository.
+Qual o CEP is a database of Brazilian addresses
+and postal codes, geocoded using the Google Geocoding API. Users should
+verify the year of the data, as some values may be outdated.
+When possible, consider using the
+geocodebr
+package, which provides more up-to-date geocoded information.
 Note: This function requires an internet connection to work and the
 osfr package to be installed."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -51,8 +65,15 @@ osfr package to be installed."><meta property="og:image" content="https://daniel
     </div>
 
     <div class="ref-description section level2">
-    <p><code>qualocep_download()</code> retrieves a validated dataset of Qual o CEP from the
-package's <a href="https://osf.io/9ky4g/" class="external-link">OSF repository</a>.</p>
+    <p><code>qualocep_download()</code> retrieves a validated dataset from
+<a href="https://www.qualocep.com" class="external-link">Qual o CEP</a> hosted on the package's
+<a href="https://osf.io/9ky4g/" class="external-link">OSF repository</a>.</p>
+<p><a href="https://www.qualocep.com" class="external-link">Qual o CEP</a> is a database of Brazilian addresses
+and postal codes, geocoded using the Google Geocoding API. Users should
+verify the year of the data, as some values may be outdated.</p>
+<p>When possible, consider using the
+<a href="https://ipeagit.github.io/geocodebr/" class="external-link"><code>geocodebr</code></a>
+package, which provides more up-to-date geocoded information.</p>
 <p><strong>Note:</strong> This function requires an internet connection to work and the
 <a href="https://docs.ropensci.org/osfr/" class="external-link"><code>osfr</code></a> package to be installed.</p>
     </div>
@@ -89,8 +110,8 @@ be downloaded even if it already exists in the temporary directory
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></code> containing the Qual o CEP dataset with
-the following columns:</p><ul><li><p><code>postal_code</code>: A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the postal
+    <p>A <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></code> containing the
+<a href="https://www.qualocep.com" class="external-link">Qual o CEP</a> with the following columns:</p><ul><li><p><code>postal_code</code>: A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the postal
 codes.</p></li>
 <li><p><code>street_type</code>: A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the type of
 streets.</p></li>
@@ -121,18 +142,36 @@ of the postal codes (retrieved using Google Geocoding API).</p></li>
 <li><p><code>longitude</code>: A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> vector with the longitude
 values of the postal codes (retrieved using Google Geocoding API).</p></li>
 </ul></div>
-    <div class="section level2">
-    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><a href="https://www.qualocep.com" class="external-link">Qual o CEP</a> is a database of Brazilian addresses
-and postal codes geocoded made using the Google Geocoding API.</p>
-<p>Please note the year of the pattern. Some values could be</p>
-    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span>  <span class="fu">qualocep_download</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jeroen.r-universe.dev/curl" class="external-link">curl</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">qualocep_download</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading Qual o CEP data from OSF</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading Qual o CEP data from OSF <span style="color: #B2B2B2;">[11.1s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 1,396,087</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">postal_code      </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "69945000"<span style="color: #949494;">, </span>"69945959"<span style="color: #949494;">, </span>"69945970"<span style="color: #949494;">, </span>"69935000"<span style="color: #949494;">, </span>"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">street_type      </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">N</span>…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">street_name      </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span>"Avenida Paraná, 296 Clique e Retire Correios…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">street           </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "NA NA"<span style="color: #949494;">, </span>"NA Avenida Paraná, 296 Clique e Retire …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">complement       </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">N</span>…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">place            </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span>"AC A C Retire"<span style="color: #949494;">, </span>"AC Acrelândia"<span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span>"AC A B…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">neighborhood     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span>"Centro"<span style="color: #949494;">, </span>"Centro"<span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span>"Centro"<span style="color: #949494;">, </span>"Centro"<span style="color: #949494;">, </span><span style="color: #BB0000;">N</span>…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">municipality_code</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1200013<span style="color: #949494;">, </span>1200013<span style="color: #949494;">, </span>1200013<span style="color: #949494;">, </span>1200054<span style="color: #949494;">, </span>1200054<span style="color: #949494;">, </span>1200…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">municipality     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Acrelândia"<span style="color: #949494;">, </span>"Acrelândia"<span style="color: #949494;">, </span>"Acrelândia"<span style="color: #949494;">, </span>"Assis …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">state_code       </span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">state            </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Acre"<span style="color: #949494;">, </span>"Acre"<span style="color: #949494;">, </span>"Acre"<span style="color: #949494;">, </span>"Acre"<span style="color: #949494;">, </span>"Acre"<span style="color: #949494;">, </span>"Acre"<span style="color: #949494;">, </span>"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">federal_unit     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"AC"<span style="color: #949494;">, </span>"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -10.0764608<span style="color: #949494;">, </span>-10.0766582<span style="color: #949494;">, </span>-10.0764270<span style="color: #949494;">, </span>-10.931854…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -67.0586512<span style="color: #949494;">, </span>-67.0557312<span style="color: #949494;">, </span>-67.0555998<span style="color: #949494;">, </span>-69.563862…</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

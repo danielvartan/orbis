@@ -5,7 +5,9 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get paths to WorldClim data — worldclim_url"><meta name="description" content="worldclim_url() returns the URL(s) of a WorldClim data series."><meta property="og:description" content="worldclim_url() returns the URL(s) of a WorldClim data series."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get paths to WorldClim data — worldclim_url"><meta name="description" content="worldclim_url() returns the URL(s) of a
+WorldClim data series."><meta property="og:description" content="worldclim_url() returns the URL(s) of a
+WorldClim data series."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -45,7 +47,8 @@
     </div>
 
     <div class="ref-description section level2">
-    <p><code>worldclim_url()</code> returns the URL(s) of a WorldClim data series.</p>
+    <p><code>worldclim_url()</code> returns the URL(s) of a
+<a href="https://worldclim.org/" class="external-link">WorldClim</a> data series.</p>
     </div>
 
     <div class="section level2">
@@ -59,17 +62,17 @@
 
 <dl><dt id="arg-series">series<a class="anchor" aria-label="anchor" href="#arg-series"></a></dt>
 <dd><p>A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the name of the
-WorldClim data series. The following options are available:</p><ul><li><p><code>"hcd"</code> or <code>"historical-climate-data"</code> or <code>"historical climate data"</code>.</p></li>
-<li><p><code>"hmwd"</code> or <code>"historical-monthly-weather-data"</code> or
-<code>"historical monthly weather data"</code>.</p></li>
-<li><p><code>"fcd"</code> or <code>"future-climate-data"</code> or <code>"future climate data"</code>.</p></li>
+<a href="https://worldclim.org/" class="external-link">WorldClim</a> data series (default: <code>"hcd"</code>).
+The following options are available:</p><ul><li><p><code>'hcd'</code> (Historical Climate Data).</p></li>
+<li><p><code>'hmwd'</code> (Historical Monthly Weather Data).</p></li>
+<li><p><code>'fcd'</code> (Future Climate Data).</p></li>
 </ul></dd>
 
 
 <dt id="arg-resolution">resolution<a class="anchor" aria-label="anchor" href="#arg-resolution"></a></dt>
 <dd><p>(optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with
-the resolution of the WorldClim data series. The following options are
-available:</p><ul><li><p><code>"all"</code> (default) returns all available resolutions.</p></li>
+the resolution of the <a href="https://worldclim.org/" class="external-link">WorldClim</a> data series
+(default: <code>"all"</code>). The following options are available:</p><ul><li><p><code>"all"</code> returns all available resolutions.</p></li>
 <li><p><code>"10m"</code> returns the 10m resolution.</p></li>
 <li><p><code>"5m"</code> returns the 5m resolution.</p></li>
 <li><p><code>"2.5m"</code> returns the 2.5m resolution.</p></li>
@@ -79,8 +82,8 @@ available:</p><ul><li><p><code>"all"</code> (default) returns all available reso
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A named <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the URL(s) or
-OSF ID(s) of the WorldClim data series.</p>
+    <p>A named <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> vector with the URL(s) of
+the <a href="https://worldclim.org/" class="external-link">WorldClim</a> data series.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -96,15 +99,7 @@ OSF ID(s) of the WorldClim data series.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                       Historical climate data </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "https://worldclim.org/data/worldclim21.html" </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">worldclim_url</span><span class="op">(</span><span class="st">"historical climate data"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Historical climate data </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "https://worldclim.org/data/worldclim21.html" </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">worldclim_url</span><span class="op">(</span><span class="st">"hmwd"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Historical monthly weather data </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "https://worldclim.org/data/monthlywth.html" </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">worldclim_url</span><span class="op">(</span><span class="st">"historical monthly weather data"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              Historical monthly weather data </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "https://worldclim.org/data/monthlywth.html" </span>
 <span class="r-in"><span></span></span>
@@ -118,17 +113,7 @@ OSF ID(s) of the WorldClim data series.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                              Future climate data (30s) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  "https://worldclim.org/data/cmip6/cmip6_clim30s.html" </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">worldclim_url</span><span class="op">(</span><span class="st">"future climate data"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                              Future climate data (10m) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  "https://worldclim.org/data/cmip6/cmip6_clim10m.html" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               Future climate data (5m) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "https://worldclim.org/data/cmip6/cmip6_clim5m.html" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                             Future climate data (2.5m) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "https://worldclim.org/data/cmip6/cmip6_clim2.5m.html" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                              Future climate data (30s) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  "https://worldclim.org/data/cmip6/cmip6_clim30s.html" </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">worldclim_url</span><span class="op">(</span><span class="st">"future climate data"</span>, <span class="st">"10m"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">worldclim_url</span><span class="op">(</span><span class="st">"fcd"</span>, <span class="st">"10m"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                             Future climate data (10m) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "https://worldclim.org/data/cmip6/cmip6_clim10m.html" </span>
 <span class="r-in"><span></span></span>

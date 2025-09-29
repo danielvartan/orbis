@@ -6,8 +6,12 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Brazilian municipalities longitude — brazil_municipality_longitude"><meta name="description" content="brazil_municipality_longitude() returns the longitude of Brazilian
-municipalities."><meta property="og:description" content="brazil_municipality_longitude() returns the longitude of Brazilian
-municipalities."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
+municipalities.
+Note: This function requires an active internet connection and the
+geobr package to be installed."><meta property="og:description" content="brazil_municipality_longitude() returns the longitude of Brazilian
+municipalities.
+Note: This function requires an active internet connection and the
+geobr package to be installed."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -49,6 +53,8 @@ municipalities."><meta property="og:image" content="https://danielvartan.github.
     <div class="ref-description section level2">
     <p><code>brazil_municipality_longitude()</code> returns the longitude of Brazilian
 municipalities.</p>
+<p><strong>Note:</strong> This function requires an active internet connection and the
+<a href="https://ipeagit.github.io/geobr/" class="external-link"><code>geobr</code></a> package to be installed.</p>
     </div>
 
     <div class="section level2">
@@ -81,11 +87,11 @@ indicating the year of the data regarding the municipalities
 
 <dt id="arg-coords-method">coords_method<a class="anchor" aria-label="anchor" href="#arg-coords-method"></a></dt>
 <dd><p>(optional) A string indicating the method to retrieve
-the latitude and longitude coordinates of the municipalities. Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://ipeagit.github.io/geobr/reference/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
+the latitude and longitude coordinates of the municipalities
+(default: <code>"geobr"</code>). Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://ipeagit.github.io/geobr/reference/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
 from the <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package to retrieve the coordinates.</p></li>
 <li><p><code>"geocodebr"</code>: Uses the <code><a href="https://ipeagit.github.io/geocodebr/reference/geocode.html" class="external-link">geocode()</a></code> from the
-<code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> package to retrieve the coordinates.
-(default: <code>"geobr"</code>).</p></li>
+<code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> package to retrieve the coordinates.</p></li>
 </ul></dd>
 
 
@@ -112,8 +118,9 @@ of Geography and Statistics (<a href="https://www.ibge.gov.br/" class="external-
 <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> R package.</p>
 <p>The <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package is produced by Brazil's Institute for
 Applied Economic Research (<a href="https://www.ipea.gov.br/" class="external-link">IPEA</a>) and access the
-Brazilian Institute of Geography and Statistics (IBGE) data. You can see a
-list of all <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> datasets by running
+Brazilian Institute of Geography and Statistics
+(<a href="https://www.ibge.gov.br/" class="external-link">IBGE</a>) data. You can see a list of all
+<code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> datasets by running
 <code><a href="https://ipeagit.github.io/geobr/reference/list_geobr.html" class="external-link">geobr::list_geobr()</a></code>.</p>
     </div>
     <div class="section level2">
@@ -137,15 +144,39 @@ list of all <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html"
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fl">3550308</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jeroen.r-universe.dev/curl" class="external-link">curl</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fl">3550308</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">1000</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP    Adolfo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318 -49.64972143 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="cn">NA</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">1000</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP         &lt;NA&gt;    Adolfo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318           NA -49.64972143 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="cn">NA</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP         &lt;NA&gt;    Adolfo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318           NA -49.64972143 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
