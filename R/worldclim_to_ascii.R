@@ -4,30 +4,36 @@
 #'
 #' `worldclim_to_ascii()` facilitates the conversion of one or more
 #' [WorldClim](https://worldclim.org/)
-#' [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to the [Esri ASCII
-#' Grid](https://en.wikipedia.org/wiki/Esri_grid) raster format. Optionally,
-#' rasters can be cropped and/or aggregated using a provided polygon of class
-#' [`SpatVector`][terra::SpatVector-class].
+#' [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to the
+#' [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) raster format.
+#' Optionally, rasters can be cropped and/or aggregated using a provided
+#' polygon of class [`SpatVector`][terra::SpatVector-class].
+#'
+#' **Note:** This function requires the [`fs`](https://fs.r-lib.org/) package to
+#' be installed.
 #'
 #' @details
 #'
 #' ## `na_flag` parameter
 #'
-#' According to the Esri ASCII raster format documentation, the default value
-#' for `NODATA_VALUE` (the `NA` flag) is `-9999`. However, using four digits of
-#' precision significantly inflates file size. For WorldClim data, two
-#' significant digits (`-99`) are sufficient, since the only variables with
-#' negative values are temperatures, and the lowest temperature ever recorded on
-#' Earth is above that.
+#' According to the [Esri ASCII](https://en.wikipedia.org/wiki/Esri_grid)
+#' raster format documentation, the default value for `NODATA_VALUE`
+#' (the `NA` flag) is `-9999`. However, using four digits of precision
+#' significantly inflates file size. For
+#' [WorldClim](https://worldclim.org/) data, two significant digits (`-99`) are
+#' sufficient, since the only variables with negative values are temperatures,
+#' and the lowest temperature ever recorded on Earth is above that threshold.
 #'
 #' @param file A [`character`][base::character()] vector of file paths to the
-#'   WorldClim GeoTIFF files to be converted. The files must have a `.tif`
-#'   extension.
+#'   [WorldClim](https://worldclim.org/)
+#'   [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to be converted.
+#'   The files must have a `.tif` extension.
 #' @param dir A [`character`][base::character()] vector specifying the output
-#'   directory for the converted ASCII files (default: `dirname(file[1])`).
+#'   directory for the converted
+#'   [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) files
+#'   (default: `dirname(file[1])`).
 #' @param shape (optional) A [`SpatVector`][terra::SpatVector-class] object
-#'   representing the polygon to crop the raster data. The function will crop
-#'   the raster data to the extent of this polygon (default: `NULL`).
+#'   representing the polygon to crop the raster data (default: `NULL`).
 #' @param box (optional) A [`numeric`][base::numeric()] vector of length 4
 #'   specifying the bounding box for cropping the raster data in the format
 #'   `c(xmin, ymin, xmax, ymax)` (default: `NULL`).
@@ -51,10 +57,6 @@
 #'   calculated using the unique (deduplicated) values of the data, and the
 #'   resulting thresholds are applied to the full dataset. This helps remove
 #'   abnormal values in raster data.
-#' @param aggregate (optional) An [`integer`][base::integer()] value specifying
-#'   the aggregation factor. The function will aggregate the raster data by this
-#'   factor. See [`aggregate()`][terra::aggregate()] for more details
-#'   (default: `NULL`).
 #' @param overwrite (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to overwrite existing files in the output directory
 #'   (default: `TRUE`).
@@ -62,7 +64,7 @@
 #'   horizontal distance in degrees to shift the raster data. This is only
 #'   relevant if `dateline_fix` is set to `TRUE` (default: `-45`).
 #' @param na_flag (optional) An [`integer`][base::integer()] value specifying
-#'   the NoData value for the output ASCII files. See the *Details* section
+#'   the `NODATA_VALUE` for the output ASCII files. See the *Details* section
 #'   to learn more (default: `-99`).
 #' @param ... Additional arguments passed to
 #'   [`writeRaster()`][terra::writeRaster()] for writing the ASCII files.
@@ -74,43 +76,53 @@
 #' @export
 #'
 #' @examples
+#' # Set the Environment -----
+#'
+#' library(curl)
+#' library(fs)
+#' library(magrittr)
+#' library(readr)
+#' library(rvest)
+#' library(stringr)
+#' library(zip)
+#'
+#' # Download a WorldClim Dataset -----
+#'
 #' \dontrun{
-#'   library(curl)
-#'   library(fs)
-#'   library(magrittr)
-#'   library(readr)
-#'   library(rvest)
-#'   library(stringr)
-#'   library(zip)
-#'
 #'   if (has_internet()) {
-#'     # Download the WorldClim Data
-#'
 #'     url <-
 #'       worldclim_url("hcd") |>
-#'       rvest::read_html() |>
-#'       rvest::html_elements("a") |>
-#'       rvest::html_attr("href") |>
-#'       stringr::str_subset("geodata") |>
+#'       read_html() |>
+#'       html_elements("a") |>
+#'       html_attr("href") |>
+#'       str_subset("geodata") |>
 #'       magrittr::extract(1)
 #'
 #'     zip_file <- basename(url)
 #'
 #'     curl_download(url, path(tempdir(), zip_file))
 #'
-#'     path(tempdir(), zip_file) |>
-#'       zip::unzip(exdir = tempdir())
+#'     path(tempdir(), zip_file) |> zip::unzip(exdir = tempdir())
 #'
 #'     tif_file <-
 #'       dir_ls(tempdir(), regexp = "\\.tif$") |>
 #'       magrittr::extract(1)
+#'   }
+#' }
 #'
-#'     # Transform to ASCII
 #'
+#' # Transform Data to Esri ASCII -----
+#'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     asc_file <- tif_file |> worldclim_to_ascii()
+#'   }
+#' }
 #'
-#'     # Check the Output
+#' # Check the Output -----
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     asc_file |> read_lines(n_max = 11)
 #'   }
 #' }
@@ -121,25 +133,23 @@ worldclim_to_ascii <- function(
   box = NULL,
   dateline_fix = TRUE,
   extreme_outlier_fix = TRUE,
-  aggregate = NULL,
   overwrite = TRUE,
   dx = -45,
   na_flag = -99,
   ...
 ) {
+  require_pkg("fs", "stats")
+
   checkmate::assert_character(file)
   checkmate::assert_file_exists(file, access = "r", extension = "tif")
   checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
   checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
   checkmate::assert_flag(dateline_fix)
   checkmate::assert_flag(extreme_outlier_fix)
-  checkmate::assert_int(aggregate, null.ok = TRUE)
   checkmate::assert_directory_exists(dir, access = "rw")
   checkmate::assert_flag(overwrite)
   checkmate::assert_number(dx, finite = TRUE)
   checkmate::assert_int(na_flag)
-
-  require_pkg("fs", "readr", "stats")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -233,10 +243,6 @@ worldclim_to_ascii <- function(
     }
 
     if (!is.null(box)) data_i <- data_i |> terra::crop(box)
-
-    if (!is.null(aggregate)) {
-      data_i <- data_i |> terra::aggregate(fact = aggregate)
-    }
 
     # To adjust `future-climate-data` files.
     if (!length(names(data_i)) == 1) {

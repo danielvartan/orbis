@@ -12,8 +12,8 @@ the names of Brazilian regions, states, or federal units. If \code{NULL},
 returns a named vector with all Brazilian region codes (default: \code{NULL}).}
 }
 \value{
-An \code{\link[base:integer]{integer}} vector with the IBGE codes of
-Brazilian regions.
+An \code{\link[base:integer]{integer}} vector with the
+\href{https://www.ibge.gov.br/}{IBGE} codes of Brazilian regions.
 }
 \description{
 \code{brazil_region_code()} returns a vector with the Brazilian Institute
@@ -22,7 +22,7 @@ Brazilian regions.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute
-of Geography and Statistics (IBGE, n.d.).
+of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}, n.d.).
 }
 \examples{
 brazil_region_code()

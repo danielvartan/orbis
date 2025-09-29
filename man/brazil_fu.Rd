@@ -23,7 +23,7 @@ Brazilian federal units.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute
-of Geography and Statistics (IBGE, n.d.).
+of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}, n.d.).
 }
 \examples{
 brazil_fu()

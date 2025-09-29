@@ -43,6 +43,8 @@ brazil_render_address <- function(
   state = NA_character_,
   postal_code = NA_character_
 ) {
+  require_pkg("glue")
+
   checkmate::assert_character(street)
   checkmate::assert_character(complement)
   checkmate::assert_character(neighborhood)
@@ -56,8 +58,6 @@ brazil_render_address <- function(
     street, complement, neighborhood, municipality, state, postal_code,
     type = "length"
   )
-
-  require_pkg("glue")
 
   # R CMD Check variable bindings fix
   # nolint start

@@ -11,7 +11,7 @@
 #'
 #' The data from this function is based on the 2024b dataset
 #' (Released 2024-09-04) from the Internet Assigned Numbers Authority
-#' (IANA, 2024)
+#' ([IANA](https://www.iana.org/time-zones), 2024)
 #'
 #' @param utc (optional) An [`integerish`][checkmate::test_int] number
 #'   with the UTC offset. Available choices are `-5`, `-4`, `-3`, or `-2`

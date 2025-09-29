@@ -11,7 +11,6 @@ worldclim_to_ascii(
   box = NULL,
   dateline_fix = TRUE,
   extreme_outlier_fix = TRUE,
-  aggregate = NULL,
   overwrite = TRUE,
   dx = -45,
   na_flag = -99,
@@ -20,15 +19,17 @@ worldclim_to_ascii(
 }
 \arguments{
 \item{file}{A \code{\link[base:character]{character}} vector of file paths to the
-WorldClim GeoTIFF files to be converted. The files must have a \code{.tif}
-extension.}
+\href{https://worldclim.org/}{WorldClim}
+\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to be converted.
+The files must have a \code{.tif} extension.}
 
 \item{dir}{A \code{\link[base:character]{character}} vector specifying the output
-directory for the converted ASCII files (default: \code{dirname(file[1])}).}
+directory for the converted
+\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} files
+(default: \code{dirname(file[1])}).}
 
 \item{shape}{(optional) A \code{\link[terra:SpatVector-class]{SpatVector}} object
-representing the polygon to crop the raster data. The function will crop
-the raster data to the extent of this polygon (default: \code{NULL}).}
+representing the polygon to crop the raster data (default: \code{NULL}).}
 
 \item{box}{(optional) A \code{\link[base:numeric]{numeric}} vector of length 4
 specifying the bounding box for cropping the raster data in the format
@@ -49,11 +50,6 @@ calculated using the unique (deduplicated) values of the data, and the
 resulting thresholds are applied to the full dataset. This helps remove
 abnormal values in raster data.}
 
-\item{aggregate}{(optional) An \code{\link[base:integer]{integer}} value specifying
-the aggregation factor. The function will aggregate the raster data by this
-factor. See \code{\link[terra:aggregate]{aggregate()}} for more details
-(default: \code{NULL}).}
-
 \item{overwrite}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to overwrite existing files in the output directory
 (default: \code{TRUE}).}
@@ -63,7 +59,7 @@ horizontal distance in degrees to shift the raster data. This is only
 relevant if \code{dateline_fix} is set to \code{TRUE} (default: \code{-45}).}
 
 \item{na_flag}{(optional) An \code{\link[base:integer]{integer}} value specifying
-the NoData value for the output ASCII files. See the \emph{Details} section
+the \code{NODATA_VALUE} for the output ASCII files. See the \emph{Details} section
 to learn more (default: \code{-99}).}
 
 \item{...}{Additional arguments passed to
@@ -76,34 +72,41 @@ of the converted ASCII files.
 \description{
 \code{worldclim_to_ascii()} facilitates the conversion of one or more
 \href{https://worldclim.org/}{WorldClim}
-\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to the \href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} raster format. Optionally,
-rasters can be cropped and/or aggregated using a provided polygon of class
-\code{\link[terra:SpatVector-class]{SpatVector}}.
+\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to the
+\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} raster format.
+Optionally, rasters can be cropped and/or aggregated using a provided
+polygon of class \code{\link[terra:SpatVector-class]{SpatVector}}.
+
+\strong{Note:} This function requires the \href{https://fs.r-lib.org/}{\code{fs}} package to
+be installed.
 }
 \details{
 \subsection{\code{na_flag} parameter}{
 
-According to the Esri ASCII raster format documentation, the default value
-for \code{NODATA_VALUE} (the \code{NA} flag) is \code{-9999}. However, using four digits of
-precision significantly inflates file size. For WorldClim data, two
-significant digits (\code{-99}) are sufficient, since the only variables with
-negative values are temperatures, and the lowest temperature ever recorded on
-Earth is above that.
+According to the \href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII}
+raster format documentation, the default value for \code{NODATA_VALUE}
+(the \code{NA} flag) is \code{-9999}. However, using four digits of precision
+significantly inflates file size. For
+\href{https://worldclim.org/}{WorldClim} data, two significant digits (\code{-99}) are
+sufficient, since the only variables with negative values are temperatures,
+and the lowest temperature ever recorded on Earth is above that threshold.
 }
 }
 \examples{
+# Set the Environment -----
+
+library(curl)
+library(fs)
+library(magrittr)
+library(readr)
+library(rvest)
+library(stringr)
+library(zip)
+
+# Download a WorldClim Dataset -----
+
 \dontrun{
-  library(curl)
-  library(fs)
-  library(magrittr)
-  library(readr)
-  library(rvest)
-  library(stringr)
-  library(zip)
-
   if (has_internet()) {
-    # Download the WorldClim Data
-
     url <-
       worldclim_url("hcd") |>
       rvest::read_html() |>
@@ -116,19 +119,27 @@ Earth is above that.
 
     curl_download(url, path(tempdir(), zip_file))
 
-    path(tempdir(), zip_file) |>
-      zip::unzip(exdir = tempdir())
+    path(tempdir(), zip_file) |> zip::unzip(exdir = tempdir())
 
     tif_file <-
       dir_ls(tempdir(), regexp = "\\\\.tif$") |>
       magrittr::extract(1)
+  }
+}
 
-    # Transform to ASCII
 
+# Transform Data to Esri ASCII -----
+
+\dontrun{
+  if (has_internet()) {
     asc_file <- tif_file |> worldclim_to_ascii()
+  }
+}
 
-    # Check the Output
+# Check the Output -----
 
+\dontrun{
+  if (has_internet()) {
     asc_file |> read_lines(n_max = 11)
   }
 }

@@ -6,6 +6,9 @@
 #' Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) for
 #' Brazilian municipalities.
 #'
+#' **Note:** This function requires an active internet connection and the
+#' [`geobr`](https://ipeagit.github.io/geobr/) package to be installed.
+#'
 #' @param names (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to return the names of the municipalities as names of the
 #'   vector (default: `TRUE`).
@@ -21,16 +24,28 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   library(curl)
+#' library(curl)
 #'
+#' \dontrun{
 #'   if (has_internet()) {
 #'     brazil_municipality_code(municipality = "Belém")
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_code(municipality = "Belém", names = FALSE)
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_code(municipality = "Belém", state = "Pará")
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
 #'   }
 #' }
@@ -41,6 +56,8 @@ brazil_municipality_code <- function(
   names = TRUE,
   ...
 ) {
+  require_pkg("geobr")
+
   assert_internet()
   checkmate::assert_character(municipality)
   checkmate::assert_character(state, null.ok = TRUE)

@@ -19,12 +19,12 @@
 #'   indicating the year of the data regarding the municipalities
 #'   (default: `Sys.Date() |> substr(1, 4) |> as.numeric()`).
 #' @param coords_method (optional) A string indicating the method to retrieve
-#'   the latitude and longitude coordinates of the municipalities. Options are:
+#'   the latitude and longitude coordinates of the municipalities
+#'   (default: `"geobr"`). Options are:
 #'   - `"geobr"`: Uses [`read_municipal_seat()`][geobr::read_municipal_seat]
 #'     from the [`geobr`][geobr::geobr] package to retrieve the coordinates.
 #'   - `"geocodebr"`: Uses the [`geocode()`][geocodebr::geocode] from the
 #'     [`geocodebr`][geocodebr::geocodebr] package to retrieve the coordinates.
-#'  (default: `"geobr"`).
 #' @param force (optional) A [`logical`][base::logical] flag indicating
 #'   whether to force the download of the data again (default: `FALSE`).
 #'
@@ -44,18 +44,30 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   library(curl)
-#'   library(dplyr)
+#' library(curl)
+#' library(dplyr)
 #'
+#' \dontrun{
 #'   if (has_internet()) {
 #'     brazil_municipality() |> glimpse()
+#'   }
+#' }
 #'
-#'     brazil_municipality(municipality = "Belém")
+#' \dontrun{
+#'   if (has_internet()) {
+#'     brazil_municipality(municipality = "Belém") |> glimpse()
+#'   }
+#' }
 #'
-#'     brazil_municipality(municipality = "Belém", state = "Pará")
+#' \dontrun{
+#'   if (has_internet()) {
+#'     brazil_municipality(municipality = "Belém", state = "Pará") |> glimpse()
+#'   }
+#' }
 #'
-#'     brazil_municipality(municipality = c("Belém", "São Paulo"))
+#' \dontrun{
+#'   if (has_internet()) {
+#'     brazil_municipality(municipality = c("Belém", "São Paulo")) |> glimpse()
 #'   }
 #' }
 brazil_municipality <- function(
@@ -65,6 +77,8 @@ brazil_municipality <- function(
   coords_method = "geobr",
   force = FALSE
 ) {
+  require_pkg("geobr")
+
   assert_internet()
   checkmate::assert_character(municipality, null.ok = TRUE)
   checkmate::assert_character(state, null.ok = TRUE)
@@ -72,8 +86,6 @@ brazil_municipality <- function(
   checkmate::assert_character(as.character(year), pattern = "^[0-9]{4}$")
   checkmate::assert_choice(coords_method, c("geobr", "geocodebr"))
   checkmate::assert_flag(force)
-
-  require_pkg("geobr")
 
   # R CMD Check variable bindings fix
   # nolint start

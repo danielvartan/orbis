@@ -25,13 +25,13 @@ indicating the year of the data regarding the municipalities
 (default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
 \item{coords_method}{(optional) A string indicating the method to retrieve
-the latitude and longitude coordinates of the municipalities. Options are:
+the latitude and longitude coordinates of the municipalities
+(default: \code{"geobr"}). Options are:
 \itemize{
 \item \code{"geobr"}: Uses \code{\link[geobr:read_municipal_seat]{read_municipal_seat()}}
 from the \code{\link[geobr:geobr]{geobr}} package to retrieve the coordinates.
 \item \code{"geocodebr"}: Uses the \code{\link[geocodebr:geocode]{geocode()}} from the
 \code{\link[geocodebr:geocodebr]{geocodebr}} package to retrieve the coordinates.
-(default: \code{"geobr"}).
 }}
 
 \item{force}{(optional) A \code{\link[base:logical]{logical}} flag indicating
@@ -67,21 +67,34 @@ of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) via the
 
 Both packages are produced by Brazil's Institute for Applied Economic
 Research (\href{https://www.ipea.gov.br/}{IPEA}) and access the Brazilian
-Institute of Geography and Statistics (IBGE) data.
+Institute of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE})
+data.
 }
 \examples{
-\dontrun{
-  library(curl)
-  library(dplyr)
+library(curl)
+library(dplyr)
 
+\dontrun{
   if (has_internet()) {
     brazil_municipality() |> glimpse()
+  }
+}
 
-    brazil_municipality(municipality = "Belém")
+\dontrun{
+  if (has_internet()) {
+    brazil_municipality(municipality = "Belém") |> glimpse()
+  }
+}
 
-    brazil_municipality(municipality = "Belém", state = "Pará")
+\dontrun{
+  if (has_internet()) {
+    brazil_municipality(municipality = "Belém", state = "Pará") |> glimpse()
+  }
+}
 
-    brazil_municipality(municipality = c("Belém", "São Paulo"))
+\dontrun{
+  if (has_internet()) {
+    brazil_municipality(municipality = c("Belém", "São Paulo")) |> glimpse()
   }
 }
 }

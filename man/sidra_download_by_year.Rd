@@ -30,7 +30,7 @@ range of years.
 
 This function addresses the SIDRA API's limitations on the volume of data
 that can be downloaded in a single request. It downloads data for each year
-individually and then combines the results into a single tibble.
+individually and then combines the results into a single data frame.
 
 \strong{Note:} This function requires an active internet connection and the
 \href{https://CRAN.R-project.org/package=sidrar}{\code{sidrar}} package to be
@@ -43,16 +43,16 @@ To construct the API call, follow these steps:
 \item Locate the desired table containing your data.
 \item Configure the parameters for data retrieval (e.g., variable, sex, years).
 \item Click the share button (link symbol) at the end of the page.
-\item If a checkbox labeled "Usar períodos relativos, quando possível." appears,
+\item If a checkbox labeled \emph{Usar períodos relativos, quando possível.} appears,
 uncheck it, reload the page, and click the share button again.
-\item Copy the portion of the "Parâmetros para a API" URL that starts with "/t"
-(e.g., /t/6407...).
+\item Copy the portion of the \emph{Parâmetros para a API} URL that starts with \verb{/t}
+(e.g., \verb{/t/6407...}).
 }
 
 You need to provide the function with separate parts of the API URL. For
 example:
 
-\if{html}{\out{<div class="sourceCode text">}}\preformatted{|-------- Start ------|--- Years ----|----- End -----|
+\if{html}{\out{<div class="sourceCode">}}\preformatted{|-------- Start ------|--- Years ----|----- End -----|
 /t/6407/n6/all/v/606/p/2021,2022,2023/c2/6794/c58/1140
 }\if{html}{\out{</div>}}
 
@@ -60,10 +60,10 @@ If you have difficulty identifying the correct segments, try adjusting the
 table settings, selecting different years, and examining how the URL changes.
 }
 \examples{
-\dontrun{
-  library(curl)
-  library(dplyr)
+library(curl)
+library(dplyr)
 
+\dontrun{
   if (has_internet()) {
     sidra_download_by_year(
       years = 2010:2011,

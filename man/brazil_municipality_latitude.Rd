@@ -23,13 +23,13 @@ indicating the year of the data regarding the municipalities
 (default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
 \item{coords_method}{(optional) A string indicating the method to retrieve
-the latitude and longitude coordinates of the municipalities. Options are:
+the latitude and longitude coordinates of the municipalities
+(default: \code{"geobr"}). Options are:
 \itemize{
 \item \code{"geobr"}: Uses \code{\link[geobr:read_municipal_seat]{read_municipal_seat()}}
 from the \code{\link[geobr:geobr]{geobr}} package to retrieve the coordinates.
 \item \code{"geocodebr"}: Uses the \code{\link[geocodebr:geocode]{geocode()}} from the
 \code{\link[geocodebr:geocodebr]{geocodebr}} package to retrieve the coordinates.
-(default: \code{"geobr"}).
 }}
 
 \item{names}{(optional) A \code{\link[base:logical]{logical}} flag indicating
@@ -46,6 +46,9 @@ Brazilian municipalities.
 \description{
 \code{brazil_municipality_latitude()} returns the latitude of Brazilian
 municipalities.
+
+\strong{Note:} This function requires an active internet connection and the
+\href{https://ipeagit.github.io/geobr/}{\code{geobr}} package to be installed.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute
@@ -54,21 +57,34 @@ of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) via the
 
 The \code{\link[geobr:geobr]{geobr}} package is produced by Brazil's Institute for
 Applied Economic Research (\href{https://www.ipea.gov.br/}{IPEA}) and access the
-Brazilian Institute of Geography and Statistics (IBGE) data. You can see a
-list of all \code{\link[geobr:geobr]{geobr}} datasets by running
+Brazilian Institute of Geography and Statistics
+(\href{https://www.ibge.gov.br/}{IBGE}) data. You can see a list of all
+\code{\link[geobr:geobr]{geobr}} datasets by running
 \code{\link[geobr:list_geobr]{geobr::list_geobr()}}.
 }
 \examples{
-\dontrun{
-  library(curl)
+library(curl)
 
+\dontrun{
   if (has_internet()) {
     brazil_municipality_latitude(3550308)
+  }
+}
 
+\dontrun{
+  if (has_internet()) {
     brazil_municipality_latitude(c(3550308, 3500204))
+  }
+}
 
+\dontrun{
+  if (has_internet()) {
     brazil_municipality_latitude(c(3550308, 1000, 3500204))
+  }
+}
 
+\dontrun{
+  if (has_internet()) {
     brazil_municipality_latitude(c(3550308, NA, 3500204))
   }
 }

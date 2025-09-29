@@ -3,7 +3,9 @@
 #' @description
 #'
 #' `remove_unique_outliers()` removes unique outliers from raster files
-#' (GeoTIFF or Esri ASCII raster format) based on the interquartile range
+#' ([GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) or
+#' [Esri ASCII](https://en.wikipedia.org/wiki/Esri_grid) raster format) based
+#' on the interquartile range
 #' ([IQR](https://en.wikipedia.org/wiki/Interquartile_range)).
 #'
 #' This function processes each raster file by reading its values, identifying
@@ -11,9 +13,14 @@
 #' and replacing those outlier values with `NA`. The modified raster is then
 #' saved back to the same file, effectively overwriting the original data.
 #'
+#' **Note:** This function requires the [`fs`](https://fs.r-lib.org/) package to
+#' be installed.
+#'
 #' @param file A [`character`][base::character()] vector with the file paths of
-#'   the raster files to be processed. Supported file formats are GeoTIFF
-#'   (`.tif` or `.tiff`) and Esri ASCII raster (`.asc`).
+#'   the raster files to be processed. Supported file formats are
+#'   [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF)
+#'   (`.tif` or `.tiff`) and
+#'   [Esri ASCII](https://en.wikipedia.org/wiki/Esri_grid) raster (`.asc`).
 #' @param n_iqr (optional) A number specifying the multiplier of the
 #'   interquartile range
 #'   ([IQR](https://en.wikipedia.org/wiki/Interquartile_range))
@@ -27,8 +34,12 @@
 #' @export
 #'
 #' @examples
+#' # Set the Environment -----
+#'
 #' library(readr)
 #' library(terra)
+#'
+#' # Create a Fictional Esri ASCII File -----
 #'
 #' asc_content <- c(
 #'   "ncols         5",
@@ -48,12 +59,14 @@
 #'
 #' asc_content |> write_lines(temp_file)
 #'
-#' ## Values before `remove_unique_outliers()`
+#' # Visualize Values Before `remove_unique_outliers()` -----
+#'
 #' temp_file |> rast() |> values(mat = FALSE)
+#'
+#' # Visualize Values After `remove_unique_outliers()` -----
 #'
 #' temp_file |> remove_unique_outliers()
 #'
-#' ## Values after `remove_unique_outliers()`
 #' temp_file |> rast() |> values(mat = FALSE)
 remove_unique_outliers <- function(file, n_iqr = 1.5) {
   require_pkg("fs", "stats")
@@ -112,31 +125,22 @@ remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) {
   } else {
     outliers <- unique_outliers(values, n_iqr)
 
-    if (length(outliers) == 0) {
-      cli::cli_alert_info(
-        paste0(
-          "The file {.strong {basename(file)}} has no extreme outliers. ",
-          "No outlier removal was performed."
-        )
+    values[values %in% outliers] <- NA
+
+    terra::values(data) <- values
+
+    data |>
+      terra::writeRaster(
+        filename = file,
+        overwrite = TRUE
       )
-    } else{
-      values[values %in% outliers] <- NA
-
-      terra::values(data) <- values
-
-      data |>
-        terra::writeRaster(
-          filename = file,
-          overwrite = TRUE
-        )
-    }
   }
 
   invisible()
 }
 
 remove_unique_outliers.asc <- function(file, n_iqr = 1.5) {
-  require_pkg("fs", "readr", "stats")
+  require_pkg("fs", "stats")
 
   checkmate::assert_string(file)
   checkmate::assert_file_exists(file, access = "rw")
@@ -186,24 +190,15 @@ remove_unique_outliers.asc <- function(file, n_iqr = 1.5) {
   } else {
     outliers <- unique_outliers(data, n_iqr)
 
-    if (length(outliers) == 0) {
-      cli::cli_alert_info(
-        paste0(
-          "The file {.strong {basename(file)}} has no extreme outliers. ",
-          "No outlier removal was performed."
-        )
-      )
-    } else{
-      data[data %in% outliers] <- nodata_value
+    data[data %in% outliers] <- nodata_value
 
-      data <-
-        data |>
-        split(cut(seq_along(data), nrows, labels = FALSE)) |>
-        lapply(\(x) paste0(paste(x, collapse = " "), " ")) |>
-        unlist(use.names = FALSE)
+    data <-
+      data |>
+      split(cut(seq_along(data), nrows, labels = FALSE)) |>
+      lapply(\(x) paste0(paste(x, collapse = " "), " ")) |>
+      unlist(use.names = FALSE)
 
-      c(header, data) |> readr::write_lines(file)
-    }
+    c(header, data) |> readr::write_lines(file)
   }
 
   invisible()

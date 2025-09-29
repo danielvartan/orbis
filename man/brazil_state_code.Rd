@@ -13,8 +13,8 @@ supported. If \code{NULL}, returns a vector with all state codes
 (default: \code{NULL}).}
 }
 \value{
-An \code{\link[base:integer]{integer}} vector with the IBGE codes of
-Brazilian states.
+An \code{\link[base:integer]{integer}} vector with the
+\href{https://www.ibge.gov.br/}{IBGE} codes of Brazilian states.
 }
 \description{
 \code{brazil_state_code()} returns a vector with the Brazilian Institute
@@ -23,7 +23,7 @@ Brazilian states.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute
-of Geography and Statistics (IBGE, n.d.).
+of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}, n.d.).
 }
 \examples{
 brazil_state_code()

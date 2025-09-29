@@ -37,7 +37,7 @@
 #' #> [1] "1970-2000-06" "1962-10"      "2081-2100-05" # Expected
 #'
 #' files |> worldclim_extract_year_group()
-#' #> [1] NA         NA         "2081-2100" # Expected
+#' #> [1] "1970-2000" NA          "2081-2100" # Expected
 #'
 #' files |> worldclim_extract_gcm()
 #' #> [1] NA            NA            "GISS-E2-1-G" # Expected

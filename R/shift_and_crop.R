@@ -24,14 +24,50 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   library(curl)
-#'   library(dplyr)
-#'   library(geodata)
-#'   library(ggplot2)
-#'   library(terra)
-#'   library(tidyterra)
+#' # Set the Environment -----
 #'
+#' library(curl)
+#' library(dplyr)
+#' library(geodata)
+#' library(ggplot2)
+#' library(terra)
+#' library(tidyterra)
+#'
+#' plot_vector <- function(vector) {
+#'   plot <-
+#'     vector |>
+#'     ggplot() +
+#'     geom_spatvector(fill = "#3243A6", color = "white")
+#'
+#'   print(plot)
+#' }
+#'
+#' plot_raster <- function(raster) {
+#'   plot <-
+#'     ggplot() +
+#'     geom_spatraster(data = raster) +
+#'     scale_fill_continuous(
+#'       palette = c("#072359", "#3243A6", "#9483AF"),
+#'       na.value = "white"
+#'     ) +
+#'     labs(fill = NULL)
+#'
+#'     print(plot)
+#' }
+#'
+#' # Define the Vector -----
+#'
+#' \dontrun{
+#'   if (has_internet()) {
+#'     russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
+#'
+#'     russia_vector |> plot_vector()
+#'   }
+#' }
+#'
+#' # Define the Raster -----
+#'
+#' \dontrun{
 #'   if (has_internet()) {
 #'     raster <-
 #'       expand.grid(
@@ -45,48 +81,32 @@
 #'       `crs<-`("epsg:4326")
 #'
 #'     world_shape <- world(path = tempdir())
+#'
 #'     raster <- raster |> crop(world_shape, mask = TRUE)
+#'   }
+#' }
 #'
-#'     plot_raster <- function(raster) {
-#'       plot <-
-#'         ggplot() +
-#'         geom_spatraster(data = raster) +
-#'         scale_fill_continuous(
-#'           palette = c("#072359", "#3243A6", "#9483AF"),
-#'           na.value = "white"
-#'         ) +
-#'         labs(fill = NULL)
+#' # Visualize the Raster Before Shift and Crop -----
 #'
-#'       print(plot)
-#'     }
+#' \dontrun{
+#'   if (has_internet()) {
+#'     raster |> plot_raster()
+#'   }
+#' }
 #'
-#'     vector <- gadm(country = "rus", level = 0, path = tempdir())
+#' # Shift, Rotate and Crop the Raster -----
 #'
-#'     plot_vector <- function(vector) {
-#'       plot <-
-#'         vector |>
-#'         ggplot() +
-#'         geom_spatvector(fill = "#3243A6", color = "white")
+#' \dontrun{
+#'   if (has_internet()) {
+#'     raster <- raster |> shift_and_crop(russia_vector, -45)
+#'   }
+#' }
 #'
-#'       print(plot)
-#'     }
+#' # Visualize the Raster After Shift and Crop -----
 #'
-#'     vector |> plot_vector()
-#'
-#'     raster <- raster |> shift_and_crop(vector, -45)
-#'
-#'     raster |>
-#'       ggplot() +
-#'       geom_spatraster(data = raster) +
-#'       scale_fill_continuous(
-#'         palette = c("#072359", "#3243A6", "#9483AF"),
-#'         na.value = "white"
-#'       ) +
-#'       theme_bw() +
-#'       theme(
-#'         panel.grid.major = element_blank(),
-#'         panel.grid.minor = element_blank()
-#'       )
+#' \dontrun{
+#'   if (has_internet()) {
+#'     raster |> plot_raster()
 #'   }
 #' }
 shift_and_crop <- function(
@@ -94,14 +114,14 @@ shift_and_crop <- function(
   vector,
   dx = -45,
   precision = 5,
-  overlap_tol = 0.1,
+  overlap_tolerance = 0.1,
   ...
 ) {
   checkmate::assert_class(raster, "SpatRaster")
   checkmate::assert_class(vector, "SpatVector")
   checkmate::assert_number(dx)
   checkmate::assert_number(precision, lower = 0, upper = 10)
-  checkmate::assert_number(overlap_tol, lower = 0, upper = 1)
+  checkmate::assert_number(overlap_tolerance, lower = 0, upper = 1)
 
   if (any(c("mask", "touches", "extend") %in% names(list(...)), na.rm = TRUE)) {
     cli::cli_abort(
@@ -114,8 +134,8 @@ shift_and_crop <- function(
     )
   }
 
-  raster <- raster |> shift_and_rotate(dx, precision, overlap_tol)
-  vector <- vector |> shift_and_rotate(dx, precision, overlap_tol)
+  raster <- raster |> shift_and_rotate(dx, precision, overlap_tolerance)
+  vector <- vector |> shift_and_rotate(dx, precision, overlap_tolerance)
 
   raster |>
     terra::crop(

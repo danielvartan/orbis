@@ -1,4 +1,4 @@
-get_worldclim_data <- function(
+worldclim_download <- function(
   series = "historical-climate-data",
   resolution = "10m",
   model = NULL,
@@ -124,14 +124,18 @@ get_worldclim_data <- function(
 
   dirs <- c(dir, dir_series, dir_res)
 
-  for (i in dirs) worldclim_license() |> readr::write_lines(fs::path(i, "LICENSE.md"))
+  for (i in dirs) {
+    worldclim_download_license() |>
+      readr::write_lines(fs::path(i, "LICENSE.md"))
+  }
 
-  worldclim_readme() |> readr::write_lines(fs::path(dir, "README.md"))
+  worldclim_download_readme() |>
+    readr::write_lines(fs::path(dir, "README.md"))
 
-  worldclim_readme(series) |>
+  worldclim_download_readme(series) |>
     readr::write_lines(fs::path(dir_series, "README.md"))
 
-  worldclim_readme(series, resolution) |>
+  worldclim_download_readme(series, resolution) |>
     readr::write_lines(fs::path(dir_res, "README.md"))
 
   cli::cli_progress_step("Downloading Files")
@@ -169,9 +173,9 @@ get_worldclim_data <- function(
 
 # # Helpers -----
 #
-# worldclim_license() |> cat()
+# worldclim_download_license() |> cat()
 
-worldclim_license <- function() {
+worldclim_download_license <- function() {
   paste0(
     "# WorldClim 2.1",
     "\n\n",
@@ -198,9 +202,9 @@ worldclim_license <- function() {
 
 # # Helpers -----
 #
-# worldclim_readme() |> cat()
+# worldclim_download_readme() |> cat()
 
-worldclim_readme <- function(series = NULL, resolution = NULL) {
+worldclim_download_readme <- function(series = NULL, resolution = NULL) {
   series_choices <- c(
     "historical-climate-data",
     "historical-monthly-weather-data",

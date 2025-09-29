@@ -12,7 +12,9 @@ version: 0.1.0.9000
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
-abstract: A suite of tools for simplifying spatial data analysis.
+abstract: A comprehensive suite of tools for spatial data analysis that supports data
+  gathering, manipulation, and geospatial processing workflows, streamlining common
+  spatial processing tasks.
 authors:
 - family-names: Vartanian
   given-names: Daniel
@@ -246,6 +248,20 @@ references:
   doi: 10.32614/CRAN.package.tidyr
   version: '>= 1.3.1'
 - type: software
+  title: brandr
+  abstract: 'brandr: Brand Identity Management Using brand.yml Standard'
+  notes: Suggests
+  url: https://danielvartan.github.io/brandr/
+  repository: https://CRAN.R-project.org/package=brandr
+  authors:
+  - family-names: Vartanian
+    given-names: Daniel
+    email: danvartan@gmail.com
+    orcid: https://orcid.org/0000-0001-7782-759X
+  year: '2025'
+  doi: 10.32614/CRAN.package.brandr
+  version: '>= 0.1.0'
+- type: software
   title: bslib
   abstract: 'bslib: Custom ''Bootstrap'' ''Sass'' Themes for ''shiny'' and ''rmarkdown'''
   notes: Suggests
@@ -365,6 +381,47 @@ references:
   doi: 10.32614/CRAN.package.geodata
   version: '>= 0.6.2'
 - type: software
+  title: ggplot2
+  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  notes: Suggests
+  url: https://ggplot2.tidyverse.org
+  repository: https://CRAN.R-project.org/package=ggplot2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Chang
+    given-names: Winston
+    orcid: https://orcid.org/0000-0002-1576-2126
+  - family-names: Henry
+    given-names: Lionel
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomas.pedersen@posit.co
+    orcid: https://orcid.org/0000-0002-5147-4711
+  - family-names: Takahashi
+    given-names: Kohske
+  - family-names: Wilke
+    given-names: Claus
+    orcid: https://orcid.org/0000-0002-7470-9261
+  - family-names: Woo
+    given-names: Kara
+    orcid: https://orcid.org/0000-0002-5125-4188
+  - family-names: Yutani
+    given-names: Hiroaki
+    orcid: https://orcid.org/0000-0002-3385-7233
+  - family-names: Dunnington
+    given-names: Dewey
+    orcid: https://orcid.org/0000-0002-9415-4582
+  - family-names: Brand
+    given-names: Teun
+    name-particle: van den
+    orcid: https://orcid.org/0000-0002-9335-7468
+  year: '2025'
+  doi: 10.32614/CRAN.package.ggplot2
+  version: '>= 4.0.0'
+- type: software
   title: glue
   abstract: 'glue: Interpreted String Literals'
   notes: Suggests
@@ -442,6 +499,22 @@ references:
   doi: 10.32614/CRAN.package.osfr
   version: '>= 0.2.9'
 - type: software
+  title: ragg
+  abstract: 'ragg: Graphic Devices Based on AGG'
+  notes: Suggests
+  url: https://ragg.r-lib.org
+  repository: https://CRAN.R-project.org/package=ragg
+  authors:
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomas.pedersen@posit.co
+    orcid: https://orcid.org/0000-0002-5147-4711
+  - family-names: Shemanarev
+    given-names: Maxim
+  year: '2025'
+  doi: 10.32614/CRAN.package.ragg
+  version: '>= 1.5.0'
+- type: software
   title: rvest
   abstract: 'rvest: Easily Harvest (Scrape) Web Pages'
   notes: Suggests
@@ -468,6 +541,20 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.sf
   version: '>= 1.0.21'
+- type: software
+  title: showtext
+  abstract: 'showtext: Using Fonts More Easily in R Graphs'
+  notes: Suggests
+  url: https://github.com/yixuan/showtext
+  repository: https://CRAN.R-project.org/package=showtext
+  authors:
+  - family-names: Qiu
+    given-names: Yixuan
+  - family-names: details.
+    given-names: authors/contributors of the included software. See file AUTHORS for
+  year: '2025'
+  doi: 10.32614/CRAN.package.showtext
+  version: '>= 0.9.7'
 - type: software
   title: sidrar
   abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
@@ -509,6 +596,20 @@ references:
     address: Vienna, Austria
   year: '2025'
   version: '>= 4.4'
+- type: software
+  title: sysfonts
+  abstract: 'sysfonts: Loading Fonts into R'
+  notes: Suggests
+  url: https://github.com/yixuan/sysfonts
+  repository: https://CRAN.R-project.org/package=sysfonts
+  authors:
+  - family-names: Qiu
+    given-names: Yixuan
+  - family-names: details.
+    given-names: authors/contributors of the included fonts. See file AUTHORS for
+  year: '2025'
+  doi: 10.32614/CRAN.package.sysfonts
+  version: '>= 0.8.9'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -565,6 +666,21 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.tidygeocoder
   version: '>= 1.0.6'
+- type: software
+  title: tidyterra
+  abstract: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra''
+    Objects'
+  notes: Suggests
+  url: https://dieghernan.github.io/tidyterra/
+  repository: https://CRAN.R-project.org/package=tidyterra
+  authors:
+  - family-names: Hernangómez
+    given-names: Diego
+    email: diego.hernangomezherrero@gmail.com
+    orcid: https://orcid.org/0000-0001-8457-4658
+  year: '2025'
+  doi: 10.32614/CRAN.package.tidyterra
+  version: '>= 0.7.2'
 - type: software
   title: zip
   abstract: 'zip: Cross-Platform ''zip'' Compression'

@@ -20,11 +20,13 @@ the format to be returned. The options are:
 }
 \value{
 A \code{\link[base:character]{character}} vector with the names or codes of
-all countries present in the ISO 3166-1 standard.
+all countries present in the
+\href{https://www.iso.org/iso-3166-country-codes.html}{ISO 3166-1} standard.
 }
 \description{
 \code{country_names()} returns a vector with the names or codes of all
-countries present in the ISO 3166-1 standard.
+countries present in the
+\href{https://www.iso.org/iso-3166-country-codes.html}{ISO 3166-1} standard.
 
 \strong{Note:} This function requires the
 \href{https://CRAN.R-project.org/package=ISOcodes}{\code{ISOcodes}} package to be
@@ -32,7 +34,8 @@ installed.
 }
 \details{
 The data from this function is based on data from the International
-Organization for Standardization (ISO) (ISO 3166-1) via the
+Organization for Standardization (ISO)
+(\href{https://www.iso.org/iso-3166-country-codes.html}{ISO 3166-1}) via the
 \code{\link[ISOcodes:ISO_3166]{ISOcodes}} R package. Click
 \href{https://www.iso.org/iso-3166-country-codes.html}{here} to learn more.
 

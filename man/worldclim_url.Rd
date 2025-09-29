@@ -8,19 +8,19 @@ worldclim_url(series, resolution = "all")
 }
 \arguments{
 \item{series}{A \code{\link[base:character]{character}} vector with the name of the
-WorldClim data series. The following options are available:
+\href{https://worldclim.org/}{WorldClim} data series (default: \code{"hcd"}).
+The following options are available:
 \itemize{
-\item \code{"hcd"} or \code{"historical-climate-data"} or \code{"historical climate data"}.
-\item \code{"hmwd"} or \code{"historical-monthly-weather-data"} or
-\code{"historical monthly weather data"}.
-\item \code{"fcd"} or \code{"future-climate-data"} or \code{"future climate data"}.
+\item \code{'hcd'} (Historical Climate Data).
+\item \code{'hmwd'} (Historical Monthly Weather Data).
+\item \code{'fcd'} (Future Climate Data).
 }}
 
 \item{resolution}{(optional) A \code{\link[base:character]{character}} vector with
-the resolution of the WorldClim data series. The following options are
-available:
+the resolution of the \href{https://worldclim.org/}{WorldClim} data series
+(default: \code{"all"}). The following options are available:
 \itemize{
-\item \code{"all"} (default) returns all available resolutions.
+\item \code{"all"} returns all available resolutions.
 \item \code{"10m"} returns the 10m resolution.
 \item \code{"5m"} returns the 5m resolution.
 \item \code{"2.5m"} returns the 2.5m resolution.
@@ -28,26 +28,21 @@ available:
 }}
 }
 \value{
-A named \code{\link[base:character]{character}} vector with the URL(s) or
-OSF ID(s) of the WorldClim data series.
+A named \code{\link[base:character]{character}} vector with the URL(s) of
+the \href{https://worldclim.org/}{WorldClim} data series.
 }
 \description{
-\code{worldclim_url()} returns the URL(s) of a WorldClim data series.
+\code{worldclim_url()} returns the URL(s) of a
+\href{https://worldclim.org/}{WorldClim} data series.
 }
 \examples{
 worldclim_url("hcd")
 
-worldclim_url("historical climate data")
-
 worldclim_url("hmwd")
-
-worldclim_url("historical monthly weather data")
 
 worldclim_url("fcd")
 
-worldclim_url("future climate data")
-
-worldclim_url("future climate data", "10m")
+worldclim_url("fcd", "10m")
 
 worldclim_url(c("hcd", "hmwd", "fcd"))
 

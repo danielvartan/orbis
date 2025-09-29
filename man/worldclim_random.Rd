@@ -7,9 +7,13 @@
 worldclim_random(series = "hcd")
 }
 \arguments{
-\item{series}{A string indicating the WorldClim data series to use. Choices
-are: \code{'hcd'} (Historical Climate Data), \code{'hmwd'} (Historical Monthly
-Weather Data), or \code{'fcd'} (Future Climate Data) (default: \code{"hcd"}).}
+\item{series}{A string indicating the \href{https://worldclim.org/}{WorldClim}
+data series to use. The following options are available:
+\itemize{
+\item \code{'hcd'} (Historical Climate Data).
+\item \code{'hmwd'} (Historical Monthly Weather Data).
+\item \code{'fcd'} (Future Climate Data).
+}}
 }
 \value{
 A \code{\link[base:list]{list}} with a random selection of parameters for
@@ -30,7 +34,7 @@ Climate Data).
 }
 \description{
 \code{worldclim_random()} returns a random selection of parameters for
-downloading WorldClim data.
+downloading \href{https://worldclim.org/}{WorldClim} data.
 }
 \examples{
 worldclim_random("hcd")

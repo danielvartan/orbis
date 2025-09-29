@@ -8,8 +8,10 @@ remove_unique_outliers(file, n_iqr = 1.5)
 }
 \arguments{
 \item{file}{A \code{\link[base:character]{character}} vector with the file paths of
-the raster files to be processed. Supported file formats are GeoTIFF
-(\code{.tif} or \code{.tiff}) and Esri ASCII raster (\code{.asc}).}
+the raster files to be processed. Supported file formats are
+\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF}
+(\code{.tif} or \code{.tiff}) and
+\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII} raster (\code{.asc}).}
 
 \item{n_iqr}{(optional) A number specifying the multiplier of the
 interquartile range
@@ -23,17 +25,26 @@ effects.
 }
 \description{
 \code{remove_unique_outliers()} removes unique outliers from raster files
-(GeoTIFF or Esri ASCII raster format) based on the interquartile range
+(\href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} or
+\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII} raster format) based
+on the interquartile range
 (\href{https://en.wikipedia.org/wiki/Interquartile_range}{IQR}).
 
 This function processes each raster file by reading its values, identifying
 unique outliers using the \code{\link[=unique_outliers]{unique_outliers()}} function,
 and replacing those outlier values with \code{NA}. The modified raster is then
 saved back to the same file, effectively overwriting the original data.
+
+\strong{Note:} This function requires the \href{https://fs.r-lib.org/}{\code{fs}} package to
+be installed.
 }
 \examples{
+# Set the Environment -----
+
 library(readr)
 library(terra)
+
+# Create a Fictional Esri ASCII File -----
 
 asc_content <- c(
   "ncols         5",
@@ -53,12 +64,14 @@ temp_file <- tempfile(fileext = ".asc")
 
 asc_content |> write_lines(temp_file)
 
-## Values before `remove_unique_outliers()`
+# Visualize Values Before `remove_unique_outliers()` -----
+
 temp_file |> rast() |> values(mat = FALSE)
+
+# Visualize Values After `remove_unique_outliers()` -----
 
 temp_file |> remove_unique_outliers()
 
-## Values after `remove_unique_outliers()`
 temp_file |> rast() |> values(mat = FALSE)
 }
 \seealso{
@@ -66,6 +79,7 @@ Other utility functions:
 \code{\link{closest_geobr_year}()},
 \code{\link{fix_postal_code}()},
 \code{\link{map_fill_data}()},
+\code{\link{test_geobr_connection}()},
 \code{\link{unique_outliers}()}
 }
 \concept{utility functions}

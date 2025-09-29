@@ -23,8 +23,8 @@ be downloaded even if it already exists in the temporary directory
 (default: \code{FALSE}).}
 }
 \value{
-A \code{\link[tibble:tibble]{tibble}} containing the Qual o CEP dataset with
-the following columns:
+A \code{\link[tibble:tibble]{tibble}} containing the
+\href{https://www.qualocep.com}{Qual o CEP} with the following columns:
 \itemize{
 \item \code{postal_code}: A \code{\link[base:character]{character}} vector with the postal
 codes.
@@ -59,23 +59,26 @@ values of the postal codes (retrieved using Google Geocoding API).
 }
 }
 \description{
-\code{qualocep_download()} retrieves a validated dataset of Qual o CEP from the
-package's \href{https://osf.io/9ky4g/}{OSF repository}.
+\code{qualocep_download()} retrieves a validated dataset from
+\href{https://www.qualocep.com}{Qual o CEP} hosted on the package's
+\href{https://osf.io/9ky4g/}{OSF repository}.
+
+\href{https://www.qualocep.com}{Qual o CEP} is a database of Brazilian addresses
+and postal codes, geocoded using the Google Geocoding API. Users should
+verify the year of the data, as some values may be outdated.
+
+When possible, consider using the
+\href{https://ipeagit.github.io/geocodebr/}{\code{geocodebr}}
+package, which provides more up-to-date geocoded information.
 
 \strong{Note:} This function requires an internet connection to work and the
 \href{https://docs.ropensci.org/osfr/}{\code{osfr}} package to be installed.
 }
-\details{
-\href{https://www.qualocep.com}{Qual o CEP} is a database of Brazilian addresses
-and postal codes geocoded made using the Google Geocoding API.
-
-Please note the year of the pattern. Some values could be
-}
 \examples{
-\dontrun{
-  library(curl)
-  library(dplyr)
+library(curl)
+library(dplyr)
 
+\dontrun{
   if (has_internet()) {
     qualocep_download() |> glimpse()
   }

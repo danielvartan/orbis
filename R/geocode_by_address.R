@@ -26,11 +26,11 @@ geocode_by_address.tidygeocoder <- function( #nolint
     method = "osm",
     limit = 10
   ) {
+  require_pkg("tidygeocoder")
+
   assert_internet()
   checkmate::assert_character(address)
   checkmate::assert_number(limit)
-
-  require_pkg("tidygeocoder")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -75,6 +75,8 @@ geocode_by_address.qualocep <- function( #nolint
     mean_values = TRUE,
     ...
   ) {
+  require_pkg("osfr")
+
   assert_internet()
   checkmate::assert_number(limit)
 

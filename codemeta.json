@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "orbis",
-  "description": "A suite of tools for simplifying spatial data analysis.",
+  "description": "A comprehensive suite of tools for spatial data analysis that supports data gathering, manipulation, and geospatial processing workflows, streamlining common spatial processing tasks.",
   "name": "orbis: Spatial Data Analysis Tools",
   "relatedLink": "https://danielvartan.github.io/orbis/",
   "codeRepository": "https://github.com/danielvartan/orbis/",
@@ -43,6 +43,19 @@
     }
   ],
   "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "brandr",
+      "name": "brandr",
+      "version": ">= 0.1.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=brandr"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "bslib",
@@ -136,6 +149,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "ggplot2",
+      "name": "ggplot2",
+      "version": ">= 4.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "glue",
       "name": "glue",
       "version": ">= 1.8.0",
@@ -201,6 +227,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "ragg",
+      "name": "ragg",
+      "version": ">= 1.5.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ragg"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "rvest",
       "name": "rvest",
       "version": ">= 1.0.5",
@@ -224,6 +263,19 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "showtext",
+      "name": "showtext",
+      "version": ">= 0.9.7",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=showtext"
     },
     {
       "@type": "SoftwareApplication",
@@ -256,6 +308,19 @@
       "identifier": "stats",
       "name": "stats",
       "version": ">= 4.4"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "sysfonts",
+      "name": "sysfonts",
+      "version": ">= 0.8.9",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sysfonts"
     },
     {
       "@type": "SoftwareApplication",
@@ -295,6 +360,19 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyterra",
+      "name": "tidyterra",
+      "version": ">= 0.7.2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyterra"
     },
     {
       "@type": "SoftwareApplication",
@@ -475,7 +553,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1090.428KB",
+  "fileSize": "1134.426KB",
   "citation": [
     {
       "@type": "CreativeWork",

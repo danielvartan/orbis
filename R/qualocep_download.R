@@ -2,18 +2,20 @@
 #'
 #' @description
 #'
-#' `qualocep_download()` retrieves a validated dataset of Qual o CEP from the
-#' package's [OSF repository](https://osf.io/9ky4g/).
+#' `qualocep_download()` retrieves a validated dataset from
+#' [Qual o CEP](https://www.qualocep.com) hosted on the package's
+#' [OSF repository](https://osf.io/9ky4g/).
+#'
+#' [Qual o CEP](https://www.qualocep.com) is a database of Brazilian addresses
+#' and postal codes, geocoded using the Google Geocoding API. Users should
+#' verify the year of the data, as some values may be outdated.
+#'
+#' When possible, consider using the
+#' [`geocodebr`](https://ipeagit.github.io/geocodebr/)
+#' package, which provides more up-to-date geocoded information.
 #'
 #' **Note:** This function requires an internet connection to work and the
 #' [`osfr`](https://docs.ropensci.org/osfr/) package to be installed.
-#'
-#' @details
-#'
-#' [Qual o CEP](https://www.qualocep.com) is a database of Brazilian addresses
-#' and postal codes geocoded made using the Google Geocoding API.
-#'
-#' Please note the year of the pattern. Some values could be
 #'
 #' @param file (optional) A [`character`][base::character] string with the
 #'   path to a Qual o CEP dataset file. If `NULL`, the dataset will be
@@ -28,8 +30,8 @@
 #'   be downloaded even if it already exists in the temporary directory
 #'   (default: `FALSE`).
 #'
-#' @return A [`tibble`][tibble::tibble] containing the Qual o CEP dataset with
-#'   the following columns:
+#' @return A [`tibble`][tibble::tibble] containing the
+#'   [Qual o CEP](https://www.qualocep.com) with the following columns:
 #'   - `postal_code`: A [`character`][base::character] vector with the postal
 #'     codes.
 #'   - `street_type`: A [`character`][base::character] vector with the type of
@@ -65,10 +67,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   library(curl)
-#'   library(dplyr)
+#' library(curl)
+#' library(dplyr)
 #'
+#' \dontrun{
 #'   if (has_internet()) {
 #'     qualocep_download() |> glimpse()
 #'   }
@@ -78,11 +80,11 @@ qualocep_download <- function(
   pattern = "2024-11-12.rds",
   force = FALSE
 ) {
+  require_pkg("osfr")
+
   checkmate::assert_string(file, null.ok = TRUE)
   checkmate::assert_string(pattern, pattern = "\\.rds$")
   checkmate::assert_flag(force)
-
-  require_pkg("osfr")
 
   qualocep_temp_file <- file.path(tempdir(), pattern)
 
@@ -96,7 +98,7 @@ qualocep_download <- function(
   } else {
     assert_internet()
 
-    cli::cli_progress_step("Downloading Qual o CEP data from OSF.")
+    cli::cli_progress_step("Downloading Qual o CEP data from OSF")
 
     osf_id <- "https://osf.io/k5hyq"
 

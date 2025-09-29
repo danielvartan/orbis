@@ -3,11 +3,13 @@
 #' @description
 #'
 #' `worldclim_random()` returns a random selection of parameters for
-#' downloading WorldClim data.
+#' downloading [WorldClim](https://worldclim.org/) data.
 #'
-#' @param series A string indicating the WorldClim data series to use. Choices
-#'   are: `'hcd'` (Historical Climate Data), `'hmwd'` (Historical Monthly
-#'   Weather Data), or `'fcd'` (Future Climate Data) (default: `"hcd"`).
+#' @param series A string indicating the [WorldClim](https://worldclim.org/)
+#'   data series to use. The following options are available:
+#'   - `'hcd'` (Historical Climate Data).
+#'   - `'hmwd'` (Historical Monthly Weather Data).
+#'   - `'fcd'` (Future Climate Data).
 #'
 #' @return A [`list`][base::list()] with a random selection of parameters for
 #'   downloading WorldClim data. The list contains the following elements:

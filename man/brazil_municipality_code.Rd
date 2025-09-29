@@ -39,6 +39,9 @@ Brazilian municipalities.
 \code{brazil_municipality_code()} returns a vector with codes of the Brazilian
 Institute of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) for
 Brazilian municipalities.
+
+\strong{Note:} This function requires an active internet connection and the
+\href{https://ipeagit.github.io/geobr/}{\code{geobr}} package to be installed.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute
@@ -47,21 +50,34 @@ of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) via the
 
 The \code{\link[geobr:geobr]{geobr}} package is produced by Brazil's Institute for
 Applied Economic Research (\href{https://www.ipea.gov.br/}{IPEA}) and access the
-Brazilian Institute of Geography and Statistics (IBGE) data. You can see a
-list of all \code{\link[geobr:geobr]{geobr}} datasets by running
+Brazilian Institute of Geography and Statistics
+(\href{https://www.ibge.gov.br/}{IBGE}) data. You can see a list of all
+\code{\link[geobr:geobr]{geobr}} datasets by running
 \code{\link[geobr:list_geobr]{geobr::list_geobr()}}.
 }
 \examples{
-\dontrun{
-  library(curl)
+library(curl)
 
+\dontrun{
   if (has_internet()) {
     brazil_municipality_code(municipality = "Belém")
+  }
+}
 
+\dontrun{
+  if (has_internet()) {
     brazil_municipality_code(municipality = "Belém", names = FALSE)
+  }
+}
 
+\dontrun{
+  if (has_internet()) {
     brazil_municipality_code(municipality = "Belém", state = "Pará")
+  }
+}
 
+\dontrun{
+  if (has_internet()) {
     brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
   }
 }

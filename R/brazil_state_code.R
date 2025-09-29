@@ -11,8 +11,8 @@
 #'   supported. If `NULL`, returns a vector with all state codes
 #'   (default: `NULL`).
 #'
-#' @return An [`integer`][base::integer()] vector with the IBGE codes of
-#'   Brazilian states.
+#' @return An [`integer`][base::integer()] vector with the
+#'   [IBGE](https://www.ibge.gov.br/) codes of Brazilian states.
 #'
 #' @template details_brazil_a
 #' @family Brazil functions

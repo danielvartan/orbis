@@ -19,6 +19,48 @@ test_dateline <- function(vector) {
   }
 }
 
+test_geometry <- function(geometry) {
+  require_pkg("sf")
+
+  test <-
+    geometry |>
+    sf::st_geometry() |>
+    try(silent = TRUE) |>
+    suppressMessages() |>
+    suppressWarnings()
+
+  if (!inherits(test, "try-error")) {
+    TRUE
+  } else {
+    FALSE
+  }
+}
+
+check_geometry <- function(geometry, .name = NULL) {
+  if (isFALSE(test_geometry(geometry))) {
+    paste0(
+      "{.strong {cli::col_red(",
+      ifelse(is.null(.name), "'geometry'", ".name"),
+      ")}} is not a valid ",
+      "{.strong sf} object."
+    )
+  } else {
+    TRUE
+  }
+}
+
+assert_geometry <- function(geometry) {
+  require_pkg("sf")
+
+  .name <- deparse(substitute(geometry))
+
+  if (isFALSE(test_geometry(geometry))) {
+    geometry |>
+      check_geometry(.name) |>
+      cli::cli_abort()
+  }
+}
+
 assert_identical <- function(..., type = "value") {
   values <- list(...)
 

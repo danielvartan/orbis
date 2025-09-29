@@ -28,16 +28,28 @@
 #' @export
 #'
 #' @examples
+#' library(curl)
+#'
 #' \dontrun{
-#'   library(curl)
-#'
 #'   if (has_internet()) {
-#'     brazil_municipality_coords() |> dplyr::glimpse()
+#'     brazil_municipality_coords()
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_coords(municipality_code = 3550308)
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_coords(municipality_code = 3550)
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_coords(municipality_code = c(3550308, 3304557))
 #'   }
 #' }
@@ -48,6 +60,31 @@ brazil_municipality_coords <- function(
   force = FALSE
 ) {
   assert_internet()
+  checkmate::assert_choice(coords_method, c("geobr", "geocodebr"))
+
+  if (coords_method == "geobr") {
+    brazil_municipality_coords.geobr(
+      municipality_code = municipality_code,
+      year = year,
+      force = force
+    )
+  } else if (coords_method == "geocodebr") {
+    brazil_municipality_coords.geocodebr(
+      municipality_code = municipality_code,
+      year = year,
+      force = force
+    )
+  }
+}
+
+brazil_municipality_coords.geobr <- function( #nolint
+  municipality_code = NULL,
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
+  force = FALSE
+) {
+  require_pkg("geobr")
+
+  assert_internet()
   checkmate::assert_integerish(municipality_code, null.ok = TRUE)
   checkmate::assert_integer(
     nchar(municipality_code),
@@ -57,7 +94,61 @@ brazil_municipality_coords <- function(
   )
   checkmate::assert_integerish(year)
   checkmate::assert_character(as.character(year), pattern = "^[0-9]{4}$")
-  checkmate::assert_choice(coords_method, c("geobr", "geocodebr"))
+  checkmate::assert_flag(force)
+
+  # R CMD Check variable bindings fix
+  # nolint start
+  . <- code_muni <- latitude <- longitude <- geom <- NULL
+  # nolint end
+
+  out <-
+    geobr::read_municipal_seat(
+      year = year |> closest_geobr_year(type = "municipal_seat"),
+      showProgress = FALSE,
+      cache = !force
+    ) |>
+    dplyr::as_tibble() |>
+    dplyr::rename(municipality_code = code_muni) |>
+    dplyr::mutate(
+      geom =
+        geom |> #nolint
+        terra::vect() |>
+        terra::crds() |>
+        dplyr::as_tibble() %>%
+        split(., seq_len(nrow(.))) |>
+        as.list(),
+      latitude = geom |> purrr::map_dbl(\(x) x$y),
+      longitude = geom |> purrr::map_dbl(\(x) x$x)
+    ) |>
+    dplyr::select(municipality_code, latitude, longitude)
+
+  if (!is.null(municipality_code)) {
+    pattern <- paste0(municipality_code, collapse = "|")
+
+    out |>
+      dplyr::filter(municipality_code |> stringr::str_starts(pattern))
+  } else {
+    out
+  }
+}
+
+brazil_municipality_coords.geocodebr <- function( #nolint
+  municipality_code = NULL,
+  year = Sys.Date() |> substr(1, 4) |> as.numeric(),
+  force = FALSE
+) {
+  require_pkg("geobr", "geocodebr")
+
+  assert_internet()
+  checkmate::assert_integerish(municipality_code, null.ok = TRUE)
+  checkmate::assert_integer(
+    nchar(municipality_code),
+    lower = 2,
+    upper = 7,
+    null.ok = TRUE
+  )
+  checkmate::assert_integerish(year)
+  checkmate::assert_character(as.character(year), pattern = "^[0-9]{4}$")
   checkmate::assert_flag(force)
 
   # R CMD Check variable bindings fix
@@ -66,58 +157,31 @@ brazil_municipality_coords <- function(
   name_state <- state <- geom <- NULL
   # nolint end
 
-  if (coords_method == "geobr") {
-    require_pkg("geobr")
-
-    out <-
-      geobr::read_municipal_seat(
-        year = year |> closest_geobr_year(type = "municipal_seat"),
-        showProgress = FALSE,
-        cache = !force
-      ) |>
-      dplyr::as_tibble() |>
-      dplyr::rename(municipality_code = code_muni) |>
-      dplyr::mutate(
-        geom =
-          geom |> #nolint
-          terra::vect() |>
-          terra::crds() |>
-          dplyr::as_tibble() %>%
-          split(., seq_len(nrow(.))) |>
-          as.list(),
-        latitude = geom |> purrr::map_dbl(\(x) x$y),
-        longitude = geom |> purrr::map_dbl(\(x) x$x)
-      ) |>
-      dplyr::select(municipality_code, latitude, longitude)
-  } else if (coords_method == "geocodebr") {
-    require_pkg("geobr", "geocodebr")
-
-    out <-
-      geobr::read_municipality(
-        year = year |> closest_geobr_year(type = "municipality"),
-        showProgress = FALSE,
-        cache = !force
-      ) |>
-      dplyr::as_tibble() |>
-      dplyr::rename(
-        state = name_state,
-        municipality_code = code_muni
-      ) |>
-      dplyr::select(state, municipality_code) |>
-      geocodebr::geocode(
-        campos_endereco = geocodebr::definir_campos(
-          estado = "state",
-          municipio = "municipality_code"
-        ),
-        cache = !force
-      ) |>
-      dplyr::as_tibble() |>
-      dplyr::rename(
-        latitude = lat,
-        longitude = lon
-      ) |>
-      dplyr::select(municipality_code, latitude, longitude)
-  }
+  out <-
+    geobr::read_municipality(
+      year = year |> closest_geobr_year(type = "municipality"),
+      showProgress = FALSE,
+      cache = !force
+    ) |>
+    dplyr::as_tibble() |>
+    dplyr::rename(
+      state = name_state,
+      municipality_code = code_muni
+    ) |>
+    dplyr::select(state, municipality_code) |>
+    geocodebr::geocode(
+      campos_endereco = geocodebr::definir_campos(
+        estado = "state",
+        municipio = "municipality_code"
+      ),
+      cache = !force
+    ) |>
+    dplyr::as_tibble() |>
+    dplyr::rename(
+      latitude = lat,
+      longitude = lon
+    ) |>
+    dplyr::select(municipality_code, latitude, longitude)
 
   if (!is.null(municipality_code)) {
     pattern <- paste0(municipality_code, collapse = "|")

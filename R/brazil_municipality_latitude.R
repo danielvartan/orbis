@@ -5,6 +5,9 @@
 #' `brazil_municipality_latitude()` returns the latitude of Brazilian
 #' municipalities.
 #'
+#' **Note:** This function requires an active internet connection and the
+#' [`geobr`](https://ipeagit.github.io/geobr/) package to be installed.
+#'
 #' @param municipality_code An [`integerish`][checkmate::test_integerish] vector
 #'   with the IBGE codes of Brazilian municipalities. Use
 #'   [`brazil_municipality_code()`][brazil_municipality_code]
@@ -20,16 +23,28 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   library(curl)
+#' library(curl)
 #'
+#' \dontrun{
 #'   if (has_internet()) {
 #'     brazil_municipality_latitude(3550308)
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_latitude(c(3550308, 3500204))
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_latitude(c(3550308, 1000, 3500204))
+#'   }
+#' }
 #'
+#' \dontrun{
+#'   if (has_internet()) {
 #'     brazil_municipality_latitude(c(3550308, NA, 3500204))
 #'   }
 #' }
@@ -40,6 +55,9 @@ brazil_municipality_latitude <- function( #nolint
   names = TRUE,
   ...
 ) {
+  require_pkg("geobr")
+
+  assert_internet()
   checkmate::assert_integerish(municipality_code)
   checkmate::assert_integer(nchar(municipality_code), lower = 2, upper = 7)
   checkmate::assert_integerish(year)

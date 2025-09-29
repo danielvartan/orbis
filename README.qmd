@@ -29,13 +29,45 @@ source(here("R", ".setup.R"))
 
 cat(
   badge_repostatus("active"),
-  badge_cran_release(),
+  # badge_cran_release(),
+  # badge_custom(
+  #   x = "doi",
+  #   y = "10.32614/CRAN.package.orbis",
+  #   color = "1284C5",
+  #   url = "https://doi.org/10.32614/CRAN.package.orbis"
+  # ),
+  # badge_cran_download(type = "grand-total"),
   badge_github_actions(action = "R-CMD-check.yaml"),
   badge_codecov() |> shush(),
   badge_license(
     license = "GPLv3",
     color = "bd0000",
     url = "https://www.gnu.org/licenses/gpl-3.0"
+  ),
+  paste0(
+    "[![",
+    "FAIR checklist badge",
+    "](",
+    "https://img.shields.io/badge/",
+    "fairsoftwarechecklist.net", "-",
+    "-",
+    "00a7d9",
+    ")](",
+    "https://fairsoftwarechecklist.net/v0.2?f=21&a=30112&i=32322&r=123",
+    ")"
+  ),
+  paste0(
+    "[![",
+    "fair-software.eu",
+    "](",
+    "https://img.shields.io/badge/",
+    "fair--software.eu", "-",
+    "%E2%97%8F%20%E2%97%8F%20%E2%97%8F%20%E2%97%8F%20%E2%97%8B",
+    "-",
+    "green",
+    ")](",
+    "https://fair-software.eu",
+    ")"
   ),
   badge_custom(
     x = "Contributor%20Covenant",
@@ -78,7 +110,9 @@ Here are some examples of how to use a few of these functions.
 
 ### `shift_and_rotate()`
 
-[`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html) was developed to simplify shifting and rotating spatial data, especially for rasters and vectors that cross the dateline (e.g., Russia).
+[`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html) was developed to simplify shifting and rotating spatial data, especially for rasters and vectors that cross the dateline (e.g. the Russian territory).
+
+#### Set the Environment
 
 ```{r}
 library(dplyr)
@@ -90,47 +124,65 @@ library(tidyterra)
 ```
 
 ```{r}
-world_shape <- world(path = tempdir())
+plot_vector <- function(vector) {
+  plot <-
+    vector |>
+    ggplot() +
+    geom_spatvector(fill = "#3243A6", color = "white")
+
+  print(plot)
+}
 ```
+
+#### Define a World Vector
+
+```{r}
+world_vector <- world(path = tempdir())
+```
+
+#### Visualize the World Vector
 
 ```{r}
 #| label: readme-shift-and-rotate-1
 
-world_shape |>
-  ggplot() +
-  geom_spatvector(fill = "#072359", color = "white")
+world_vector |> plot_vector()
 ```
 
+#### Define the Country Vector
+
 ```{r}
-russia_shape <- gadm(country = "rus", level = 0, path = tempdir())
+russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 ```
+
+#### Visualize the Country Vector
 
 ```{r}
 #| label: readme-shift-and-rotate-2
 
-russia_shape |>
-  ggplot() +
-  geom_spatvector(fill = "#3243A6", color = "white")
+russia_vector |> plot_vector()
 ```
+
+#### Shift and Rotate the Country Vector -45 Degrees to the Left
 
 ```{r}
 #| label: readme-shift-and-rotate-3
 
-russia_shape |>
-  shift_and_rotate(dx = -45) |>
-  ggplot() +
-  geom_spatvector(fill = "#3243A6", color = "white")
+russia_vector |> shift_and_rotate(-45) |> plot_vector()
 ```
 
 ### `remove_unique_outliers()`
 
 [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html) was developed to simplify the removal of abnormal values in raster files. It can be used with [GeoTIFF](https://www.ogc.org/standards/geotiff/) and [Esri ASCII](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/esri-ascii-raster-format.htm) raster formats.
 
+#### Set the Environment
+
 ```{r}
 library(orbis)
 library(readr)
 library(terra)
 ```
+
+#### Create a Fictional Esri ASCII File
 
 ```{r}
 asc_content <- c(
@@ -154,22 +206,27 @@ temp_file <- tempfile(fileext = ".asc")
 asc_content |> write_lines(temp_file)
 ```
 
-Values before `remove_unique_outliers()`:
+#### Visualize Values Before `remove_unique_outliers()`
 
 ```{r}
 temp_file |> rast() |> values(mat = FALSE)
 ```
 
-Values after `remove_unique_outliers()`:
+#### Visualize Values After `remove_unique_outliers()`
 
 ```{r}
 temp_file |> remove_unique_outliers()
+```
+
+```{r}
 temp_file |> rast() |> values(mat = FALSE)
 ```
 
 ### `map_fill_data()`
 
 [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.html) was developed to simplify the preparation of data to fill a map.
+
+#### Set the Environment
 
 ```{r}
 library(dplyr)
@@ -181,44 +238,79 @@ library(tidyterra)
 ```
 
 ```{r}
-brazil_states <- geodata::gadm("BRA", level = 1, path = tempdir())
+plot_vector_shape <- function(vector) {
+  plot <-
+    vector |>
+    ggplot() +
+    geom_spatvector(fill = "white", color = "#3243A6")
+
+  print(plot)
+}
 ```
+
+```{r}
+plot_vector_data <- function(data, vector) {
+  plot <-
+    data |>
+    ggplot() +
+    geom_spatvector(aes(fill = value), color = "white") +
+    scale_fill_continuous(
+        palette = c("#072359", "#3243A6", "#9483AF"),
+        na.value = "white"
+    ) +
+    labs(fill = NULL)
+
+  print(plot)
+}
+```
+
+#### Define the Map
+
+```{r}
+brazil_states_vector <- gadm("BRA", level = 1, path = tempdir())
+```
+
+#### Visualize the Map
 
 ```{r}
 #| label: readme-map-fill-data-1
 
-brazil_states |>
-  ggplot() +
-  geom_spatvector(fill = "#5F45BF", color = "white")
+brazil_states_vector |> plot_vector_shape()
 ```
+
+#### Define the Data
 
 ```{r}
 data <- tibble(
-  state = sample(brazil_states$NAME_1, size = 1000, replace = TRUE),
+  state = sample(brazil_states_vector$NAME_1, size = 1000, replace = TRUE),
   value = sample(1:1000, size = 1000, replace = TRUE)
 )
-
 data
 ```
+
+#### Create the Map Fill Data
 
 ```{r}
-data <- map_fill_data(data, col_fill = "value", col_code = "state")
+data <- data |> map_fill_data(col_fill = "value", col_ref = "state")
 
 data
 ```
+
+#### Visualize the Map Fill Data
 
 ```{r}
 #| label: readme-map-fill-data-2
 
-left_join(brazil_states, data, by = c("NAME_1" = "state")) |>
-  ggplot() +
-  geom_spatvector(aes(fill = n), color = "white") +
-  labs(fill = NULL)
+brazil_states_vector |>
+  left_join(data, by = c("NAME_1" = "state")) |>
+  plot_vector_data()
 ```
 
 ### `filter_points_on_land()`
 
 [`filter_points_on_land()`](https://danielvartan.github.io/orbis/reference/filter_points_on_land.html) was developed to filter latitude/longitude points that intersect with a given [`sf`](https://r-spatial.github.io/sf/) geometry. This is particularly useful for removing points that fall in the ocean when working with country or state boundaries.
+
+#### Set the Environment
 
 ```{r}
 library(dplyr)
@@ -229,21 +321,28 @@ library(sf)
 ```
 
 ```{r}
-data <- tibble(
-  latitude = brazil_state_latitude(),
-  longitude = brazil_state_longitude()
-)
+plot_geometry <- function(geometry) {
+  plot <-
+    geometry |>
+    ggplot() +
+    geom_sf(
+      color = "gray75",
+      fill = "white",
+      inherit.aes = FALSE
+    ) +
+    labs(x = "Longitude", y = "Latitude")
 
-data
+  print(plot)
+}
 ```
 
 ```{r}
-plot_points <- function(data, vector) {
+plot_points <- function(data, geometry) {
   plot <-
     data |>
     ggplot(aes(x = longitude, y = latitude)) +
     geom_sf(
-      data = vector,
+      data = geometry,
       color = "gray75",
       fill = "white",
       inherit.aes = FALSE
@@ -255,32 +354,55 @@ plot_points <- function(data, vector) {
 }
 ```
 
+#### Define the Points
+
 ```{r}
-brazil_state_vector <- read_state()
+data <- tibble(
+  latitude = brazil_state_latitude(),
+  longitude = brazil_state_longitude()
+)
+
+data
+```
+
+#### Visualize the Points on a Map
+
+```{r}
+brazil_states_geometry <- read_state()
 ```
 
 ```{r}
 #| label: readme-filter-points-on-land-1
 
-data |> plot_points(brazil_state_vector)
+data |> plot_points(brazil_states_geometry)
 ```
 
-```{r}
-sp_state_vector <- read_state(code = "SP")
-
-sp_state_vector |> st_bbox()
-```
+#### Set the Geometry to Filter the Points
 
 ```{r}
-data <- filter_points_on_land(data, sp_state_vector |> pull(geom))
-
-data
+sp_state_geometry <- read_state(code = "SP")
 ```
 
 ```{r}
 #| label: readme-filter-points-on-land-2
 
-data |> plot_points(brazil_state_vector)
+sp_state_geometry |> plot_geometry()
+```
+
+#### Filter the Points
+
+```{r}
+data <- data |> filter_points_on_land(sp_state_geometry)
+
+data
+```
+
+#### Visualize the Filtered Points
+
+```{r}
+#| label: readme-filter-points-on-land-3
+
+data |> plot_points(brazil_states_geometry)
 ```
 
 Click [here](https://danielvartan.github.io/orbis/reference/) to see the full list of functions.

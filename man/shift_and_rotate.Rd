@@ -4,21 +4,21 @@
 \alias{shift_and_rotate}
 \title{Shift and rotate a raster or a vector}
 \usage{
-shift_and_rotate(x, dx = -45, precision = 5, overlap_tol = 0.1)
+shift_and_rotate(x, dx = -45, precision = 5, overlap_tolerance = 0.1)
 }
 \arguments{
 \item{x}{A \code{\link[terra:SpatRaster-class]{SpatRaster}} or
 \code{\link[terra:SpatVector-class]{SpatVector}} object to be shifted and rotated.}
 
-\item{dx}{(optional) A numeric value indicating the amount of the horizontal
-shift in degrees. Positive values shift to the right, negative values shift
-to the left (default: \code{-45}).}
+\item{dx}{A numeric value indicating the amount of the horizontal shift in
+degrees. Positive values shift to the right, negative values shift to the
+left (default: \code{-45}).}
 
 \item{precision}{(optional) A numeric value specifying the number of decimal
 digits to use when rounding longitude and latitude coordinates
 (default: \code{5}).}
 
-\item{overlap_tol}{(optional) A numeric value specifying the tolerance for
+\item{overlap_tolerance}{(optional) A numeric value specifying the tolerance for
 overlapping geometries when combining vectors. This value controls the
 allowable error when merging overlapping geometries (default: \code{0.1}).}
 }
@@ -28,23 +28,89 @@ by the specified amount in degrees.
 }
 \description{
 \code{shift_and_rotate()} shifts a raster or vector by a specified horizontal
-distance rotating the data around the dateline.
+distance and rotates the data around the dateline.
 
 This function is particularly useful for working with rasters and vectors
 that span the dateline (e.g., the Russian territory).
 }
 \examples{
+# Set the Environment -----
+
+library(curl)
+library(dplyr)
+library(geodata)
+library(ggplot2)
+library(terra)
+library(tidyterra)
+
+plot_vector <- function(vector) {
+  plot <-
+    vector |>
+    ggplot() +
+    geom_spatvector(fill = "#3243A6", color = "white")
+
+  print(plot)
+}
+
+plot_raster <- function(raster) {
+  plot <-
+    ggplot() +
+    geom_spatraster(data = raster) +
+    scale_fill_continuous(
+      palette = c("#072359", "#3243A6", "#9483AF"),
+      na.value = "white"
+    ) +
+    labs(fill = NULL) +
+    theme(
+      axis.ticks.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.text.y = element_blank()
+    )
+
+    print(plot)
+}
+
+# Vector Example -----
+
+## Define the Vector
+
 \dontrun{
-  library(curl)
-  library(dplyr)
-  library(geodata)
-  library(ggplot2)
-  library(terra)
-  library(tidyterra)
-
   if (has_internet()) {
-    ## Raster example
+    russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
+  }
+}
 
+## Visualize the Vector
+
+\dontrun{
+  if (has_internet()) {
+    russia_vector |> plot_vector()
+  }
+}
+
+## Shift and Rotate the Vector -45 Degrees to the Left
+
+\dontrun{
+  if (has_internet()) {
+    russia_vector |> shift_and_rotate(-45) |> plot_vector()
+  }
+}
+
+## Shift and Rotate the Vector 45 Degrees to the Right
+
+\dontrun{
+  if (has_internet()) {
+    russia_vector |> shift_and_rotate(45) |> plot_vector()
+  }
+}
+
+# Raster Example -----
+
+## Define the Raster
+
+\dontrun{
+  if (has_internet()) {
     raster <-
       expand.grid(
         seq(-179.75, 179.75, by = 0.5),
@@ -55,61 +121,90 @@ that span the dateline (e.g., the Russian territory).
       mutate(value = rnorm(259200)) |>
       rast(type = "xyz") \%>\%
       `crs<-`("epsg:4326")
-
+(e.g., Russia).
     world_shape <- world(path = tempdir())
+
     raster <- raster |> crop(world_shape, mask = TRUE)
+  }
+}
 
-    plot_raster <- function(raster) {
-      plot <-
-        ggplot() +
-        geom_spatraster(data = raster) +
-        scale_fill_continuous(
-          palette = c("#072359", "#3243A6", "#9483AF"),
-          na.value = "white"
-        ) +
-        labs(fill = NULL)
+## Visualize the Raster
 
-      print(plot)
-    }
-
+\dontrun{
+  if (has_internet()) {
     raster |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector -45 Degrees to the Left
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(-45) |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector -90 Degrees to the Left
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(-90) |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector -135 Degrees to the Left
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(-135) |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector -180 Degrees to the Left
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(-180) |> plot_raster()
+  }
+}
 
+## Visualize the Raster
+
+\dontrun{
+  if (has_internet()) {
     raster |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector 45 Degrees to the Right
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(45) |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector 90 Degrees to the Right
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(90) |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector 135 Degrees to the Right
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(135) |> plot_raster()
+  }
+}
 
+## Shift and Rotate the Vector 180 Degrees to the Right
+
+\dontrun{
+  if (has_internet()) {
     raster |> shift_and_rotate(180) |> plot_raster()
-
-    ## Vector example
-
-    vector <- gadm(country = "rus", level = 0, path = tempdir())
-
-    plot_vector <- function(vector) {
-      plot <-
-        vector |>
-        ggplot() +
-        geom_spatvector(fill = "#3243A6", color = "white")
-
-      print(plot)
-    }
-
-    vector |> plot_vector()
-
-    vector |> shift_and_rotate(-45) |> plot_vector()
-
-    vector |> shift_and_rotate(45) |> plot_vector()
   }
 }
 }

@@ -1,16 +1,13 @@
 # Load Packages -----
 
 library(brandr)
-library(downlit)
 library(ggplot2)
 library(here)
 library(knitr)
 library(magrittr)
 library(ragg)
-library(rutils) # github.com/danielvartan/rutils
 library(showtext)
 library(sysfonts)
-library(xml2)
 
 # Set Options -----
 
@@ -32,7 +29,7 @@ set.seed(2025)
 
 # Set `knitr`` -----
 
-clean_cache() |> shush()
+clean_cache() |>suppressMessages() |> suppressWarnings()
 
 opts_chunk$set(
   comment = "#>",
@@ -74,7 +71,7 @@ font_add(
   symbol = NULL
 )
 
-showtext::showtext_auto()
+showtext_auto()
 
 # Set `ggplot2` Theme -----
 
@@ -90,6 +87,7 @@ theme_set(
       panel.grid.minor = element_blank(),
       legend.frame = element_blank(),
       legend.ticks = element_line(color = "white"),
-      palette.colour.continuous = getOption("BRANDR_COLOR_SEQUENTIAL")
+      palette.colour.continuous = getOption("BRANDR_COLOR_SEQUENTIAL"),
+      palette.colour.discrete = getOption("BRANDR_COLOR_QUALITATIVE")
     )
 )

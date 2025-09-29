@@ -10,8 +10,8 @@
 #'   the names of Brazilian regions, states, or federal units. If `NULL`,
 #'   returns a named vector with all Brazilian region codes (default: `NULL`).
 #'
-#' @return An [`integer`][base::integer()] vector with the IBGE codes of
-#'   Brazilian regions.
+#' @return An [`integer`][base::integer()] vector with the
+#'   [IBGE](https://www.ibge.gov.br/) codes of Brazilian regions.
 #'
 #' @template details_brazil_a
 #' @family Brazil functions

@@ -7,68 +7,106 @@
 filter_points_on_land(data, geometry)
 }
 \arguments{
-\item{data}{A \code{\link[tibble:tibble]{tibble}} with the data points to be filtered.
-It must have columns \code{longitude} and \code{latitude}.}
+\item{data}{A \code{\link[tibble:tibble]{tibble}} containing the data points to
+filter. Must include \code{latitude} and \code{longitude} columns.}
 
-\item{geometry}{A \code{\link[sf:sf]{sf}} object with the geometry to be used for
+\item{geometry}{An \code{\link[sf:sf]{sf}} object with the geometry to be used for
 filtering.}
 }
 \value{
-A \code{\link[tibble:tibble]{tibble}}.
+A \code{\link[tibble:tibble]{tibble}} with the filtered data points.
 }
 \description{
 \code{filter_points_on_land()} filters latitude/longitude points that intersects
-with a given geometry.
+with a given \href{https://r-spatial.github.io/sf/}{\code{sf}} geometry.
 
 \strong{Note:} This function requires the \href{https://r-spatial.github.io/sf/}{\code{sf}}
 package to be installed.
 }
 \examples{
-\dontrun{
-  library(curl)
-  library(dplyr)
-  library(ggplot2)
-  library(geobr)
-  library(sf)
+# Set the Environment -----
 
-  if (has_internet()) {
+library(curl)
+library(dplyr)
+library(ggplot2)
+library(geobr)
+library(sf)
+
+plot_geometry <- function(geometry) {
+  plot <-
+    geometry |>
+    ggplot() +
+    geom_sf(
+      color = "gray75",
+      fill = "white",
+      inherit.aes = FALSE
+    ) +
+    labs(x = "Longitude", y = "Latitude")
+
+  print(plot)
+}
+
+plot_points <- function(data, geometry) {
+  plot <-
+    data |>
+    ggplot(aes(x = longitude, y = latitude)) +
+    geom_sf(
+      data = geometry,
+      color = "gray75",
+      fill = "white",
+      inherit.aes = FALSE
+    ) +
+    geom_point(color = "#3243A6") +
+    labs(x = "Longitude", y = "Latitude")
+
+  print(plot)
+}
+
+# Define the Points -----
+
+\dontrun{
+  if (has_internet() && test_geobr_connection()) {
     data <- tibble(
       latitude = brazil_state_latitude(),
       longitude = brazil_state_longitude()
     )
 
     data
-
-    plot_points <- function(data, vector) {
-      plot <-
-        data |>
-        ggplot(aes(x = longitude, y = latitude)) +
-        geom_sf(
-          data = vector,
-          color = "gray75",
-          fill = "white",
-          inherit.aes = FALSE
-        ) +
-        geom_point(color = "#3243A6") +
-        labs(x = "Longitude", y = "Latitude")
-
-      print(plot)
-    }
-
-    brazil_state_vector <- read_state()
-
-    data |> plot_points(brazil_state_vector)
-
-    sp_state_vector <- read_state(code = "SP")
-
-    sp_state_vector |> st_bbox()
-
-    data <- filter_points_on_land(data, sp_state_vector |> pull(geom))
-
-    data
-
-    data |> plot_points(brazil_state_vector)
   }
+}
+
+# Visualize the Points on a Map -----
+
+\dontrun{
+  if (has_internet() && test_geobr_connection()) {
+    brazil_states_geometry <- read_state()
+
+    data |> plot_points(brazil_states_geometry)
+  }
+}
+
+# Set the Geometry to Filter the Points -----
+
+\dontrun{
+  if (has_internet() && test_geobr_connection()) {
+    sp_state_geometry <- read_state(code = "SP")
+
+    sp_state_geometry |> plot_geometry()
+  }
+}
+
+# Filter the Points -----
+
+\dontrun{
+  data <- data |> filter_points_on_land(sp_state_geometry)
+
+  data
+}
+
+# Visualize the Filtered Points -----
+
+\dontrun{
+  data |> plot_points(brazil_states_geometry)
 }
 }
 \concept{\code{sf} functions}

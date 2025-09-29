@@ -28,7 +28,7 @@ offset.
 \details{
 The data from this function is based on the 2024b dataset
 (Released 2024-09-04) from the Internet Assigned Numbers Authority
-(IANA, 2024)
+(\href{https://www.iana.org/time-zones}{IANA}, 2024)
 }
 \examples{
 brazil_state_by_utc(-3, type = "fu")

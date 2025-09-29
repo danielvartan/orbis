@@ -6,6 +6,9 @@ brazil_municipality_get <- function( #nolint
   names = TRUE,
   ...
 ) {
+  require_pkg("geobr")
+
+  assert_internet()
   checkmate::assert_atomic(x)
   checkmate::assert_string(col_filter)
   checkmate::assert_string(col_return)

@@ -2,25 +2,26 @@
 #'
 #' @description
 #'
-#' `worldclim_url()` returns the URL(s) of a WorldClim data series.
+#' `worldclim_url()` returns the URL(s) of a
+#' [WorldClim](https://worldclim.org/) data series.
 #'
 #' @param series A [`character`][base::character()] vector with the name of the
-#'   WorldClim data series. The following options are available:
-#'   - `"hcd"` or `"historical-climate-data"` or `"historical climate data"`.
-#'   - `"hmwd"` or `"historical-monthly-weather-data"` or
-#'     `"historical monthly weather data"`.
-#'   - `"fcd"` or `"future-climate-data"` or `"future climate data"`.
+#'   [WorldClim](https://worldclim.org/) data series (default: `"hcd"`).
+#'   The following options are available:
+#'   - `'hcd'` (Historical Climate Data).
+#'   - `'hmwd'` (Historical Monthly Weather Data).
+#'   - `'fcd'` (Future Climate Data).
 #' @param resolution (optional) A [`character`][base::character()] vector with
-#'   the resolution of the WorldClim data series. The following options are
-#'   available:
-#'   - `"all"` (default) returns all available resolutions.
+#'   the resolution of the [WorldClim](https://worldclim.org/) data series
+#'   (default: `"all"`). The following options are available:
+#'   - `"all"` returns all available resolutions.
 #'   - `"10m"` returns the 10m resolution.
 #'   - `"5m"` returns the 5m resolution.
 #'   - `"2.5m"` returns the 2.5m resolution.
 #'   - `"30s"` returns the 30s resolution.
 #'
-#' @return A named [`character`][base::character()] vector with the URL(s) or
-#'   OSF ID(s) of the WorldClim data series.
+#' @return A named [`character`][base::character()] vector with the URL(s) of
+#'   the [WorldClim](https://worldclim.org/) data series.
 #'
 #' @family WorldClim functions
 #' @export
@@ -28,17 +29,11 @@
 #' @examples
 #' worldclim_url("hcd")
 #'
-#' worldclim_url("historical climate data")
-#'
 #' worldclim_url("hmwd")
-#'
-#' worldclim_url("historical monthly weather data")
 #'
 #' worldclim_url("fcd")
 #'
-#' worldclim_url("future climate data")
-#'
-#' worldclim_url("future climate data", "10m")
+#' worldclim_url("fcd", "10m")
 #'
 #' worldclim_url(c("hcd", "hmwd", "fcd"))
 #'

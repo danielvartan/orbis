@@ -38,13 +38,13 @@ geocode_by_postal_code.tidygeocoder <- function( #nolint
     limit = 10,
     suffix = ", Brazil"
 ) {
+  require_pkg("tidygeocoder")
+
   postal_code <- orbis::fix_postal_code(postal_code, zero_na = FALSE)
 
   assert_internet()
   checkmate::assert_character(postal_code, pattern = "^\\d{8}$")
   checkmate::assert_number(limit)
-
-  require_pkg("tidygeocoder")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -92,6 +92,8 @@ geocode_by_postal_code.qualocep <- function( #nolint
     postal_code, #nolint
     limit = 10
   ) {
+  require_pkg("osfr")
+
   postal_code <- postal_code |> orbis::fix_postal_code(zero_na = TRUE)
 
   assert_internet()

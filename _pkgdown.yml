@@ -94,6 +94,7 @@ reference:
   - fix_postal_code
   - map_fill_data
   - remove_unique_outliers
+  - test_geobr_connection
   - unique_outliers
 
 authors:

@@ -200,9 +200,9 @@ to_title_case_pt <- function(
 
 # Borrowed from `rutils`: github.com/danielvartan/rutils
 get_file_size <- function(file) {
-  checkmate::assert_character(file)
-
   require_pkg("fs", "httr")
+
+  checkmate::assert_character(file)
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
@@ -225,6 +225,8 @@ get_file_size <- function(file) {
 
 # Borrowed from `rutils`: github.com/danielvartan/rutils
 get_file_size_by_url <- function(file) {
+  require_pkg("fs", "httr")
+
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
     "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
@@ -232,8 +234,6 @@ get_file_size_by_url <- function(file) {
 
   assert_internet()
   checkmate::assert_character(file, pattern = url_pattern)
-
-  require_pkg("fs", "httr")
 
   out <- character()
 
@@ -265,6 +265,8 @@ download_file <- function(
   dir = ".",
   broken_links = FALSE
 ) {
+  require_pkg("curl", "fs")
+
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
     "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
@@ -273,8 +275,6 @@ download_file <- function(
   checkmate::assert_character(url, pattern = url_pattern, any.missing = FALSE)
   checkmate::assert_string(dir)
   checkmate::assert_directory_exists(dir, access = "w")
-
-  require_pkg("curl", "fs")
 
   # R CMD Check variable bindings fix
   # nolint start

@@ -9,7 +9,7 @@
 #'
 #' This function addresses the SIDRA API's limitations on the volume of data
 #' that can be downloaded in a single request. It downloads data for each year
-#' individually and then combines the results into a single tibble.
+#' individually and then combines the results into a single data frame.
 #'
 #' **Note:** This function requires an active internet connection and the
 #' [`sidrar`](https://CRAN.R-project.org/package=sidrar) package to be
@@ -23,15 +23,15 @@
 #' 2. Locate the desired table containing your data.
 #' 3. Configure the parameters for data retrieval (e.g., variable, sex, years).
 #' 4. Click the share button (link symbol) at the end of the page.
-#' 5. If a checkbox labeled "Usar períodos relativos, quando possível." appears,
+#' 5. If a checkbox labeled *Usar períodos relativos, quando possível.* appears,
 #'    uncheck it, reload the page, and click the share button again.
-#' 6. Copy the portion of the "Parâmetros para a API" URL that starts with "/t"
-#'    (e.g., /t/6407...).
+#' 6. Copy the portion of the *Parâmetros para a API* URL that starts with `/t`
+#'    (e.g., `/t/6407...`).
 #'
 #' You need to provide the function with separate parts of the API URL. For
 #' example:
 #'
-#' ```text
+#' ```
 #' |-------- Start ------|--- Years ----|----- End -----|
 #' /t/6407/n6/all/v/606/p/2021,2022,2023/c2/6794/c58/1140
 #' ```
@@ -55,10 +55,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'   library(curl)
-#'   library(dplyr)
+#' library(curl)
+#' library(dplyr)
 #'
+#' \dontrun{
 #'   if (has_internet()) {
 #'     sidra_download_by_year(
 #'       years = 2010:2011,
@@ -69,12 +69,12 @@
 #'   }
 #' }
 sidra_download_by_year <- function(years, api_start, api_end) {
+  require_pkg("sidrar")
+
   assert_internet()
   checkmate::assert_integerish(years)
   checkmate::assert_string(api_start)
   checkmate::assert_string(api_start)
-
-  require_pkg("sidrar")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -85,7 +85,7 @@ sidra_download_by_year <- function(years, api_start, api_end) {
 
   for (i in years) {
     cli::cli_progress_step(
-      msg = paste0("Downloading data from ", i, "."),
+      msg = paste0("Downloading data from ", i),
       spinner = TRUE
     )
 
