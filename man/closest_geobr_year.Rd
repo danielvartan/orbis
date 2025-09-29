@@ -31,6 +31,9 @@ in the geobr package for the specified type of data.
 closest_geobr_year(2025, type = "municipality")
 #> [1] 2022 # Expected
 
+closest_geobr_year(2025, type = "municipal_seat")
+#> [1] 2010 # Expected
+
 closest_geobr_year(2025, type = "state")
 #> [1] 2020 # Expected
 

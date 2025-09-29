@@ -1,4 +1,4 @@
-testthat::test_that("brazil_region() | General test", {
+testthat::test_that("`brazil_region`() | General test", {
   brazil_region(NULL) |>
     testthat::expect_equal(
       c("North", "Northeast", "South", "Southeast", "Central-West")
@@ -12,7 +12,7 @@ testthat::test_that("brazil_region() | General test", {
   brazil_region(35503080) |> testthat::expect_equal(NA_character_)
 })
 
-testthat::test_that("brazil_region() | Error test", {
+testthat::test_that("`brazil_region`() | Error test", {
   # checkmate::assert_atomic(x)
   brazil_region(x = mtcars) |> testthat::expect_error()
 })

@@ -1,4 +1,4 @@
-testthat::test_that("brazil_fu() | General test", {
+testthat::test_that("`brazil_fu()` | General test", {
   brazil_fu(x = NULL) |>
     testthat::expect_equal(c(
       "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT",
@@ -25,7 +25,7 @@ testthat::test_that("brazil_fu() | General test", {
   brazil_fu(NA) |> testthat::expect_equal(NA_character_)
 })
 
-testthat::test_that("brazil_fu() | Error test", {
+testthat::test_that("`brazil_fu()` | Error test", {
   # checkmate::assert_atomic(x)
   brazil_fu(x = mtcars) |> testthat::expect_error()
 })

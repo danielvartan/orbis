@@ -48,11 +48,11 @@
 #'   "yllcorner     0.0",
 #'   "cellsize      1.0",
 #'   "NODATA_value  -9999",
-#'   "1 2 3 4 5",
-#'   "6 7 8 9 10",
-#'   "11 12 1000 14 15", # Extreme outlier (1000)
-#'   "16 1 18 19 20",
-#'   "21 22 23 24 25"
+#'   "1 2 3 4 5 ",
+#'   "6 7 8 9 10 ",
+#'   "11 12 1000 14 15 ", # Extreme outlier (1000)
+#'   "16 1 18 19 20 ",
+#'   "21 22 23 24 25 "
 #' )
 #'
 #' temp_file <- tempfile(fileext = ".asc")
@@ -77,15 +77,23 @@ remove_unique_outliers <- function(file, n_iqr = 1.5) {
   checkmate::assert_file_exists(file, access = "rw")
 
   for (i in file) {
-    checkmate::assert_choice(fs::path_ext(file), file_extension_choices)
+    checkmate::assert_choice(fs::path_ext(i), file_extension_choices)
   }
 
   checkmate::assert_number(n_iqr, lower = 0)
 
-  if (fs::path_ext(file) %in% c("tif", "tiff")) {
+  if (all(fs::path_ext(file) %in% c("tif", "tiff"), na.rm = TRUE)) {
     file |> lapply(remove_unique_outliers.tiff, n_iqr = n_iqr)
-  } else if (fs::path_ext(file) == "asc") {
+  } else if (all(fs::path_ext(file) == "asc", na.rm = TRUE)) {
     file |> lapply(remove_unique_outliers.asc, n_iqr = n_iqr)
+  } else {
+    cli::cli_abort(
+      paste0(
+        "The file extensions in the {.strong {cli::col_red('file')}} ",
+        "argument must be all either ",
+        "{.strong .tif} / {.strong .tiff} or {.strong .asc}."
+      )
+    )
   }
 
   invisible()

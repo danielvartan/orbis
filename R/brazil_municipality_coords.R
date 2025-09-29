@@ -158,7 +158,7 @@ brazil_municipality_coords.geocodebr <- function( #nolint
   # nolint end
 
   out <-
-    geobr::read_municipality(
+    read_municipality(
       year = year |> closest_geobr_year(type = "municipality"),
       showProgress = FALSE,
       cache = !force

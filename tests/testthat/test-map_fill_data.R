@@ -1,4 +1,4 @@
-testthat::test_that("map_fill_data() | General test", {
+testthat::test_that("`map_fill_data()` | General test", {
   data <- dplyr::tibble(
     state = c("SP", "RJ", "MG", "SP", "RJ", "MG"),
     value = c(1, 2, 3, 4, 5, 6)
@@ -14,7 +14,7 @@ testthat::test_that("map_fill_data() | General test", {
     testthat::expect_equal(c(2.5, 3.5, 4.5))
 })
 
-testthat::test_that("map_fill_data() | Error test", {
+testthat::test_that("`map_fill_data()` | Error test", {
   # checkmate::assert_tibble(data)
   map_fill_data(
     data = 1,

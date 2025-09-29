@@ -141,11 +141,11 @@ worldclim_to_ascii <- function(
 
   checkmate::assert_character(file)
   checkmate::assert_file_exists(file, access = "r", extension = "tif")
+  checkmate::assert_directory_exists(dir, access = "rw")
   checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
   checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
   checkmate::assert_flag(dateline_fix)
   checkmate::assert_flag(extreme_outlier_fix)
-  checkmate::assert_directory_exists(dir, access = "rw")
   checkmate::assert_flag(overwrite)
   checkmate::assert_number(dx, finite = TRUE)
   checkmate::assert_int(na_flag)

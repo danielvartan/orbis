@@ -105,7 +105,7 @@ brazil_municipality <- function(
     brazil_municipalities_data <- readr::read_rds(brazil_municipalities_file)
   } else {
     brazil_municipalities_data <-
-      geobr::read_municipality(
+      read_municipality(
         year =
           year |> #nolint
           closest_geobr_year(type = "municipality"),

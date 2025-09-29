@@ -1,4 +1,4 @@
-testthat::test_that("country_names() | General test", {
+testthat::test_that("`country_names()` | General test", {
   country_names("name") |>
     magrittr::extract(235) |>
     testthat::expect_equal("United States")
@@ -12,7 +12,7 @@ testthat::test_that("country_names() | General test", {
     testthat::expect_equal(c("United States" = "US"))
 })
 
-testthat::test_that("country_names() | Error test", {
+testthat::test_that("`country_names()` | Error test", {
   # checkmate::assert_choice(format, format_options)
   country_names("test") |> testthat::expect_error()
 })

@@ -1,4 +1,4 @@
-testthat::test_that("brazil_render_address() | General test", {
+testthat::test_that("`brazil_render_address()` | General test", {
   brazil_render_address(
     street = NA_character_,
     complement = NA_character_,
@@ -28,7 +28,7 @@ testthat::test_that("brazil_render_address() | General test", {
     )
 })
 
-testthat::test_that("brazil_render_address() | Error test", {
+testthat::test_that("`brazil_render_address()` | Error test", {
   # checkmate::assert_character(street)
   brazil_render_address(
     street = 1,

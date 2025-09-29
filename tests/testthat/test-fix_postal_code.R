@@ -1,4 +1,4 @@
-testthat::test_that("fix_postal_code() | General test", {
+testthat::test_that("`fix_postal_code()` | General test", {
   fix_postal_code("  01014908  ", squish = TRUE) |>
     testthat::expect_equal("01014908")
 
@@ -24,7 +24,7 @@ testthat::test_that("fix_postal_code() | General test", {
     testthat::expect_equal("00000000")
 })
 
-testthat::test_that("fix_postal_code() | Error test", {
+testthat::test_that("`fix_postal_code()` | Error test", {
   # checkmate::assert_atomic(postal_code)
   fix_postal_code(
     postal_code = list(),

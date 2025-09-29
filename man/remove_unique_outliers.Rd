@@ -53,11 +53,11 @@ asc_content <- c(
   "yllcorner     0.0",
   "cellsize      1.0",
   "NODATA_value  -9999",
-  "1 2 3 4 5",
-  "6 7 8 9 10",
-  "11 12 1000 14 15", # Extreme outlier (1000)
-  "16 1 18 19 20",
-  "21 22 23 24 25"
+  "1 2 3 4 5 ",
+  "6 7 8 9 10 ",
+  "11 12 1000 14 15 ", # Extreme outlier (1000)
+  "16 1 18 19 20 ",
+  "21 22 23 24 25 "
 )
 
 temp_file <- tempfile(fileext = ".asc")

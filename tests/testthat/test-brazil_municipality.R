@@ -1,50 +1,44 @@
-# Error with MacOS Latest: Probably because it can't connect to the internet
-# testthat::test_that("brazil_municipality() | General test", {
-#   brazil_municipalities_file <- file.path(
-#     tempdir(), paste0("brazil-municipalities-", 2017, ".rds")
-#   )
+testthat::test_that("`brazil_municipality()` | General test", {
+  test_data_1 <- dplyr::tibble(
+    code_muni = 1100015,
+    name_muni = "Alta Floresta D'oeste",
+    code_state = "11",
+    abbrev_state = "RO"
+  )
 
-#   if (checkmate::test_file_exists(brazil_municipalities_file)) {
-#     file.remove(brazil_municipalities_file)
-#   }
+  test_data_2 <- dplyr::tibble(
+    municipality_code = 1100015
+  )
 
-#   brazil_municipality(
-#     municipality = NULL,
-#     state = NULL,
-#     year = 2017,
-#     force = FALSE
-#   ) |>
-#     checkmate::expect_tibble(ncols = 6)
+  testthat::local_mocked_bindings(
+    require_pkg = function(...) TRUE,
+    assert_internet = function(...) TRUE,
+    read_municipality = function(...) test_data_1,
+    brazil_municipality_coords = function(...) test_data_2
+  )
 
-#   brazil_municipality(
-#     municipality = "belem",
-#     state = NULL,
-#     year = 2017,
-#     force = FALSE
-#   ) |>
-#     dplyr::pull("state") |>
-#     testthat::expect_equal(c("Pará", "Paraíba", "Alagoas"))
+  brazil_municipality(
+    municipality = NULL,
+    state = NULL,
+    year = Sys.Date() |> substr(1, 4) |> as.numeric(),
+    coords_method = "geobr",
+    force = TRUE
+  ) |>
+    testthat::expect_equal(
+      dplyr::tibble(
+        region_code = 1L,
+        region = "North",
+        state_code = 11L,
+        state = "Rondônia",
+        federal_unit = "RO",
+        municipality_code =  1100015,
+        municipality = "Alta Floresta D'Oeste"
+      )
+    ) |>
+    suppressMessages()
+})
 
-#   brazil_municipality(
-#     municipality = "belem",
-#     state = "para",
-#     year = 2017,
-#     force = FALSE
-#   ) |>
-#     dplyr::pull("state") |>
-#     testthat::expect_equal("Pará")
-
-#   brazil_municipality(
-#     municipality = "Test",
-#     state = NULL,
-#     year = 2017,
-#     force = FALSE
-#   ) |>
-#     dplyr::pull("state") |>
-#     testthat::expect_equal(NA_character_)
-# })
-
-testthat::test_that("brazil_municipality() | Error test", {
+testthat::test_that("`brazil_municipality()` | Error test", {
   # assert_internet()
 
   # checkmate::assert_character(municipality, null.ok = TRUE)

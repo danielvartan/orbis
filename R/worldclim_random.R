@@ -111,7 +111,7 @@ worldclim_random <- function(series = "hcd") {
     "SSP-585" = "ssp585"
   )
 
-  resolution <- resolution_choices |> sample(1)
+  resolution <-
 
   month <- 1:12 |> sample(1)
   month <- month |> magrittr::set_names(month.name[month])
@@ -121,7 +121,7 @@ worldclim_random <- function(series = "hcd") {
   )) {
     out <- list(
       series = c("Historical Climate Data" = "historical-climate-data"),
-      resolution = resolution,
+      resolution = resolution_choices |> sample(1),
       variable = hcd_variable_choices |> sample(1),
       month = month,
       year = 1970:2000 |> sample(1) |> magrittr::set_names("1970-2000")
@@ -148,7 +148,15 @@ worldclim_random <- function(series = "hcd") {
       series = c(
         "Historical Monthly Weather Data" = "historical-monthly-weather-data"
       ),
-      resolution = resolution,
+      resolution = resolution_choices |>
+          magrittr::extract(
+            stringr::str_detect(
+              names(resolution_choices),
+              "30 Seconds",
+              negate = TRUE
+            )
+          ) |>
+          sample(1),
       variable = hmwd_variable_choices |> sample(1),
       month = month,
       year = 1951:2024 |> sample(1)
@@ -170,7 +178,7 @@ worldclim_random <- function(series = "hcd") {
 
     out <- list(
       series = c("Future Climate Data" = "future-climate-data"),
-      resolution = resolution,
+      resolution = resolution_choices |> sample(1),
       variable = fcd_variable_choices |> sample(1),
       model = model_choices |> sample(1),
       ssp = ssp_choices |> sample(1),

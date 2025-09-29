@@ -1,4 +1,4 @@
-testthat::test_that("brazil_region_code() | General test", {
+testthat::test_that("`brazil_region_code`() | General test", {
   brazil_region_code(NULL) |>
     testthat::expect_equal(
       c(
@@ -20,7 +20,7 @@ testthat::test_that("brazil_region_code() | General test", {
   brazil_region_code("west") |> testthat::expect_equal(5)
 })
 
-testthat::test_that("brazil_region_code() | Error test", {
+testthat::test_that("`brazil_region_code`() | Error test", {
   # checkmate::assert_character(x, null.ok = TRUE)
   brazil_region_code(x = 1) |> testthat::expect_error()
 })

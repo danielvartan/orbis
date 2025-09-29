@@ -1,4 +1,4 @@
-testthat::test_that("brazil_state_by_utc() | General test", {
+testthat::test_that("`brazil_state_by_utc()` | General test", {
   brazil_state_by_utc(utc = -3, type = "fu") |>
     testthat::expect_equal(
       c(
@@ -19,7 +19,7 @@ testthat::test_that("brazil_state_by_utc() | General test", {
     )
 })
 
-testthat::test_that("brazil_state_by_utc() | Error test", {
+testthat::test_that("`brazil_state_by_utc()` | Error test", {
   # checkmate::assert_int(utc)
   brazil_state_by_utc(utc = "a", type = "fu") |> testthat::expect_error()
 

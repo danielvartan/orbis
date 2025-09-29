@@ -3,6 +3,7 @@ library(dplyr)
 library(fs)
 library(geobr)
 library(magrittr)
+library(terra)
 library(testthat)
 
 library(orbis)

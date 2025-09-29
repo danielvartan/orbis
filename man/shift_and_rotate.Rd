@@ -40,6 +40,7 @@ library(curl)
 library(dplyr)
 library(geodata)
 library(ggplot2)
+library(magrittr)
 library(terra)
 library(tidyterra)
 
@@ -121,7 +122,7 @@ plot_raster <- function(raster) {
       mutate(value = rnorm(259200)) |>
       rast(type = "xyz") \%>\%
       `crs<-`("epsg:4326")
-(e.g., Russia).
+
     world_shape <- world(path = tempdir())
 
     raster <- raster |> crop(world_shape, mask = TRUE)

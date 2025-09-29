@@ -1,4 +1,4 @@
-testthat::test_that("brazil_state_capital() | General test", {
+testthat::test_that("`brazil_state_capital()` | General test", {
   brazil_state_capital(NULL) |>
     testthat::expect_equal(
       c(
@@ -48,7 +48,7 @@ testthat::test_that("brazil_state_capital() | General test", {
     testthat::expect_equal(brazil_state_capital() |> unname())
 })
 
-testthat::test_that("brazil_state_capital() | Error test", {
+testthat::test_that("`brazil_state_capital()` | Error test", {
   # checkmate::assert_atomic(x)
   brazil_state_capital(x = mtcars) |> testthat::expect_error()
 })

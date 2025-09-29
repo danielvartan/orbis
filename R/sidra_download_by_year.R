@@ -74,7 +74,7 @@ sidra_download_by_year <- function(years, api_start, api_end) {
   assert_internet()
   checkmate::assert_integerish(years)
   checkmate::assert_string(api_start)
-  checkmate::assert_string(api_start)
+  checkmate::assert_string(api_end)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -91,9 +91,8 @@ sidra_download_by_year <- function(years, api_start, api_end) {
 
     data_i <-
       paste0(api_start, i, api_end) %>% # Don't change the pipe.
-      sidrar::get_sidra(api = .) |>
-      try(silent = TRUE) |>
-      shush()
+      get_sidra(api = .) |>
+      try(silent = TRUE)
 
     if (inherits(data_i, "try-error")) {
       error_message <- attributes(data_i)$condition$message #nolint

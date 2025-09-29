@@ -1,4 +1,4 @@
-testthat::test_that("brazil_state_code() | General test", {
+testthat::test_that("`brazil_state_code()` | General test", {
   brazil_state_code(NULL) |>
     testthat::expect_equal(
       c(
@@ -41,7 +41,7 @@ testthat::test_that("brazil_state_code() | General test", {
   brazil_state_code(390) |> testthat::expect_equal(NA_integer_)
 })
 
-testthat::test_that("brazil_state_code() | Error test", {
+testthat::test_that("`brazil_state_code()` | Error test", {
   # checkmate::assert_atomic(x)
   brazil_state_code(x = mtcars) |> testthat::expect_error()
 })

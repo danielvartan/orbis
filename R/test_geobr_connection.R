@@ -26,8 +26,10 @@
 test_geobr_connection <- function() {
   require_pkg("geobr")
 
+  assert_internet()
+
   test <-
-    geobr::read_country(cache = FALSE, showProgress = FALSE) |>
+    read_country(cache = FALSE, showProgress = FALSE) |>
     try(silent = TRUE) |>
     suppressMessages() |>
     suppressWarnings()

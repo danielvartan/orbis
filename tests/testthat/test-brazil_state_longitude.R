@@ -1,4 +1,4 @@
-testthat::test_that("brazil_state_longitude() | General test", {
+testthat::test_that("`brazil_state_longitude()` | General test", {
   brazil_state_longitude(NULL) |>
     testthat::expect_equal(
       c(
@@ -48,7 +48,7 @@ testthat::test_that("brazil_state_longitude() | General test", {
     testthat::expect_equal(brazil_state_longitude() |> unname())
 })
 
-testthat::test_that("brazil_state_longitude() | Error test", {
+testthat::test_that("`brazil_state_longitude()` | Error test", {
   # checkmate::assert_atomic(x)
   brazil_state_longitude(x = mtcars) |> testthat::expect_error()
 })

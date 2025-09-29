@@ -1,5 +1,5 @@
 worldclim_collapse_resolutions <- function(resolutions) {
-  choices <- c("10m", "5m", "2.5m", "30s")
+  choices <- c("10m", "5m", "2.5m", "30s", NA)
 
   for (i in resolutions) checkmate::assert_choice(i, choices)
 
