@@ -53,7 +53,7 @@ cat(
     "-",
     "00a7d9",
     ")](",
-    "https://fairsoftwarechecklist.net/v0.2?f=21&a=30112&i=32322&r=123",
+    "https://fairsoftwarechecklist.net/v0.2/?f=21&a=30112&i=32322&r=123",
     ")"
   ),
   paste0(
