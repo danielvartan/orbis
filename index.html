@@ -106,7 +106,7 @@
 <li>
 <a href="https://danielvartan.github.io/orbis/reference/map_fill_data.html"><code>map_fill_data()</code></a>: Prepare data to fill a map.</li>
 <li>
-<a href="https://danielvartan.github.io/orbis/reference/filter_points_on_land.html"><code>filter_points_on_land()</code></a>: Filter latitude/longitude points that intersects with a given <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> geometry.</li>
+<a href="https://danielvartan.github.io/orbis/reference/filter_points.html"><code>filter_points()</code></a>: Filter latitude/longitude points that intersects with a given <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> geometry.</li>
 <li>
 <a href="https://danielvartan.github.io/orbis/reference/brazil_municipality.html"><code>brazil_municipality()</code></a>: Get Brazilian municipalities data.</li>
 <li>
@@ -332,10 +332,10 @@
 </div>
 </div>
 <div class="section level3">
-<h3 id="filter_points_on_land">
-<code>filter_points_on_land()</code><a class="anchor" aria-label="anchor" href="#filter_points_on_land"></a>
+<h3 id="filter_points">
+<code>filter_points()</code><a class="anchor" aria-label="anchor" href="#filter_points"></a>
 </h3>
-<p><a href="https://danielvartan.github.io/orbis/reference/filter_points_on_land.html"><code>filter_points_on_land()</code></a> was developed to filter latitude/longitude points that intersect with a given <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> geometry. This is particularly useful for removing points that fall in the ocean when working with country or state boundaries.</p>
+<p><a href="https://danielvartan.github.io/orbis/reference/filter_points.html"><code>filter_points()</code></a> was developed to filter latitude/longitude points that intersect with a given <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> geometry. This is particularly useful for removing points that fall in the ocean when working with country or state boundaries.</p>
 <div class="section level4">
 <h4 id="set-the-environment-3">Set the Environment<a class="anchor" aria-label="anchor" href="#set-the-environment-3"></a>
 </h4>
@@ -421,7 +421,7 @@
 <h4 id="filter-the-points">Filter the Points<a class="anchor" aria-label="anchor" href="#filter-the-points"></a>
 </h4>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="reference/filter_points_on_land.html">filter_points_on_land</a></span><span class="op">(</span><span class="va">sp_state_geometry</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="reference/filter_points.html">filter_points</a></span><span class="op">(</span><span class="va">sp_state_geometry</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">data</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
