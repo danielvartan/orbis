@@ -1,8 +1,9 @@
 # orbis 0.1.0.9000 (development version)
 
-- Moved several dependencies to *Suggests* in the DESCRIPTION file.
-- Removed `get_` from the names of functions.
-- Renamed `wc_*()` functions to `worldclim_*()` for clarity.
+- Moved several dependencies to *Suggests* in the DESCRIPTION file to avoid unnecessary installations.
+- Removed `get_` from the names of functions. Older names are still supported but deprecated.
+- Renamed `wc_*()` functions to `worldclim_*()` for clarity. Older names are still supported but deprecated.
+- Change `filter_points_on_land()` to `filter_points()`. The old name is still supported but deprecated.
 - Added `unique_outliers()` and `remove_unique_outliers()` to handle unique outliers in data.
 - Added `worldclim_random()` and `worldclim_extract_*()` to deal with [WorldClim](https://www.worldclim.org/) data.
 - Added `test_geobr_connection()` to help users troubleshoot connection issues with the [`geobr`](https://ipeagit.github.io/geobr/) package.

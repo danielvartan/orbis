@@ -42,7 +42,7 @@ reference:
   desc: >
     Functions to manipulate `SpatVector` and `sf` objects.
   contents:
-  - filter_points_on_land
+  - filter_points
 
 - title: APIs
   desc: >

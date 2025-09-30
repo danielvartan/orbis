@@ -51,7 +51,7 @@ such as:
   Remove unique outliers from raster files.
 - [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.html):
   Prepare data to fill a map.
-- [`filter_points_on_land()`](https://danielvartan.github.io/orbis/reference/filter_points_on_land.html):
+- [`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html):
   Filter latitude/longitude points that intersects with a given
   [`sf`](https://r-spatial.github.io/sf/) geometry.
 - [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.html):
@@ -299,9 +299,9 @@ brazil_states_vector |>
 
 ![](man/figures/readme-map-fill-data-2-1.png)
 
-### `filter_points_on_land()`
+### `filter_points()`
 
-[`filter_points_on_land()`](https://danielvartan.github.io/orbis/reference/filter_points_on_land.html)
+[`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html)
 was developed to filter latitude/longitude points that intersect with a
 given [`sf`](https://r-spatial.github.io/sf/) geometry. This is
 particularly useful for removing points that fall in the ocean when
@@ -401,7 +401,7 @@ sp_state_geometry |> plot_geometry()
 #### Filter the Points
 
 ``` r
-data <- data |> filter_points_on_land(sp_state_geometry)
+data <- data |> filter_points(sp_state_geometry)
 
 data
 #> # A tibble: 1 × 2

@@ -101,7 +101,7 @@ remotes::install_github("danielvartan/orbis", dependencies = TRUE)
 - [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html): Shift and rotate raster or vector data.
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html): Remove unique outliers from raster files.
 - [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.html): Prepare data to fill a map.
-- [`filter_points_on_land()`](https://danielvartan.github.io/orbis/reference/filter_points_on_land.html): Filter latitude/longitude points that intersects with a given [`sf`](https://r-spatial.github.io/sf/) geometry.
+- [`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html): Filter latitude/longitude points that intersects with a given [`sf`](https://r-spatial.github.io/sf/) geometry.
 - [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.html): Get Brazilian municipalities data.
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html): Get and aggregate data by year from [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
 - [`worldclim_to_ascii()`](https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.html): Convert [WorldClim](https://worldclim.org/) [GeoTIFF](https://www.ogc.org/standards/geotiff/) files to [Esri ASCII](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/esri-ascii-raster-format.htm) raster format.
@@ -306,9 +306,9 @@ brazil_states_vector |>
   plot_vector_data()
 ```
 
-### `filter_points_on_land()`
+### `filter_points()`
 
-[`filter_points_on_land()`](https://danielvartan.github.io/orbis/reference/filter_points_on_land.html) was developed to filter latitude/longitude points that intersect with a given [`sf`](https://r-spatial.github.io/sf/) geometry. This is particularly useful for removing points that fall in the ocean when working with country or state boundaries.
+[`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html) was developed to filter latitude/longitude points that intersect with a given [`sf`](https://r-spatial.github.io/sf/) geometry. This is particularly useful for removing points that fall in the ocean when working with country or state boundaries.
 
 #### Set the Environment
 
@@ -392,7 +392,7 @@ sp_state_geometry |> plot_geometry()
 #### Filter the Points
 
 ```{r}
-data <- data |> filter_points_on_land(sp_state_geometry)
+data <- data |> filter_points(sp_state_geometry)
 
 data
 ```

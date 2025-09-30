@@ -8,6 +8,16 @@ collapse_wc_resolutions  <- function(...) {
   worldclim_collapse_resolutions(...)
 }
 
+filter_points_on_land <- function(...) {
+  lifecycle::deprecate_warn(
+    "0.2.0",
+    "filter_points_on_land()",
+    details = "Use `filter_points()` instead."
+  )
+
+  filter_points(...)
+}
+
 get_brazil_fu <- function(...) {
   lifecycle::deprecate_warn(
     "0.2.0",

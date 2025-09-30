@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `filter_points_on_land()` filters latitude/longitude points that intersects
+#' `filter_points()` filters latitude/longitude points that intersects
 #' with a given [`sf`](https://r-spatial.github.io/sf/) geometry.
 #'
 #' **Note:** This function requires the [`sf`](https://r-spatial.github.io/sf/)
@@ -93,7 +93,7 @@
 #' # Filter the Points -----
 #'
 #' \dontrun{
-#'   data <- data |> filter_points_on_land(sp_state_geometry)
+#'   data <- data |> filter_points(sp_state_geometry)
 #'
 #'   data
 #' }
@@ -103,7 +103,7 @@
 #' \dontrun{
 #'   data |> plot_points(brazil_states_geometry)
 #' }
-filter_points_on_land <- function(data, geometry) {
+filter_points <- function(data, geometry) {
   require_pkg("sf")
 
   checkmate::assert_tibble(data)

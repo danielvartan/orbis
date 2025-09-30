@@ -14,12 +14,13 @@
 ^data-raw$
 ^doc$
 ^docs$
-^LICENSE$
 ^LICENSE\.md$
+^LICENSE$
 ^man-roxygen$
 ^Meta$
 ^orbis\.Rproj$
 ^pkgdown$
 ^R/\.post-render\.R$
+^README_files$
 ^README\.qmd$
 ^ttf$
