@@ -27,8 +27,8 @@ integrates naturally with the [tidyverse
 ecosystem](https://www.tidyverse.org/).
 
 > If you find this project useful, please consider giving it a star!  
-> [![GitHub repo
-> stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
+> [![GitHub Repository
+> Stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
 
 ## Installation
 

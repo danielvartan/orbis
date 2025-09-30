@@ -83,7 +83,7 @@ cat(
 
 `orbis` is an [R](https://www.r-project.org/) package that provides a comprehensive suite of tools for streamlining spatial data analysis workflows. It follows the [tidyverse principles](https://tidyverse.tidyverse.org/articles/manifesto.html) and integrates naturally with the [tidyverse ecosystem](https://www.tidyverse.org/).
 
-> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub repo stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
+> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub Repository Stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
 
 ## Installation
 
