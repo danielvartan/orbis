@@ -112,13 +112,19 @@ worldclim_file.scalar <- function(
   # nolint end
 
   series <- worldclim_normalize_series(series)
-  html <- worldclim_url.scalar(series, resolution) |> rvest::read_html()
+  url <- worldclim_url.scalar(series, resolution)
 
-  out <-
-    html |>
-    rvest::html_elements("a") |>
-    rvest::html_attr("href") |>
-    stringr::str_subset("geodata")
+  out <- character()
+
+  for (i in url) {
+    out <-
+      i |>
+      rvest::read_html() |>
+      rvest::html_elements("a") |>
+      rvest::html_attr("href") |>
+      stringr::str_subset("geodata") |>
+      append(out, values = _)
+  }
 
   if (!is.null(resolution)) {
     out <-
@@ -179,7 +185,7 @@ worldclim_file.scalar <- function(
       )
   }
 
-  if (!is.null(year)) {
+  if (!is.null(year) && !series == "hcd") {
     if (series == "hmwd") {
       checkmate::assert_choice(
         year,
