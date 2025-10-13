@@ -6,12 +6,12 @@
 \usage{
 worldclim_download(
   series,
-  resolution,
+  resolution = NULL,
   variable = NULL,
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data-raw")
+  dir = here::here("data")
 )
 }
 \arguments{
@@ -119,7 +119,7 @@ Data} series:
 }}
 
 \item{dir}{A string specifying the directory where to save the downloaded
-files (default: \code{here::here("data-raw")}).}
+files (default: \code{here::here("data")}).}
 }
 \value{
 An invisible \code{\link[base:character]{character}} vector with the file

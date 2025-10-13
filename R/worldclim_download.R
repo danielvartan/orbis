@@ -10,15 +10,8 @@
 #'   - `"hcd"` = Historical Climate Data
 #'   - `"hmwd"` = Historical Monthly Weather Data
 #'   - `"fcd"` = Future Climate Data
-#' @param resolution A string with the resolution of the WorldClim data series
-#'   The following options are available:
-#'   - `"10m"` = 10 Minutes (~340 km2 at the Equator)
-#'   - `"5m"` = 5 Minutes (~85 km2 at the Equator)
-#'   - `"2.5m"` = 2.5 Minutes (~21 km2 at the Equator)
-#'   - `"30s"` = 30 Seconds (~1 km2  at the Equator) (not available for the
-#'     `"hmwd"` series)
 #' @param dir A string specifying the directory where to save the downloaded
-#'   files (default: `here::here("data-raw")`).
+#'   files (default: `here::here("data")`).
 #'
 #' @return An invisible [`character`][base::character()] vector with the file
 #'   path(s) of the downloaded data.
@@ -52,12 +45,12 @@
 #' }
 worldclim_download <- function(
   series,
-  resolution,
+  resolution = NULL,
   variable = NULL,
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data-raw")
+  dir = here::here("data")
 ) {
   require_pkg("curl", "fs", "httr", "rvest", "zip")
 
@@ -72,13 +65,7 @@ worldclim_download <- function(
   # nolint end
 
   dir_series <- fs::path(dir, worldclim_normalize_series(series, type = 2))
-
-  dir_res <- fs::path(
-    dir_series,
-    resolution |> stringr::str_replace_all("\\.", "\\-")
-  )
-
-  dirs <- c(dir, dir_series, dir_res)
+  dirs <- c(dir, dir_series)
 
   for (i in dirs) if (!fs::dir_exists(i)) fs::dir_create(i, recurse = TRUE)
 
@@ -144,18 +131,15 @@ worldclim_download <- function(
   worldclim_download.readme(series) |>
     readr::write_lines(fs::path(dir_series, "README.md"))
 
-  worldclim_download.readme(series, resolution) |>
-    readr::write_lines(fs::path(dir_res, "README.md"))
-
   cli::cli_progress_step("Downloading Files")
 
-  metadata |> dplyr::pull(url) |> download_file(dir = dir_res)
+  metadata |> dplyr::pull(url) |> download_file(dir = dir_series)
 
   cli::cli_progress_step("Unzipping Files")
 
   if (any(stringr::str_detect(metadata$file, ".zip$"))) {
     zip_files <-
-      fs::path(dir_res, metadata$file) |>
+      fs::path(dir_series, metadata$file) |>
       stringr::str_subset(".zip$")
 
     for (i in zip_files) {
@@ -166,7 +150,7 @@ worldclim_download <- function(
       )
 
       if (fs::file_exists(i)) {
-        i |> zip::unzip(overwrite = TRUE, exdir = dir_res)
+        i |> zip::unzip(overwrite = TRUE, exdir = dir_series)
 
         cli::cli_progress_update()
       }
@@ -177,11 +161,8 @@ worldclim_download <- function(
     zip_files |> fs::file_delete()
   }
 
-  fs::dir_ls(
-    dir_res,
-    type = "file",
-    glob = "*.tif",
-  ) |>
+  dir_series |>
+    fs::dir_ls(type = "file", glob = "*.tif") |>
     invisible()
 }
 
