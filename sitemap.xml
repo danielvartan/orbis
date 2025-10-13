@@ -1,6 +1,7 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://danielvartan.github.io/orbis/404.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/CONTRIBUTING.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/LICENSE-text.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/LICENSE.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/authors.html</loc></url>
@@ -35,7 +36,9 @@
 <url><loc>https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/test_geobr_connection.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/unique_outliers.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/worldclim_download.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/worldclim_extract_variable.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/worldclim_file.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/worldclim_random.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/worldclim_url.html</loc></url>
