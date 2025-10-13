@@ -9,7 +9,7 @@
 \alias{worldclim_extract_year_group}
 \alias{worldclim_extract_gcm}
 \alias{worldclim_extract_ssp}
-\title{Extract components from WorldClim filenames}
+\title{Extract components from WorldClim file names}
 \usage{
 worldclim_extract_variable(file)
 
@@ -29,14 +29,14 @@ worldclim_extract_ssp(file)
 }
 \arguments{
 \item{file}{A \code{\link[base:character]{character}} vector with WorldClim
-filenames.}
+file names.}
 }
 \value{
 A \code{\link[base:character]{character}} vector with the extracted
 component.
 }
 \description{
-\verb{worldclim_extract_*()} extract components present in WorldClim filenames.
+\verb{worldclim_extract_*()} extract components present in WorldClim file names.
 }
 \examples{
 files <- c(
@@ -71,6 +71,8 @@ files |> worldclim_extract_ssp()
 }
 \seealso{
 Other WorldClim functions: 
+\code{\link{worldclim_download}()},
+\code{\link{worldclim_file}()},
 \code{\link{worldclim_random}()},
 \code{\link{worldclim_to_ascii}()},
 \code{\link{worldclim_url}()}

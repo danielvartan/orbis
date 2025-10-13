@@ -73,7 +73,8 @@ cat(
     x = "Contributor%20Covenant",
     y = "3.0",
     color = "4baaaa",
-    url = "https://www.contributor-covenant.org/version/3/0/code_of_conduct/"
+    url = "https://www.contributor-covenant.org/version/3/0/code_of_conduct/",
+    alt = "Contributor Covenant 3.0 Code of Conduct"
   )
 )
 ```
@@ -103,7 +104,8 @@ remotes::install_github("danielvartan/orbis", dependencies = TRUE)
 - [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.html): Prepare data to fill a map.
 - [`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html): Filter latitude/longitude points that intersects with a given [`sf`](https://r-spatial.github.io/sf/) geometry.
 - [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.html): Get Brazilian municipalities data.
-- [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html): Get and aggregate data by year from [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
+- [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html): Download and aggregate data by year from [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
+- [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.html): Download [WorldClim](https://worldclim.org/) data.
 - [`worldclim_to_ascii()`](https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.html): Convert [WorldClim](https://worldclim.org/) [GeoTIFF](https://www.ogc.org/standards/geotiff/) files to [Esri ASCII](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/esri-ascii-raster-format.htm) raster format.
 
 Here are some examples of how to use a few of these functions.
@@ -457,12 +459,13 @@ cat(
     x = "Contributor%20Covenant",
     y = "3.0",
     color = "4baaaa",
-    url = "https://www.contributor-covenant.org/version/3/0/code_of_conduct/"
+    url = "https://www.contributor-covenant.org/version/3/0/code_of_conduct/",
+    alt = "Contributor Covenant 3.0 Code of Conduct"
   )
 )
 ```
 
-Contributions are welcome! Whether you want to report bugs, suggest features, or improve the code or documentation, your input is highly valued. Please check the [issues tab](https://github.com/danielvartan/orbis/issues) for existing issues or to open a new one.
+Contributions are always welcome! Whether you want to report bugs, suggest new features, or help improve the code or documentation, your input makes a difference. Before opening a new issue, please take a moment to review our [Guidelines for Contributing](https://danielvartan.github.io/orbis/CONTRIBUTING.html) and check the [issues tab](https://github.com/danielvartan/orbis/issues) to see if your topic has already been reported.
 
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
 

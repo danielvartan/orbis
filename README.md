@@ -14,7 +14,8 @@ GPLv3](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.o
 [![FAIR checklist
 badge](https://img.shields.io/badge/fairsoftwarechecklist.net--00a7d9)](https://fairsoftwarechecklist.net/v0.2/?f=21&a=30112&i=32322&r=123)
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%E2%97%8F%20%E2%97%8F%20%E2%97%8F%20%E2%97%8B-green)](https://fair-software.eu)
-[![](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/)
+[![Contributor Covenant 3.0 Code of
+Conduct](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/)
 <!-- badges: end -->
 
 ## Overview
@@ -57,8 +58,10 @@ such as:
 - [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.html):
   Get Brazilian municipalities data.
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html):
-  Get and aggregate data by year from
+  Download and aggregate data by year from
   [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
+- [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.html):
+  Download [WorldClim](https://worldclim.org/) data.
 - [`worldclim_to_ascii()`](https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.html):
   Convert [WorldClim](https://worldclim.org/)
   [GeoTIFF](https://www.ogc.org/standards/geotiff/) files to [Esri
@@ -469,11 +472,13 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 [![](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/)
 
-Contributions are welcome! Whether you want to report bugs, suggest
-features, or improve the code or documentation, your input is highly
-valued. Please check the [issues
-tab](https://github.com/danielvartan/orbis/issues) for existing issues
-or to open a new one.
+Contributions are always welcome! Whether you want to report bugs,
+suggest new features, or help improve the code or documentation, your
+input makes a difference. Before opening a new issue, please take a
+moment to review our [Guidelines for
+Contributing](https://danielvartan.github.io/orbis/CONTRIBUTING.html)
+and check the [issues tab](https://github.com/danielvartan/orbis/issues)
+to see if your topic has already been reported.
 
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
 

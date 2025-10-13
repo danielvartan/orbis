@@ -28,8 +28,8 @@ set to \code{"bioc"}).
 \item \code{model}: The selected climate model (only for Future Climate Data).
 \item \code{ssp}: The selected Shared Socioeconomic Pathway (only for Future
 Climate Data).
-\item \code{month}: The selected month.
 \item \code{year}: The selected year or year range.
+\item \code{month}: The selected month.
 }
 }
 \description{
@@ -45,7 +45,9 @@ worldclim_random("fcd")
 }
 \seealso{
 Other WorldClim functions: 
+\code{\link{worldclim_download}()},
 \code{\link{worldclim_extract_variable}()},
+\code{\link{worldclim_file}()},
 \code{\link{worldclim_to_ascii}()},
 \code{\link{worldclim_url}()}
 }

@@ -1,12 +1,12 @@
-#' Extract components from WorldClim filenames
+#' Extract components from WorldClim file names
 #'
 #' @description
 #'
-#' `worldclim_extract_*()` extract components present in WorldClim filenames.
+#' `worldclim_extract_*()` extract components present in WorldClim file names.
 #'
 #'
 #' @param file A [`character`][base::character()] vector with WorldClim
-#'   filenames.
+#'   file names.
 #'
 #' @return A [`character`][base::character()] vector with the extracted
 #'   component.
@@ -47,7 +47,7 @@
 worldclim_extract_variable <- function(file) {
   checkmate::assert_character(file)
 
-  file |> stringr::str_extract("(?<=(m|s)_)[a-z]*(?=_)")
+  file |> stringr::str_extract("(?<=(m|s)_)[a-z]*")
 }
 
 #' @rdname worldclim_extract_variable
@@ -123,5 +123,5 @@ worldclim_extract_gcm <- function(file) {
 worldclim_extract_ssp <- function(file) {
   checkmate::assert_character(file)
 
-  file |> stringr::str_extract("ssp\\d{3}")
+  file |> stringr::str_extract("(?<=_)ssp\\d{3}(?=_)")
 }

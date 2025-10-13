@@ -1,38 +1,69 @@
+#' Download WorldClim Data
+#'
+#' @description
+#'
+#' `worldclim_download()` downloads and unzips data from the
+#' [WorldClim](https://worldclim.org/) website.
+#'
+#' @param series A string with the name of the WorldClim data series. The
+#'   following options are available:
+#'   - `"hcd"` = Historical Climate Data
+#'   - `"hmwd"` = Historical Monthly Weather Data
+#'   - `"fcd"` = Future Climate Data
+#' @param resolution A string with the resolution of the WorldClim data series
+#'   The following options are available:
+#'   - `"10m"` = 10 Minutes (~340 km2 at the Equator)
+#'   - `"5m"` = 5 Minutes (~85 km2 at the Equator)
+#'   - `"2.5m"` = 2.5 Minutes (~21 km2 at the Equator)
+#'   - `"30s"` = 30 Seconds (~1 km2  at the Equator) (not available for the
+#'     `"hmwd"` series)
+#' @param dir A string specifying the directory where to save the downloaded
+#'   files (default: `here::here("data-raw")`).
+#'
+#' @return An invisible [`character`][base::character()] vector with the file
+#'   path(s) of the downloaded data.
+#'
+#' @template params_worldclim_a
+#' @family WorldClim functions
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'   if (FALSE) {
+#'     worldclim_download(
+#'       series = "hcd",
+#'       resolution = "10m",
+#'       variable = "prec"
+#'     )
+#'   }
+#' }
+#'
+#' \dontrun{
+#'   if (FALSE) {
+#'     worldclim_download(
+#'       series = "fcd",
+#'       resolution = "10m",
+#'       variable = "tmin",
+#'       model = "ACCESS-CM2",
+#'       ssp = "ssp245",
+#'       year = "2041-2060"
+#'     )
+#'   }
+#' }
 worldclim_download <- function(
-  series = "historical-climate-data",
-  resolution = "10m",
+  series,
+  resolution,
+  variable = NULL,
   model = NULL,
+  ssp = NULL,
+  year = NULL,
   dir = here::here("data-raw")
 ) {
   require_pkg("curl", "fs", "httr", "rvest", "zip")
 
-  series_choices <- c(
-    "hcd", "historical-climate-data", "historical climate data",
-    "hmwd", "historical-monthly-weather-data",
-    "historical monthly weather data",
-    "fcd", "future-climate-data", "future climate data"
-  )
-
-  resolution_choices <- c("10m", "5m", "2.5m", "30s")
-
-  model_choices <- c(
-    "access-cm2", "bcc-csm2-mr", "cmcc-esm2", "ec-earth3-veg", "fio-esm-2-0",
-    "gfdl-esm4", "giss-e2-1-g", "hadgem3-gc31-ll", "inm-cm5-0", "ipsl-cm6a-lr",
-    "miroc6", "mpi-esm1-2-hr", "mri-esm2-0", "ukesm1-0-ll"
-  )
-
-  checkmate::assert_choice(tolower(series), series_choices)
-
-  checkmate::assert_choice(
-    tolower(resolution), resolution_choices, null.ok = TRUE
-  )
-
-  checkmate::assert_character(model, null.ok = TRUE)
-
-  if (!is.null(model)) {
-    for (i in model) checkmate::assert_choice(tolower(i), model_choices)
-  }
-
+  assert_internet()
+  checkmate::assert_string(series)
+  checkmate::assert_string(resolution)
   checkmate::assert_path_for_output(dir, overwrite = TRUE)
 
   # R CMD Check variable bindings fix
@@ -40,7 +71,8 @@ worldclim_download <- function(
   . <- size <- NULL
   # nolint end
 
-  dir_series <- fs::path(dir, series)
+  dir_series <- fs::path(dir, worldclim_normalize_series(series, type = 2))
+
   dir_res <- fs::path(
     dir_series,
     resolution |> stringr::str_replace_all("\\.", "\\-")
@@ -52,35 +84,14 @@ worldclim_download <- function(
 
   cli::cli_progress_step("Scraping WorldClim Website")
 
-  html <- worldclim_url(series, resolution) |> rvest::read_html()
-
-  urls <-
-    html |>
-    rvest::html_elements("a") |>
-    rvest::html_attr("href") |>
-    stringr::str_subset("geodata")
-
-  if (!resolution == "all") {
-    urls <-
-      urls %>%
-      magrittr::extract(
-        stringr::str_detect(
-          basename(.),
-          paste0("(?<=_)", resolution)
-        )
-      )
-  }
-
-  if (!is.null(model)) {
-    urls <-
-      urls %>%
-      magrittr::extract(
-        stringr::str_detect(
-          basename(.),
-          paste0("(?<=_)", model, collapse = "|")
-        )
-      )
-  }
+  urls <- worldclim_file(
+    series = series,
+    resolution = resolution,
+    variable = variable,
+    model = model,
+    ssp = ssp,
+    year = year
+  )
 
   cli::cli_progress_step("Calculating File Sizes")
 
@@ -122,20 +133,18 @@ worldclim_download <- function(
 
   cli::cli_progress_step("Creating LICENSE and README Files")
 
-  dirs <- c(dir, dir_series, dir_res)
-
   for (i in dirs) {
-    worldclim_download_license() |>
+    worldclim_download.license() |>
       readr::write_lines(fs::path(i, "LICENSE.md"))
   }
 
-  worldclim_download_readme() |>
+  worldclim_download.readme() |>
     readr::write_lines(fs::path(dir, "README.md"))
 
-  worldclim_download_readme(series) |>
+  worldclim_download.readme(series) |>
     readr::write_lines(fs::path(dir_series, "README.md"))
 
-  worldclim_download_readme(series, resolution) |>
+  worldclim_download.readme(series, resolution) |>
     readr::write_lines(fs::path(dir_res, "README.md"))
 
   cli::cli_progress_step("Downloading Files")
@@ -168,14 +177,15 @@ worldclim_download <- function(
     zip_files |> fs::file_delete()
   }
 
-  invisible(metadata)
+  fs::dir_ls(
+    dir_res,
+    type = "file",
+    glob = "*.tif",
+  ) |>
+    invisible()
 }
 
-# # Helpers -----
-#
-# worldclim_download_license() |> cat()
-
-worldclim_download_license <- function() {
+worldclim_download.license <- function() {
   paste0(
     "# WorldClim 2.1",
     "\n\n",
@@ -200,44 +210,46 @@ worldclim_download_license <- function() {
   )
 }
 
-# # Helpers -----
-#
-# worldclim_download_readme() |> cat()
-
-worldclim_download_readme <- function(series = NULL, resolution = NULL) {
-  series_choices <- c(
-    "historical-climate-data",
-    "historical-monthly-weather-data",
-    "future-climate-data"
-  )
-
-  resolution_choices <- c("10m", "5m", "2.5m", "30s", "all")
-
-  checkmate::assert_string(series, null.ok = TRUE)
-  checkmate::assert_choice(series, series_choices, null.ok = TRUE)
-  checkmate::assert_string(resolution, null.ok = TRUE)
-  checkmate::assert_choice(resolution, resolution_choices, null.ok = TRUE)
-
-  if (!is.null(series) && !is.null(resolution) && !resolution == "all") {
+worldclim_download.readme <- function(series = NULL, resolution = NULL) {
+  if (!is.null(series) && !is.null(resolution)) {
     source <- worldclim_url(series, resolution)
   } else {
     source <- "https://www.worldclim.org"
   }
 
   if (!is.null(series)) {
+  checkmate::assert_choice(
+    if (!is.null(series)) series |> tolower(),
+     worldclim_variables |> magrittr::extract2("series_choices")
+  )
+    series <- series |>  worldclim_normalize_series()
+    series_names <- worldclim_variables |> magrittr::extract2("series")
+
     series <-
-      series |>
-      stringr::str_replace_all("-", " ") |>
-      stringr::str_to_title()
+      series_names |>
+      magrittr::extract(match(series, series_names)) |>
+      names()
   }
 
   if (!is.null(resolution)) {
-    if (resolution == "all") resolution <- "10m, 5m, 2.5m, and 30s"
+    checkmate::assert_choice(
+      if (!is.null(resolution)) resolution |> tolower(),
+      worldclim_variables |> magrittr::extract2("resolution_choices"),
+      null.ok = TRUE
+    )
 
     resolution <-
       resolution |>
       stringr::str_replace_all("m$", " minutes") |>
       stringr::str_replace("^30s$", "30 seconds")
+  } else {
+    if (!is.null(series)) {
+      if (series == "Historical Monthly Weather Data") {
+        resolution <- "10m, 5m, and 2.5m"
+      } else {
+        resolution <- "10m, 5m, 2.5m, and 30s"
+      }
+    }
   }
 
   paste0(

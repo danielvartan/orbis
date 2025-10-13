@@ -12,9 +12,9 @@ version: 0.1.0.9000
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
-abstract: A comprehensive suite of tools for spatial data analysis that supports data
-  gathering, manipulation, and geospatial processing workflows, streamlining common
-  spatial processing tasks.
+abstract: A suite of tools for spatial data analysis that supports data gathering,
+  manipulation, and geospatial processing workflows, streamlining common spatial data
+  processing tasks.
 authors:
 - family-names: Vartanian
   given-names: Daniel
@@ -77,6 +77,20 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.cli
   version: '>= 3.6.5'
+- type: software
+  title: curl
+  abstract: 'curl: A Modern and Flexible Web Client for R'
+  notes: Imports
+  url: https://jeroen.r-universe.dev/curl
+  repository: https://CRAN.R-project.org/package=curl
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2025'
+  doi: 10.32614/CRAN.package.curl
+  version: '>= 7.0.0'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -295,20 +309,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.covr
   version: '>= 3.6.4'
-- type: software
-  title: curl
-  abstract: 'curl: A Modern and Flexible Web Client for R'
-  notes: Suggests
-  url: https://jeroen.r-universe.dev/curl
-  repository: https://CRAN.R-project.org/package=curl
-  authors:
-  - family-names: Ooms
-    given-names: Jeroen
-    email: jeroenooms@gmail.com
-    orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2025'
-  doi: 10.32614/CRAN.package.curl
-  version: '>= 7.0.0'
 - type: software
   title: fs
   abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''

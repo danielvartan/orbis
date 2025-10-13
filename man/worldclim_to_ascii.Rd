@@ -66,8 +66,8 @@ to learn more (default: \code{-99}).}
 \code{\link[terra:writeRaster]{writeRaster()}} for writing the ASCII files.}
 }
 \value{
-A \code{\link[base:character]{character}} vector containing the file paths
-of the converted ASCII files.
+An invisible \code{\link[base:character]{character}} vector containing the
+file paths of the converted ASCII files.
 }
 \description{
 \code{worldclim_to_ascii()} facilitates the conversion of one or more
@@ -97,33 +97,24 @@ and the lowest temperature ever recorded on Earth is above that threshold.
 
 library(curl)
 library(fs)
+library(httr)
 library(magrittr)
 library(readr)
 library(rvest)
-library(stringr)
 library(zip)
 
 # Download a WorldClim Dataset -----
 
 \dontrun{
   if (has_internet()) {
-    url <-
-      worldclim_url("hcd") |>
-      read_html() |>
-      html_elements("a") |>
-      html_attr("href") |>
-      str_subset("geodata") |>
-      magrittr::extract(1)
-
-    zip_file <- basename(url)
-
-    curl_download(url, path(tempdir(), zip_file))
-
-    path(tempdir(), zip_file) |> zip::unzip(exdir = tempdir())
-
     tif_file <-
-      dir_ls(tempdir(), regexp = "\\\\.tif$") |>
-      magrittr::extract(1)
+      worldclim_download(
+        series = "hcd",
+        resolution = "10m",
+        variable = "prec",
+        dir = tempdir()
+      ) |>
+        magrittr::extract(1)
   }
 }
 
@@ -145,7 +136,9 @@ library(zip)
 }
 \seealso{
 Other WorldClim functions: 
+\code{\link{worldclim_download}()},
 \code{\link{worldclim_extract_variable}()},
+\code{\link{worldclim_file}()},
 \code{\link{worldclim_random}()},
 \code{\link{worldclim_url}()}
 }

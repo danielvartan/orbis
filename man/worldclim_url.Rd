@@ -2,29 +2,29 @@
 % Please edit documentation in R/worldclim_url.R
 \name{worldclim_url}
 \alias{worldclim_url}
-\title{Get paths to WorldClim data}
+\title{Get URLs to WorldClim data}
 \usage{
-worldclim_url(series, resolution = "all")
+worldclim_url(series, resolution = NULL)
 }
 \arguments{
 \item{series}{A \code{\link[base:character]{character}} vector with the name of the
-\href{https://worldclim.org/}{WorldClim} data series (default: \code{"hcd"}).
+WorldClim data series (default: \code{"hcd"}).
 The following options are available:
 \itemize{
-\item \code{'hcd'} (Historical Climate Data).
-\item \code{'hmwd'} (Historical Monthly Weather Data).
-\item \code{'fcd'} (Future Climate Data).
+\item \code{"hcd"} = Historical Climate Data
+\item \code{"hmwd"} = Historical Monthly Weather Data
+\item \code{"fcd"} = Future Climate Data
 }}
 
 \item{resolution}{(optional) A \code{\link[base:character]{character}} vector with
-the resolution of the \href{https://worldclim.org/}{WorldClim} data series
-(default: \code{"all"}). The following options are available:
+the resolution of the WorldClim data series (default: \code{NULL}).
+The following options are available:
 \itemize{
-\item \code{"all"} returns all available resolutions.
-\item \code{"10m"} returns the 10m resolution.
-\item \code{"5m"} returns the 5m resolution.
-\item \code{"2.5m"} returns the 2.5m resolution.
-\item \code{"30s"} returns the 30s resolution.
+\item \code{"10m"} = 10 Minutes (~340 km2 at the Equator)
+\item \code{"5m"} = 5 Minutes (~85 km2 at the Equator)
+\item \code{"2.5m"} = 2.5 Minutes (~21 km2 at the Equator)
+\item \code{"30s"} = 30 Seconds (~1 km2  at the Equator) (not available for the
+\code{"hmwd"} series)
 }}
 }
 \value{
@@ -47,10 +47,14 @@ worldclim_url("fcd", "10m")
 worldclim_url(c("hcd", "hmwd", "fcd"))
 
 worldclim_url(c("hcd", "hmwd", "fcd"), "5m")
+
+worldclim_url(c("hcd", "hmwd", "fcd"), c("5m", "30s"))
 }
 \seealso{
 Other WorldClim functions: 
+\code{\link{worldclim_download}()},
 \code{\link{worldclim_extract_variable}()},
+\code{\link{worldclim_file}()},
 \code{\link{worldclim_random}()},
 \code{\link{worldclim_to_ascii}()}
 }

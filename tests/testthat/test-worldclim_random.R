@@ -71,7 +71,15 @@ testthat::test_that("`worldclim_random()` | General test", {
         "Average Maximum Temperature (\u00b0C)",
         "Average Minimum Temperature (\u00b0C)",
         "Total Precipitation (mm)",
-        month.name
+        month.name,
+        "1950-1959",
+        "1960-1969",
+        "1970-1979",
+        "1980-1989",
+        "1990-1999",
+        "2000-2009",
+        "2010-2019",
+        "2020-2024"
       )
     )
 
@@ -118,6 +126,20 @@ testthat::test_that("`worldclim_random()` | General test", {
         "BIO17 - Precipitation of Driest Quarter",
         "BIO18 - Precipitation of Warmest Quarter",
         "BIO19 - Precipitation of Coldest Quarter",
+        "Australian Community Climate and Earth-System Simulator, Australia",
+        "Beijing Climate Center Climate System Model, China",
+        "Centro Euro-Mediterraneo sui Cambiamenti Climatici, Italy",
+        "European Consortium Earth System Model, Europe",
+        "First Institute of Oceanography Earth System Model, China",
+        "Geophysical Fluid Dynamics Laboratory, USA",
+        "NASA Goddard Institute for Space Studies, USA",
+        "UK Met Office Hadley Centre, UK",
+        "Institute for Numerical Mathematics, Russia",
+        "Institut Pierre-Simon Laplace, France",
+        "Model for Interdisciplinary Research on Climate, Japan",
+        "Max Planck Institute for Meteorology, Germany",
+        "Meteorological Research Institute, Japan",
+        "UK Earth System Model, UK",
         "SSP-126",
         "SSP-245",
         "SSP-370",

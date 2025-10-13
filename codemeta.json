@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "orbis",
-  "description": "A comprehensive suite of tools for spatial data analysis that supports data gathering, manipulation, and geospatial processing workflows, streamlining common spatial processing tasks.",
+  "description": "A suite of tools for spatial data analysis that supports data gathering, manipulation, and geospatial processing workflows, streamlining common spatial data processing tasks.",
   "name": "orbis: Spatial Data Analysis Tools",
   "relatedLink": "https://danielvartan.github.io/orbis/",
   "codeRepository": "https://github.com/danielvartan/orbis/",
@@ -81,19 +81,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "curl",
-      "name": "curl",
-      "version": ">= 7.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=curl"
     },
     {
       "@type": "SoftwareApplication",
@@ -423,6 +410,19 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "curl",
+      "name": "curl",
+      "version": ">= 7.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=curl"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
       "version": ">= 1.1.4",
@@ -434,7 +434,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "here",
       "name": "here",
@@ -447,7 +447,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=here"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -460,7 +460,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -473,7 +473,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -486,7 +486,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -499,7 +499,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "10": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -512,7 +512,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "11": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -525,7 +525,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "12": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -538,7 +538,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "13": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -553,7 +553,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1155.994KB",
+  "fileSize": "1176.157KB",
   "citation": [
     {
       "@type": "CreativeWork",

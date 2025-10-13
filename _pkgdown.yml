@@ -81,9 +81,11 @@ reference:
   desc: >
     Functions to access and manipulate [WorldClim](https://worldclim.org/) data.
   contents:
+  - worldclim_download
   - worldclim_extract_variable
-  - worldclim_to_ascii
+  - worldclim_file
   - worldclim_random
+  - worldclim_to_ascii
   - worldclim_url
 
 - title: Utilities

@@ -1,28 +1,14 @@
-#' Get paths to WorldClim data
+#' Get URLs to WorldClim data
 #'
 #' @description
 #'
 #' `worldclim_url()` returns the URL(s) of a
 #' [WorldClim](https://worldclim.org/) data series.
 #'
-#' @param series A [`character`][base::character()] vector with the name of the
-#'   [WorldClim](https://worldclim.org/) data series (default: `"hcd"`).
-#'   The following options are available:
-#'   - `'hcd'` (Historical Climate Data).
-#'   - `'hmwd'` (Historical Monthly Weather Data).
-#'   - `'fcd'` (Future Climate Data).
-#' @param resolution (optional) A [`character`][base::character()] vector with
-#'   the resolution of the [WorldClim](https://worldclim.org/) data series
-#'   (default: `"all"`). The following options are available:
-#'   - `"all"` returns all available resolutions.
-#'   - `"10m"` returns the 10m resolution.
-#'   - `"5m"` returns the 5m resolution.
-#'   - `"2.5m"` returns the 2.5m resolution.
-#'   - `"30s"` returns the 30s resolution.
-#'
 #' @return A named [`character`][base::character()] vector with the URL(s) of
 #'   the [WorldClim](https://worldclim.org/) data series.
 #'
+#' @inheritParams worldclim_file
 #' @family WorldClim functions
 #' @export
 #'
@@ -38,45 +24,36 @@
 #' worldclim_url(c("hcd", "hmwd", "fcd"))
 #'
 #' worldclim_url(c("hcd", "hmwd", "fcd"), "5m")
-worldclim_url <- function(series, resolution = "all") {
-  checkmate::assert_choice(
-    if (!is.null(resolution)) resolution |> tolower(),
-    c("all", "10m", "5m", "2.5m", "30s"),
-    null.ok = TRUE
-  )
-
+#'
+#' worldclim_url(c("hcd", "hmwd", "fcd"), c("5m", "30s"))
+worldclim_url <- function(series, resolution = NULL) {
   # R CMD Check variable bindings fix
   # nolint start
   . <- NULL
   # nolint end
 
-  lapply(
-    X = series,
-    FUN = get_wc_url_scalar,
-    resolution = resolution
-  ) |>
+  grid <- list()
+
+  for (i in ls()[-1]) if (!is.null(get(i))) grid[[i]] <- get(i)
+
+  grid |>
+    expand.grid() |>
+    magrittr::set_names(names(grid)) |>
+    purrr::map(as.character) |>
+    purrr::pmap(worldclim_url.scalar) |>
     unlist(use.names = TRUE) %>%
     magrittr::extract(!duplicated(.))
 }
 
-get_wc_url_scalar <- function(series, resolution = NULL) {
-  series_choices <- c(
-    "hcd", "historical-climate-data", "historical climate data",
-    "hmwd", "historical-monthly-weather-data",
-    "historical monthly weather data",
-    "fcd", "future-climate-data", "future climate data"
-  )
-
-  resolution_choices <- c("all", "10m", "5m", "2.5m", "30s")
-
+worldclim_url.scalar <- function(series, resolution = NULL) { #nolint
   checkmate::assert_choice(
     if (!is.null(series)) series |> tolower(),
-    series_choices
+     worldclim_variables |> magrittr::extract2("series_choices")
   )
 
   checkmate::assert_choice(
     if (!is.null(resolution)) resolution |> tolower(),
-    resolution_choices,
+    worldclim_variables |> magrittr::extract2("resolution_choices"),
     null.ok = TRUE
   )
 
@@ -110,7 +87,7 @@ get_wc_url_scalar <- function(series, resolution = NULL) {
         )
       )
 
-    if (resolution == "all" || is.null(resolution)) {
+    if (is.null(resolution)) {
       out
     } else {
       out |>

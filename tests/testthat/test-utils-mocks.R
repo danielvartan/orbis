@@ -12,7 +12,7 @@ testthat::test_that("`read_country()` | General test", {
 })
 
 testthat::test_that("`read_municipality()` | General test", {
- read_municipality(year = NULL) |> testthat::expect_error()
+  read_municipality(year = NULL) |> testthat::expect_error()
 })
 
 testthat::test_that("`require_namespace()` | General test", {

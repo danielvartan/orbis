@@ -5,7 +5,7 @@
 - Renamed `wc_*()` functions to `worldclim_*()` for clarity. Older names are still supported but deprecated.
 - Change `filter_points_on_land()` to `filter_points()`. The old name is still supported but deprecated.
 - Added `unique_outliers()` and `remove_unique_outliers()` to handle unique outliers in data.
-- Added `worldclim_random()` and `worldclim_extract_*()` to deal with [WorldClim](https://www.worldclim.org/) data.
+- Added `worldclim_file()`, `worldclim_random()` and `worldclim_extract_*()` to deal with [WorldClim](https://www.worldclim.org/) data.
 - Added `test_geobr_connection()` to help users troubleshoot connection issues with the [`geobr`](https://ipeagit.github.io/geobr/) package.
 - Removed the `aggregate` parameter from `worldclim_to_ascii()` to avoid unintended data aggregation.
 - Changed package license from [MIT](https://opensource.org/license/mit) to [GPLv3](https://www.gnu.org/licenses/gpl-3.0).

@@ -69,8 +69,8 @@
 #' @param ... Additional arguments passed to
 #'   [`writeRaster()`][terra::writeRaster()] for writing the ASCII files.
 #'
-#' @return A [`character`][base::character()] vector containing the file paths
-#'   of the converted ASCII files.
+#' @return An invisible [`character`][base::character()] vector containing the
+#'   file paths of the converted ASCII files.
 #'
 #' @family WorldClim functions
 #' @export
@@ -80,33 +80,24 @@
 #'
 #' library(curl)
 #' library(fs)
+#' library(httr)
 #' library(magrittr)
 #' library(readr)
 #' library(rvest)
-#' library(stringr)
 #' library(zip)
 #'
 #' # Download a WorldClim Dataset -----
 #'
 #' \dontrun{
 #'   if (has_internet()) {
-#'     url <-
-#'       worldclim_url("hcd") |>
-#'       read_html() |>
-#'       html_elements("a") |>
-#'       html_attr("href") |>
-#'       str_subset("geodata") |>
-#'       magrittr::extract(1)
-#'
-#'     zip_file <- basename(url)
-#'
-#'     curl_download(url, path(tempdir(), zip_file))
-#'
-#'     path(tempdir(), zip_file) |> zip::unzip(exdir = tempdir())
-#'
 #'     tif_file <-
-#'       dir_ls(tempdir(), regexp = "\\.tif$") |>
-#'       magrittr::extract(1)
+#'       worldclim_download(
+#'         series = "hcd",
+#'         resolution = "10m",
+#'         variable = "prec",
+#'         dir = tempdir()
+#'       ) |>
+#'         magrittr::extract(1)
 #'   }
 #' }
 #'
@@ -230,7 +221,7 @@ worldclim_to_ascii <- function(
     cli::cli_progress_update()
   }
 
-  out
+  invisible(out)
 }
 
 adjust_hcd_file_name <- function(asc_file) {
