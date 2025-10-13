@@ -1,4 +1,4 @@
-#' Download WorldClim Data
+#' Download WorldClim data
 #'
 #' @description
 #'

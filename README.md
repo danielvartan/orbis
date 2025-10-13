@@ -20,12 +20,12 @@ Conduct](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](ht
 
 ## Overview
 
-`orbis` is an [R](https://www.r-project.org/) package that provides a
-comprehensive suite of tools for streamlining spatial data analysis
-workflows. It follows the [tidyverse
-principles](https://tidyverse.tidyverse.org/articles/manifesto.html) and
-integrates naturally with the [tidyverse
-ecosystem](https://www.tidyverse.org/).
+`orbis` is an [R](https://www.r-project.org/) package designed to
+simplify spatial data analysis. It adheres to [tidyverse
+principles](https://tidyverse.tidyverse.org/articles/manifesto.html),
+integrates seamlessly with the [tidyverse
+ecosystem](https://www.tidyverse.org/), and provides a set of tools for
+working with raster and vector data.
 
 > If you find this project useful, please consider giving it a star!  
 > [![GitHub Repository

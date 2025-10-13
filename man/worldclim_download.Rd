@@ -2,7 +2,7 @@
 % Please edit documentation in R/worldclim_download.R
 \name{worldclim_download}
 \alias{worldclim_download}
-\title{Download WorldClim Data}
+\title{Download WorldClim data}
 \usage{
 worldclim_download(
   series,
