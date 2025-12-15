@@ -86,6 +86,8 @@ cat(
 
 > If you find this project useful, please consider giving it a star! &nbsp; [![GitHub Repository Stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
 
+> The continuous development of `orbis` depends on community support. If you find this project useful, and can afford to do so, please consider becoming a sponsor. &nbsp; [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
+
 ## Installation
 
 You can install `orbis` using the [`remotes`](https://github.com/r-lib/remotes) package:

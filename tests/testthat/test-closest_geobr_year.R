@@ -1,6 +1,6 @@
 testthat::test_that("`closest_geobr_year()` | General test", {
   closest_geobr_year(2025, type = "municipality") |>
-    testthat::expect_equal(2022) |>
+    testthat::expect_equal(2024) |>
     suppressMessages()
 
   closest_geobr_year(2025, type = "municipal_seat") |>

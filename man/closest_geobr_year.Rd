@@ -10,9 +10,10 @@ closest_geobr_year(year, type = "country", verbose = TRUE)
 \item{year}{An \code{\link[checkmate:checkIntegerish]{integerish}} vector with the
 year to find the closest available year in the \code{geobr} package.}
 
-\item{type}{(optional) A string indicating the type of data to find the
-closest year for. It can be one of the following: \code{"municipality"},
-\code{"municipal_seat"}, \code{"state"}, or \code{"country"} (default: \code{"country"}).}
+\item{type}{(optional) A \code{\link[base:character]{character}} string indicating
+the type of data to find the closest year for. It can be one of the
+following: \code{"municipality"}, \code{"municipal_seat"}, \code{"state"}, or \code{"country"}
+(default: \code{"country"}).}
 
 \item{verbose}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to print a warning message if the specified year is not available

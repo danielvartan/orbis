@@ -5,17 +5,18 @@
 #' `closest_geobr_year()` returns the closest year available in the
 #' [`geobr`][geobr::geobr] package for a specified type of data.
 #'
-#' @param year An [`integerish`][checkmate::test_integerish] vector with the
+#' @param year An [`integerish`][checkmate::test_integerish()] vector with the
 #'   year to find the closest available year in the `geobr` package.
-#' @param type (optional) A string indicating the type of data to find the
-#'   closest year for. It can be one of the following: `"municipality"`,
-#'   `"municipal_seat"`, `"state"`, or `"country"` (default: `"country"`).
-#' @param verbose (optional) A [`logical`][base::logical] flag indicating
+#' @param type (optional) A [`character`][base::character()] string indicating
+#'   the type of data to find the closest year for. It can be one of the
+#'   following: `"municipality"`, `"municipal_seat"`, `"state"`, or `"country"`
+#'   (default: `"country"`).
+#' @param verbose (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to print a warning message if the specified year is not available
 #'  in the `geobr` package. Only applicable if `year` is a single value
 #'  (default: `TRUE`).
 #'
-#' @return A [`numeric`][base::numeric] vector with the closest year available
+#' @return A [`numeric`][base::numeric()] vector with the closest year available
 #'   in the geobr package for the specified type of data.
 #'
 #' @family utility functions
@@ -49,21 +50,25 @@ closest_geobr_year <- function(
   checkmate::assert_flag(verbose)
 
   if (type == "municipality") {
+    # fmt: skip
     years <- c(
       1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000,
       2001, 2005, 2007, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
-      2021, 2022
+      2021, 2022, 2024
     )
   } else if (type == "municipal_seat") {
+    # fmt: skip
     years <- c(
       1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2010
     )
   } else if (type == "state") {
+    # fmt: skip
     years <- c(
       1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000,
       2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
     )
   } else if (type == "country") {
+    # fmt: skip
     years <- c(
       1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000,
       2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
