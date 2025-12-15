@@ -10,6 +10,7 @@
 - Removed the `aggregate` parameter from `worldclim_to_ascii()` to avoid unintended data aggregation.
 - Changed package license from [MIT](https://opensource.org/license/mit) to [GPLv3](https://www.gnu.org/licenses/gpl-3.0).
 - Updated the Code of Conduct to [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/).
+- `closest_geobr_year()` was updated to include 2024 as an available year for `geobr::readr_municipality()`.
 - Improved error handling and messaging throughout the package.
 - Added more unit tests to increase code coverage.
 - Updated the documentation.
