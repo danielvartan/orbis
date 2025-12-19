@@ -1,7 +1,9 @@
 worldclim_collapse_resolutions <- function(resolutions) {
   choices <- c("10m", "5m", "2.5m", "30s", NA)
 
-  for (i in resolutions) checkmate::assert_choice(i, choices)
+  for (i in resolutions) {
+    checkmate::assert_choice(i, choices)
+  }
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -23,7 +25,7 @@ worldclim_collapse_resolutions <- function(resolutions) {
 }
 
 worldclim_normalize_series <- function(series, type = 1) {
- series |> purrr::map_chr(worldclim_normalize_series.scalar, type = type)
+  series |> purrr::map_chr(worldclim_normalize_series.scalar, type = type)
 }
 
 worldclim_normalize_series.scalar <- function(series, type = 1) {
@@ -35,18 +37,42 @@ worldclim_normalize_series.scalar <- function(series, type = 1) {
   checkmate::assert_int(type)
   checkmate::assert_choice(as.integer(type), c(1L, 2L))
 
-  if (series %in% c(
-    "hcd", "historical-climate-data", "historical climate data"
-  )) {
+  if (
+    series %in%
+      c(
+        "hcd",
+        "historical-climate-data",
+        "historical climate data"
+      )
+  ) {
     if (type == 1) "hcd" else "historical-climate-data"
-  } else if (series %in% c(
-    "hmwd", "historical-monthly-weather-data",
-    "historical monthly weather data"
-  )) {
+  } else if (
+    series %in%
+      c(
+        "hmwd",
+        "historical-monthly-weather-data",
+        "historical monthly weather data"
+      )
+  ) {
     if (type == 1) "hmwd" else "historical-monthly-weather-data"
-  } else if (series %in% c(
-    "fcd", "future-climate-data", "future climate data"
-  )) {
+  } else if (
+    series %in%
+      c(
+        "fcd",
+        "future-climate-data",
+        "future climate data"
+      )
+  ) {
     if (type == 1) "fcd" else "future-climate-data"
   }
+}
+
+get_cache_directory <- function() {
+  out <- tools::R_user_dir("orbis", which = "cache")
+
+  if (!dir.exists(out)) {
+    dir.create(out, recursive = TRUE)
+  }
+
+  out
 }

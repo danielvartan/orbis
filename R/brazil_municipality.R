@@ -89,25 +89,24 @@ brazil_municipality <- function(
 
   # R CMD Check variable bindings fix
   # nolint start
-  geom  <- code_state <- abbrev_state <- code_muni <- name_muni <- NULL
+  geom <- code_state <- abbrev_state <- code_muni <- name_muni <- NULL
   region <- region_code <- state_code <- federal_unit <- NULL
-  municipality_code <- country <- .env <- NULL
+  municipality_code <- .env <- NULL
   # nolint end
 
   brazil_municipalities_file <- file.path(
-    tempdir(), paste0("brazil-municipalities-", year, ".rds")
+    get_cache_directory(),
+    paste0("brazil-municipalities-", year, ".rds")
   )
 
-  if (
-    checkmate::test_file_exists(brazil_municipalities_file) &&
-      isFALSE(force)
-  ) {
-    brazil_municipalities_data <- readr::read_rds(brazil_municipalities_file)
+  if (file.exists(brazil_municipalities_file) && isFALSE(force)) {
+    brazil_municipalities_data <-
+      brazil_municipalities_file |>
+      readr::read_rds()
   } else {
     brazil_municipalities_data <-
       read_municipality(
-        year =
-          year |> #nolint
+        year = year |>
           closest_geobr_year(type = "municipality"),
         showProgress = FALSE,
         cache = !force
@@ -131,30 +130,29 @@ brazil_municipality <- function(
         state_code = as.integer(state_code),
         state = orbis::brazil_state(federal_unit),
         municipality_code = as.integer(municipality_code),
-        municipality = to_title_case_pt(
-          municipality,
-          articles = TRUE,
-          conjunctions = FALSE,
-          oblique_pronouns = FALSE,
-          prepositions = FALSE,
-          custom_rules = c(
-            # E
-            "(.)\\bE( )\\b" = "\\1e\\2",
-            # Às
-            "(.)\\b\u00c0(s)?\\b" = "\\1\u00e0\\2",
-            # Da | Das | Do | Dos | De
-            "(.)\\bD(((a|o)(s)?)|(e))\\b" = "\\1d\\2",
-            # Em
-            "(.)\\bE(m)\\b" =  "\\1e\\2",
-            # Na | Nas | No | Nos
-            "(.)\\bN((a|o)(s)?)\\b" = "\\1n\\2",
-            # Del
-            "(.)\\bD(el)\\b" = "\\1d\\2"
+        municipality = municipality |>
+          to_title_case_pt(
+            articles = TRUE,
+            conjunctions = FALSE,
+            oblique_pronouns = FALSE,
+            prepositions = FALSE,
+            custom_rules = c(
+              # E
+              "(.)\\bE( )\\b" = "\\1e\\2",
+              # Às
+              "(.)\\b\u00c0(s)?\\b" = "\\1\u00e0\\2",
+              # Da | Das | Do | Dos | De
+              "(.)\\bD(((a|o)(s)?)|(e))\\b" = "\\1d\\2",
+              # Em
+              "(.)\\bE(m)\\b" = "\\1e\\2",
+              # Na | Nas | No | Nos
+              "(.)\\bN((a|o)(s)?)\\b" = "\\1n\\2",
+              # Del
+              "(.)\\bD(el)\\b" = "\\1d\\2"
+            )
           )
-        )
       ) |>
       dplyr::relocate(
-        country,
         region_code,
         region,
         state_code,
@@ -217,7 +215,8 @@ brazil_municipality <- function(
         data <-
           brazil_municipalities_data |>
           dplyr::filter(
-            to_ascii(tolower(municipality)) %in% .env$municipality[i] &
+            to_ascii(tolower(municipality)) %in%
+              .env$municipality[i] &
               to_ascii(tolower(state)) %in% .env$state[i]
           )
       }
@@ -227,12 +226,15 @@ brazil_municipality <- function(
           out |>
           dplyr::bind_rows(
             dplyr::tibble(
-              municipality = .env$municipality[i],
-              municipality_code = NA_integer_,
+              region_code = NA_integer_,
+              region = NA_character_,
               state_code = NA_integer_,
               state = NA_character_,
               federal_unit = NA_character_,
-              country = "Brazil"
+              municipality_code = NA_integer_,
+              municipality = .env$municipality[i],
+              latitude = NA_real_,
+              longitude = NA_real_
             )
           )
       } else {
