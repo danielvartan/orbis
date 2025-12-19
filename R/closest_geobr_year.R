@@ -24,7 +24,7 @@
 #'
 #' @examples
 #' closest_geobr_year(2025, type = "municipality")
-#' #> [1] 2022 # Expected
+#' #> [1] 2024 # Expected
 #'
 #' closest_geobr_year(2025, type = "municipal_seat")
 #' #> [1] 2010 # Expected

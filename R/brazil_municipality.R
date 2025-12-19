@@ -96,7 +96,12 @@ brazil_municipality <- function(
 
   brazil_municipalities_file <- file.path(
     get_cache_directory(),
-    paste0("brazil-municipalities-", year, ".rds")
+    paste0(
+      "brazil-municipalities-",
+      year |>
+        closest_geobr_year(type = "municipality"),
+      ".rds"
+    )
   )
 
   if (file.exists(brazil_municipalities_file) && isFALSE(force)) {
@@ -107,7 +112,10 @@ brazil_municipality <- function(
     brazil_municipalities_data <-
       read_municipality(
         year = year |>
-          closest_geobr_year(type = "municipality"),
+          closest_geobr_year(
+            type = "municipality",
+            verbose = FALSE
+          ),
         showProgress = FALSE,
         cache = !force
       ) |>

@@ -10,6 +10,8 @@ library(orbis)
 
 test_check("orbis")
 
+# Fix `brazil_municipality()` to use only municipality codes.
+
 # # For Development Use Only (Comment the Code After Use) -----
 #
 # cffr::cff_write()
