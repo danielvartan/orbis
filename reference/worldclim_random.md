@@ -65,8 +65,8 @@ worldclim_random("hcd")
 #>                   "hcd" 
 #> 
 #> $resolution
-#> 30 Seconds (~1 km2  at the Equator) 
-#>                               "30s" 
+#> 5 Minutes (~85 km2 at the Equator) 
+#>                               "5m" 
 #> 
 #> $variable
 #> Average Temperature (°C) 
@@ -74,11 +74,11 @@ worldclim_random("hcd")
 #> 
 #> $year
 #> 1970-2000 
-#>      1973 
+#>      1997 
 #> 
 #> $month
-#> June 
-#>    6 
+#> September 
+#>         9 
 #> 
 
 worldclim_random("hmwd")
@@ -87,20 +87,20 @@ worldclim_random("hmwd")
 #>                          "hmwd" 
 #> 
 #> $resolution
-#> 10 Minutes (~340 km2 at the Equator) 
-#>                                "10m" 
+#> 5 Minutes (~85 km2 at the Equator) 
+#>                               "5m" 
 #> 
 #> $variable
 #> Total Precipitation (mm) 
 #>                   "prec" 
 #> 
 #> $year
-#> 1980-1989 
-#>      1980 
+#> 1960-1969 
+#>      1965 
 #> 
 #> $month
-#> August 
-#>      8 
+#> May 
+#>   5 
 #> 
 
 worldclim_random("fcd")
@@ -109,27 +109,27 @@ worldclim_random("fcd")
 #>               "fcd" 
 #> 
 #> $resolution
-#> 10 Minutes (~340 km2 at the Equator) 
-#>                                "10m" 
+#> 2.5 Minutes (~21 km2 at the Equator) 
+#>                               "2.5m" 
 #> 
 #> $variable
-#> Total Precipitation (mm) 
-#>                   "prec" 
+#> Average Maximum Temperature (°C) 
+#>                           "tmax" 
 #> 
 #> $model
-#> Centro Euro-Mediterraneo sui Cambiamenti Climatici, Italy 
-#>                                               "CMCC-ESM2" 
+#> Max Planck Institute for Meteorology, Germany 
+#>                               "MPI-ESM1-2-HR" 
 #> 
 #> $ssp
-#>  SSP-585 
-#> "ssp585" 
+#>  SSP-245 
+#> "ssp245" 
 #> 
 #> $year
-#> 2061-2080 
-#>      2061 
+#> 2021-2040 
+#>      2024 
 #> 
 #> $month
-#> July 
-#>    7 
+#> April 
+#>     4 
 #> 
 ```

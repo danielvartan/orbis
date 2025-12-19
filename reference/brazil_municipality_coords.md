@@ -118,7 +118,7 @@ library(curl)
 #> Using year/date 2010
 #> # A tibble: 5,565 × 3
 #>   municipality_code latitude longitude
-#>               <dbl>    <dbl>     <dbl>
+#>               <int>    <dbl>     <dbl>
 #> 1           1100015   -11.9      -62.0
 #> 2           1100023    -9.91     -63.0
 #> 3           1100031   -13.5      -60.5
@@ -136,7 +136,7 @@ library(curl)
 #> Using year/date 2010
 #> # A tibble: 1 × 3
 #>   municipality_code latitude longitude
-#>               <dbl>    <dbl>     <dbl>
+#>               <int>    <dbl>     <dbl>
 #> 1           3550308    -23.6     -46.6
 # }
 
@@ -148,7 +148,7 @@ library(curl)
 #> Using year/date 2010
 #> # A tibble: 10 × 3
 #>   municipality_code latitude longitude
-#>               <dbl>    <dbl>     <dbl>
+#>               <int>    <dbl>     <dbl>
 #> 1           3550001    -23.2     -45.3
 #> 2           3550100    -22.7     -48.6
 #> 3           3550209    -23.9     -48.0
@@ -166,7 +166,7 @@ library(curl)
 #> Using year/date 2010
 #> # A tibble: 2 × 3
 #>   municipality_code latitude longitude
-#>               <dbl>    <dbl>     <dbl>
+#>               <int>    <dbl>     <dbl>
 #> 1           3304557    -22.9     -43.2
 #> 2           3550308    -23.6     -46.6
 # }

@@ -110,6 +110,7 @@ plot_raster <- function(raster) {
 
     russia_vector |> plot_vector()
   }
+#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
 
 # }
 
@@ -132,6 +133,8 @@ plot_raster <- function(raster) {
 
     raster <- raster |> crop(world_shape, mask = TRUE)
   }
+#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
+#> Error: [crop] cannot get a SpatExtent from y
 # }
 
 # Visualize the Raster Before Shift and Crop -----
@@ -149,6 +152,7 @@ plot_raster <- function(raster) {
   if (has_internet()) {
     raster <- raster |> shift_and_crop(russia_vector, -45)
   }
+#> Error in shift_and_crop(raster, russia_vector, -45): Assertion on 'vector' failed: Must inherit from class 'SpatVector', but has class 'NULL'.
 # }
 
 # Visualize the Raster After Shift and Crop -----

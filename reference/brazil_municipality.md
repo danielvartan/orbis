@@ -148,7 +148,7 @@ library(dplyr)
 #> $ state_code        <int> 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 1…
 #> $ state             <chr> "Rondônia", "Rondônia", "Rondônia", "Rondônia", "…
 #> $ federal_unit      <chr> "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "…
-#> $ municipality_code <dbl> 1100015, 1100023, 1100031, 1100049, 1100056, 1100…
+#> $ municipality_code <int> 1100015, 1100023, 1100031, 1100049, 1100056, 1100…
 #> $ municipality      <chr> "Alta Floresta D'Oeste", "Ariquemes", "Cabixi", "…
 #> $ latitude          <dbl> -11.935540305, -9.908462867, -13.499763460, -11.4…
 #> $ longitude         <dbl> -61.99982390, -63.03326928, -60.54431358, -61.442…
@@ -165,7 +165,7 @@ library(dplyr)
 #> $ state_code        <int> 15, 25, 27
 #> $ state             <chr> "Pará", "Paraíba", "Alagoas"
 #> $ federal_unit      <chr> "PA", "PB", "AL"
-#> $ municipality_code <dbl> 1501402, 2501906, 2700805
+#> $ municipality_code <int> 1501402, 2501906, 2700805
 #> $ municipality      <chr> "Belém", "Belém", "Belém"
 #> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231
 #> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799
@@ -182,7 +182,7 @@ library(dplyr)
 #> $ state_code        <int> 15
 #> $ state             <chr> "Pará"
 #> $ federal_unit      <chr> "PA"
-#> $ municipality_code <dbl> 1501402
+#> $ municipality_code <int> 1501402
 #> $ municipality      <chr> "Belém"
 #> $ latitude          <dbl> -1.459845
 #> $ longitude         <dbl> -48.48782569
@@ -199,7 +199,7 @@ library(dplyr)
 #> $ state_code        <int> 15, 25, 27, 35
 #> $ state             <chr> "Pará", "Paraíba", "Alagoas", "São Paulo"
 #> $ federal_unit      <chr> "PA", "PB", "AL", "SP"
-#> $ municipality_code <dbl> 1501402, 2501906, 2700805, 3550308
+#> $ municipality_code <int> 1501402, 2501906, 2700805, 3550308
 #> $ municipality      <chr> "Belém", "Belém", "Belém", "São Paulo"
 #> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231, -23.567…
 #> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799, -46.570…

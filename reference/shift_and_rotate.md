@@ -98,6 +98,7 @@ plot_raster <- function(raster) {
   if (has_internet()) {
     russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
   }
+#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
 # }
 
 ## Visualize the Vector
@@ -115,7 +116,7 @@ plot_raster <- function(raster) {
   if (has_internet()) {
     russia_vector |> shift_and_rotate(-45) |> plot_vector()
   }
-
+#> Error in shift_and_rotate(russia_vector, -45): Assertion on 'x' failed: Must inherit from class 'SpatRaster'/'SpatVector', but has class 'NULL'.
 # }
 
 ## Shift and Rotate the Vector 45 Degrees to the Right
@@ -124,7 +125,7 @@ plot_raster <- function(raster) {
   if (has_internet()) {
     russia_vector |> shift_and_rotate(45) |> plot_vector()
   }
-
+#> Error in shift_and_rotate(russia_vector, 45): Assertion on 'x' failed: Must inherit from class 'SpatRaster'/'SpatVector', but has class 'NULL'.
 # }
 
 # Raster Example -----
@@ -148,6 +149,8 @@ plot_raster <- function(raster) {
 
     raster <- raster |> crop(world_shape, mask = TRUE)
   }
+#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
+#> Error: [crop] cannot get a SpatExtent from y
 # }
 
 ## Visualize the Raster

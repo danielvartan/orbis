@@ -120,6 +120,7 @@ plot_vector_data <- function(data, vector) {
   if (has_internet()) {
     brazil_states_vector <- gadm("BRA", level = 1, path = tempdir())
   }
+#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
 # }
 
 # Visualize the Map -----
@@ -144,16 +145,7 @@ plot_vector_data <- function(data, vector) {
 
     data
   }
-#> # A tibble: 1,000 × 2
-#>   state               value
-#>   <chr>               <int>
-#> 1 Bahia                  45
-#> 2 Rio Grande do Norte   224
-#> 3 Sergipe                 8
-#> 4 Paraná                482
-#> 5 Piauí                 925
-#> 6 Pernambuco            793
-#> # ℹ 994 more rows
+#> Error in sample.int(length(x), size, replace, prob): invalid first argument
 # }
 
 # Create the Map Fill Data -----
@@ -164,17 +156,7 @@ plot_vector_data <- function(data, vector) {
 
     data
   }
-#> ! There are duplicated values in state. value will be aggregated using the mean.
-#> # A tibble: 27 × 2
-#>   state               value
-#>   <chr>               <dbl>
-#> 1 Bahia                429 
-#> 2 Rio Grande do Norte  528 
-#> 3 Sergipe              537.
-#> 4 Paraná               465.
-#> 5 Piauí                583.
-#> 6 Pernambuco           555.
-#> # ℹ 21 more rows
+#> Error in map_fill_data(data, col_fill = "value", col_ref = "state"): Assertion on 'data' failed: Must be a tibble, not closure.
 # }
 
 # Visualize the Map Fill Data -----
@@ -185,6 +167,6 @@ plot_vector_data <- function(data, vector) {
       left_join(data, by = c("NAME_1" = "state")) |>
       plot_vector_data()
   }
-
+#> Error in UseMethod("left_join"): no applicable method for 'left_join' applied to an object of class "NULL"
 # }
 ```
