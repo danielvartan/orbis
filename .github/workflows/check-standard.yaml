@@ -10,9 +10,7 @@ permissions: read-all
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
-
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
     strategy:
       fail-fast: false
       matrix:
@@ -22,11 +20,10 @@ jobs:
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1'}
-
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-
+      PROJ_LIB: /usr/local/opt/proj/share/proj
     steps:
       - uses: actions/checkout@v4
 
@@ -47,6 +44,11 @@ jobs:
         with:
           extra-packages: any::rcmdcheck, local::.
           needs: check
+
+      - name: Check GDAL/PROJ Config
+        if: runner.os == 'macOS'
+        run: |
+          Rscript -e "terra::gdal(lib = 'all')"
 
       - uses: r-lib/actions/check-r-package@v2
         with:
