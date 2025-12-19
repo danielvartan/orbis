@@ -54,7 +54,7 @@ Other utility functions:
 closest_geobr_year(2025, type = "municipality")
 #> ! The closest map year to 2025 is 2024. Using year 2024 instead.
 #> [1] 2024
-#> [1] 2022 # Expected
+#> [1] 2024 # Expected
 
 closest_geobr_year(2025, type = "municipal_seat")
 #> ! The closest map year to 2025 is 2010. Using year 2010 instead.
