@@ -98,6 +98,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_code(municipality = "Belém")
   }
+#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
 #> Belém-PA Belém-PB Belém-AL 
 #>  1501402  2501906  2700805 
 # }
@@ -106,6 +107,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_code(municipality = "Belém", names = FALSE)
   }
+#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
 #> [1] 1501402 2501906 2700805
 # }
 
@@ -113,6 +115,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_code(municipality = "Belém", state = "Pará")
   }
+#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
 #> Belém-PA 
 #>  1501402 
 # }
@@ -121,6 +124,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
   }
+#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
 #> Rio de Janeiro-RJ      São Paulo-SP 
 #>           3304557           3550308 
 # }

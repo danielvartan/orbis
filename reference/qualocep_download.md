@@ -109,7 +109,7 @@ library(dplyr)
     qualocep_download() |> glimpse()
   }
 #> ℹ Downloading Qual o CEP data from OSF
-#> ✔ Downloading Qual o CEP data from OSF [14.2s]
+#> ✔ Downloading Qual o CEP data from OSF [15.2s]
 #> 
 #> Rows: 1,396,087
 #> Columns: 14
