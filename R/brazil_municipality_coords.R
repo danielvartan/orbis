@@ -77,7 +77,8 @@ brazil_municipality_coords <- function(
   }
 }
 
-brazil_municipality_coords.geobr <- function( #nolint
+brazil_municipality_coords.geobr <- function(
+  #nolint
   municipality_code = NULL,
   year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   force = FALSE
@@ -110,8 +111,8 @@ brazil_municipality_coords.geobr <- function( #nolint
     dplyr::as_tibble() |>
     dplyr::rename(municipality_code = code_muni) |>
     dplyr::mutate(
-      geom =
-        geom |> #nolint
+      municipality_code = as.integer(municipality_code),
+      geom = geom |> #nolint
         terra::vect() |>
         terra::crds() |>
         dplyr::as_tibble() %>%
@@ -132,7 +133,8 @@ brazil_municipality_coords.geobr <- function( #nolint
   }
 }
 
-brazil_municipality_coords.geocodebr <- function( #nolint
+brazil_municipality_coords.geocodebr <- function(
+  #nolint
   municipality_code = NULL,
   year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   force = FALSE
