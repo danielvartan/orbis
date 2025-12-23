@@ -1,6 +1,4 @@
 testthat::test_that("`worldclim_to_ascii()` | General test", {
-  # General test
-
   testthat::local_mocked_bindings(
     require_pkg = function(...) TRUE
   )
@@ -53,7 +51,7 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
     readr::read_lines() |>
     testthat::expect_equal(asc_content)
 
-  # if (isTRUE(dateline_fix) && isTRUE(test_dateline(shape))) { [...]
+  # if (isTRUE(shift_longitude) && isTRUE(test_dateline(shape))) { [...]
 
   testthat::local_mocked_bindings(
     require_pkg = function(...) TRUE,
@@ -73,14 +71,13 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
 
   worldclim_to_ascii(
     file = files[1],
-    dir = dirname(files[1]),
     shape = vector,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(files[1])
   ) |>
     suppressMessages()
 
@@ -88,14 +85,13 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
 
   worldclim_to_ascii(
     file = files[1],
-    dir = dirname(files[1]),
     shape = NULL,
     box = c(2, 5, 2, 5),
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(files[1])
   ) |>
     suppressMessages()
 })
@@ -130,179 +126,141 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
   # checkmate::assert_character(file)
   worldclim_to_ascii(
     file = 1,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_file_exists(file, access = "r", extension = "tif")
   worldclim_to_ascii(
     file = tempfile(),
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   worldclim_to_ascii(
     file = temp_asc_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_directory_exists(dir, access = "rw")
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = "I do not exist 1234567890",
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = "I do not exist 1234567890"
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = 1,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = "",
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = 1:3,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
-  # checkmate::assert_flag(dateline_fix)
+  # checkmate::assert_flag(shift_longitude)
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = "",
+    shift_longitude = "",
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_flag(extreme_outlier_fix)
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = "",
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_flag(overwrite)
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = "",
-    dx = -45,
-    na_flag = -99
-  ) |>
-    testthat::expect_error()
-
-  # checkmate::assert_number(dx, finite = TRUE)
-  worldclim_to_ascii(
-    file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
-    shape = NULL,
-    box = NULL,
-    dateline_fix = TRUE,
-    extreme_outlier_fix = TRUE,
-    overwrite = TRUE,
-    dx = "",
-    na_flag = -99
-  ) |>
-    testthat::expect_error()
-
-  worldclim_to_ascii(
-    file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
-    shape = NULL,
-    box = NULL,
-    dateline_fix = TRUE,
-    extreme_outlier_fix = TRUE,
-    overwrite = TRUE,
-    dx = Inf,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
   # checkmate::assert_int(na_flag)
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = NULL,
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = pi
+    na_flag = pi,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
@@ -310,14 +268,13 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
 
   worldclim_to_ascii(
     file = temp_tif_file,
-    dir = dirname(temp_tif_file[1]),
     shape = rbind(c(-2, 5)) |> terra::vect(type = "point"),
     box = NULL,
-    dateline_fix = TRUE,
+    shift_longitude = TRUE,
     extreme_outlier_fix = TRUE,
     overwrite = TRUE,
-    dx = -45,
-    na_flag = -99
+    na_flag = -99,
+    dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 })

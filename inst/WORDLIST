@@ -17,9 +17,7 @@ IPEA
 Institut
 Instituto
 ORCID
-OSF
 Parâmetros
-Qual
 SIDRA
 SSP
 Território
@@ -28,11 +26,13 @@ WorldClim
 bioclimatic
 conceptor
 de
-deduplicated
+duplications
 eu
 federative
 geobr
-geocoded
+geocodebr
+geocoding
+geodata
 geospatial
 kJ
 kPa
@@ -40,5 +40,6 @@ períodos
 possível
 quando
 relativos
+tidygeocoder
 tidyverse
 uncheck

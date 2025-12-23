@@ -56,6 +56,10 @@ numbers.
 }
 \description{
 \code{fix_postal_code()} provides tools to fix postal code numbers.
+
+This function was designed to work with any postal code number format.
+For Brazilian postal code numbers (CEP), see
+\code{\link[enderecobr:padronizar_ceps]{padronizar_ceps()}}.
 }
 \examples{
 fix_postal_code("  01014908  ", squish = TRUE)
@@ -85,7 +89,6 @@ fix_postal_code(NA, max_char = 8, zero_na = TRUE)
 \seealso{
 Other utility functions: 
 \code{\link{closest_geobr_year}()},
-\code{\link{map_fill_data}()},
 \code{\link{remove_unique_outliers}()},
 \code{\link{test_geobr_connection}()},
 \code{\link{unique_outliers}()}

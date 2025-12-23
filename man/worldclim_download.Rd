@@ -128,6 +128,20 @@ path(s) of the downloaded data.
 \description{
 \code{worldclim_download()} downloads and unzips data from the
 \href{https://worldclim.org/}{WorldClim} website.
+
+See \code{\link[geodata:worldclim]{worldclim_global()}},
+\code{\link[geodata:worldclim]{worldclim_country()}}, and
+\code{\link[geodata:worldclim]{worldclim_tile()}} from the
+\href{https://cran.r-project.org/package=geodata}{geodata} package for
+alternative ways to download WorldClim data.
+
+\strong{Note:} This function requires an active internet connection and the
+\href{https://CRAN.R-project.org/package=curl}{\code{curl}},
+\href{https://CRAN.R-project.org/package=fs}{\code{fs}},
+\href{https://CRAN.R-project.org/package=httr}{\code{httr}},
+\href{https://CRAN.R-project.org/package=rvest}{\code{rvest}}, and
+\href{https://CRAN.R-project.org/package=zip}{\code{zip}} packages to be
+installed.
 }
 \examples{
 \dontrun{

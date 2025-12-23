@@ -4,6 +4,10 @@
 #'
 #' `fix_postal_code()` provides tools to fix postal code numbers.
 #'
+#' This function was designed to work with any postal code number format.
+#' For Brazilian postal code numbers (CEP), see
+#' [`padronizar_ceps()`][enderecobr::padronizar_ceps()].
+#'
 #' @param postal_code A [`character`][base::character] vector with postal code
 #'   numbers.
 #' @param min_char (optional) An [integerish][checkmate::test_integerish]
@@ -82,7 +86,9 @@ fix_postal_code <- function(
 
   postal_code <- postal_code |> as.character()
 
-  if (isTRUE(squish)) postal_code <- postal_code |> stringr::str_squish()
+  if (isTRUE(squish)) {
+    postal_code <- postal_code |> stringr::str_squish()
+  }
 
   postal_code <- dplyr::case_when(
     nchar(postal_code) < min_char ~ NA_character_,

@@ -1,5 +1,9 @@
 test_dateline <- function(vector) {
-  checkmate::assert_class(vector, "SpatVector")
+  checkmate::assertMultiClass(vector, c("sf", "SpatVector"))
+
+  if (inherits(vector, "sf")) {
+    vector <- terra::vect(vector)
+  }
 
   vector_x_min <- round(terra::ext(vector)[1])
   vector_x_max <- round(terra::ext(vector)[2])

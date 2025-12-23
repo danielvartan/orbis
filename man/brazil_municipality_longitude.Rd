@@ -47,8 +47,10 @@ Brazilian municipalities.
 \code{brazil_municipality_longitude()} returns the longitude of Brazilian
 municipalities.
 
-\strong{Note:} This function requires an active internet connection and the
-\href{https://ipeagit.github.io/geobr/}{\code{geobr}} package to be installed.
+\strong{Note:} This function requires an internet connection to work and the
+\href{https://ipeagit.github.io/geobr/}{\code{geobr}} or
+\href{https://ipeagit.github.io/geocodebr/}{\code{geocodebr}} package to be
+installed, depending on the chosen method for retrieving coordinates.
 }
 \details{
 The data from this function is based on data from the Brazilian Institute

@@ -31,29 +31,15 @@ navbar:
     articles: ~
 
 reference:
-- title: Rasters
-  desc: >
-    Functions to manipulate `SpatRaster` objects.
-  contents:
-  - shift_and_crop
-  - shift_and_rotate
-
-- title: Vectors
-  desc: >
-    Functions to manipulate `SpatVector` and `sf` objects.
-  contents:
-  - filter_points
-
 - title: APIs
   desc: >
     Client functions for accessing external data sources.
   contents:
-  - qualocep_download
   - sidra_download_by_year
 
 - title: Brazil
   desc: >
-    Functions to access Brazilian geographic and administrative data.
+    Functions for accessing Brazilian geographic and administrative data.
   contents:
   - brazil_municipality
   - brazil_municipality_code
@@ -73,7 +59,7 @@ reference:
 
 - title: World
   desc: >
-    Functions to access world geographic and administrative data.
+    Functions for accessing global geographic and administrative data.
   contents:
   - country_names
 
@@ -90,11 +76,10 @@ reference:
 
 - title: Utilities
   desc: >
-    Utility functions for spatial data manipulation.
+    Utility functions for spatial data processing.
   contents:
   - closest_geobr_year
   - fix_postal_code
-  - map_fill_data
   - remove_unique_outliers
   - test_geobr_connection
   - unique_outliers

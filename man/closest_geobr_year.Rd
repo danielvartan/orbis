@@ -47,7 +47,6 @@ closest_geobr_year(c(2025, 1999, NA, 1800), type = "country")
 \seealso{
 Other utility functions: 
 \code{\link{fix_postal_code}()},
-\code{\link{map_fill_data}()},
 \code{\link{remove_unique_outliers}()},
 \code{\link{test_geobr_connection}()},
 \code{\link{unique_outliers}()}

@@ -1,19 +1,18 @@
-# orbis 0.1.0.9000 (development version)
+# orbis (development version)
 
-- Moved several dependencies to *Suggests* in the DESCRIPTION file to avoid unnecessary installations.
-- Removed `get_` from the names of functions. Older names are still supported but deprecated.
-- Renamed `wc_*()` functions to `worldclim_*()` for clarity. Older names are still supported but deprecated.
-- Change `filter_points_on_land()` to `filter_points()`. The old name is still supported but deprecated.
-- Added `unique_outliers()` and `remove_unique_outliers()` to handle unique outliers in data.
-- Added `worldclim_file()`, `worldclim_random()` and `worldclim_extract_*()` to deal with [WorldClim](https://www.worldclim.org/) data.
-- Added `test_geobr_connection()` to help users troubleshoot connection issues with the [`geobr`](https://ipeagit.github.io/geobr/) package.
-- Removed the `aggregate` parameter from `worldclim_to_ascii()` to avoid unintended data aggregation.
-- Changed package license from [MIT](https://opensource.org/license/mit) to [GPLv3](https://www.gnu.org/licenses/gpl-3.0).
-- Updated the Code of Conduct to [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/).
-- `closest_geobr_year()` was updated to include 2024 as an available year for `geobr::readr_municipality()`.
-- Improved error handling and messaging throughout the package.
-- Added more unit tests to increase code coverage.
-- Updated the documentation.
+- All geocoding functions have been removed. Use [tidygeocoder](https://jessecambon.github.io/tidygeocoder/) or [geocodebr](https://ipeagit.github.io/geocodebr/) instead.
+- Several redundant functions were removed to align with the `rspatial` ecosystem.
+- Functions no longer use the `get_` prefix.
+- `wc_*()` functions are renamed to `worldclim_*()`.
+- `worldclim_to_ascii()` no longer has `aggregate` or `dx` arguments. Longitude shifts are now handled by [`st_shift_longitude()`](https://r-spatial.github.io/sf/reference/st_shift_longitude.html).
+- The package license changed from MIT to GPLv3.
+- Added `worldclim_file()`, `worldclim_random()`, and `worldclim_extract_*()` for [WorldClim](https://www.worldclim.org/) integration.
+- Added `unique_outliers()` and `remove_unique_outliers()`.
+- Added `test_geobr_connection()` to troubleshoot [geobr](https://ipeagit.github.io/geobr/) connectivity.
+- `closest_geobr_year()` now supports 2024 for [`read_municipality()`](https://ipeagit.github.io/geobr/reference/read_municipality.html).
+- Moved several dependencies to `Suggests` to reduce installation overhead.
+- Updated Code of Conduct to [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/).
+- Improved error messages, documentation, and test coverage.
 
 # orbis 0.1.0
 

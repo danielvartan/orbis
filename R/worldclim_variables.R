@@ -5,10 +5,15 @@ worldclim_variables <- list(
     "Future Climate Data" = "fcd"
   ),
   series_choices = c(
-    "hcd", "historical-climate-data", "historical climate data",
-    "hmwd", "historical-monthly-weather-data",
+    "hcd",
+    "historical-climate-data",
+    "historical climate data",
+    "hmwd",
+    "historical-monthly-weather-data",
     "historical monthly weather data",
-    "fcd", "future-climate-data", "future climate data"
+    "fcd",
+    "future-climate-data",
+    "future climate data"
   ),
   resolutions = c(
     "10 Minutes (~340 km2 at the Equator)" = "10m",
@@ -28,8 +33,7 @@ worldclim_variables <- list(
     "Bioclimatic Variables" = "bioc",
     "Elevation" = "elev"
   ),
-  hcd_years =
-    1970:2000 |>
+  hcd_years = 1970:2000 |>
     magrittr::set_names(rep("1970-2000", length(1970:2000))),
   hcd_year_group = "1970-2000",
   hmwd_variables = c(
@@ -37,9 +41,8 @@ worldclim_variables <- list(
     "Average Maximum Temperature (\u00b0C)" = "tmax",
     "Total Precipitation (mm)" = "prec"
   ),
-  hmwd_years =
-    1950:2024 |>
-      magrittr::set_names(
+  hmwd_years = 1950:2024 |>
+    magrittr::set_names(
       c(
         rep("1950-1959", 10),
         rep("1960-1969", 10),
@@ -57,8 +60,7 @@ worldclim_variables <- list(
     "Total Precipitation (mm)" = "prec",
     "Bioclimatic Variables" = "bioc"
   ),
-  fcd_years =
-    2021:2100 |>
+  fcd_years = 2021:2100 |>
     magrittr::set_names(
       c(
         rep("2021-2040", 20),
@@ -89,6 +91,7 @@ worldclim_variables <- list(
     "BIO18 - Precipitation of Warmest Quarter" = 18L,
     "BIO19 - Precipitation of Coldest Quarter" = 19L
   ),
+  # fmt: skip
   models = c(
     "Australian Community Climate and Earth-System Simulator, Australia" =
       "ACCESS-CM2",

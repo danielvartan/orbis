@@ -31,7 +31,6 @@ connect to its server and retrieve data.
 Other utility functions: 
 \code{\link{closest_geobr_year}()},
 \code{\link{fix_postal_code}()},
-\code{\link{map_fill_data}()},
 \code{\link{remove_unique_outliers}()},
 \code{\link{unique_outliers}()}
 }

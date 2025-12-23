@@ -37,8 +37,13 @@ require_pkg <- function(...) {
   }
 
   pkg <- unlist(out)
-  namespace <- vapply(pkg, require_namespace, logical(1),
-                      quietly = TRUE, USE.NAMES = FALSE)
+  namespace <- vapply(
+    pkg,
+    require_namespace,
+    logical(1),
+    quietly = TRUE,
+    USE.NAMES = FALSE
+  )
   pkg <- pkg[!namespace]
 
   if (length(pkg) == 0) {
@@ -47,7 +52,8 @@ require_pkg <- function(...) {
     cli::cli_abort(
       paste0(
         "This function requires the {.strong {pkg}} package{?s} ",
-        "to run. You can install {?it/them} by running:", "\n\n",
+        "to run. You can install {?it/them} by running:",
+        "\n\n",
         "install.packages(c(",
         "{paste(double_quote_(pkg), collapse = ', ')}",
         "))"
@@ -171,7 +177,7 @@ to_title_case_pt <- function(
       # Da | Das | Do | Dos | De | Desde
       "(.)\\bD(((a|o)(s)?)|(e(sde)?))\\b" = "\\1d\\2",
       # Em | Entre
-      "(.)\\bE(m|ntre)\\b" =  "\\1e\\2",
+      "(.)\\bE(m|ntre)\\b" = "\\1e\\2",
       # Na | Nas | No | Nos
       "(.)\\bN((a|o)(s)?)\\b" = "\\1n\\2",
       # Para | Perante | Pela | Pelas | Pelo | Pelos | Por
@@ -238,7 +244,12 @@ get_file_size_by_url <- function(file) {
   out <- character()
 
   for (i in seq_along(file)) {
-    request <- try({file[i] |> httr::HEAD()}, silent = TRUE) #nolint
+    request <- try(
+      {
+        file[i] |> httr::HEAD()
+      },
+      silent = TRUE
+    )
 
     if (inherits(request, "try-error")) {
       out[i] <- NA
@@ -290,7 +301,9 @@ download_file <- function(
     )
   )
 
-  if (length(url) > 1) cli::cat_line()
+  if (length(url) > 1) {
+    cli::cat_line()
+  }
 
   cli::cli_progress_bar(
     name = "Downloading files",

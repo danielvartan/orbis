@@ -5,6 +5,11 @@
 #' `brazil_municipality()` returns a [`tibble`][tibble::tibble] with data
 #' about Brazilian municipalities.
 #'
+#' This function normalizes names and objects from the
+#' [`read_municipality()`][geobr::read_municipality()] function of the
+#' [`geobr`][geobr::geobr] package, adding latitude and longitude
+#' coordinates for each municipality.
+#'
 #' **Note:** This function requires an internet connection to work and the
 #' [`geobr`](https://ipeagit.github.io/geobr/) or
 #' [`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be
@@ -77,7 +82,7 @@ brazil_municipality <- function(
   coords_method = "geobr",
   force = FALSE
 ) {
-  require_pkg("geobr")
+  require_pkg("geobr", "tools")
 
   assert_internet()
   checkmate::assert_character(municipality, null.ok = TRUE)

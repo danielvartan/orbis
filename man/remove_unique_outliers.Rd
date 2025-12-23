@@ -78,7 +78,6 @@ temp_file |> rast() |> values(mat = FALSE)
 Other utility functions: 
 \code{\link{closest_geobr_year}()},
 \code{\link{fix_postal_code}()},
-\code{\link{map_fill_data}()},
 \code{\link{test_geobr_connection}()},
 \code{\link{unique_outliers}()}
 }

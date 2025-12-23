@@ -5,6 +5,20 @@
 #' `worldclim_download()` downloads and unzips data from the
 #' [WorldClim](https://worldclim.org/) website.
 #'
+#' See [`worldclim_global()`][geodata::worldclim_global()],
+#' [`worldclim_country()`][geodata::worldclim_country()], and
+#' [`worldclim_tile()`][geodata::worldclim_tile()] from the
+#' [geodata](https://cran.r-project.org/package=geodata) package for
+#' alternative ways to download WorldClim data.
+#'
+#' **Note:** This function requires an active internet connection and the
+#' [`curl`](https://CRAN.R-project.org/package=curl),
+#' [`fs`](https://CRAN.R-project.org/package=fs),
+#' [`httr`](https://CRAN.R-project.org/package=httr),
+#' [`rvest`](https://CRAN.R-project.org/package=rvest), and
+#' [`zip`](https://CRAN.R-project.org/package=zip) packages to be
+#' installed.
+#'
 #' @param series A string with the name of the WorldClim data series. The
 #'   following options are available:
 #'   - `"hcd"` = Historical Climate Data
@@ -67,7 +81,9 @@ worldclim_download <- function(
   dir_series <- fs::path(dir, worldclim_normalize_series(series, type = 2))
   dirs <- c(dir, dir_series)
 
-  for (i in dirs) if (!fs::dir_exists(i)) fs::dir_create(i, recurse = TRUE)
+  for (i in dirs) {
+    if (!fs::dir_exists(i)) fs::dir_create(i, recurse = TRUE)
+  }
 
   cli::cli_progress_step("Scraping WorldClim Website")
 
@@ -90,12 +106,23 @@ worldclim_download <- function(
     ) |>
     dplyr::arrange(size) |>
     dplyr::mutate(
-      size_cum_sum =
-        size |> #nolint
-          tidyr::replace_na() |> #nolint
-          cumsum() |>
-          fs::as_fs_bytes()
+      size_cum_sum = size |>
+        tidyr::replace_na() |>
+        cumsum() |>
+        fs::as_fs_bytes()
     )
+
+  if (any(is.na(metadata$size))) {
+    cli::cli_abort(
+      paste0(
+        "{.strong {cli::col_red('worldclim_download()')}} ",
+        "encountered issues when ",
+        "trying to get the size of some files. ",
+        "Please report this issue at ",
+        "<https://github.com/danielvartan/orbis>."
+      )
+    )
+  }
 
   cli::cli_alert_info(
     paste0(
@@ -199,11 +226,11 @@ worldclim_download.readme <- function(series = NULL, resolution = NULL) {
   }
 
   if (!is.null(series)) {
-  checkmate::assert_choice(
-    if (!is.null(series)) series |> tolower(),
-     worldclim_variables |> magrittr::extract2("series_choices")
-  )
-    series <- series |>  worldclim_normalize_series()
+    checkmate::assert_choice(
+      if (!is.null(series)) series |> tolower(),
+      worldclim_variables |> magrittr::extract2("series_choices")
+    )
+    series <- series |> worldclim_normalize_series()
     series_names <- worldclim_variables |> magrittr::extract2("series")
 
     series <-
@@ -238,10 +265,13 @@ worldclim_download.readme <- function(series = NULL, resolution = NULL) {
     "\n\n",
     ifelse(!is.null(series), paste0("- Series: ", series, "\n"), ""),
     ifelse(
-      !is.null(resolution), paste0("- Resolution: ", resolution, "\n"), ""
+      !is.null(resolution),
+      paste0("- Resolution: ", resolution, "\n"),
+      ""
     ),
     ifelse(!is.null(source), paste0("- Source: <", source, ">", "\n"), ""),
-    "- Note: Downloaded on ", Sys.Date(),
+    "- Note: Downloaded on ",
+    Sys.Date(),
     "\n\n",
     "> This dataset is licensed under the WorldClim 2.1 Terms of Use, ",
     "available at: <https://worldclim.org/about.html>."

@@ -70,9 +70,6 @@ file paths of the converted ASCII files.
 \href{https://worldclim.org/}{WorldClim}
 \href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to the
 \href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} raster format.
-
-\strong{Note:} This function requires the \href{https://fs.r-lib.org/}{\code{fs}} package to
-be installed.
 }
 \details{
 \subsection{\code{na_flag} parameter}{

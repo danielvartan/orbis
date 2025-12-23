@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "orbis",
-  "description": "A suite of tools for spatial data analysis that supports data gathering, manipulation, and geospatial processing workflows, streamlining common spatial data processing tasks.",
+  "description": "A collection of tools for gathering and processing spatial data in R.",
   "name": "orbis: Spatial Data Analysis Tools",
   "relatedLink": "https://danielvartan.github.io/orbis/",
   "codeRepository": "https://github.com/danielvartan/orbis/",
@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 (2025-06-13)",
+  "runtimePlatform": "R version 4.5.2 (2025-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -45,19 +45,6 @@
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
-      "identifier": "brandr",
-      "name": "brandr",
-      "version": ">= 0.1.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=brandr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "bslib",
       "name": "bslib",
       "version": ">= 0.9.0",
@@ -73,7 +60,7 @@
       "@type": "SoftwareApplication",
       "identifier": "covr",
       "name": "covr",
-      "version": ">= 3.6.4",
+      "version": ">= 3.6.5",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -81,6 +68,32 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "curl",
+      "name": "curl",
+      "version": ">= 7.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=curl"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "enderecobr",
+      "name": "enderecobr",
+      "version": ">= 0.4.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=enderecobr"
     },
     {
       "@type": "SoftwareApplication",
@@ -112,7 +125,7 @@
       "@type": "SoftwareApplication",
       "identifier": "geocodebr",
       "name": "geocodebr",
-      "version": ">= 0.2.1",
+      "version": ">= 0.4.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -125,7 +138,7 @@
       "@type": "SoftwareApplication",
       "identifier": "geodata",
       "name": "geodata",
-      "version": ">= 0.6.2",
+      "version": ">= 0.6.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -133,19 +146,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=geodata"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "ggplot2",
-      "name": "ggplot2",
-      "version": ">= 4.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
     {
       "@type": "SoftwareApplication",
@@ -201,32 +201,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "osfr",
-      "name": "osfr",
-      "version": ">= 0.2.9",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=osfr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "ragg",
-      "name": "ragg",
-      "version": ">= 1.5.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ragg"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "rvest",
       "name": "rvest",
       "version": ">= 1.0.5",
@@ -237,32 +211,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rvest"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "sf",
-      "name": "sf",
-      "version": ">= 1.0.21",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=sf"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "showtext",
-      "name": "showtext",
-      "version": ">= 0.9.7",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=showtext"
     },
     {
       "@type": "SoftwareApplication",
@@ -298,22 +246,9 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "sysfonts",
-      "name": "sysfonts",
-      "version": ">= 0.8.9",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=sysfonts"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 3.2.3",
+      "version": ">= 3.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -337,29 +272,9 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "tidygeocoder",
-      "name": "tidygeocoder",
-      "version": ">= 1.0.6",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tidygeocoder"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "tidyterra",
-      "name": "tidyterra",
-      "version": ">= 0.7.2",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tidyterra"
+      "identifier": "tools",
+      "name": "tools",
+      "version": ">= 4.4"
     },
     {
       "@type": "SoftwareApplication",
@@ -410,19 +325,6 @@
     },
     "4": {
       "@type": "SoftwareApplication",
-      "identifier": "curl",
-      "name": "curl",
-      "version": ">= 7.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=curl"
-    },
-    "5": {
-      "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
       "version": ">= 1.1.4",
@@ -434,7 +336,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "6": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "here",
       "name": "here",
@@ -447,20 +349,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=here"
     },
-    "7": {
-      "@type": "SoftwareApplication",
-      "identifier": "lifecycle",
-      "name": "lifecycle",
-      "version": ">= 1.0.4",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
-    },
-    "8": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -473,11 +362,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "9": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
-      "version": ">= 1.1.0",
+      "version": ">= 1.2.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -486,11 +375,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "10": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
-      "version": ">= 2.1.5",
+      "version": ">= 2.1.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -499,7 +388,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "11": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -512,11 +401,24 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "12": {
+    "10": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "version": ">= 1.0.23",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
-      "version": ">= 1.5.2",
+      "version": ">= 1.6.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -525,11 +427,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "13": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
-      "version": ">= 1.8.60",
+      "version": ">= 1.8.86",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -538,7 +440,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "14": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -553,7 +455,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1176.172KB",
+  "fileSize": "1111.934KB",
   "citation": [
     {
       "@type": "CreativeWork",

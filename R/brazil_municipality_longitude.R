@@ -5,8 +5,10 @@
 #' `brazil_municipality_longitude()` returns the longitude of Brazilian
 #' municipalities.
 #'
-#' **Note:** This function requires an active internet connection and the
-#' [`geobr`](https://ipeagit.github.io/geobr/) package to be installed.
+#' **Note:** This function requires an internet connection to work and the
+#' [`geobr`](https://ipeagit.github.io/geobr/) or
+#' [`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be
+#' installed, depending on the chosen method for retrieving coordinates.
 #'
 #' @param municipality_code An [`integerish`][checkmate::test_integerish] vector
 #'   with the IBGE codes of Brazilian municipalities. Use
@@ -48,7 +50,8 @@
 #'     brazil_municipality_longitude(c(3550308, NA, 3500204))
 #'   }
 #' }
-brazil_municipality_longitude <- function( #nolint
+brazil_municipality_longitude <- function(
+  #nolint
   municipality_code,
   year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   coords_method = "geobr",

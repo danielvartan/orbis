@@ -55,6 +55,11 @@ A \code{\link[tibble:tibble]{tibble}} with the following columns:
 \code{brazil_municipality()} returns a \code{\link[tibble:tibble]{tibble}} with data
 about Brazilian municipalities.
 
+This function normalizes names and objects from the
+\code{\link[geobr:read_municipality]{read_municipality()}} function of the
+\code{\link[geobr:geobr]{geobr}} package, adding latitude and longitude
+coordinates for each municipality.
+
 \strong{Note:} This function requires an internet connection to work and the
 \href{https://ipeagit.github.io/geobr/}{\code{geobr}} or
 \href{https://ipeagit.github.io/geocodebr/}{\code{geocodebr}} package to be

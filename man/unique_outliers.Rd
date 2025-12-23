@@ -43,7 +43,6 @@ c(1:10, 100L) |> unique_outliers(n_iqr = 1000)
 Other utility functions: 
 \code{\link{closest_geobr_year}()},
 \code{\link{fix_postal_code}()},
-\code{\link{map_fill_data}()},
 \code{\link{remove_unique_outliers}()},
 \code{\link{test_geobr_connection}()}
 }
