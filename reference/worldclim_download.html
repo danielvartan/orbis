@@ -6,8 +6,32 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Download WorldClim data — worldclim_download"><meta name="description" content="worldclim_download() downloads and unzips data from the
-WorldClim website."><meta property="og:description" content="worldclim_download() downloads and unzips data from the
-WorldClim website."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
+WorldClim website.
+See worldclim_global(),
+worldclim_country(), and
+worldclim_tile() from the
+geodata package for
+alternative ways to download WorldClim data.
+Note: This function requires an active internet connection and the
+curl,
+fs,
+httr,
+rvest, and
+zip packages to be
+installed."><meta property="og:description" content="worldclim_download() downloads and unzips data from the
+WorldClim website.
+See worldclim_global(),
+worldclim_country(), and
+worldclim_tile() from the
+geodata package for
+alternative ways to download WorldClim data.
+Note: This function requires an active internet connection and the
+curl,
+fs,
+httr,
+rvest, and
+zip packages to be
+installed."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -49,6 +73,18 @@ WorldClim website."><meta property="og:image" content="https://danielvartan.gith
     <div class="ref-description section level2">
     <p><code>worldclim_download()</code> downloads and unzips data from the
 <a href="https://worldclim.org/" class="external-link">WorldClim</a> website.</p>
+<p>See <code>worldclim_global()</code>,
+<code>worldclim_country()</code>, and
+<code>worldclim_tile()</code> from the
+<a href="https://cran.r-project.org/package=geodata" class="external-link">geodata</a> package for
+alternative ways to download WorldClim data.</p>
+<p><strong>Note:</strong> This function requires an active internet connection and the
+<a href="https://CRAN.R-project.org/package=curl" class="external-link"><code>curl</code></a>,
+<a href="https://CRAN.R-project.org/package=fs" class="external-link"><code>fs</code></a>,
+<a href="https://CRAN.R-project.org/package=httr" class="external-link"><code>httr</code></a>,
+<a href="https://CRAN.R-project.org/package=rvest" class="external-link"><code>rvest</code></a>, and
+<a href="https://CRAN.R-project.org/package=zip" class="external-link"><code>zip</code></a> packages to be
+installed.</p>
     </div>
 
     <div class="section level2">

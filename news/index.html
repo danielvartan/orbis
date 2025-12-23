@@ -44,22 +44,23 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.0.9000" id="orbis-0109000-development-version">orbis 0.1.0.9000 (development version)<a class="anchor" aria-label="anchor" href="#orbis-0109000-development-version"></a></h2>
-<ul><li>Moved several dependencies to <em>Suggests</em> in the DESCRIPTION file to avoid unnecessary installations.</li>
-<li>Removed <code>get_</code> from the names of functions. Older names are still supported but deprecated.</li>
-<li>Renamed <code>wc_*()</code> functions to <code>worldclim_*()</code> for clarity. Older names are still supported but deprecated.</li>
-<li>Change <code>filter_points_on_land()</code> to <code><a href="../reference/filter_points.html">filter_points()</a></code>. The old name is still supported but deprecated.</li>
-<li>Added <code><a href="../reference/unique_outliers.html">unique_outliers()</a></code> and <code><a href="../reference/remove_unique_outliers.html">remove_unique_outliers()</a></code> to handle unique outliers in data.</li>
-<li>Added <code><a href="../reference/worldclim_file.html">worldclim_file()</a></code>, <code><a href="../reference/worldclim_random.html">worldclim_random()</a></code> and <code>worldclim_extract_*()</code> to deal with <a href="https://www.worldclim.org/" class="external-link">WorldClim</a> data.</li>
-<li>Added <code><a href="../reference/test_geobr_connection.html">test_geobr_connection()</a></code> to help users troubleshoot connection issues with the <a href="https://ipeagit.github.io/geobr/" class="external-link"><code>geobr</code></a> package.</li>
-<li>Removed the <code>aggregate</code> parameter from <code><a href="../reference/worldclim_to_ascii.html">worldclim_to_ascii()</a></code> to avoid unintended data aggregation.</li>
-<li>Changed package license from <a href="https://opensource.org/license/mit" class="external-link">MIT</a> to <a href="https://www.gnu.org/licenses/gpl-3.0" class="external-link">GPLv3</a>.</li>
-<li>Updated the Code of Conduct to <a href="https://www.contributor-covenant.org/version/3/0/code_of_conduct/" class="external-link">Contributor Covenant 3.0</a>.</li>
+<h2 class="pkg-version" data-toc-text="development version" id="orbis-development-version">orbis (development version)<a class="anchor" aria-label="anchor" href="#orbis-development-version"></a></h2>
+<ul><li>All geocoding functions have been removed. Use <a href="https://jessecambon.github.io/tidygeocoder/" class="external-link">tidygeocoder</a> or <a href="https://ipeagit.github.io/geocodebr/" class="external-link">geocodebr</a> instead.</li>
+<li>Several redundant functions were removed to align with the <code>rspatial</code> ecosystem.</li>
+<li>Functions no longer use the <code>get_</code> prefix.</li>
 <li>
-<code><a href="../reference/closest_geobr_year.html">closest_geobr_year()</a></code> was updated to include 2024 as an available year for <code>geobr::readr_municipality()</code>.</li>
-<li>Improved error handling and messaging throughout the package.</li>
-<li>Added more unit tests to increase code coverage.</li>
-<li>Updated the documentation.</li>
+<code>wc_*()</code> functions are renamed to <code>worldclim_*()</code>.</li>
+<li>
+<code><a href="../reference/worldclim_to_ascii.html">worldclim_to_ascii()</a></code> no longer has <code>aggregate</code> or <code>dx</code> arguments. Longitude shifts are now handled by <a href="https://r-spatial.github.io/sf/reference/st_shift_longitude.html" class="external-link"><code>st_shift_longitude()</code></a>.</li>
+<li>The package license changed from MIT to GPLv3.</li>
+<li>Added <code><a href="../reference/worldclim_file.html">worldclim_file()</a></code>, <code><a href="../reference/worldclim_random.html">worldclim_random()</a></code>, and <code>worldclim_extract_*()</code> for <a href="https://www.worldclim.org/" class="external-link">WorldClim</a> integration.</li>
+<li>Added <code><a href="../reference/unique_outliers.html">unique_outliers()</a></code> and <code><a href="../reference/remove_unique_outliers.html">remove_unique_outliers()</a></code>.</li>
+<li>Added <code><a href="../reference/test_geobr_connection.html">test_geobr_connection()</a></code> to troubleshoot <a href="https://ipeagit.github.io/geobr/" class="external-link">geobr</a> connectivity.</li>
+<li>
+<code><a href="../reference/closest_geobr_year.html">closest_geobr_year()</a></code> now supports 2024 for <a href="https://ipeagit.github.io/geobr/reference/read_municipality.html" class="external-link"><code>read_municipality()</code></a>.</li>
+<li>Moved several dependencies to <code>Suggests</code> to reduce installation overhead.</li>
+<li>Updated Code of Conduct to <a href="https://www.contributor-covenant.org/version/3/0/code_of_conduct/" class="external-link">Contributor Covenant 3.0</a>.</li>
+<li>Improved error messages, documentation, and test coverage.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="orbis-010">orbis 0.1.0<a class="anchor" aria-label="anchor" href="#orbis-010"></a></h2>

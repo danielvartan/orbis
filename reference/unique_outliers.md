@@ -41,7 +41,6 @@ outliers of `x`.
 Other utility functions:
 [`closest_geobr_year()`](https://danielvartan.github.io/orbis/reference/closest_geobr_year.md),
 [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md),
-[`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.md),
 [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.md),
 [`test_geobr_connection()`](https://danielvartan.github.io/orbis/reference/test_geobr_connection.md)
 

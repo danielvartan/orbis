@@ -65,20 +65,20 @@ worldclim_random("hcd")
 #>                   "hcd" 
 #> 
 #> $resolution
-#> 5 Minutes (~85 km2 at the Equator) 
-#>                               "5m" 
+#> 2.5 Minutes (~21 km2 at the Equator) 
+#>                               "2.5m" 
 #> 
 #> $variable
-#> Average Temperature (°C) 
-#>                   "tavg" 
+#> Average Minimum Temperature (°C) 
+#>                           "tmin" 
 #> 
 #> $year
 #> 1970-2000 
-#>      1997 
+#>      1983 
 #> 
 #> $month
-#> September 
-#>         9 
+#> April 
+#>     4 
 #> 
 
 worldclim_random("hmwd")
@@ -91,16 +91,16 @@ worldclim_random("hmwd")
 #>                               "5m" 
 #> 
 #> $variable
-#> Total Precipitation (mm) 
-#>                   "prec" 
+#> Average Minimum Temperature (°C) 
+#>                           "tmin" 
 #> 
 #> $year
 #> 1960-1969 
-#>      1965 
+#>      1960 
 #> 
 #> $month
-#> May 
-#>   5 
+#> July 
+#>    7 
 #> 
 
 worldclim_random("fcd")
@@ -113,23 +113,23 @@ worldclim_random("fcd")
 #>                               "2.5m" 
 #> 
 #> $variable
-#> Average Maximum Temperature (°C) 
-#>                           "tmax" 
+#> Average Minimum Temperature (°C) 
+#>                           "tmin" 
 #> 
 #> $model
-#> Max Planck Institute for Meteorology, Germany 
-#>                               "MPI-ESM1-2-HR" 
+#> Model for Interdisciplinary Research on Climate, Japan 
+#>                                               "MIROC6" 
 #> 
 #> $ssp
-#>  SSP-245 
-#> "ssp245" 
+#>  SSP-585 
+#> "ssp585" 
 #> 
 #> $year
-#> 2021-2040 
-#>      2024 
+#> 2061-2080 
+#>      2068 
 #> 
 #> $month
-#> April 
-#>     4 
+#> February 
+#>        2 
 #> 
 ```

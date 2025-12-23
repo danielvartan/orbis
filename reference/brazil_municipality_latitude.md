@@ -3,8 +3,10 @@
 `brazil_municipality_latitude()` returns the latitude of Brazilian
 municipalities.
 
-**Note:** This function requires an active internet connection and the
-[`geobr`](https://ipeagit.github.io/geobr/) package to be installed.
+**Note:** This function requires an internet connection to work and the
+[`geobr`](https://ipeagit.github.io/geobr/) or
+[`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be
+installed, depending on the chosen method for retrieving coordinates.
 
 ## Usage
 

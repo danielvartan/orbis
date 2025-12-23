@@ -49,7 +49,6 @@ An invisible `NULL` value. This function is used for its side effects.
 Other utility functions:
 [`closest_geobr_year()`](https://danielvartan.github.io/orbis/reference/closest_geobr_year.md),
 [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md),
-[`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.md),
 [`test_geobr_connection()`](https://danielvartan.github.io/orbis/reference/test_geobr_connection.md),
 [`unique_outliers()`](https://danielvartan.github.io/orbis/reference/unique_outliers.md)
 
@@ -65,6 +64,15 @@ library(readr)
 #> 
 #>     parse_date
 library(terra)
+#> terra 1.8.86
+#> 
+#> Attaching package: ‘terra’
+#> The following objects are masked from ‘package:magrittr’:
+#> 
+#>     extract, inset
+#> The following object is masked from ‘package:knitr’:
+#> 
+#>     spin
 
 # Create a Fictional Esri ASCII File -----
 

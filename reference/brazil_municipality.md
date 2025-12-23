@@ -4,6 +4,12 @@
 [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with data
 about Brazilian municipalities.
 
+This function normalizes names and objects from the
+[`read_municipality()`](https://ipeagit.github.io/geobr/reference/read_municipality.html)
+function of the
+[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) package,
+adding latitude and longitude coordinates for each municipality.
+
 **Note:** This function requires an internet connection to work and the
 [`geobr`](https://ipeagit.github.io/geobr/) or
 [`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be

@@ -2,16 +2,20 @@
 
 ## Overview
 
-`orbis` is an [R](https://www.r-project.org/) package designed to
-simplify spatial data analysis. It adheres to [tidyverse
-principles](https://tidyverse.tidyverse.org/articles/manifesto.html),
-integrates seamlessly with the [tidyverse
-ecosystem](https://www.tidyverse.org/), and provides a set of tools for
-working with raster and vector data.
+`orbis` provides tools for spatial data analysis in R. It follows
+[tidyverse
+principles](https://tidyverse.tidyverse.org/articles/manifesto.html) and
+is designed to work with the [r-spatial](https://r-spatial.org/)
+collection of packages.
 
 > If you find this project useful, please consider giving it a star!  
 > [![GitHub Repository
 > Stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
+
+> The continuous development of `orbis` depends on community support. If
+> you find this project useful, and can afford to do so, please consider
+> becoming a sponsor.  
+> [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
 
 ## Installation
 
@@ -20,7 +24,7 @@ You can install `orbis` using the
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("danielvartan/orbis", dependencies = TRUE)
+remotes::install_github("danielvartan/orbis")
 ```
 
 ## Usage
@@ -28,17 +32,8 @@ remotes::install_github("danielvartan/orbis", dependencies = TRUE)
 `orbis` is equipped with several functions to help with your analysis,
 such as:
 
-- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html):
-  Shift and rotate raster or vector data.
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html):
   Remove unique outliers from raster files.
-- [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.html):
-  Prepare data to fill a map.
-- [`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html):
-  Filter latitude/longitude points that intersects with a given
-  [`sf`](https://r-spatial.github.io/sf/) geometry.
-- [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.html):
-  Get Brazilian municipalities data.
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html):
   Download and aggregate data by year from
   [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
@@ -50,72 +45,7 @@ such as:
   ASCII](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/esri-ascii-raster-format.htm)
   raster format.
 
-Here are some examples of how to use a few of these functions.
-
-### `shift_and_rotate()`
-
-[`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html)
-was developed to simplify shifting and rotating spatial data, especially
-for rasters and vectors that cross the dateline (e.g. the Russian
-territory).
-
-#### Set the Environment
-
-``` r
-library(dplyr)
-library(geodata)
-library(ggplot2)
-library(orbis)
-library(terra)
-library(tidyterra)
-```
-
-``` r
-plot_vector <- function(vector) {
-  plot <-
-    vector |>
-    ggplot() +
-    geom_spatvector(fill = "#3243A6", color = "white")
-
-  print(plot)
-}
-```
-
-#### Define a World Vector
-
-``` r
-world_vector <- world(path = tempdir())
-```
-
-#### Visualize the World Vector
-
-``` r
-world_vector |> plot_vector()
-```
-
-![](reference/figures/readme-shift-and-rotate-1-1.png)
-
-#### Define the Country Vector
-
-``` r
-russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
-```
-
-#### Visualize the Country Vector
-
-``` r
-russia_vector |> plot_vector()
-```
-
-![](reference/figures/readme-shift-and-rotate-2-1.png)
-
-#### Shift and Rotate the Country Vector -45 Degrees to the Left
-
-``` r
-russia_vector |> shift_and_rotate(-45) |> plot_vector()
-```
-
-![](reference/figures/readme-shift-and-rotate-3-1.png)
+Here is an example of usage.
 
 ### `remove_unique_outliers()`
 
@@ -130,8 +60,10 @@ raster formats.
 
 ``` r
 library(orbis)
+
+library(dplyr)
 library(readr)
-library(terra)
+library(stars)
 ```
 
 #### Create a Fictional Esri ASCII File
@@ -161,7 +93,7 @@ asc_content |> write_lines(temp_file)
 #### Visualize Values Before `remove_unique_outliers()`
 
 ``` r
-temp_file |> rast() |> values(mat = FALSE)
+temp_file |> read_stars() |> pull(1) |> as.vector()
 #>  [1]    1    2    3    4    5    6    7    8    9   10   11   12 1000   14
 #> [15]   15   16    1   18   19   20   21   22   23   24   25
 ```
@@ -173,235 +105,10 @@ temp_file |> remove_unique_outliers()
 ```
 
 ``` r
-temp_file |> rast() |> values(mat = FALSE)
+temp_file |> read_stars() |> pull(1) |> as.vector()
 #>  [1]  1  2  3  4  5  6  7  8  9 10 11 12 NA 14 15 16  1 18 19 20 21 22 23 24
 #> [25] 25
 ```
-
-### `map_fill_data()`
-
-[`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.html)
-was developed to simplify the preparation of data to fill a map.
-
-#### Set the Environment
-
-``` r
-library(dplyr)
-library(geodata)
-library(ggplot2)
-library(orbis)
-library(terra)
-library(tidyterra)
-```
-
-``` r
-plot_vector_shape <- function(vector) {
-  plot <-
-    vector |>
-    ggplot() +
-    geom_spatvector(fill = "white", color = "#3243A6")
-
-  print(plot)
-}
-```
-
-``` r
-plot_vector_data <- function(data, vector) {
-  plot <-
-    data |>
-    ggplot() +
-    geom_spatvector(aes(fill = value), color = "white") +
-    scale_fill_continuous(
-        palette = c("#072359", "#3243A6", "#9483AF"),
-        na.value = "white"
-    ) +
-    labs(fill = NULL)
-
-  print(plot)
-}
-```
-
-#### Define the Map
-
-``` r
-brazil_states_vector <- gadm("BRA", level = 1, path = tempdir())
-```
-
-#### Visualize the Map
-
-``` r
-brazil_states_vector |> plot_vector_shape()
-```
-
-![](reference/figures/readme-map-fill-data-1-1.png)
-
-#### Define the Data
-
-``` r
-data <- tibble(
-  state = sample(brazil_states_vector$NAME_1, size = 1000, replace = TRUE),
-  value = sample(1:1000, size = 1000, replace = TRUE)
-)
-data
-#> # A tibble: 1,000 × 2
-#>   state              value
-#>   <chr>              <int>
-#> 1 Minas Gerais         881
-#> 2 Mato Grosso do Sul   300
-#> 3 Amazonas             778
-#> 4 Sergipe              393
-#> 5 Acre                 682
-#> 6 Roraima              369
-#> # ℹ 994 more rows
-```
-
-#### Create the Map Fill Data
-
-``` r
-data <- data |> map_fill_data(col_fill = "value", col_ref = "state")
-#> ! There are duplicated values in state. value will be aggregated using the mean.
-
-data
-#> # A tibble: 27 × 2
-#>   state              value
-#>   <chr>              <dbl>
-#> 1 Minas Gerais        581.
-#> 2 Mato Grosso do Sul  538.
-#> 3 Amazonas            543.
-#> 4 Sergipe             464.
-#> 5 Acre                546.
-#> 6 Roraima             530.
-#> # ℹ 21 more rows
-```
-
-#### Visualize the Map Fill Data
-
-``` r
-brazil_states_vector |>
-  left_join(data, by = c("NAME_1" = "state")) |>
-  plot_vector_data()
-```
-
-![](reference/figures/readme-map-fill-data-2-1.png)
-
-### `filter_points()`
-
-[`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.html)
-was developed to filter latitude/longitude points that intersect with a
-given [`sf`](https://r-spatial.github.io/sf/) geometry. This is
-particularly useful for removing points that fall in the ocean when
-working with country or state boundaries.
-
-#### Set the Environment
-
-``` r
-library(dplyr)
-library(ggplot2)
-library(geobr)
-library(orbis)
-library(sf)
-```
-
-``` r
-plot_geometry <- function(geometry) {
-  plot <-
-    geometry |>
-    ggplot() +
-    geom_sf(
-      color = "gray75",
-      fill = "white",
-      inherit.aes = FALSE
-    ) +
-    labs(x = "Longitude", y = "Latitude")
-
-  print(plot)
-}
-```
-
-``` r
-plot_points <- function(data, geometry) {
-  plot <-
-    data |>
-    ggplot(aes(x = longitude, y = latitude)) +
-    geom_sf(
-      data = geometry,
-      color = "gray75",
-      fill = "white",
-      inherit.aes = FALSE
-    ) +
-    geom_point(color = "#3243A6") +
-    labs(x = "Longitude", y = "Latitude")
-
-  print(plot)
-}
-```
-
-#### Define the Points
-
-``` r
-data <- tibble(
-  latitude = brazil_state_latitude(),
-  longitude = brazil_state_longitude()
-)
-
-data
-#> # A tibble: 27 × 2
-#>   latitude longitude
-#>      <dbl>     <dbl>
-#> 1  -9.98       -67.8
-#> 2  -9.65       -35.7
-#> 3   0.0402     -51.1
-#> 4  -3.13       -60.0
-#> 5 -13.0        -38.5
-#> 6  -3.73       -38.5
-#> # ℹ 21 more rows
-```
-
-#### Visualize the Points on a Map
-
-``` r
-brazil_states_geometry <- read_state()
-#> Using year/date 2010
-```
-
-``` r
-data |> plot_points(brazil_states_geometry)
-```
-
-![](reference/figures/readme-filter-points-on-land-1-1.png)
-
-#### Set the Geometry to Filter the Points
-
-``` r
-sp_state_geometry <- read_state(code = "SP")
-#> Using year/date 2010
-```
-
-``` r
-sp_state_geometry |> plot_geometry()
-```
-
-![](reference/figures/readme-filter-points-on-land-2-1.png)
-
-#### Filter the Points
-
-``` r
-data <- data |> filter_points(sp_state_geometry)
-
-data
-#> # A tibble: 1 × 2
-#>   latitude longitude
-#>      <dbl>     <dbl>
-#> 1    -23.6     -46.6
-```
-
-#### Visualize the Filtered Points
-
-``` r
-data |> plot_points(brazil_states_geometry)
-```
-
-![](reference/figures/readme-filter-points-on-land-3-1.png)
 
 Click [here](https://danielvartan.github.io/orbis/reference/) to see the
 full list of functions.
@@ -456,48 +163,31 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 Contributions are always welcome! Whether you want to report bugs,
 suggest new features, or help improve the code or documentation, your
-input makes a difference. Before opening a new issue, please take a
-moment to review our [Guidelines for
-Contributing](https://danielvartan.github.io/orbis/CONTRIBUTING.html)
-and check the [issues tab](https://github.com/danielvartan/orbis/issues)
-to see if your topic has already been reported.
+input makes a difference.
+
+Before opening a new issue, please check the [issues
+tab](https://github.com/danielvartan/orbis/issues) to see if your topic
+has already been reported.
 
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
 
 You can also support the development of `orbis` by becoming a sponsor.
+
 Click [here](https://github.com/sponsors/danielvartan) to make a
 donation. Please mention `orbis` in your donation message.
 
 # Package index
 
-## Rasters
-
-Functions to manipulate `SpatRaster` objects.
-
-- [`shift_and_crop()`](https://danielvartan.github.io/orbis/reference/shift_and_crop.md)
-  : Shift, rotate, and crop a raster using a vector
-- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
-  : Shift and rotate a raster or a vector
-
-## Vectors
-
-Functions to manipulate `SpatVector` and `sf` objects.
-
-- [`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.md)
-  : Filter points on land
-
 ## APIs
 
 Client functions for accessing external data sources.
 
-- [`qualocep_download()`](https://danielvartan.github.io/orbis/reference/qualocep_download.md)
-  : Get Qual o CEP data
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.md)
   : Get and aggregate data by year from SIDRA API
 
 ## Brazil
 
-Functions to access Brazilian geographic and administrative data.
+Functions for accessing Brazilian geographic and administrative data.
 
 - [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.md)
   : Get Brazilian municipalities data
@@ -532,7 +222,7 @@ Functions to access Brazilian geographic and administrative data.
 
 ## World
 
-Functions to access world geographic and administrative data.
+Functions for accessing global geographic and administrative data.
 
 - [`country_names()`](https://danielvartan.github.io/orbis/reference/country_names.md)
   : Get country names
@@ -564,7 +254,7 @@ data.
 
 ## Utilities
 
-Utility functions for spatial data manipulation.
+Utility functions for spatial data processing.
 
 - [`closest_geobr_year()`](https://danielvartan.github.io/orbis/reference/closest_geobr_year.md)
   :
@@ -573,9 +263,6 @@ Utility functions for spatial data manipulation.
 
 - [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md)
   : Fix postal code numbers
-
-- [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.md)
-  : Prepare data to fill a map
 
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.md)
   : Remove unique outliers from raster files

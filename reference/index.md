@@ -1,33 +1,15 @@
 # Package index
 
-## Rasters
-
-Functions to manipulate `SpatRaster` objects.
-
-- [`shift_and_crop()`](https://danielvartan.github.io/orbis/reference/shift_and_crop.md)
-  : Shift, rotate, and crop a raster using a vector
-- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
-  : Shift and rotate a raster or a vector
-
-## Vectors
-
-Functions to manipulate `SpatVector` and `sf` objects.
-
-- [`filter_points()`](https://danielvartan.github.io/orbis/reference/filter_points.md)
-  : Filter points on land
-
 ## APIs
 
 Client functions for accessing external data sources.
 
-- [`qualocep_download()`](https://danielvartan.github.io/orbis/reference/qualocep_download.md)
-  : Get Qual o CEP data
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.md)
   : Get and aggregate data by year from SIDRA API
 
 ## Brazil
 
-Functions to access Brazilian geographic and administrative data.
+Functions for accessing Brazilian geographic and administrative data.
 
 - [`brazil_municipality()`](https://danielvartan.github.io/orbis/reference/brazil_municipality.md)
   : Get Brazilian municipalities data
@@ -62,7 +44,7 @@ Functions to access Brazilian geographic and administrative data.
 
 ## World
 
-Functions to access world geographic and administrative data.
+Functions for accessing global geographic and administrative data.
 
 - [`country_names()`](https://danielvartan.github.io/orbis/reference/country_names.md)
   : Get country names
@@ -94,7 +76,7 @@ data.
 
 ## Utilities
 
-Utility functions for spatial data manipulation.
+Utility functions for spatial data processing.
 
 - [`closest_geobr_year()`](https://danielvartan.github.io/orbis/reference/closest_geobr_year.md)
   :
@@ -103,9 +85,6 @@ Utility functions for spatial data manipulation.
 
 - [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md)
   : Fix postal code numbers
-
-- [`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.md)
-  : Prepare data to fill a map
 
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.md)
   : Remove unique outliers from raster files

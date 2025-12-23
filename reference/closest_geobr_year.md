@@ -43,7 +43,6 @@ data.
 
 Other utility functions:
 [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md),
-[`map_fill_data()`](https://danielvartan.github.io/orbis/reference/map_fill_data.md),
 [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.md),
 [`test_geobr_connection()`](https://danielvartan.github.io/orbis/reference/test_geobr_connection.md),
 [`unique_outliers()`](https://danielvartan.github.io/orbis/reference/unique_outliers.md)

@@ -3,6 +3,18 @@
 `worldclim_download()` downloads and unzips data from the
 [WorldClim](https://worldclim.org/) website.
 
+See `worldclim_global()`, `worldclim_country()`, and `worldclim_tile()`
+from the [geodata](https://cran.r-project.org/package=geodata) package
+for alternative ways to download WorldClim data.
+
+**Note:** This function requires an active internet connection and the
+[`curl`](https://CRAN.R-project.org/package=curl),
+[`fs`](https://CRAN.R-project.org/package=fs),
+[`httr`](https://CRAN.R-project.org/package=httr),
+[`rvest`](https://CRAN.R-project.org/package=rvest), and
+[`zip`](https://CRAN.R-project.org/package=zip) packages to be
+installed.
+
 ## Usage
 
 ``` r
