@@ -6,14 +6,13 @@
 \usage{
 worldclim_to_ascii(
   file,
-  dir = dirname(file[1]),
   shape = NULL,
   box = NULL,
-  dateline_fix = TRUE,
+  shift_longitude = TRUE,
   extreme_outlier_fix = TRUE,
   overwrite = TRUE,
-  dx = -45,
   na_flag = -99,
+  dir = dirname(file[1]),
   ...
 )
 }
@@ -23,44 +22,41 @@ worldclim_to_ascii(
 \href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to be converted.
 The files must have a \code{.tif} extension.}
 
-\item{dir}{A \code{\link[base:character]{character}} vector specifying the output
-directory for the converted
-\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} files
-(default: \code{dirname(file[1])}).}
-
-\item{shape}{(optional) A \code{\link[terra:SpatVector-class]{SpatVector}} object
-representing the polygon to crop the raster data (default: \code{NULL}).}
+\item{shape}{(optional) An \code{\link[sf:sf]{sf}} or
+\code{\link[terra:vect]{SpatVector}} class object representing the polygon to crop
+the raster data (default: \code{NULL}).}
 
 \item{box}{(optional) A \code{\link[base:numeric]{numeric}} vector of length 4
 specifying the bounding box for cropping the raster data in the format
 \code{c(xmin, ymin, xmax, ymax)} (default: \code{NULL}).}
 
-\item{dateline_fix}{(optional) A \code{\link[base:logical]{logical}} flag indicating
-whether to apply a dateline fix to the raster data. This is particularly
-useful when working with rasters and vectors that span the dateline (e.g.
-the Russian territory). See \code{\link{shift_and_crop}} to learn more
-(default: \code{TRUE}).}
+\item{shift_longitude}{(optional) A \code{\link[base:logical]{logical}} flag
+indicating whether to apply a dateline fix to the raster data. This is
+particularly useful when working with rasters and vectors that span the
+dateline (e.g. the Russian territory). See
+\code{\link[sf:st_shift_longitude]{st_shift_longitude()}} to learn more
+(default: \code{FALSE}).}
 
 \item{extreme_outlier_fix}{(optional) A \code{\link[base:logical]{logical}} flag
-indicating whether to replace extreme outliers with \code{NA}. Extreme outliers
-are defined as values more than 10 times the interquartile range
-(\href{https://en.wikipedia.org/wiki/Interquartile_range}{IQR})
-below the first or above the third quartile. The quartiles and IQR are
-calculated using the unique (deduplicated) values of the data, and the
-resulting thresholds are applied to the full dataset. This helps remove
-abnormal values in raster data.}
+indicating whether to transform to \code{NA} values 10 times the interquartile
+range (\href{https://en.wikipedia.org/wiki/Interquartile_range}{IQR}) below the
+first quartile or above the third quartile of the data values without
+duplications. This is useful to remove abnormal values in the raster data
+(default: \code{FALSE}).}
 
 \item{overwrite}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to overwrite existing files in the output directory
 (default: \code{TRUE}).}
 
-\item{dx}{(optional) A \code{\link[base:numeric]{numeric}} value specifying the
-horizontal distance in degrees to shift the raster data. This is only
-relevant if \code{dateline_fix} is set to \code{TRUE} (default: \code{-45}).}
-
 \item{na_flag}{(optional) An \code{\link[base:integer]{integer}} value specifying
 the \code{NODATA_VALUE} for the output ASCII files. See the \emph{Details} section
 to learn more (default: \code{-99}).}
+
+\item{dir}{A \code{\link[base:character]{character}} vector specifying the output
+directory for the converted
+\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} files.
+Defaults to the directory of the first file in the \code{file} parameter
+(default: \code{dirname(file[1])}).}
 
 \item{...}{Additional arguments passed to
 \code{\link[terra:writeRaster]{writeRaster()}} for writing the ASCII files.}
@@ -74,8 +70,6 @@ file paths of the converted ASCII files.
 \href{https://worldclim.org/}{WorldClim}
 \href{https://en.wikipedia.org/wiki/GeoTIFF}{GeoTIFF} files to the
 \href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} raster format.
-Optionally, rasters can be cropped and/or aggregated using a provided
-polygon of class \code{\link[terra:SpatVector-class]{SpatVector}}.
 
 \strong{Note:} This function requires the \href{https://fs.r-lib.org/}{\code{fs}} package to
 be installed.

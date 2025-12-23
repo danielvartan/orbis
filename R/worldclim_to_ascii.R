@@ -6,11 +6,6 @@
 #' [WorldClim](https://worldclim.org/)
 #' [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to the
 #' [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) raster format.
-#' Optionally, rasters can be cropped and/or aggregated using a provided
-#' polygon of class [`SpatVector`][terra::SpatVector-class].
-#'
-#' **Note:** This function requires the [`fs`](https://fs.r-lib.org/) package to
-#' be installed.
 #'
 #' @details
 #'
@@ -28,44 +23,35 @@
 #'   [WorldClim](https://worldclim.org/)
 #'   [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) files to be converted.
 #'   The files must have a `.tif` extension.
-#' @param dir A [`character`][base::character()] vector specifying the output
-#'   directory for the converted
-#'   [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) files
-#'   (default: `dirname(file[1])`).
-#' @param shape (optional) A [`SpatVector`][terra::SpatVector-class] object
-#'   representing the polygon to crop the raster data (default: `NULL`).
+#' @param shape (optional) An [`sf`][sf::st_sf()] or
+#'   [`SpatVector`][terra::vect()] class object representing the polygon to crop
+#'   the raster data (default: `NULL`).
 #' @param box (optional) A [`numeric`][base::numeric()] vector of length 4
 #'   specifying the bounding box for cropping the raster data in the format
 #'   `c(xmin, ymin, xmax, ymax)` (default: `NULL`).
-#' @param dateline_fix (optional) A [`logical`][base::logical()] flag indicating
-#'   whether to apply a dateline fix to the raster data. This is particularly
-#'   useful when working with rasters and vectors that span the dateline (e.g.
-#'   the Russian territory). See [`shift_and_crop`] to learn more
-#'   (default: `TRUE`).
+#' @param shift_longitude (optional) A [`logical`][base::logical()] flag
+#'   indicating whether to apply a dateline fix to the raster data. This is
+#'   particularly useful when working with rasters and vectors that span the
+#'   dateline (e.g. the Russian territory). See
+#'   [`st_shift_longitude()`][sf::st_shift_longitude()] to learn more
+#'   (default: `FALSE`).
 #' @param extreme_outlier_fix (optional) A [`logical`][base::logical()] flag
 #'   indicating whether to transform to `NA` values 10 times the interquartile
-#'   range
-#'   ([IQR](https://en.wikipedia.org/wiki/Interquartile_range))
-#'   below the first quartile or above the third quartile of the data values
-#'   without duplications. This is useful to remove abnormal values in the
-#'   raster data (default: `FALSE`).
-#' @param extreme_outlier_fix (optional) A [`logical`][base::logical()] flag
-#'   indicating whether to replace extreme outliers with `NA`. Extreme outliers
-#'   are defined as values more than 10 times the interquartile range
-#'   ([IQR](https://en.wikipedia.org/wiki/Interquartile_range))
-#'   below the first or above the third quartile. The quartiles and IQR are
-#'   calculated using the unique (deduplicated) values of the data, and the
-#'   resulting thresholds are applied to the full dataset. This helps remove
-#'   abnormal values in raster data.
+#'   range ([IQR](https://en.wikipedia.org/wiki/Interquartile_range)) below the
+#'   first quartile or above the third quartile of the data values without
+#'   duplications. This is useful to remove abnormal values in the raster data
+#'   (default: `FALSE`).
 #' @param overwrite (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to overwrite existing files in the output directory
 #'   (default: `TRUE`).
-#' @param dx (optional) A [`numeric`][base::numeric()] value specifying the
-#'   horizontal distance in degrees to shift the raster data. This is only
-#'   relevant if `dateline_fix` is set to `TRUE` (default: `-45`).
 #' @param na_flag (optional) An [`integer`][base::integer()] value specifying
 #'   the `NODATA_VALUE` for the output ASCII files. See the *Details* section
 #'   to learn more (default: `-99`).
+#' @param dir A [`character`][base::character()] vector specifying the output
+#'   directory for the converted
+#'   [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) files.
+#'   Defaults to the directory of the first file in the `file` parameter
+#'   (default: `dirname(file[1])`).
 #' @param ... Additional arguments passed to
 #'   [`writeRaster()`][terra::writeRaster()] for writing the ASCII files.
 #'
@@ -118,14 +104,13 @@
 #' }
 worldclim_to_ascii <- function(
   file,
-  dir = dirname(file[1]),
   shape = NULL,
   box = NULL,
-  dateline_fix = TRUE,
+  shift_longitude = TRUE,
   extreme_outlier_fix = TRUE,
   overwrite = TRUE,
-  dx = -45,
   na_flag = -99,
+  dir = dirname(file[1]),
   ...
 ) {
   require_pkg("fs", "stats")
@@ -135,10 +120,9 @@ worldclim_to_ascii <- function(
   checkmate::assert_directory_exists(dir, access = "rw")
   checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
   checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
-  checkmate::assert_flag(dateline_fix)
+  checkmate::assert_flag(shift_longitude)
   checkmate::assert_flag(extreme_outlier_fix)
   checkmate::assert_flag(overwrite)
-  checkmate::assert_number(dx, finite = TRUE)
   checkmate::assert_int(na_flag)
 
   # R CMD Check variable bindings fix
@@ -159,13 +143,20 @@ worldclim_to_ascii <- function(
   }
 
   if (!is.null(shape)) {
-    if (isTRUE(dateline_fix) && isTRUE(test_dateline(shape))) {
+    if (isTRUE(shift_longitude) && isTRUE(test_dateline(shape))) {
       cli::cli_progress_step(
         "Applying dateline fix to {.strong {cli::col_blue('shape')}}."
       )
 
-      shape <- shape |> shift_and_rotate(dx = dx)
+      shape <-
+        shape |>
+        sf::st_as_sf() |>
+        sf::st_shift_longitude()
     }
+  }
+
+  if (inherits(shape, "sf")) {
+    shape <- terra::vect(shape)
   }
 
   cli::cli_progress_bar(
@@ -186,8 +177,8 @@ worldclim_to_ascii <- function(
     data_i <- i |> terra::rast()
 
     if (!is.null(shape)) {
-      if (isTRUE(dateline_fix) && isTRUE(test_dateline(shape))) {
-        data_i <- data_i |> shift_and_rotate(dx = dx)
+      if (isTRUE(shift_longitude) && isTRUE(test_dateline(shape))) {
+        data_i <- terra::rotate(data_i)
       }
 
       data_i <-
@@ -201,7 +192,9 @@ worldclim_to_ascii <- function(
         )
     }
 
-    if (!is.null(box)) data_i <- data_i |> terra::crop(box)
+    if (!is.null(box)) {
+      data_i <- data_i |> terra::crop(box)
+    }
 
     asc_file <- asc_file |> adjust_fcd_file_name(data_i)
 
@@ -214,7 +207,9 @@ worldclim_to_ascii <- function(
         ...
       )
 
-    if (isTRUE(extreme_outlier_fix)) remove_unique_outliers(asc_file, 10)
+    if (isTRUE(extreme_outlier_fix)) {
+      remove_unique_outliers(asc_file, 10)
+    }
 
     out <- c(out, asc_file)
 
