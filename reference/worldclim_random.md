@@ -65,20 +65,20 @@ worldclim_random("hcd")
 #>                   "hcd" 
 #> 
 #> $resolution
-#> 2.5 Minutes (~21 km2 at the Equator) 
-#>                               "2.5m" 
+#> 5 Minutes (~85 km2 at the Equator) 
+#>                               "5m" 
 #> 
 #> $variable
-#> Average Minimum Temperature (°C) 
-#>                           "tmin" 
+#> Total Precipitation (mm) 
+#>                   "prec" 
 #> 
 #> $year
 #> 1970-2000 
-#>      1983 
+#>      1971 
 #> 
 #> $month
-#> April 
-#>     4 
+#> February 
+#>        2 
 #> 
 
 worldclim_random("hmwd")
@@ -87,20 +87,20 @@ worldclim_random("hmwd")
 #>                          "hmwd" 
 #> 
 #> $resolution
-#> 5 Minutes (~85 km2 at the Equator) 
-#>                               "5m" 
+#> 2.5 Minutes (~21 km2 at the Equator) 
+#>                               "2.5m" 
 #> 
 #> $variable
-#> Average Minimum Temperature (°C) 
-#>                           "tmin" 
+#> Average Maximum Temperature (°C) 
+#>                           "tmax" 
 #> 
 #> $year
-#> 1960-1969 
-#>      1960 
+#> 2010-2019 
+#>      2011 
 #> 
 #> $month
-#> July 
-#>    7 
+#> September 
+#>         9 
 #> 
 
 worldclim_random("fcd")
@@ -125,11 +125,11 @@ worldclim_random("fcd")
 #> "ssp585" 
 #> 
 #> $year
-#> 2061-2080 
-#>      2068 
+#> 2021-2040 
+#>      2023 
 #> 
 #> $month
-#> February 
-#>        2 
+#> August 
+#>      8 
 #> 
 ```

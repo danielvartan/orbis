@@ -1,5 +1,14 @@
 # Package index
 
+## Terra
+
+Functions to manipulate `SpatRaster` and `SpatVector` objects.
+
+- [`shift_and_crop()`](https://danielvartan.github.io/orbis/reference/shift_and_crop.md)
+  : Shift, rotate, and crop a raster using a vector
+- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
+  : Shift and rotate a raster or a vector
+
 ## APIs
 
 Client functions for accessing external data sources.

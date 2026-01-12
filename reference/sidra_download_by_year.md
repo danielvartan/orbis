@@ -91,11 +91,11 @@ library(dplyr)
   }
 #> ⠙ Downloading data from 2010
 #> All others arguments are desconsidered when 'api' is informed
-#> ✔ Downloading data from 2010 [9.3s]
+#> ✔ Downloading data from 2010 [15.5s]
 #> 
 #> ⠙ Downloading data from 2011
 #> All others arguments are desconsidered when 'api' is informed
-#> ✔ Downloading data from 2011 [12.3s]
+#> ✔ Downloading data from 2011 [14.2s]
 #> 
 #> Rows: 11,126
 #> Columns: 13

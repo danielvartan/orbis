@@ -114,7 +114,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_longitude(3550308)
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> São Paulo-SP 
 #> -46.57038318 
 # }
@@ -123,7 +123,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_longitude(c(3550308, 3500204))
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> São Paulo-SP    Adolfo-SP 
 #> -46.57038318 -49.64972143 
 # }
@@ -132,7 +132,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_longitude(c(3550308, 1000, 3500204))
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> São Paulo-SP         <NA>    Adolfo-SP 
 #> -46.57038318           NA -49.64972143 
 # }
@@ -141,7 +141,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_longitude(c(3550308, NA, 3500204))
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> São Paulo-SP         <NA>    Adolfo-SP 
 #> -46.57038318           NA -49.64972143 
 # }

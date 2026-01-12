@@ -3,7 +3,10 @@
 `worldclim_download()` downloads and unzips data from the
 [WorldClim](https://worldclim.org/) website.
 
-See `worldclim_global()`, `worldclim_country()`, and `worldclim_tile()`
+See
+[`worldclim_global()`](https://rdrr.io/pkg/geodata/man/worldclim.html),
+[`worldclim_country()`](https://rdrr.io/pkg/geodata/man/worldclim.html),
+and [`worldclim_tile()`](https://rdrr.io/pkg/geodata/man/worldclim.html)
 from the [geodata](https://cran.r-project.org/package=geodata) package
 for alternative ways to download WorldClim data.
 

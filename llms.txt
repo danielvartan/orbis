@@ -2,11 +2,12 @@
 
 ## Overview
 
-`orbis` provides tools for spatial data analysis in R. It follows
-[tidyverse
+`orbis` is an [R](https://www.r-project.org/) package with tools to
+simplify spatial data analysis. It provides an intuitive interface that
+follows [tidyverse
 principles](https://tidyverse.tidyverse.org/articles/manifesto.html) and
-is designed to work with the [r-spatial](https://r-spatial.org/)
-collection of packages.
+integrates seamlessly with the [tidyverse
+ecosystem](https://tidyverse.org/).
 
 > If you find this project useful, please consider giving it a star!  
 > [![GitHub Repository
@@ -32,20 +33,88 @@ remotes::install_github("danielvartan/orbis")
 `orbis` is equipped with several functions to help with your analysis,
 such as:
 
+- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html):
+  Shift and rotate a raster or a vector
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html):
-  Remove unique outliers from raster files.
+  Remove unique outliers from raster files
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html):
   Download and aggregate data by year from
-  [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading).
+  [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading)
 - [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.html):
-  Download [WorldClim](https://worldclim.org/) data.
+  Download [WorldClim](https://worldclim.org/) data
 - [`worldclim_to_ascii()`](https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.html):
   Convert [WorldClim](https://worldclim.org/)
   [GeoTIFF](https://www.ogc.org/standards/geotiff/) files to [Esri
   ASCII](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/esri-ascii-raster-format.htm)
-  raster format.
+  raster format
 
-Here is an example of usage.
+Here are some examples of usage.
+
+### `shift_and_rotate()`
+
+[`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html)
+was developed to simplify shifting and rotating spatial data, especially
+for rasters and vectors that cross the [International Date
+Line](https://en.wikipedia.org/wiki/International_Date_Line) (e.g. the
+Russian territory).
+
+#### Set the Environment
+
+``` r
+library(dplyr)
+library(geodata)
+library(ggplot2)
+library(orbis)
+library(terra)
+library(tidyterra)
+```
+
+``` r
+plot_vector <- function(vector) {
+  plot <-
+    vector |>
+    ggplot() +
+    geom_spatvector(fill = "#3243A6", color = "white")
+
+  print(plot)
+}
+```
+
+#### Define a World Vector
+
+``` r
+world_vector <- world(path = tempdir())
+```
+
+#### Visualize the World Vector
+
+``` r
+world_vector |> plot_vector()
+```
+
+![](reference/figures/readme-shift-and-rotate-1-1.png)
+
+#### Define a Country Vector
+
+``` r
+russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
+```
+
+#### Visualize the Country Vector
+
+``` r
+russia_vector |> plot_vector()
+```
+
+![](reference/figures/readme-shift-and-rotate-2-1.png)
+
+#### Shift and Rotate the Country Vector 45 Degrees to the Left
+
+``` r
+russia_vector |> shift_and_rotate(-45) |> plot_vector()
+```
+
+![](reference/figures/readme-shift-and-rotate-3-1.png)
 
 ### `remove_unique_outliers()`
 
@@ -123,7 +192,7 @@ support its continued improvement.
 citation("orbis")
 #> To cite orbis in publications use:
 #> 
-#>   Vartanian, D. (2025). orbis: Spatial data analysis tools [Computer
+#>   Vartanian, D. (2026). orbis: Spatial data analysis tools [Computer
 #>   software]. https://danielvartan.github.io/orbis
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -131,7 +200,7 @@ citation("orbis")
 #>   @Misc{,
 #>     title = {orbis: Spatial data analysis tools},
 #>     author = {Daniel Vartanian},
-#>     year = {2025},
+#>     year = {2026},
 #>     url = {https://danielvartan.github.io/orbis},
 #>     note = {R package},
 #>   }
@@ -177,6 +246,15 @@ Click [here](https://github.com/sponsors/danielvartan) to make a
 donation. Please mention `orbis` in your donation message.
 
 # Package index
+
+## Terra
+
+Functions to manipulate `SpatRaster` and `SpatVector` objects.
+
+- [`shift_and_crop()`](https://danielvartan.github.io/orbis/reference/shift_and_crop.md)
+  : Shift, rotate, and crop a raster using a vector
+- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
+  : Shift and rotate a raster or a vector
 
 ## APIs
 

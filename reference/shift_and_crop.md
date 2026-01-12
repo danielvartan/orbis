@@ -5,7 +5,9 @@ specified horizontal distance, then crops the raster to the extent of
 the shifted vector.
 
 This function is particularly useful for working with rasters and
-vectors that span the dateline (e.g. the Russian territory).
+vectors that span the [International Date
+Line](https://en.wikipedia.org/wiki/International_Date_Line) (e.g. the
+Russian territory).
 
 ## Usage
 
@@ -79,6 +81,11 @@ library(geodata)
 library(ggplot2)
 library(terra)
 library(tidyterra)
+#> 
+#> Attaching package: ‘tidyterra’
+#> The following object is masked from ‘package:stats’:
+#> 
+#>     filter
 
 plot_vector <- function(vector) {
   plot <-
@@ -110,7 +117,6 @@ plot_raster <- function(raster) {
 
     russia_vector |> plot_vector()
   }
-#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
 
 # }
 
@@ -133,8 +139,6 @@ plot_raster <- function(raster) {
 
     raster <- raster |> crop(world_shape, mask = TRUE)
   }
-#> The geodata server is temporary out of service for maintenance. It should be back on 20 December. 
-#> Error: [crop] cannot get a SpatExtent from y
 # }
 
 # Visualize the Raster Before Shift and Crop -----
@@ -152,7 +156,6 @@ plot_raster <- function(raster) {
   if (has_internet()) {
     raster <- raster |> shift_and_crop(russia_vector, -45)
   }
-#> Error in shift_and_crop(raster, russia_vector, -45): Assertion on 'vector' failed: Must inherit from class 'SpatVector', but has class 'NULL'.
 # }
 
 # Visualize the Raster After Shift and Crop -----

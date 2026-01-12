@@ -11,13 +11,13 @@
 Source:
 [`inst/CITATION`](https://github.com/danielvartan/orbis/blob/main/inst/CITATION)
 
-Vartanian, D. (2025). orbis: Spatial data analysis tools \[Computer
+Vartanian, D. (2026). orbis: Spatial data analysis tools \[Computer
 software\]. https://danielvartan.github.io/orbis
 
     @Misc{,
       title = {orbis: Spatial data analysis tools},
       author = {Daniel Vartanian},
-      year = {2025},
+      year = {2026},
       url = {https://danielvartan.github.io/orbis},
       note = {R package},
     }

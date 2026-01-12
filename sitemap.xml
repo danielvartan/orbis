@@ -1,7 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://danielvartan.github.io/orbis/404.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/CODE_OF_CONDUCT.html</loc></url>
-<url><loc>https://danielvartan.github.io/orbis/LICENSE-text.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/LICENSE.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/authors.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/index.html</loc></url>
@@ -27,6 +26,8 @@
 <url><loc>https://danielvartan.github.io/orbis/reference/index.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/orbis-package.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/shift_and_crop.html</loc></url>
+<url><loc>https://danielvartan.github.io/orbis/reference/shift_and_rotate.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/test_geobr_connection.html</loc></url>
 <url><loc>https://danielvartan.github.io/orbis/reference/unique_outliers.html</loc></url>

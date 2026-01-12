@@ -145,7 +145,7 @@ library(dplyr)
   if (has_internet()) {
     brazil_municipality() |> glimpse()
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Using year/date 2024
 #> Rows: 5,571
 #> Columns: 9
@@ -164,7 +164,7 @@ library(dplyr)
   if (has_internet()) {
     brazil_municipality(municipality = "Belém") |> glimpse()
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Rows: 3
 #> Columns: 9
 #> $ region_code       <int> 1, 2, 2
@@ -182,7 +182,7 @@ library(dplyr)
   if (has_internet()) {
     brazil_municipality(municipality = "Belém", state = "Pará") |> glimpse()
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Rows: 1
 #> Columns: 9
 #> $ region_code       <int> 1
@@ -200,7 +200,7 @@ library(dplyr)
   if (has_internet()) {
     brazil_municipality(municipality = c("Belém", "São Paulo")) |> glimpse()
   }
-#> ! The closest map year to 2025 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Rows: 4
 #> Columns: 9
 #> $ region_code       <int> 1, 2, 2, 3

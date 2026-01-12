@@ -114,7 +114,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_coords()
   }
-#> ! The closest map year to 2025 is 2010. Using year 2010 instead.
+#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
 #> # A tibble: 5,565 × 3
 #>   municipality_code latitude longitude
@@ -132,7 +132,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_coords(municipality_code = 3550308)
   }
-#> ! The closest map year to 2025 is 2010. Using year 2010 instead.
+#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
 #> # A tibble: 1 × 3
 #>   municipality_code latitude longitude
@@ -144,7 +144,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_coords(municipality_code = 3550)
   }
-#> ! The closest map year to 2025 is 2010. Using year 2010 instead.
+#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
 #> # A tibble: 10 × 3
 #>   municipality_code latitude longitude
@@ -162,7 +162,7 @@ library(curl)
   if (has_internet()) {
     brazil_municipality_coords(municipality_code = c(3550308, 3304557))
   }
-#> ! The closest map year to 2025 is 2010. Using year 2010 instead.
+#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
 #> # A tibble: 2 × 3
 #>   municipality_code latitude longitude

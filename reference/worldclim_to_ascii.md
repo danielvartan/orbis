@@ -13,11 +13,11 @@ worldclim_to_ascii(
   shape = NULL,
   box = NULL,
   shift_longitude = TRUE,
+  dx = -45,
   extreme_outlier_fix = TRUE,
   overwrite = TRUE,
   na_flag = -99,
-  dir = dirname(file[1]),
-  ...
+  dir = dirname(file[1])
 )
 ```
 
@@ -47,11 +47,20 @@ worldclim_to_ascii(
 - shift_longitude:
 
   (optional) A [`logical`](https://rdrr.io/r/base/logical.html) flag
-  indicating whether to apply a dateline fix to the raster data. This is
+  indicating whether to apply a date line fix to the raster data when
+  the shape parameter is provided and spans the [International Date
+  Line](https://en.wikipedia.org/wiki/International_Date_Line). This is
   particularly useful when working with rasters and vectors that span
-  the dateline (e.g. the Russian territory). See
-  [`st_shift_longitude()`](https://r-spatial.github.io/sf/reference/st_shift_longitude.html)
-  to learn more (default: `FALSE`).
+  the date line (e.g. the Russian territory). See
+  [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
+  to learn more (default: `TRUE`).
+
+- dx:
+
+  (optional) A [`numeric`](https://rdrr.io/r/base/numeric.html) value
+  specifying the horizontal distance in degrees to shift the raster
+  data. This is only relevant if `shift_longitude` is set to `TRUE`
+  (default: `-45`).
 
 - extreme_outlier_fix:
 
@@ -82,12 +91,6 @@ worldclim_to_ascii(
   Grid](https://en.wikipedia.org/wiki/Esri_grid) files. Defaults to the
   directory of the first file in the `file` parameter (default:
   `dirname(file[1])`).
-
-- ...:
-
-  Additional arguments passed to
-  [`writeRaster()`](https://rspatial.github.io/terra/reference/writeRaster.html)
-  for writing the ASCII files.
 
 ## Value
 
@@ -158,25 +161,25 @@ library(zip)
         magrittr::extract(1)
   }
 #> ℹ Scraping WorldClim Website
-#> ✔ Scraping WorldClim Website [43ms]
+#> ✔ Scraping WorldClim Website [39ms]
 #> 
 #> ℹ Calculating File Sizes
 #> ℹ Total download size (compressed): 6.92M.
 #> ℹ Calculating File Sizes
 #> ℹ 0 url requests resulted in error.
 #> ℹ Calculating File Sizes
-#> ✔ Calculating File Sizes [357ms]
+#> ✔ Calculating File Sizes [295ms]
 #> 
 #> ℹ Creating LICENSE and README Files
-#> ✔ Creating LICENSE and README Files [18ms]
+#> ✔ Creating LICENSE and README Files [17ms]
 #> 
 #> ℹ Downloading Files
-#> ℹ Downloading 1 file to /tmp/RtmpJGMTl4/historical-climate-data
+#> ℹ Downloading 1 file to /tmp/Rtmp0xV0by/historical-climate-data
 #> ℹ Downloading Files
-#> ✔ Downloading Files [631ms]
+#> ✔ Downloading Files [885ms]
 #> 
 #> ℹ Unzipping Files
-#> ✔ Unzipping Files [14ms]
+#> ✔ Unzipping Files [13ms]
 #> 
 # }
 

@@ -64,11 +64,11 @@ Esri ASCII Grid raster format."><meta property="og:image" content="https://danie
 <span>  shape <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  box <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  shift_longitude <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dx <span class="op">=</span> <span class="op">-</span><span class="fl">45</span>,</span>
 <span>  extreme_outlier_fix <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  overwrite <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  na_flag <span class="op">=</span> <span class="op">-</span><span class="fl">99</span>,</span>
-<span>  dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">file</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
-<span>  <span class="va">...</span></span>
+<span>  dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">dirname</a></span><span class="op">(</span><span class="va">file</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -97,11 +97,18 @@ specifying the bounding box for cropping the raster data in the format
 
 <dt id="arg-shift-longitude">shift_longitude<a class="anchor" aria-label="anchor" href="#arg-shift-longitude"></a></dt>
 <dd><p>(optional) A <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> flag
-indicating whether to apply a dateline fix to the raster data. This is
-particularly useful when working with rasters and vectors that span the
-dateline (e.g. the Russian territory). See
-<code><a href="https://r-spatial.github.io/sf/reference/st_shift_longitude.html" class="external-link">st_shift_longitude()</a></code> to learn more
-(default: <code>FALSE</code>).</p></dd>
+indicating whether to apply a date line fix to the raster data when
+the shape parameter is provided and spans the
+<a href="https://en.wikipedia.org/wiki/International_Date_Line" class="external-link">International Date Line</a>.
+This is particularly useful when working with rasters and vectors that span
+the date line (e.g. the Russian territory). See
+<code><a href="shift_and_rotate.html">shift_and_rotate()</a></code> to learn more (default: <code>TRUE</code>).</p></dd>
+
+
+<dt id="arg-dx">dx<a class="anchor" aria-label="anchor" href="#arg-dx"></a></dt>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying the
+horizontal distance in degrees to shift the raster data. This is only
+relevant if <code>shift_longitude</code> is set to <code>TRUE</code> (default: <code>-45</code>).</p></dd>
 
 
 <dt id="arg-extreme-outlier-fix">extreme_outlier_fix<a class="anchor" aria-label="anchor" href="#arg-extreme-outlier-fix"></a></dt>
@@ -131,11 +138,6 @@ directory for the converted
 <a href="https://en.wikipedia.org/wiki/Esri_grid" class="external-link">Esri ASCII Grid</a> files.
 Defaults to the directory of the first file in the <code>file</code> parameter
 (default: <code>dirname(file[1])</code>).</p></dd>
-
-
-<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed to
-<code><a href="https://rspatial.github.io/terra/reference/writeRaster.html" class="external-link">writeRaster()</a></code> for writing the ASCII files.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -211,25 +213,25 @@ and the lowest temperature ever recorded on Earth is above that threshold.</p>
 <span class="r-in"><span>        <span class="fu">magrittr</span><span class="fu">::</span><span class="fu"><a href="https://magrittr.tidyverse.org/reference/aliases.html" class="external-link">extract</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Scraping WorldClim Website</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Scraping WorldClim Website <span style="color: #B2B2B2;">[43ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Scraping WorldClim Website <span style="color: #B2B2B2;">[39ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Calculating File Sizes</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Total download size (compressed): <span style="color: #BB0000; font-weight: bold;">6.92M</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Calculating File Sizes</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #BB0000; font-weight: bold;">0</span> url requests resulted in error.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Calculating File Sizes</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Calculating File Sizes <span style="color: #B2B2B2;">[357ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Calculating File Sizes <span style="color: #B2B2B2;">[295ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating LICENSE and README Files</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Creating LICENSE and README Files <span style="color: #B2B2B2;">[18ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Creating LICENSE and README Files <span style="color: #B2B2B2;">[17ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading Files</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading <span style="color: #BB0000; font-weight: bold;">1</span> file to <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpJGMTl4/historical-climate-data</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading <span style="color: #BB0000; font-weight: bold;">1</span> file to <span style="color: #0000BB; font-weight: bold;">/tmp/Rtmp0xV0by/historical-climate-data</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading Files</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading Files <span style="color: #B2B2B2;">[631ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading Files <span style="color: #B2B2B2;">[885ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Unzipping Files</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Unzipping Files <span style="color: #B2B2B2;">[14ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Unzipping Files <span style="color: #B2B2B2;">[13ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

@@ -6,12 +6,14 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Shift and rotate a raster or a vector — shift_and_rotate"><meta name="description" content="shift_and_rotate() shifts a raster or vector by a specified horizontal
-distance and rotates the data around the dateline.
+distance and rotates the data around the
+International Date Line.
 This function is particularly useful for working with rasters and vectors
-that span the dateline (e.g., the Russian territory)."><meta property="og:description" content="shift_and_rotate() shifts a raster or vector by a specified horizontal
-distance and rotates the data around the dateline.
+that span the date line (e.g., the Russian territory)."><meta property="og:description" content="shift_and_rotate() shifts a raster or vector by a specified horizontal
+distance and rotates the data around the
+International Date Line.
 This function is particularly useful for working with rasters and vectors
-that span the dateline (e.g., the Russian territory)."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
+that span the date line (e.g., the Russian territory)."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -52,9 +54,10 @@ that span the dateline (e.g., the Russian territory)."><meta property="og:image"
 
     <div class="ref-description section level2">
     <p><code>shift_and_rotate()</code> shifts a raster or vector by a specified horizontal
-distance and rotates the data around the dateline.</p>
+distance and rotates the data around the
+<a href="https://en.wikipedia.org/wiki/International_Date_Line" class="external-link">International Date Line</a>.</p>
 <p>This function is particularly useful for working with rasters and vectors
-that span the dateline (e.g., the Russian territory).</p>
+that span the date line (e.g., the Russian territory).</p>
     </div>
 
     <div class="section level2">
@@ -148,7 +151,6 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">russia_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html" class="external-link">gadm</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"rus"</span>, level <span class="op">=</span> <span class="fl">0</span>, path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The geodata server is temporary out of service for maintenance. It should be back on 20 December. </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Visualize the Vector</span></span></span>
@@ -166,7 +168,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">russia_vector</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="op">-</span><span class="fl">45</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_vector</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in shift_and_rotate(russia_vector, -45):</span> Assertion on 'x' failed: Must inherit from class 'SpatRaster'/'SpatVector', but has class 'NULL'.</span>
+<span class="r-plt img"><img src="shift_and_rotate-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector 45 Degrees to the Right</span></span></span>
@@ -175,7 +177,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">russia_vector</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="fl">45</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_vector</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in shift_and_rotate(russia_vector, 45):</span> Assertion on 'x' failed: Must inherit from class 'SpatRaster'/'SpatVector', but has class 'NULL'.</span>
+<span class="r-plt img"><img src="shift_and_rotate-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Raster Example -----</span></span></span>
@@ -199,8 +201,6 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">&lt;-</span> <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">world_shape</span>, mask <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The geodata server is temporary out of service for maintenance. It should be back on 20 December. </span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> [crop] cannot get a SpatExtent from y</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Visualize the Raster</span></span></span>
@@ -209,7 +209,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector -45 Degrees to the Left</span></span></span>
@@ -218,7 +218,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="op">-</span><span class="fl">45</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector -90 Degrees to the Left</span></span></span>
@@ -227,7 +227,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="op">-</span><span class="fl">90</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector -135 Degrees to the Left</span></span></span>
@@ -236,7 +236,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="op">-</span><span class="fl">135</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-5.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector -180 Degrees to the Left</span></span></span>
@@ -245,7 +245,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-6.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-8.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Visualize the Raster</span></span></span>
@@ -254,7 +254,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-7.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-9.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector 45 Degrees to the Right</span></span></span>
@@ -263,7 +263,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="fl">45</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-8.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-10.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector 90 Degrees to the Right</span></span></span>
@@ -272,7 +272,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="fl">90</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-9.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-11.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector 135 Degrees to the Right</span></span></span>
@@ -281,7 +281,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="fl">135</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-10.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-12.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shift and Rotate the Vector 180 Degrees to the Right</span></span></span>
@@ -290,7 +290,7 @@ by the specified amount in degrees.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/nslookup.html" class="external-link">has_internet</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="va">raster</span> <span class="op">|&gt;</span> <span class="fu">shift_and_rotate</span><span class="op">(</span><span class="fl">180</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plot_raster</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-plt img"><img src="shift_and_rotate-11.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="shift_and_rotate-13.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
