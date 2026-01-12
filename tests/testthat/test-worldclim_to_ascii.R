@@ -51,11 +51,11 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
     readr::read_lines() |>
     testthat::expect_equal(asc_content)
 
-  # if (isTRUE(shift_longitude) && isTRUE(test_dateline(shape))) { [...]
+  # if (isTRUE(shift_longitude) && isTRUE(test_date_line(shape))) { [...]
 
   testthat::local_mocked_bindings(
     require_pkg = function(...) TRUE,
-    test_dateline = function(...) TRUE
+    test_date_line = function(...) TRUE
   )
 
   vector <-

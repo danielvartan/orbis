@@ -1,4 +1,4 @@
-test_dateline <- function(vector) {
+test_date_line <- function(vector) {
   checkmate::assertMultiClass(vector, c("sf", "SpatVector"))
 
   if (inherits(vector, "sf")) {

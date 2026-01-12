@@ -98,19 +98,23 @@ worldclim_download <- function(
 
   cli::cli_progress_step("Calculating File Sizes")
 
-  metadata <-
-    dplyr::tibble(
-      file = basename(urls),
-      url = urls,
-      size = urls |> purrr::map_dbl(get_file_size) |> fs::as_fs_bytes()
-    ) |>
-    dplyr::arrange(size) |>
-    dplyr::mutate(
-      size_cum_sum = size |>
-        tidyr::replace_na() |>
-        cumsum() |>
-        fs::as_fs_bytes()
-    )
+  for (i in seq_len(3)) {
+    metadata <-
+      dplyr::tibble(
+        file = basename(urls),
+        url = urls,
+        size = urls |> purrr::map_dbl(get_file_size) |> fs::as_fs_bytes()
+      ) |>
+      dplyr::arrange(size) |>
+      dplyr::mutate(
+        size_cum_sum = size |>
+          tidyr::replace_na() |>
+          cumsum() |>
+          fs::as_fs_bytes()
+      )
+
+    if (!any(is.na(metadata$size))) break
+  }
 
   if (any(is.na(metadata$size))) {
     cli::cli_abort(

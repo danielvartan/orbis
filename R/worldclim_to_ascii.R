@@ -30,11 +30,16 @@
 #'   specifying the bounding box for cropping the raster data in the format
 #'   `c(xmin, ymin, xmax, ymax)` (default: `NULL`).
 #' @param shift_longitude (optional) A [`logical`][base::logical()] flag
-#'   indicating whether to apply a dateline fix to the raster data. This is
-#'   particularly useful when working with rasters and vectors that span the
-#'   dateline (e.g. the Russian territory). See
-#'   [`st_shift_longitude()`][sf::st_shift_longitude()] to learn more
-#'   (default: `FALSE`).
+#'   indicating whether to apply a date line fix to the raster data when
+#'   the shape parameter is provided and spans the
+#'   [International Date Line](
+#'   https://en.wikipedia.org/wiki/International_Date_Line).
+#'   This is particularly useful when working with rasters and vectors that span
+#'   the date line (e.g. the Russian territory). See
+#'   [`shift_and_rotate()`][shift_and_rotate()] to learn more (default: `TRUE`).
+#' @param dx (optional) A [`numeric`][base::numeric()] value specifying the
+#'   horizontal distance in degrees to shift the raster data. This is only
+#'   relevant if `shift_longitude` is set to `TRUE` (default: `-45`).
 #' @param extreme_outlier_fix (optional) A [`logical`][base::logical()] flag
 #'   indicating whether to transform to `NA` values 10 times the interquartile
 #'   range ([IQR](https://en.wikipedia.org/wiki/Interquartile_range)) below the
@@ -52,8 +57,6 @@
 #'   [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) files.
 #'   Defaults to the directory of the first file in the `file` parameter
 #'   (default: `dirname(file[1])`).
-#' @param ... Additional arguments passed to
-#'   [`writeRaster()`][terra::writeRaster()] for writing the ASCII files.
 #'
 #' @return An invisible [`character`][base::character()] vector containing the
 #'   file paths of the converted ASCII files.
@@ -107,13 +110,13 @@ worldclim_to_ascii <- function(
   shape = NULL,
   box = NULL,
   shift_longitude = TRUE,
+  dx = -45,
   extreme_outlier_fix = TRUE,
   overwrite = TRUE,
   na_flag = -99,
-  dir = dirname(file[1]),
-  ...
+  dir = dirname(file[1])
 ) {
-  require_pkg("fs", "stats")
+  require_pkg("stats")
 
   checkmate::assert_character(file)
   checkmate::assert_file_exists(file, access = "r", extension = "tif")
@@ -121,6 +124,7 @@ worldclim_to_ascii <- function(
   checkmate::assert_class(shape, "SpatVector", null.ok = TRUE)
   checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
   checkmate::assert_flag(shift_longitude)
+  checkmate::assert_number(dx, finite = TRUE)
   checkmate::assert_flag(extreme_outlier_fix)
   checkmate::assert_flag(overwrite)
   checkmate::assert_int(na_flag)
@@ -143,20 +147,16 @@ worldclim_to_ascii <- function(
   }
 
   if (!is.null(shape)) {
-    if (isTRUE(shift_longitude) && isTRUE(test_dateline(shape))) {
+    needs_rotation <-
+      isTRUE(shift_longitude) && isTRUE(test_date_line(shape))
+
+    if (needs_rotation) {
       cli::cli_progress_step(
-        "Applying dateline fix to {.strong {cli::col_blue('shape')}}."
+        "Applying date line fix to {.strong {cli::col_blue('shape')}}."
       )
 
-      shape <-
-        shape |>
-        sf::st_as_sf() |>
-        sf::st_shift_longitude()
+      shape <- shape |> shift_and_rotate(dx = dx)
     }
-  }
-
-  if (inherits(shape, "sf")) {
-    shape <- terra::vect(shape)
   }
 
   cli::cli_progress_bar(
@@ -176,16 +176,26 @@ worldclim_to_ascii <- function(
 
     data_i <- i |> terra::rast()
 
+    terra::crs(data_i) <- "EPSG:4326"
+
     if (!is.null(shape)) {
-      if (isTRUE(shift_longitude) && isTRUE(test_dateline(shape))) {
-        data_i <- terra::rotate(data_i)
+      if (needs_rotation) {
+        cli::cli_progress_step(
+          "Applying date line fix to {.strong {cli::col_blue(i)}}."
+        )
+
+        data_i <- data_i |> shift_and_rotate(dx = dx)
       }
+    }
+
+    if (!is.null(shape)) {
+      terra::crs(shape) <- "EPSG:4326"
 
       data_i <-
         data_i |>
         terra::crop(
           shape,
-          snap = "near",
+          snap = "out",
           mask = TRUE,
           touches = TRUE,
           extend = TRUE
@@ -202,9 +212,10 @@ worldclim_to_ascii <- function(
       terra::writeRaster(
         filename = asc_file,
         overwrite = overwrite,
+        datatype = "FLT4S",
+        filetype = "AAIGrid",
         NAflag = na_flag,
-        verbose = FALSE,
-        ...
+        verbose = FALSE
       )
 
     if (isTRUE(extreme_outlier_fix)) {

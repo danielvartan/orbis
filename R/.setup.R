@@ -1,6 +1,7 @@
 # Load Packages -----
 
 library(brandr)
+library(downlit)
 library(ggplot2)
 library(here)
 library(knitr)
@@ -8,6 +9,7 @@ library(magrittr)
 library(ragg)
 library(showtext)
 library(sysfonts)
+library(xml2)
 
 # Set Options -----
 
@@ -25,11 +27,11 @@ options(
 
 # Set Variables -----
 
-set.seed(2025)
+set.seed(2026)
 
 # Set `knitr`` -----
 
-clean_cache() |>suppressMessages() |> suppressWarnings()
+clean_cache() |> suppressMessages() |> suppressWarnings()
 
 opts_chunk$set(
   comment = "#>",
@@ -44,10 +46,12 @@ opts_chunk$set(
 options(BRANDR_BRAND_YML = here("_brand.yml"))
 
 brandr_options <- list(
-  "BRANDR_COLOR_SEQUENTIAL" =
-    get_brand_color(c("blue", "light-blue", "lilac")),
-  "BRANDR_COLOR_DIVERGING" =
-    get_brand_color(c("primary", "white", "secondary")),
+  "BRANDR_COLOR_SEQUENTIAL" = get_brand_color(c("blue", "light-blue", "lilac")),
+  "BRANDR_COLOR_DIVERGING" = get_brand_color(c(
+    "primary",
+    "white",
+    "secondary"
+  )),
   "BRANDR_COLOR_QUALITATIVE" = c(
     get_brand_color("primary"),
     get_brand_color("secondary"),
@@ -56,7 +60,9 @@ brandr_options <- list(
   )
 )
 
-for (i in seq_along(brandr_options)) options(brandr_options[i])
+for (i in seq_along(brandr_options)) {
+  options(brandr_options[i])
+}
 
 # Set and Load Fonts -----
 

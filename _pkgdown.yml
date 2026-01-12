@@ -31,6 +31,13 @@ navbar:
     articles: ~
 
 reference:
+- title: Terra
+  desc: >
+    Functions to manipulate `SpatRaster` and `SpatVector` objects.
+  contents:
+  - shift_and_crop
+  - shift_and_rotate
+
 - title: APIs
   desc: >
     Client functions for accessing external data sources.

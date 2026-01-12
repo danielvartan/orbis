@@ -9,11 +9,11 @@ worldclim_to_ascii(
   shape = NULL,
   box = NULL,
   shift_longitude = TRUE,
+  dx = -45,
   extreme_outlier_fix = TRUE,
   overwrite = TRUE,
   na_flag = -99,
-  dir = dirname(file[1]),
-  ...
+  dir = dirname(file[1])
 )
 }
 \arguments{
@@ -31,11 +31,16 @@ specifying the bounding box for cropping the raster data in the format
 \code{c(xmin, ymin, xmax, ymax)} (default: \code{NULL}).}
 
 \item{shift_longitude}{(optional) A \code{\link[base:logical]{logical}} flag
-indicating whether to apply a dateline fix to the raster data. This is
-particularly useful when working with rasters and vectors that span the
-dateline (e.g. the Russian territory). See
-\code{\link[sf:st_shift_longitude]{st_shift_longitude()}} to learn more
-(default: \code{FALSE}).}
+indicating whether to apply a date line fix to the raster data when
+the shape parameter is provided and spans the
+\href{https://en.wikipedia.org/wiki/International_Date_Line}{International Date Line}.
+This is particularly useful when working with rasters and vectors that span
+the date line (e.g. the Russian territory). See
+\code{\link[=shift_and_rotate]{shift_and_rotate()}} to learn more (default: \code{TRUE}).}
+
+\item{dx}{(optional) A \code{\link[base:numeric]{numeric}} value specifying the
+horizontal distance in degrees to shift the raster data. This is only
+relevant if \code{shift_longitude} is set to \code{TRUE} (default: \code{-45}).}
 
 \item{extreme_outlier_fix}{(optional) A \code{\link[base:logical]{logical}} flag
 indicating whether to transform to \code{NA} values 10 times the interquartile
@@ -57,9 +62,6 @@ directory for the converted
 \href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} files.
 Defaults to the directory of the first file in the \code{file} parameter
 (default: \code{dirname(file[1])}).}
-
-\item{...}{Additional arguments passed to
-\code{\link[terra:writeRaster]{writeRaster()}} for writing the ASCII files.}
 }
 \value{
 An invisible \code{\link[base:character]{character}} vector containing the
