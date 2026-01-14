@@ -8,7 +8,7 @@
   [tidygeocoder](https://jessecambon.github.io/tidygeocoder/) or
   [geocodebr](https://ipeagit.github.io/geocodebr/) instead.
 - Several redundant functions have been removed for better alignment
-  with the `rspatial` ecosystem.
+  with the [`r-spatial`](https://r-spatial.org/) ecosystem.
 - Function names no longer use the `get_` prefix for improved
   consistency.
 - `wc_*()` functions have been renamed to `worldclim_*()` for clarity.
