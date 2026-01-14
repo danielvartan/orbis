@@ -2,12 +2,16 @@
 
 ## Terra
 
-Functions to manipulate `SpatRaster` and `SpatVector` objects.
+Functions to manipulate
+[`SpatVector`](https://rspatial.github.io/terra/reference/SpatVector-class.html)
+and
+[`SpatRaster`](https://rspatial.github.io/terra/reference/SpatRaster-class.html)
+objects from the [`terra`](https://rspatial.github.io/terra/) package.
 
 - [`shift_and_crop()`](https://danielvartan.github.io/orbis/reference/shift_and_crop.md)
-  : Shift, rotate, and crop a raster using a vector
+  : Shift, rotate, and crop a SpatVector or a SpatRaster
 - [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
-  : Shift and rotate a raster or a vector
+  : Shift and rotate a SpatVector or a SpatRaster
 
 ## APIs
 
@@ -60,8 +64,8 @@ Functions for accessing global geographic and administrative data.
 
 ## WorldClim
 
-Functions to access and manipulate [WorldClim](https://worldclim.org/)
-data.
+Functions to download, extract, and process
+[WorldClim](https://worldclim.org/) climate data.
 
 - [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.md)
   : Download WorldClim data
@@ -93,7 +97,7 @@ Utility functions for spatial data processing.
   Get the closest year available in the `geobr` package
 
 - [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md)
-  : Fix postal code numbers
+  : Fix postal codes
 
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.md)
   : Remove unique outliers from raster files
@@ -101,7 +105,7 @@ Utility functions for spatial data processing.
 - [`test_geobr_connection()`](https://danielvartan.github.io/orbis/reference/test_geobr_connection.md)
   :
 
-  Test `geobr` Package Connection with Its Server
+  Test `geobr` package connection with its server
 
 - [`unique_outliers()`](https://danielvartan.github.io/orbis/reference/unique_outliers.md)
   : Return unique outliers

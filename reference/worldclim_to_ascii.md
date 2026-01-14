@@ -86,8 +86,8 @@ worldclim_to_ascii(
 
 - dir:
 
-  A [`character`](https://rdrr.io/r/base/character.html) vector
-  specifying the output directory for the converted [Esri ASCII
+  (optional) A [`character`](https://rdrr.io/r/base/character.html)
+  vector specifying the output directory for the converted [Esri ASCII
   Grid](https://en.wikipedia.org/wiki/Esri_grid) files. Defaults to the
   directory of the first file in the `file` parameter (default:
   `dirname(file[1])`).
@@ -161,22 +161,20 @@ library(zip)
         magrittr::extract(1)
   }
 #> ℹ Scraping WorldClim Website
-#> ✔ Scraping WorldClim Website [61ms]
+#> ✔ Scraping WorldClim Website [62ms]
 #> 
 #> ℹ Calculating File Sizes
 #> ℹ Total download size (compressed): 6.92M.
 #> ℹ Calculating File Sizes
-#> ℹ 0 url requests resulted in error.
-#> ℹ Calculating File Sizes
-#> ✔ Calculating File Sizes [331ms]
+#> ✔ Calculating File Sizes [214ms]
 #> 
 #> ℹ Creating LICENSE and README Files
 #> ✔ Creating LICENSE and README Files [18ms]
 #> 
 #> ℹ Downloading Files
-#> ℹ Downloading 1 file to /tmp/RtmpYHAOvj/historical-climate-data
+#> ℹ Downloading 1 file to /tmp/RtmpKqqDKi/historical-climate-data
 #> ℹ Downloading Files
-#> ✔ Downloading Files [531ms]
+#> ✔ Downloading Files [525ms]
 #> 
 #> ℹ Unzipping Files
 #> ✔ Unzipping Files [13ms]

@@ -64,7 +64,7 @@ library(readr)
 #> 
 #>     parse_date
 library(terra)
-#> terra 1.8.86
+#> terra 1.8.93
 #> 
 #> Attaching package: ‘terra’
 #> The following objects are masked from ‘package:magrittr’:

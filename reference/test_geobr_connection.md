@@ -1,4 +1,4 @@
-# Test `geobr` Package Connection with Its Server
+# Test `geobr` package connection with its server
 
 `test_geobr_connection()` tests if the `geobr` package can successfully
 connect to its server and retrieve data.

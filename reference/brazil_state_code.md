@@ -26,9 +26,8 @@ An [`integer`](https://rdrr.io/r/base/integer.html) vector with the
 
 ## Details
 
-The data from this function is based on data from the Brazilian
-Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/),
-n.d.).
+Data from this function is based on data from the Brazilian Institute of
+Geography and Statistics ([IBGE](https://www.ibge.gov.br/), n.d.).
 
 ## References
 

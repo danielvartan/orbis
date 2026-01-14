@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">orbis</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.1.0.9000</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,23 +44,26 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="orbis-development-version">orbis (development version)<a class="anchor" aria-label="anchor" href="#orbis-development-version"></a></h2>
-<ul><li>All geocoding functions have been removed. Users are encouraged to use <a href="https://jessecambon.github.io/tidygeocoder/" class="external-link">tidygeocoder</a> or <a href="https://ipeagit.github.io/geocodebr/" class="external-link">geocodebr</a> as alternatives.</li>
-<li>Several redundant functions were removed to better align with the <code>rspatial</code> ecosystem.</li>
-<li>Functions no longer use the <code>get_</code> prefix for improved consistency.</li>
+<h2 class="pkg-version" data-toc-text="0.2.1.9000" id="orbis-0219000-development-version">orbis 0.2.1.9000 (development version)<a class="anchor" aria-label="anchor" href="#orbis-0219000-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0" id="orbis-020">orbis 0.2.0<a class="anchor" aria-label="anchor" href="#orbis-020"></a></h2>
+<ul><li>All geocoding functions have been removed. Users should use <a href="https://jessecambon.github.io/tidygeocoder/" class="external-link">tidygeocoder</a> or <a href="https://ipeagit.github.io/geocodebr/" class="external-link">geocodebr</a> instead.</li>
+<li>Several redundant functions have been removed for better alignment with the <code>rspatial</code> ecosystem.</li>
+<li>Function names no longer use the <code>get_</code> prefix for improved consistency.</li>
 <li>
 <code>wc_*()</code> functions have been renamed to <code>worldclim_*()</code> for clarity.</li>
 <li>The <code>aggregate</code> argument has been removed from <code><a href="../reference/worldclim_to_ascii.html">worldclim_to_ascii()</a></code>.</li>
-<li>The package license has been updated from <a href="https://opensource.org/license/mit" class="external-link">MIT</a> to <a href="https://opensource.org/license/lgpl-3-0" class="external-link">GPLv3</a>.</li>
-<li>New functions <code><a href="../reference/worldclim_file.html">worldclim_file()</a></code>, <code><a href="../reference/worldclim_random.html">worldclim_random()</a></code>, and <code>worldclim_extract_*()</code> have been added to support <a href="https://www.worldclim.org/" class="external-link">WorldClim</a> integration.</li>
-<li>Introduced <code><a href="../reference/unique_outliers.html">unique_outliers()</a></code> and <code><a href="../reference/remove_unique_outliers.html">remove_unique_outliers()</a></code> for outlier detection and removal.</li>
-<li>Introduced <code><a href="../reference/test_geobr_connection.html">test_geobr_connection()</a></code> to help troubleshoot <a href="https://ipeagit.github.io/geobr/" class="external-link">geobr</a> connectivity issues.</li>
+<li>The package license has changed from <a href="https://opensource.org/license/mit" class="external-link">MIT</a> to <a href="https://opensource.org/license/lgpl-3-0" class="external-link">GPLv3</a>.</li>
+<li>New functions <code><a href="../reference/worldclim_file.html">worldclim_file()</a></code>, <code><a href="../reference/worldclim_random.html">worldclim_random()</a></code>, and <code>worldclim_extract_*()</code> support <a href="https://www.worldclim.org/" class="external-link">WorldClim</a> integration.</li>
+<li>Added <code><a href="../reference/unique_outliers.html">unique_outliers()</a></code> and <code><a href="../reference/remove_unique_outliers.html">remove_unique_outliers()</a></code> for outlier detection and removal.</li>
+<li>Added <code><a href="../reference/test_geobr_connection.html">test_geobr_connection()</a></code> to help troubleshoot <a href="https://ipeagit.github.io/geobr/" class="external-link">geobr</a> connectivity issues.</li>
 <li>
-<code><a href="../reference/closest_geobr_year.html">closest_geobr_year()</a></code> now includes support for the year 2024 in <a href="https://ipeagit.github.io/geobr/reference/read_municipality.html" class="external-link"><code>read_municipality()</code></a>.</li>
-<li>Several dependencies have been moved to <code>Suggests</code> to reduce installation overhead.</li>
-<li>The Code of Conduct has been updated to <a href="https://www.contributor-covenant.org/version/3/0/code_of_conduct/" class="external-link">Contributor Covenant 3.0</a>.</li>
+<code><a href="../reference/closest_geobr_year.html">closest_geobr_year()</a></code> now supports the year 2024 in <a href="https://ipeagit.github.io/geobr/reference/read_municipality.html" class="external-link"><code>read_municipality()</code></a>.</li>
+<li>Several dependencies have moved to <code>Suggests</code> to reduce installation overhead.</li>
+<li>The Code of Conduct now follows <a href="https://www.contributor-covenant.org/version/3/0/code_of_conduct/" class="external-link">Contributor Covenant 3.0</a>.</li>
 <li>Error messages, documentation, and test coverage have been improved throughout the package.</li>
-<li>The documentation was updated to reflect these changes.</li>
+<li>Documentation has been updated to reflect these changes.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="orbis-010">orbis 0.1.0<a class="anchor" aria-label="anchor" href="#orbis-010"></a></h2>

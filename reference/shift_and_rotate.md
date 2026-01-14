@@ -1,7 +1,11 @@
-# Shift and rotate a raster or a vector
+# Shift and rotate a SpatVector or a SpatRaster
 
-`shift_and_rotate()` shifts a raster or vector by a specified horizontal
-distance and rotates the data around the [International Date
+`shift_and_rotate()` shifts a
+[`SpatVector`](https://rspatial.github.io/terra/reference/SpatVector-class.html)
+or a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/SpatRaster-class.html)
+by a specified horizontal distance and rotates the data around the
+[International Date
 Line](https://en.wikipedia.org/wiki/International_Date_Line).
 
 This function is particularly useful for working with rasters and
@@ -18,25 +22,26 @@ shift_and_rotate(x, dx = -45, precision = 5, overlap_tolerance = 0.1)
 - x:
 
   A
-  [`SpatRaster`](https://rspatial.github.io/terra/reference/SpatRaster-class.html)
-  or
   [`SpatVector`](https://rspatial.github.io/terra/reference/SpatVector-class.html)
+  or
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/SpatRaster-class.html)
   object to be shifted and rotated.
 
 - dx:
 
-  A numeric value indicating the amount of the horizontal shift in
+  (optional) A number indicating the amount of the horizontal shift in
   degrees. Positive values shift to the right, negative values shift to
   the left (default: `-45`).
 
 - precision:
 
-  (optional) A numeric value specifying the number of decimal digits to
-  use when rounding longitude and latitude coordinates (default: `5`).
+  (optional) An integer number specifying the number of decimal digits
+  to use when rounding longitude and latitude coordinates (default:
+  `5`).
 
 - overlap_tolerance:
 
-  (optional) A numeric value specifying the tolerance for overlapping
+  (optional) A number specifying the tolerance for overlapping
   geometries when combining vectors. This value controls the allowable
   error when merging overlapping geometries (default: `0.1`).
 
@@ -47,7 +52,7 @@ the specified amount in degrees.
 
 ## See also
 
-Other raster functions:
+Other terra functions:
 [`shift_and_crop()`](https://danielvartan.github.io/orbis/reference/shift_and_crop.md)
 
 ## Examples

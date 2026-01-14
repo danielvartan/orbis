@@ -19,5 +19,4 @@ software\]. https://danielvartan.github.io/orbis
       author = {Daniel Vartanian},
       year = {2026},
       url = {https://danielvartan.github.io/orbis},
-      note = {R package},
     }

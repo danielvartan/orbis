@@ -96,10 +96,9 @@ the following columns:
 
 ## Details
 
-The data from this function is based on data from the Brazilian
-Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/))
-via the [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-and
+Data from this function is based on data from the Brazilian Institute of
+Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) via the
+[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) and
 [`geocodebr`](https://ipeagit.github.io/geocodebr/reference/geocodebr.html)
 R packages.
 

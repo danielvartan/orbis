@@ -1,8 +1,10 @@
-# Shift, rotate, and crop a raster using a vector
+# Shift, rotate, and crop a SpatVector or a SpatRaster
 
-`shift_and_crop()` shifts and rotates both a raster and a vector by a
-specified horizontal distance, then crops the raster to the extent of
-the shifted vector.
+`shift_and_crop()` shifts and rotates a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/SpatRaster-class.html)
+by a specified horizontal distance, then crops it to the extent of a
+[`SpatVector`](https://rspatial.github.io/terra/reference/SpatVector-class.html)
+that has been similarly transformed.
 
 This function is particularly useful for working with rasters and
 vectors that span the [International Date
@@ -38,18 +40,19 @@ shift_and_crop(
 
 - dx:
 
-  A numeric value indicating the amount of the horizontal shift in
+  (optional) A number indicating the amount of the horizontal shift in
   degrees. Positive values shift to the right, negative values shift to
   the left (default: `-45`).
 
 - precision:
 
-  (optional) A numeric value specifying the number of decimal digits to
-  use when rounding longitude and latitude coordinates (default: `5`).
+  (optional) An integer number specifying the number of decimal digits
+  to use when rounding longitude and latitude coordinates (default:
+  `5`).
 
 - overlap_tolerance:
 
-  (optional) A numeric value specifying the tolerance for overlapping
+  (optional) A number specifying the tolerance for overlapping
   geometries when combining vectors. This value controls the allowable
   error when merging overlapping geometries (default: `0.1`).
 
@@ -67,7 +70,7 @@ degrees, then cropped to the extent of the provided vector.
 
 ## See also
 
-Other raster functions:
+Other terra functions:
 [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.md)
 
 ## Examples
@@ -106,10 +109,10 @@ plot_raster <- function(raster) {
     ) +
     labs(fill = NULL)
 
-    print(plot)
+  print(plot)
 }
 
-# Define the Vector -----
+# Define the SpatVector -----
 
 # \dontrun{
   if (has_internet()) {
@@ -120,7 +123,7 @@ plot_raster <- function(raster) {
 
 # }
 
-# Define the Raster -----
+# Define the SpatRaster -----
 
 # \dontrun{
   if (has_internet()) {
@@ -141,7 +144,7 @@ plot_raster <- function(raster) {
   }
 # }
 
-# Visualize the Raster Before Shift and Crop -----
+# Visualize the SpatRaster -----
 
 # \dontrun{
   if (has_internet()) {
@@ -150,7 +153,7 @@ plot_raster <- function(raster) {
 
 # }
 
-# Shift, Rotate and Crop the Raster -----
+# Shift, Rotate and Crop the SpatRaster -----
 
 # \dontrun{
   if (has_internet()) {
@@ -158,7 +161,7 @@ plot_raster <- function(raster) {
   }
 # }
 
-# Visualize the Raster After Shift and Crop -----
+# Visualize the SpatRaster After Shift and Crop -----
 
 # \dontrun{
   if (has_internet()) {

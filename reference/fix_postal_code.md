@@ -1,9 +1,9 @@
-# Fix postal code numbers
+# Fix postal codes
 
-`fix_postal_code()` provides tools to fix postal code numbers.
+`fix_postal_code()` provides tools to fix postal code.
 
-This function was designed to work with any postal code number format.
-For Brazilian postal code numbers (CEP), see
+This function was designed to work with any postal code format. For
+Brazilian postal codes (CEP), see
 [`padronizar_ceps()`](https://ipeagit.github.io/enderecobr/reference/padronizar_ceps.html).
 
 ## Usage

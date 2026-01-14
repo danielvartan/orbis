@@ -73,10 +73,10 @@ latitude of the Brazilian municipalities.
 
 ## Details
 
-The data from this function is based on data from the Brazilian
-Institute of Geography and Statistics ([IBGE](https://www.ibge.gov.br/))
-via the [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-R package.
+Data from this function is based on data from the Brazilian Institute of
+Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) via the
+[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) R
+package.
 
 The [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
 package is produced by Brazil's Institute for Applied Economic Research

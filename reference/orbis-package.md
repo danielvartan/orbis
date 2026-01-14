@@ -1,6 +1,6 @@
 # orbis: Spatial Data Analysis Tools
 
-A collection of tools for gathering and processing spatial data in R.
+A collection of tools for gathering and processing spatial data.
 
 ## See also
 
