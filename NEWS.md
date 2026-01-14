@@ -1,5 +1,7 @@
 # orbis 0.2.1.9000 (development version)
 
+- A [Zenodo](https://zenodo.org/) DOI has been registered to provide persistent citation and archiving for future releases.
+
 # orbis 0.2.0
 
 - All geocoding functions have been removed. Users should use [tidygeocoder](https://jessecambon.github.io/tidygeocoder/) or [geocodebr](https://ipeagit.github.io/geocodebr/) instead.

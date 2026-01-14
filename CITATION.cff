@@ -8,7 +8,8 @@ message: 'To cite package "orbis" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'orbis: Spatial Data Analysis Tools'
-version: 0.2.0
+version: 0.2.1.9000
+doi: 10.5281/zenodo.18240800
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
@@ -27,7 +28,7 @@ preferred-citation:
     email: danielvartan@proton.me
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2026'
-  url: https://danielvartan.github.io/orbis
+  doi: 10.5281/zenodo.18240800
 repository-code: https://github.com/danielvartan/orbis/issues/
 url: https://danielvartan.github.io/orbis/
 contact:
@@ -535,6 +536,20 @@ references:
     address: Vienna, Austria
   year: '2026'
   version: '>= 4.4'
+- type: software
+  title: stars
+  abstract: 'stars: Spatiotemporal Arrays, Raster and Vector Data Cubes'
+  notes: Suggests
+  url: https://r-spatial.github.io/stars/
+  repository: https://CRAN.R-project.org/package=stars
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2026'
+  doi: 10.32614/CRAN.package.stars
+  version: '>= 0.7.0'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'

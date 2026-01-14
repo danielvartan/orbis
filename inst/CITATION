@@ -16,10 +16,7 @@ utils::bibentry(
     )
   ),
   year = "2026",
-  url = paste0(
-    "https://danielvartan.github.io/",
-    "orbis"
-  ),
+  doi = "10.5281/zenodo.18240800",
   textVersion = paste0(
     "Vartanian, D",
     ". ",
@@ -31,7 +28,6 @@ utils::bibentry(
     " ",
     "[Computer software]",
     ". ",
-    "https://danielvartan.github.io/",
-    "orbis"
+    "https://doi.org/10.5281/zenodo.18240800"
   )
 )

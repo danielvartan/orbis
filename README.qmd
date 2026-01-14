@@ -26,6 +26,13 @@ source(here("R", ".setup.R"))
 
 cat(
   badge_repostatus("active"),
+  badge_custom(
+    x = "doi",
+    y = "10.5281/zenodo.18240800",
+    color = "1284C5",
+    url = "https://doi.org/10.5281/zenodo.18240800",
+    alt = "DOI badge"
+  ),
   badge_github_actions(action = "R-CMD-check.yaml"),
   badge_codecov(),
   paste0(

@@ -6,6 +6,8 @@
 [![Project Status: Active - The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![DOI
+badge](https://img.shields.io/badge/doi-10.5281/zenodo.18240800-1284C5.svg)](https://doi.org/10.5281/zenodo.18240800)
 [![R build
 status](https://github.com/danielvartan/orbis/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danielvartan/orbis/actions)
 [![](https://codecov.io/gh/danielvartan/orbis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/orbis)
@@ -208,7 +210,7 @@ citation("orbis")
 #> To cite orbis in publications use:
 #> 
 #>   Vartanian, D. (2026). orbis: Spatial data analysis tools [Computer
-#>   software]. https://danielvartan.github.io/orbis
+#>   software]. https://doi.org/10.5281/zenodo.18240800
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -216,8 +218,7 @@ citation("orbis")
 #>     title = {orbis: Spatial data analysis tools},
 #>     author = {Daniel Vartanian},
 #>     year = {2026},
-#>     url = {https://danielvartan.github.io/orbis},
-#>     note = {R package},
+#>     doi = {10.5281/zenodo.18240800},
 #>   }
 ```
 

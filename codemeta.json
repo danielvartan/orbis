@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/danielvartan/orbis/",
   "issueTracker": "https://github.com/danielvartan/orbis/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.0",
+  "version": "0.2.1.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -259,6 +259,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "stars",
+      "name": "stars",
+      "version": ">= 0.7.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=stars"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 3.3.1",
@@ -481,7 +494,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "935.762KB",
+  "fileSize": "935.958KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -496,12 +509,14 @@
         }
       ],
       "name": "orbis: Spatial data analysis tools",
-      "url": "https://danielvartan.github.io/orbis"
+      "identifier": "10.5281/zenodo.18240800",
+      "@id": "https://doi.org/10.5281/zenodo.18240800",
+      "sameAs": "https://doi.org/10.5281/zenodo.18240800"
     }
   ],
   "releaseNotes": "https://github.com/danielvartan/orbis/blob/main/NEWS.md",
   "readme": "https://github.com/danielvartan/orbis/blob/main/README.md",
   "contIntegration": ["https://github.com/danielvartan/orbis/actions", "https://app.codecov.io/gh/danielvartan/orbis"],
   "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "sidra", "spatial-analysis", "terra"]
+  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "sidra", "spatial-analysis", "terra", "ibge"]
 }
