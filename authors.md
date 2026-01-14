@@ -9,14 +9,14 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/danielvartan/orbis/blob/v0.2.0/inst/CITATION)
+[`inst/CITATION`](https://github.com/danielvartan/orbis/blob/main/inst/CITATION)
 
 Vartanian, D. (2026). orbis: Spatial data analysis tools \[Computer
-software\]. https://danielvartan.github.io/orbis
+software\]. https://doi.org/10.5281/zenodo.18240800
 
     @Misc{,
       title = {orbis: Spatial data analysis tools},
       author = {Daniel Vartanian},
       year = {2026},
-      url = {https://danielvartan.github.io/orbis},
+      doi = {10.5281/zenodo.18240800},
     }

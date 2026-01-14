@@ -190,7 +190,7 @@ citation("orbis")
 #> To cite orbis in publications use:
 #> 
 #>   Vartanian, D. (2026). orbis: Spatial data analysis tools [Computer
-#>   software]. https://danielvartan.github.io/orbis
+#>   software]. https://doi.org/10.5281/zenodo.18240800
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -198,8 +198,7 @@ citation("orbis")
 #>     title = {orbis: Spatial data analysis tools},
 #>     author = {Daniel Vartanian},
 #>     year = {2026},
-#>     url = {https://danielvartan.github.io/orbis},
-#>     note = {R package},
+#>     doi = {10.5281/zenodo.18240800},
 #>   }
 ```
 
