@@ -9,7 +9,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/danielvartan/orbis/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/danielvartan/orbis/blob/v0.2.0/inst/CITATION)
 
 Vartanian, D. (2026). orbis: Spatial data analysis tools \[Computer
 software\]. https://danielvartan.github.io/orbis
