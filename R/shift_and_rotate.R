@@ -1,31 +1,32 @@
-#' Shift and rotate a raster or a vector
+#' Shift and rotate a SpatVector or a SpatRaster
 #'
 #' @description
 #'
-#' `shift_and_rotate()` shifts a raster or vector by a specified horizontal
-#' distance and rotates the data around the
+#' `shift_and_rotate()` shifts a [`SpatVector`][terra::SpatVector] or a
+#' [`SpatRaster`][terra::SpatRaster] by a specified horizontal distance and
+#' rotates the data around the
 #' [International Date Line](
 #' https://en.wikipedia.org/wiki/International_Date_Line).
 #'
 #' This function is particularly useful for working with rasters and vectors
 #' that span the date line (e.g., the Russian territory).
 #'
-#' @param x A [`SpatRaster`][terra::SpatRaster()] or
-#'   [`SpatVector`][terra::SpatVector()] object to be shifted and rotated.
-#' @param dx A numeric value indicating the amount of the horizontal shift in
-#'   degrees. Positive values shift to the right, negative values shift to the
-#'   left (default: `-45`).
-#' @param precision (optional) A numeric value specifying the number of decimal
-#'   digits to use when rounding longitude and latitude coordinates
+#' @param x A [`SpatVector`][terra::SpatVector] or
+#'   [`SpatRaster`][terra::SpatRaster] object to be shifted and rotated.
+#' @param dx (optional) A number indicating the amount of the horizontal shift
+#'   in degrees. Positive values shift to the right, negative values shift to
+#'   the left (default: `-45`).
+#' @param precision (optional) An integer number specifying the number of
+#'   decimal digits to use when rounding longitude and latitude coordinates
 #'   (default: `5`).
-#' @param overlap_tolerance (optional) A numeric value specifying the tolerance
-#'   for overlapping geometries when combining vectors. This value controls the
+#' @param overlap_tolerance (optional) A number specifying the tolerance for
+#'   overlapping geometries when combining vectors. This value controls the
 #'   allowable error when merging overlapping geometries (default: `0.1`).
 #'
 #' @return A object of the same class as `x` that has been shifted and rotated
 #'   by the specified amount in degrees.
 #'
-#' @family raster functions
+#' @family terra functions
 #' @export
 #'
 #' @examples

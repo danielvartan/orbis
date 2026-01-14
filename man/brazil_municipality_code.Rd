@@ -44,7 +44,7 @@ Brazilian municipalities.
 \href{https://ipeagit.github.io/geobr/}{\code{geobr}} package to be installed.
 }
 \details{
-The data from this function is based on data from the Brazilian Institute
+Data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) via the
 \code{\link[geobr:geobr]{geobr}} R package.
 

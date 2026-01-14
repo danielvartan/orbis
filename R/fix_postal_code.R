@@ -1,11 +1,11 @@
-#' Fix postal code numbers
+#' Fix postal codes
 #'
 #' @description
 #'
-#' `fix_postal_code()` provides tools to fix postal code numbers.
+#' `fix_postal_code()` provides tools to fix postal code.
 #'
-#' This function was designed to work with any postal code number format.
-#' For Brazilian postal code numbers (CEP), see
+#' This function was designed to work with any postal code format.
+#' For Brazilian postal codes (CEP), see
 #' [`padronizar_ceps()`][enderecobr::padronizar_ceps()].
 #'
 #' @param postal_code A [`character`][base::character] vector with postal code

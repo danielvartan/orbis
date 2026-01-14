@@ -66,7 +66,7 @@ coordinates for each municipality.
 installed, depending on the chosen method for retrieving coordinates.
 }
 \details{
-The data from this function is based on data from the Brazilian Institute
+Data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}) via the
 \code{\link[geobr:geobr]{geobr}} and \code{\link[geocodebr:geocodebr]{geocodebr}} R packages.
 

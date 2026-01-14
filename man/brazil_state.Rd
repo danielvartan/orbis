@@ -21,7 +21,7 @@ Brazilian states.
 \code{brazil_state()} returns a vector with the names of Brazilian states.
 }
 \details{
-The data from this function is based on data from the Brazilian Institute
+Data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}, n.d.).
 }
 \examples{

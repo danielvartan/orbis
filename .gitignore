@@ -5,6 +5,7 @@
 .Ruserdata
 *.knit.md
 *.utf8.md
+**/*.quarto_ipynb
 /.quarto/
 /.Rproj.user/
 /*_cache/
@@ -15,5 +16,3 @@
 /revdep/
 /vignettes/*.html
 /vignettes/*.pdf
-
-**/*.quarto_ipynb

@@ -8,11 +8,11 @@ message: 'To cite package "orbis" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'orbis: Spatial Data Analysis Tools'
-version: 0.1.0.9000
+version: 0.2.0
 identifiers:
 - type: url
   value: https://github.com/danielvartan/orbis/
-abstract: A collection of tools for gathering and processing spatial data in R.
+abstract: A collection of tools for gathering and processing spatial data.
 authors:
 - family-names: Vartanian
   given-names: Daniel
@@ -28,7 +28,6 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2026'
   url: https://danielvartan.github.io/orbis
-  notes: R package
 repository-code: https://github.com/danielvartan/orbis/issues/
 url: https://danielvartan.github.io/orbis/
 contact:

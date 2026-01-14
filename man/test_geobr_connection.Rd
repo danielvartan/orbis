@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_geobr_connection.R
 \name{test_geobr_connection}
 \alias{test_geobr_connection}
-\title{Test \code{geobr} Package Connection with Its Server}
+\title{Test \code{geobr} package connection with its server}
 \usage{
 test_geobr_connection()
 }

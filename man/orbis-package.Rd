@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A collection of tools for gathering and processing spatial data in R.
+A collection of tools for gathering and processing spatial data.
 }
 \seealso{
 Useful links:

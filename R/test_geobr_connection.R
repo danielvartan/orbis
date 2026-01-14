@@ -1,4 +1,4 @@
-#' Test `geobr` Package Connection with Its Server
+#' Test `geobr` package connection with its server
 #'
 #' @description
 #'

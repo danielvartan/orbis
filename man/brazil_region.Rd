@@ -21,7 +21,7 @@ Brazilian regions.
 \href{https://en.wikipedia.org/wiki/Regions_of_Brazil}{Brazilian regions}.
 }
 \details{
-The data from this function is based on data from the Brazilian Institute
+Data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (\href{https://www.ibge.gov.br/}{IBGE}, n.d.).
 }
 \examples{

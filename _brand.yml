@@ -6,7 +6,7 @@ meta:
     home: https://danielvartan.github.io/orbis
     github: https://github.com/danielvartan/orbis
   description: |
-    An R package with tools designed to facilitate spatial data analysis.
+    A collection of tools for gathering and processing spatial data in R.
 
 logo:
   images:

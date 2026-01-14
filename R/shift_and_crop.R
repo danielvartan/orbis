@@ -1,10 +1,10 @@
-#' Shift, rotate, and crop a raster using a vector
+#' Shift, rotate, and crop a SpatVector or a SpatRaster
 #'
 #' @description
 #'
-#' `shift_and_crop()` shifts and rotates both a raster and a vector by a
-#' specified horizontal distance, then crops the raster to the extent of the
-#' shifted vector.
+#' `shift_and_crop()` shifts and rotates a [`SpatRaster`][terra::SpatRaster] by
+#' a specified horizontal distance, then crops it to the extent of a
+#' [`SpatVector`][terra::SpatVector] that has been similarly transformed.
 #'
 #' This function is particularly useful for working with rasters and vectors
 #' that span the
@@ -12,18 +12,18 @@
 #' https://en.wikipedia.org/wiki/International_Date_Line)
 #' (e.g. the Russian territory).
 #'
-#' @param raster A [`SpatRaster`][terra::SpatRaster()] object to be shifted,
+#' @param raster A [`SpatRaster`][terra::SpatRaster] object to be shifted,
 #'   rotated, and cropped.
-#' @param vector A [`SpatVector`][terra::SpatVector()] object to be shifted
+#' @param vector A [`SpatVector`][terra::SpatVector] object to be shifted
 #'   and rotated.
 #' @param ... Additional arguments passed to [`crop()`][terra::crop()].
 #'
-#' @return A [`SpatRaster`][terra::SpatRaster()] object that has been shifted
+#' @return A [`SpatRaster`][terra::SpatRaster] object that has been shifted
 #'   and rotated by the specified amount in degrees, then cropped to the extent
 #'   of the provided vector.
 #'
 #' @inheritParams shift_and_rotate
-#' @family raster functions
+#' @family terra functions
 #' @export
 #'
 #' @examples
@@ -55,10 +55,10 @@
 #'     ) +
 #'     labs(fill = NULL)
 #'
-#'     print(plot)
+#'   print(plot)
 #' }
 #'
-#' # Define the Vector -----
+#' # Define the SpatVector -----
 #'
 #' \dontrun{
 #'   if (has_internet()) {
@@ -68,7 +68,7 @@
 #'   }
 #' }
 #'
-#' # Define the Raster -----
+#' # Define the SpatRaster -----
 #'
 #' \dontrun{
 #'   if (has_internet()) {
@@ -89,7 +89,7 @@
 #'   }
 #' }
 #'
-#' # Visualize the Raster Before Shift and Crop -----
+#' # Visualize the SpatRaster -----
 #'
 #' \dontrun{
 #'   if (has_internet()) {
@@ -97,7 +97,7 @@
 #'   }
 #' }
 #'
-#' # Shift, Rotate and Crop the Raster -----
+#' # Shift, Rotate and Crop the SpatRaster -----
 #'
 #' \dontrun{
 #'   if (has_internet()) {
@@ -105,7 +105,7 @@
 #'   }
 #' }
 #'
-#' # Visualize the Raster After Shift and Crop -----
+#' # Visualize the SpatRaster After Shift and Crop -----
 #'
 #' \dontrun{
 #'   if (has_internet()) {

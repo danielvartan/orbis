@@ -2,7 +2,7 @@
 % Please edit documentation in R/fix_postal_code.R
 \name{fix_postal_code}
 \alias{fix_postal_code}
-\title{Fix postal code numbers}
+\title{Fix postal codes}
 \usage{
 fix_postal_code(
   postal_code,
@@ -55,10 +55,10 @@ A \code{\link[base:character]{character}} vector with fixed postal code
 numbers.
 }
 \description{
-\code{fix_postal_code()} provides tools to fix postal code numbers.
+\code{fix_postal_code()} provides tools to fix postal code.
 
-This function was designed to work with any postal code number format.
-For Brazilian postal code numbers (CEP), see
+This function was designed to work with any postal code format.
+For Brazilian postal codes (CEP), see
 \code{\link[enderecobr:padronizar_ceps]{padronizar_ceps()}}.
 }
 \examples{

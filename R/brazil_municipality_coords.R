@@ -78,7 +78,6 @@ brazil_municipality_coords <- function(
 }
 
 brazil_municipality_coords.geobr <- function(
-  #nolint
   municipality_code = NULL,
   year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   force = FALSE

@@ -20,7 +20,6 @@ utils::bibentry(
     "https://danielvartan.github.io/",
     "orbis"
   ),
-  note = "R package",
   textVersion = paste0(
     "Vartanian, D",
     ". ",

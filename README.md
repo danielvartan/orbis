@@ -9,11 +9,11 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![R build
 status](https://github.com/danielvartan/orbis/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danielvartan/orbis/actions)
 [![](https://codecov.io/gh/danielvartan/orbis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/orbis)
-[![GNU GPLv3
-License](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![FAIR checklist
 badge](https://img.shields.io/badge/fairsoftwarechecklist.net--00a7d9)](https://fairsoftwarechecklist.net/v0.2/?f=21&a=30112&i=32322&r=123)
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%E2%97%8F%20%E2%97%8F%20%E2%97%8F%20%E2%97%8B-green)](https://fair-software.eu)
+[![GNU GPLv3
+License](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributor Covenant 3.0 Code of
 Conduct](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/)
 <!-- badges: end -->
@@ -52,7 +52,7 @@ remotes::install_github("danielvartan/orbis")
 such as:
 
 - [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html):
-  Shift and rotate a raster or a vector
+  Shift and rotate a `SpatVector` or a `SpatRaster`
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html):
   Remove unique outliers from raster files
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html):
@@ -79,23 +79,13 @@ Russian territory).
 #### Set the Environment
 
 ``` r
+library(orbis)
+
 library(dplyr)
 library(geodata)
 library(ggplot2)
-library(orbis)
 library(terra)
 library(tidyterra)
-```
-
-``` r
-plot_vector <- function(vector) {
-  plot <-
-    vector |>
-    ggplot() +
-    geom_spatvector(fill = "#3243A6", color = "white")
-
-  print(plot)
-}
 ```
 
 #### Define a World Vector
@@ -107,7 +97,9 @@ world_vector <- world(path = tempdir())
 #### Visualize the World Vector
 
 ``` r
-world_vector |> plot_vector()
+world_vector |>
+  ggplot() +
+  geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
 ![](man/figures/readme-shift-and-rotate-1-1.png)
@@ -121,7 +113,9 @@ russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 #### Visualize the Country Vector
 
 ``` r
-russia_vector |> plot_vector()
+russia_vector |>
+  ggplot() +
+  geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
 ![](man/figures/readme-shift-and-rotate-2-1.png)
@@ -129,7 +123,10 @@ russia_vector |> plot_vector()
 #### Shift and Rotate the Country Vector 45 Degrees to the Left
 
 ``` r
-russia_vector |> shift_and_rotate(-45) |> plot_vector()
+russia_vector |>
+  shift_and_rotate(-45) |>
+  ggplot() +
+  geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
 ![](man/figures/readme-shift-and-rotate-3-1.png)
@@ -172,15 +169,15 @@ asc_content <- c(
 ```
 
 ``` r
-temp_file <- tempfile(fileext = ".asc")
+file <- tempfile(fileext = ".asc")
 
-asc_content |> write_lines(temp_file)
+asc_content |> write_lines(file)
 ```
 
 #### Visualize Values Before `remove_unique_outliers()`
 
 ``` r
-temp_file |> read_stars() |> pull(1) |> as.vector()
+file |> read_stars() |> pull(1) |> as.vector()
 #>  [1]    1    2    3    4    5    6    7    8    9   10   11   12 1000   14
 #> [15]   15   16    1   18   19   20   21   22   23   24   25
 ```
@@ -188,17 +185,17 @@ temp_file |> read_stars() |> pull(1) |> as.vector()
 #### Visualize Values After `remove_unique_outliers()`
 
 ``` r
-temp_file |> remove_unique_outliers()
+file |> remove_unique_outliers()
 ```
 
 ``` r
-temp_file |> read_stars() |> pull(1) |> as.vector()
+file |> read_stars() |> pull(1) |> as.vector()
 #>  [1]  1  2  3  4  5  6  7  8  9 10 11 12 NA 14 15 16  1 18 19 20 21 22 23 24
 #> [25] 25
 ```
 
 Click [here](https://danielvartan.github.io/orbis/reference/) to see the
-full list of functions.
+full list of `orbis` functions.
 
 ## Citation
 

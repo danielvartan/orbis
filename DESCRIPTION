@@ -1,6 +1,6 @@
 Package: orbis
 Title: Spatial Data Analysis Tools
-Version: 0.1.0.9000
+Version: 0.2.0
 Authors@R: c(
         person(
             given = "Daniel",
@@ -10,8 +10,7 @@ Authors@R: c(
             comment = c(ORCID = "0000-0001-7782-759X")
         )
     )
-Description: A collection of tools for gathering and processing spatial data
-    in R.
+Description: A collection of tools for gathering and processing spatial data.
 License: GPL (>= 3)
 URL: https://danielvartan.github.io/orbis/,
     https://github.com/danielvartan/orbis/

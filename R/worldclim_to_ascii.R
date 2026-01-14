@@ -52,10 +52,10 @@
 #' @param na_flag (optional) An [`integer`][base::integer()] value specifying
 #'   the `NODATA_VALUE` for the output ASCII files. See the *Details* section
 #'   to learn more (default: `-99`).
-#' @param dir A [`character`][base::character()] vector specifying the output
-#'   directory for the converted
-#'   [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid) files.
-#'   Defaults to the directory of the first file in the `file` parameter
+#' @param dir (optional) A [`character`][base::character()] vector specifying
+#'   the output directory for the converted
+#'   [Esri ASCII Grid](https://en.wikipedia.org/wiki/Esri_grid)
+#'   files. Defaults to the directory of the first file in the `file` parameter
 #'   (default: `dirname(file[1])`).
 #'
 #' @return An invisible [`character`][base::character()] vector containing the
@@ -152,7 +152,7 @@ worldclim_to_ascii <- function(
 
     if (needs_rotation) {
       cli::cli_progress_step(
-        "Applying date line fix to {.strong {cli::col_blue('shape')}}."
+        "Applying date line fix to {.strong {cli::col_blue('shape')}}"
       )
 
       shape <- shape |> shift_and_rotate(dx = dx)
@@ -181,7 +181,7 @@ worldclim_to_ascii <- function(
     if (!is.null(shape)) {
       if (needs_rotation) {
         cli::cli_progress_step(
-          "Applying date line fix to {.strong {cli::col_blue(i)}}."
+          "Applying date line fix to {.strong {cli::col_blue(i)}}"
         )
 
         data_i <- data_i |> shift_and_rotate(dx = dx)

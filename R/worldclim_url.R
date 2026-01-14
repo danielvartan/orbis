@@ -34,7 +34,9 @@ worldclim_url <- function(series, resolution = NULL) {
 
   grid <- list()
 
-  for (i in ls()[-1]) if (!is.null(get(i))) grid[[i]] <- get(i)
+  for (i in ls()[-1]) {
+    if (!is.null(get(i))) grid[[i]] <- get(i)
+  }
 
   grid |>
     expand.grid() |>
@@ -45,10 +47,11 @@ worldclim_url <- function(series, resolution = NULL) {
     magrittr::extract(!duplicated(.))
 }
 
-worldclim_url.scalar <- function(series, resolution = NULL) { #nolint
+worldclim_url.scalar <- function(series, resolution = NULL) {
+  #nolint
   checkmate::assert_choice(
     if (!is.null(series)) series |> tolower(),
-     worldclim_variables |> magrittr::extract2("series_choices")
+    worldclim_variables |> magrittr::extract2("series_choices")
   )
 
   checkmate::assert_choice(
@@ -57,20 +60,34 @@ worldclim_url.scalar <- function(series, resolution = NULL) { #nolint
     null.ok = TRUE
   )
 
-  if (series %in% c(
-    "hcd", "historical-climate-data", "historical climate data"
-  )) {
+  if (
+    series %in%
+      c(
+        "hcd",
+        "historical-climate-data",
+        "historical climate data"
+      )
+  ) {
     "https://worldclim.org/data/worldclim21.html" |>
       magrittr::set_names("Historical climate data")
-  } else if (series %in% c(
-    "hmwd", "historical-monthly-weather-data",
-    "historical monthly weather data"
-  )) {
+  } else if (
+    series %in%
+      c(
+        "hmwd",
+        "historical-monthly-weather-data",
+        "historical monthly weather data"
+      )
+  ) {
     "https://worldclim.org/data/monthlywth.html" |>
       magrittr::set_names("Historical monthly weather data")
-  } else if (series %in% c(
-    "fcd", "future-climate-data", "future climate data"
-  )) {
+  } else if (
+    series %in%
+      c(
+        "fcd",
+        "future-climate-data",
+        "future climate data"
+      )
+  ) {
     out <-
       c(
         "https://worldclim.org/data/cmip6/cmip6_clim10m.html",

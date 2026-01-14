@@ -37,25 +37,26 @@
 worldclim_random <- function(series = "hcd") {
   checkmate::assert_choice(tolower(series), worldclim_variables$series_choices)
 
-  if (series %in% c(
-    "hcd", "historical-climate-data", "historical climate data"
-  )) {
+  if (
+    series %in%
+      c(
+        "hcd",
+        "historical-climate-data",
+        "historical climate data"
+      )
+  ) {
     out <- list(
       series = c("Historical Climate Data" = "hcd"),
-      resolution =
-        worldclim_variables |>
+      resolution = worldclim_variables |>
         magrittr::extract2("resolutions") |>
         sample(1),
-      variable =
-        worldclim_variables |>
+      variable = worldclim_variables |>
         magrittr::extract2("hcd_variables") |>
         sample(1),
-      year =
-        worldclim_variables |>
+      year = worldclim_variables |>
         magrittr::extract2("hcd_years") |>
         sample(1),
-      month =
-        worldclim_variables |>
+      month = worldclim_variables |>
         magrittr::extract2("months") |>
         sample(1)
     )
@@ -64,10 +65,10 @@ worldclim_random <- function(series = "hcd") {
       append(
         out,
         list(
-          bioclimatic_variable =
-            worldclim_variables |>
+          bioclimatic_variable = worldclim_variables |>
             magrittr::extract2("bioclimatic_variables") |>
-            sample(1)),
+            sample(1)
+        ),
         after = 3
       )
     } else if (out$variable == "elev") {
@@ -77,14 +78,17 @@ worldclim_random <- function(series = "hcd") {
     } else {
       out
     }
-  } else if (series %in% c(
-    "hmwd", "historical-monthly-weather-data",
-    "historical monthly weather data"
-  )) {
+  } else if (
+    series %in%
+      c(
+        "hmwd",
+        "historical-monthly-weather-data",
+        "historical monthly weather data"
+      )
+  ) {
     list(
       series = c("Historical Monthly Weather Data" = "hmwd"),
-      resolution =
-        worldclim_variables |>
+      resolution = worldclim_variables |>
         magrittr::extract2("resolutions") |>
         magrittr::extract(
           stringr::str_detect(
@@ -96,46 +100,42 @@ worldclim_random <- function(series = "hcd") {
           )
         ) |>
         sample(1),
-      variable =
-        worldclim_variables |>
+      variable = worldclim_variables |>
         magrittr::extract2("hmwd_variables") |>
         sample(1),
-      year =
-        worldclim_variables |>
+      year = worldclim_variables |>
         magrittr::extract2("hmwd_years") |>
         sample(1),
-      month =
-        worldclim_variables |>
+      month = worldclim_variables |>
         magrittr::extract2("months") |>
         sample(1)
     )
-  } else if (series %in% c(
-    "fcd", "future-climate-data", "future climate data"
-  )) {
+  } else if (
+    series %in%
+      c(
+        "fcd",
+        "future-climate-data",
+        "future climate data"
+      )
+  ) {
     out <- list(
       series = c("Future Climate Data" = "fcd"),
-      resolution =
-        worldclim_variables |>
+      resolution = worldclim_variables |>
         magrittr::extract2("resolutions") |>
         sample(1),
-      variable =
-        worldclim_variables |>
+      variable = worldclim_variables |>
         magrittr::extract2("fcd_variables") |>
         sample(1),
-      model =
-        worldclim_variables |>
+      model = worldclim_variables |>
         magrittr::extract2("models") |>
         sample(1),
-      ssp =
-        worldclim_variables |>
+      ssp = worldclim_variables |>
         magrittr::extract2("ssps") |>
         sample(1),
-      year =
-        worldclim_variables |>
+      year = worldclim_variables |>
         magrittr::extract2("fcd_years") |>
         sample(1),
-      month =
-        worldclim_variables |>
+      month = worldclim_variables |>
         magrittr::extract2("months") |>
         sample(1)
     )
@@ -144,10 +144,10 @@ worldclim_random <- function(series = "hcd") {
       append(
         out,
         list(
-          bioclimatic_variable =
-            worldclim_variables |>
+          bioclimatic_variable = worldclim_variables |>
             magrittr::extract2("bioclimatic_variables") |>
-            sample(1)),
+            sample(1)
+        ),
         after = 3
       )
     } else {

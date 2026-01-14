@@ -3,14 +3,14 @@ library(dplyr)
 library(fs)
 library(geobr)
 library(magrittr)
+library(sf)
+library(stars)
 library(terra)
 library(testthat)
 
 library(orbis)
 
 test_check("orbis")
-
-# Fix `brazil_municipality()` to use only municipality codes.
 
 # # For Development Use Only (Comment the Code After Use) -----
 #

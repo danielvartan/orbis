@@ -137,12 +137,14 @@ worldclim_download <- function(
     )
   )
 
-  cli::cli_alert_info(
-    paste0(
-      "{.strong {cli::col_red(count_na(metadata$size))}} ",
-      "url requests resulted in error."
+  if (count_na(metadata$size) != 0) {
+    cli::cli_alert_warning(
+      paste0(
+        "{.strong {cli::col_red(count_na(metadata$size))}} ",
+        "url requests resulted in error."
+      )
     )
-  )
+  }
 
   if (count_na(metadata$size) > 0) {
     cli::cli_alert_info("Their file names are:")
@@ -218,7 +220,7 @@ worldclim_download.license <- function() {
     "Please send your questions to <info@worldclim.org>.",
     "\n\n",
     "> Extracted from <https://worldclim.org/about.html> on ",
-    "2025-06-06."
+    "2026-01-12."
   )
 }
 

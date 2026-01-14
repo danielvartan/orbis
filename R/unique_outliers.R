@@ -28,7 +28,7 @@
 #' c(1:10) |> unique_outliers()
 #' #> integer(0) # Expected
 #'
-#' c(1:10, 100L) |> unique_outliers()
+#' c(1:10, 100L, 100L) |> unique_outliers()
 #' #> [1] 100 # Expected
 #'
 #' c(1:10, 100L) |> unique_outliers(n_iqr = 1000)

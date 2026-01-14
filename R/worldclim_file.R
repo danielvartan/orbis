@@ -72,7 +72,9 @@ worldclim_file <- function(
 
   grid <- list()
 
-  for (i in ls()[-1]) if (!is.null(get(i))) grid[[i]] <- get(i)
+  for (i in ls()[-1]) {
+    if (!is.null(get(i))) grid[[i]] <- get(i)
+  }
 
   grid |>
     expand.grid() |>
@@ -97,7 +99,7 @@ worldclim_file.scalar <- function(
 
   checkmate::assert_choice(
     if (!is.null(series)) series |> tolower(),
-     worldclim_variables |> magrittr::extract2("series_choices")
+    worldclim_variables |> magrittr::extract2("series_choices")
   )
 
   checkmate::assert_choice(

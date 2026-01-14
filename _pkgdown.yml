@@ -33,7 +33,10 @@ navbar:
 reference:
 - title: Terra
   desc: >
-    Functions to manipulate `SpatRaster` and `SpatVector` objects.
+    Functions to manipulate
+    [`SpatVector`](https://rspatial.github.io/terra/reference/SpatVector-class.html) and
+    [`SpatRaster`](https://rspatial.github.io/terra/reference/SpatRaster-class.html) objects
+    from the [`terra`](https://rspatial.github.io/terra/) package.
   contents:
   - shift_and_crop
   - shift_and_rotate
@@ -72,7 +75,8 @@ reference:
 
 - title: WorldClim
   desc: >
-    Functions to access and manipulate [WorldClim](https://worldclim.org/) data.
+    Functions to download, extract, and process
+    [WorldClim](https://worldclim.org/) climate data.
   contents:
   - worldclim_download
   - worldclim_extract_variable

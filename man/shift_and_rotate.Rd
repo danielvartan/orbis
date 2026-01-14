@@ -2,24 +2,24 @@
 % Please edit documentation in R/shift_and_rotate.R
 \name{shift_and_rotate}
 \alias{shift_and_rotate}
-\title{Shift and rotate a raster or a vector}
+\title{Shift and rotate a SpatVector or a SpatRaster}
 \usage{
 shift_and_rotate(x, dx = -45, precision = 5, overlap_tolerance = 0.1)
 }
 \arguments{
-\item{x}{A \code{\link[terra:SpatRaster-class]{SpatRaster}} or
-\code{\link[terra:SpatVector-class]{SpatVector}} object to be shifted and rotated.}
+\item{x}{A \code{\link[terra:SpatVector-class]{SpatVector}} or
+\code{\link[terra:SpatRaster-class]{SpatRaster}} object to be shifted and rotated.}
 
-\item{dx}{A numeric value indicating the amount of the horizontal shift in
-degrees. Positive values shift to the right, negative values shift to the
-left (default: \code{-45}).}
+\item{dx}{(optional) A number indicating the amount of the horizontal shift
+in degrees. Positive values shift to the right, negative values shift to
+the left (default: \code{-45}).}
 
-\item{precision}{(optional) A numeric value specifying the number of decimal
-digits to use when rounding longitude and latitude coordinates
+\item{precision}{(optional) An integer number specifying the number of
+decimal digits to use when rounding longitude and latitude coordinates
 (default: \code{5}).}
 
-\item{overlap_tolerance}{(optional) A numeric value specifying the tolerance
-for overlapping geometries when combining vectors. This value controls the
+\item{overlap_tolerance}{(optional) A number specifying the tolerance for
+overlapping geometries when combining vectors. This value controls the
 allowable error when merging overlapping geometries (default: \code{0.1}).}
 }
 \value{
@@ -27,8 +27,9 @@ A object of the same class as \code{x} that has been shifted and rotated
 by the specified amount in degrees.
 }
 \description{
-\code{shift_and_rotate()} shifts a raster or vector by a specified horizontal
-distance and rotates the data around the
+\code{shift_and_rotate()} shifts a \code{\link[terra:SpatVector-class]{SpatVector}} or a
+\code{\link[terra:SpatRaster-class]{SpatRaster}} by a specified horizontal distance and
+rotates the data around the
 \href{https://en.wikipedia.org/wiki/International_Date_Line}{International Date Line}.
 
 This function is particularly useful for working with rasters and vectors
@@ -211,7 +212,7 @@ plot_raster <- function(raster) {
 }
 }
 \seealso{
-Other raster functions: 
+Other terra functions: 
 \code{\link{shift_and_crop}()}
 }
-\concept{raster functions}
+\concept{terra functions}

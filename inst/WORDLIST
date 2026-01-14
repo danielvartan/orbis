@@ -20,6 +20,8 @@ ORCID
 Parâmetros
 SIDRA
 SSP
+SpatRaster
+SpatVector
 Território
 Usar
 WorldClim
@@ -33,13 +35,13 @@ geobr
 geocodebr
 geocoding
 geodata
-geospatial
 kJ
 kPa
 períodos
 possível
 quando
 relativos
+terra
 tidygeocoder
 tidyverse
 uncheck

@@ -57,10 +57,10 @@ whether to overwrite existing files in the output directory
 the \code{NODATA_VALUE} for the output ASCII files. See the \emph{Details} section
 to learn more (default: \code{-99}).}
 
-\item{dir}{A \code{\link[base:character]{character}} vector specifying the output
-directory for the converted
-\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid} files.
-Defaults to the directory of the first file in the \code{file} parameter
+\item{dir}{(optional) A \code{\link[base:character]{character}} vector specifying
+the output directory for the converted
+\href{https://en.wikipedia.org/wiki/Esri_grid}{Esri ASCII Grid}
+files. Defaults to the directory of the first file in the \code{file} parameter
 (default: \code{dirname(file[1])}).}
 }
 \value{

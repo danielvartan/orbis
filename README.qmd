@@ -26,22 +26,8 @@ source(here("R", ".setup.R"))
 
 cat(
   badge_repostatus("active"),
-  # badge_cran_release(),
-  # badge_custom(
-  #   x = "doi",
-  #   y = "10.32614/CRAN.package.orbis",
-  #   color = "1284C5",
-  #   url = "https://doi.org/10.32614/CRAN.package.orbis"
-  # ),
-  # badge_cran_download(type = "grand-total"),
   badge_github_actions(action = "R-CMD-check.yaml"),
   badge_codecov(),
-  badge_license(
-    license = "GPLv3",
-    color = "bd0000",
-    url = "https://www.gnu.org/licenses/gpl-3.0",
-    alt = "GNU GPLv3 License"
-  ),
   paste0(
     "[![",
     "FAIR checklist badge",
@@ -66,6 +52,12 @@ cat(
     ")](",
     "https://fair-software.eu",
     ")"
+  ),
+  badge_license(
+    license = "GPLv3",
+    color = "bd0000",
+    url = "https://www.gnu.org/licenses/gpl-3.0",
+    alt = "GNU GPLv3 License"
   ),
   badge_custom(
     x = "Contributor%20Covenant",
@@ -99,7 +91,7 @@ remotes::install_github("danielvartan/orbis")
 
 `orbis` is equipped with several functions to help with your analysis, such as:
 
-- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html): Shift and rotate a raster or a vector
+- [`shift_and_rotate()`](https://danielvartan.github.io/orbis/reference/shift_and_rotate.html): Shift and rotate a `SpatVector` or a `SpatRaster`
 - [`remove_unique_outliers()`](https://danielvartan.github.io/orbis/reference/remove_unique_outliers.html): Remove unique outliers from raster files
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html): Download and aggregate data by year from [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading)
 - [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.html): Download [WorldClim](https://worldclim.org/) data
@@ -116,23 +108,13 @@ Here are some examples of usage.
 ```{r}
 #| output: false
 
+library(orbis)
+
 library(dplyr)
 library(geodata)
 library(ggplot2)
-library(orbis)
 library(terra)
 library(tidyterra)
-```
-
-```{r}
-plot_vector <- function(vector) {
-  plot <-
-    vector |>
-    ggplot() +
-    geom_spatvector(fill = "#3243A6", color = "white")
-
-  print(plot)
-}
 ```
 
 #### Define a World Vector
@@ -146,12 +128,16 @@ world_vector <- world(path = tempdir())
 ```{r}
 #| label: readme-shift-and-rotate-1
 
-world_vector |> plot_vector()
+world_vector |>
+  ggplot() +
+  geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
 #### Define a Country Vector
 
 ```{r}
+#| output: false
+
 russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 ```
 
@@ -160,7 +146,9 @@ russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 ```{r}
 #| label: readme-shift-and-rotate-2
 
-russia_vector |> plot_vector()
+russia_vector |>
+  ggplot() +
+  geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
 #### Shift and Rotate the Country Vector 45 Degrees to the Left
@@ -168,7 +156,10 @@ russia_vector |> plot_vector()
 ```{r}
 #| label: readme-shift-and-rotate-3
 
-russia_vector |> shift_and_rotate(-45) |> plot_vector()
+russia_vector |>
+  shift_and_rotate(-45) |>
+  ggplot() +
+  geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
 ### `remove_unique_outliers()`
@@ -178,6 +169,8 @@ russia_vector |> shift_and_rotate(-45) |> plot_vector()
 #### Set the Environment
 
 ```{r}
+#| output: false
+
 library(orbis)
 
 library(dplyr)
@@ -204,28 +197,28 @@ asc_content <- c(
 ```
 
 ```{r}
-temp_file <- tempfile(fileext = ".asc")
+file <- tempfile(fileext = ".asc")
 
-asc_content |> write_lines(temp_file)
+asc_content |> write_lines(file)
 ```
 
 #### Visualize Values Before `remove_unique_outliers()`
 
 ```{r}
-temp_file |> read_stars() |> pull(1) |> as.vector()
+file |> read_stars() |> pull(1) |> as.vector()
 ```
 
 #### Visualize Values After `remove_unique_outliers()`
 
 ```{r}
-temp_file |> remove_unique_outliers()
+file |> remove_unique_outliers()
 ```
 
 ```{r}
-temp_file |> read_stars() |> pull(1) |> as.vector()
+file |> read_stars() |> pull(1) |> as.vector()
 ```
 
-Click [here](https://danielvartan.github.io/orbis/reference/) to see the full list of functions.
+Click [here](https://danielvartan.github.io/orbis/reference/) to see the full list of `orbis` functions.
 
 ## Citation
 
