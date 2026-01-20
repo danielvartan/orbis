@@ -49,9 +49,9 @@ brazil_municipality(
 
 - coords_method:
 
-  (optional) A string indicating the method to retrieve the latitude and
-  longitude coordinates of the municipalities (default: `"geobr"`).
-  Options are:
+  (optional) A [`character`](https://rdrr.io/r/base/character.html)
+  string indicating the method to retrieve the latitude and longitude
+  coordinates of the municipalities (default: `"geobr"`). Options are:
 
   - `"geobr"`: Uses
     [`read_municipal_seat()`](https://ipeagit.github.io/geobr/reference/read_municipal_seat.html)
@@ -76,19 +76,19 @@ brazil_municipality(
 A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
 the following columns:
 
-- `region_code`: The region code.
-
-- `region`: The region name.
-
-- `state_code`: The state code.
-
-- `state`: The state name.
-
-- `federal_unit`: The state abbreviation.
+- `municipality`: The municipality name.
 
 - `municipality_code`: The municipality code.
 
-- `municipality`: The municipality name.
+- `state`: The state name.
+
+- `state_code`: The state code.
+
+- `federal_unit`: The state abbreviation.
+
+- `region`: The region name.
+
+- `region_code`: The region code.
 
 - `latitude`: The municipality latitude.
 
@@ -148,13 +148,13 @@ library(dplyr)
 #> Using year/date 2024
 #> Rows: 5,571
 #> Columns: 9
-#> $ region_code       <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-#> $ region            <chr> "North", "North", "North", "North", "North", "Nor…
-#> $ state_code        <int> 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 1…
-#> $ state             <chr> "Rondônia", "Rondônia", "Rondônia", "Rondônia", "…
-#> $ federal_unit      <chr> "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "…
-#> $ municipality_code <int> 1100015, 1100023, 1100031, 1100049, 1100056, 1100…
 #> $ municipality      <chr> "Alta Floresta D'Oeste", "Ariquemes", "Cabixi", "…
+#> $ municipality_code <int> 1100015, 1100023, 1100031, 1100049, 1100056, 1100…
+#> $ state             <chr> "Rondônia", "Rondônia", "Rondônia", "Rondônia", "…
+#> $ state_code        <int> 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 1…
+#> $ federal_unit      <chr> "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "…
+#> $ region            <chr> "North", "North", "North", "North", "North", "Nor…
+#> $ region_code       <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
 #> $ latitude          <dbl> -11.935540305, -9.908462867, -13.499763460, -11.4…
 #> $ longitude         <dbl> -61.99982390, -63.03326928, -60.54431358, -61.442…
 # }
@@ -166,13 +166,13 @@ library(dplyr)
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Rows: 3
 #> Columns: 9
-#> $ region_code       <int> 1, 2, 2
-#> $ region            <chr> "North", "Northeast", "Northeast"
-#> $ state_code        <int> 15, 25, 27
-#> $ state             <chr> "Pará", "Paraíba", "Alagoas"
-#> $ federal_unit      <chr> "PA", "PB", "AL"
-#> $ municipality_code <int> 1501402, 2501906, 2700805
 #> $ municipality      <chr> "Belém", "Belém", "Belém"
+#> $ municipality_code <int> 1501402, 2501906, 2700805
+#> $ state             <chr> "Pará", "Paraíba", "Alagoas"
+#> $ state_code        <int> 15, 25, 27
+#> $ federal_unit      <chr> "PA", "PB", "AL"
+#> $ region            <chr> "North", "Northeast", "Northeast"
+#> $ region_code       <int> 1, 2, 2
 #> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231
 #> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799
 # }
@@ -184,13 +184,13 @@ library(dplyr)
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Rows: 1
 #> Columns: 9
-#> $ region_code       <int> 1
-#> $ region            <chr> "North"
-#> $ state_code        <int> 15
-#> $ state             <chr> "Pará"
-#> $ federal_unit      <chr> "PA"
-#> $ municipality_code <int> 1501402
 #> $ municipality      <chr> "Belém"
+#> $ municipality_code <int> 1501402
+#> $ state             <chr> "Pará"
+#> $ state_code        <int> 15
+#> $ federal_unit      <chr> "PA"
+#> $ region            <chr> "North"
+#> $ region_code       <int> 1
 #> $ latitude          <dbl> -1.459845
 #> $ longitude         <dbl> -48.48782569
 # }
@@ -202,13 +202,13 @@ library(dplyr)
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Rows: 4
 #> Columns: 9
-#> $ region_code       <int> 1, 2, 2, 3
-#> $ region            <chr> "North", "Northeast", "Northeast", "Southeast"
-#> $ state_code        <int> 15, 25, 27, 35
-#> $ state             <chr> "Pará", "Paraíba", "Alagoas", "São Paulo"
-#> $ federal_unit      <chr> "PA", "PB", "AL", "SP"
-#> $ municipality_code <int> 1501402, 2501906, 2700805, 3550308
 #> $ municipality      <chr> "Belém", "Belém", "Belém", "São Paulo"
+#> $ municipality_code <int> 1501402, 2501906, 2700805, 3550308
+#> $ state             <chr> "Pará", "Paraíba", "Alagoas", "São Paulo"
+#> $ state_code        <int> 15, 25, 27, 35
+#> $ federal_unit      <chr> "PA", "PB", "AL", "SP"
+#> $ region            <chr> "North", "Northeast", "Northeast", "Southeast"
+#> $ region_code       <int> 1, 2, 2, 3
 #> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231, -23.567…
 #> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799, -46.570…
 # }

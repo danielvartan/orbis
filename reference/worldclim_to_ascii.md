@@ -166,15 +166,15 @@ library(zip)
 #> ℹ Calculating File Sizes
 #> ℹ Total download size (compressed): 6.92M.
 #> ℹ Calculating File Sizes
-#> ✔ Calculating File Sizes [262ms]
+#> ✔ Calculating File Sizes [386ms]
 #> 
 #> ℹ Creating LICENSE and README Files
-#> ✔ Creating LICENSE and README Files [18ms]
+#> ✔ Creating LICENSE and README Files [19ms]
 #> 
 #> ℹ Downloading Files
-#> ℹ Downloading 1 file to /tmp/RtmpbxXS5Z/historical-climate-data
+#> ℹ Downloading 1 file to /tmp/RtmptnXsh7/historical-climate-data
 #> ℹ Downloading Files
-#> ✔ Downloading Files [658ms]
+#> ✔ Downloading Files [1s]
 #> 
 #> ℹ Unzipping Files
 #> ✔ Unzipping Files [14ms]

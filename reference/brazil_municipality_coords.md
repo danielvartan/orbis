@@ -40,9 +40,9 @@ brazil_municipality_coords(
 
 - coords_method:
 
-  (optional) A string indicating the method to retrieve the latitude and
-  longitude coordinates of the municipalities (default: `"geobr"`).
-  Options are:
+  (optional) A [`character`](https://rdrr.io/r/base/character.html)
+  string indicating the method to retrieve the latitude and longitude
+  coordinates of the municipalities (default: `"geobr"`). Options are:
 
   - `"geobr"`: Uses
     [`read_municipal_seat()`](https://ipeagit.github.io/geobr/reference/read_municipal_seat.html)
