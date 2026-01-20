@@ -26,13 +26,13 @@ testthat::test_that("`brazil_municipality()` | General test", {
   ) |>
     testthat::expect_equal(
       dplyr::tibble(
-        region_code = 1L,
-        region = "North",
-        state_code = 11L,
+        municipality = "Alta Floresta D'Oeste",
+        municipality_code = 1100015,
         state = "Rondônia",
+        state_code = 11L,
         federal_unit = "RO",
-        municipality_code =  1100015,
-        municipality = "Alta Floresta D'Oeste"
+        region = "North",
+        region_code = 1L
       )
     ) |>
     suppressMessages()

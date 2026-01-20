@@ -22,9 +22,9 @@ to obtain codes from municipality names and states.}
 indicating the year of the data regarding the municipalities
 (default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
-\item{coords_method}{(optional) A string indicating the method to retrieve
-the latitude and longitude coordinates of the municipalities
-(default: \code{"geobr"}). Options are:
+\item{coords_method}{(optional) A \code{\link[base:character]{character}} string
+indicating the method to retrieve the latitude and longitude coordinates of
+the municipalities (default: \code{"geobr"}). Options are:
 \itemize{
 \item \code{"geobr"}: Uses \code{\link[geobr:read_municipal_seat]{read_municipal_seat()}}
 from the \code{\link[geobr:geobr]{geobr}} package to retrieve the coordinates.

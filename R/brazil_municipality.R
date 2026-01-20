@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `brazil_municipality()` returns a [`tibble`][tibble::tibble] with data
+#' `brazil_municipality()` returns a [`tibble`][tibble::tibble()] with data
 #' about Brazilian municipalities.
 #'
 #' This function normalizes names and objects from the
@@ -15,32 +15,32 @@
 #' [`geocodebr`](https://ipeagit.github.io/geocodebr/) package to be
 #' installed, depending on the chosen method for retrieving coordinates.
 #'
-#' @param municipality (optional) A [`character`][base::character] vector
+#' @param municipality (optional) A [`character`][base::character()] vector
 #'   with the name of the municipalities. If `NULL` the function returns all
 #'   municipalities (default: `NULL`).
-#' @param state (optional) A [`character`][base::character] vector with the
+#' @param state (optional) A [`character`][base::character()] vector with the
 #'   name of the states (default: `NULL`).
-#' @param year (optional) An [`integerish`][checkmate::test_int] number
+#' @param year (optional) An [`integerish`][checkmate::test_int()] number
 #'   indicating the year of the data regarding the municipalities
 #'   (default: `Sys.Date() |> substr(1, 4) |> as.numeric()`).
-#' @param coords_method (optional) A string indicating the method to retrieve
-#'   the latitude and longitude coordinates of the municipalities
-#'   (default: `"geobr"`). Options are:
-#'   - `"geobr"`: Uses [`read_municipal_seat()`][geobr::read_municipal_seat]
-#'     from the [`geobr`][geobr::geobr] package to retrieve the coordinates.
-#'   - `"geocodebr"`: Uses the [`geocode()`][geocodebr::geocode] from the
-#'     [`geocodebr`][geocodebr::geocodebr] package to retrieve the coordinates.
-#' @param force (optional) A [`logical`][base::logical] flag indicating
+#' @param coords_method (optional) A [`character`][base::character()] string
+#'   indicating the method to retrieve the latitude and longitude coordinates of
+#'   the municipalities (default: `"geobr"`). Options are:
+#'   - `"geobr"`: Uses [`read_municipal_seat()`][geobr::read_municipal_seat()]
+#'     from the [`geobr`][geobr::geobr()] package to retrieve the coordinates.
+#'   - `"geocodebr"`: Uses the [`geocode()`][geocodebr::geocode()] from the
+#'     [`geocodebr`][geocodebr::geocodebr()] package to retrieve the coordinates.
+#' @param force (optional) A [`logical`][base::logical()] flag indicating
 #'   whether to force the download of the data again (default: `FALSE`).
 #'
-#' @return A [`tibble`][tibble::tibble] with the following columns:
-#'   - `region_code`: The region code.
-#'   - `region`: The region name.
-#'   - `state_code`: The state code.
-#'   - `state`: The state name.
-#'   - `federal_unit`: The state abbreviation.
-#'   - `municipality_code`: The municipality code.
+#' @return A [`tibble`][tibble::tibble()] with the following columns:
 #'   - `municipality`: The municipality name.
+#'   - `municipality_code`: The municipality code.
+#'   - `state`: The state name.
+#'   - `state_code`: The state code.
+#'   - `federal_unit`: The state abbreviation.
+#'   - `region`: The region name.
+#'   - `region_code`: The region code.
 #'   - `latitude`: The municipality latitude.
 #'   - `longitude`: The municipality longitude.
 #'
@@ -126,23 +126,18 @@ brazil_municipality <- function(
       ) |>
       dplyr::as_tibble() |>
       dplyr::select(
-        code_muni,
         name_muni,
+        code_muni,
         code_state,
         abbrev_state
       ) |>
       dplyr::rename(
-        state_code = code_state,
-        federal_unit = abbrev_state,
+        municipality = name_muni,
         municipality_code = code_muni,
-        municipality = name_muni
+        state_code = code_state,
+        federal_unit = abbrev_state
       ) |>
       dplyr::mutate(
-        region = brazil_region(federal_unit),
-        region_code = brazil_region_code(region),
-        state_code = as.integer(state_code),
-        state = orbis::brazil_state(federal_unit),
-        municipality_code = as.integer(municipality_code),
         municipality = municipality |>
           to_title_case_pt(
             articles = TRUE,
@@ -163,16 +158,21 @@ brazil_municipality <- function(
               # Del
               "(.)\\bD(el)\\b" = "\\1d\\2"
             )
-          )
+          ),
+        municipality_code = as.integer(municipality_code),
+        state = brazil_state(federal_unit),
+        state_code = as.integer(state_code),
+        region = brazil_region(federal_unit),
+        region_code = brazil_region_code(region)
       ) |>
       dplyr::relocate(
-        region_code,
-        region,
-        state_code,
-        state,
-        federal_unit,
+        municipality,
         municipality_code,
-        municipality
+        state,
+        state_code,
+        federal_unit,
+        region,
+        region_code
       )
 
     brazil_municipalities_data <-
@@ -239,13 +239,13 @@ brazil_municipality <- function(
           out |>
           dplyr::bind_rows(
             dplyr::tibble(
-              region_code = NA_integer_,
-              region = NA_character_,
-              state_code = NA_integer_,
-              state = NA_character_,
-              federal_unit = NA_character_,
-              municipality_code = NA_integer_,
               municipality = .env$municipality[i],
+              municipality_code = NA_integer_,
+              state = NA_character_,
+              state_code = NA_integer_,
+              federal_unit = NA_character_,
+              region = NA_character_,
+              region_code = NA_integer_,
               latitude = NA_real_,
               longitude = NA_real_
             )

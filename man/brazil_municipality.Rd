@@ -24,9 +24,9 @@ name of the states (default: \code{NULL}).}
 indicating the year of the data regarding the municipalities
 (default: \code{Sys.Date() |> substr(1, 4) |> as.numeric()}).}
 
-\item{coords_method}{(optional) A string indicating the method to retrieve
-the latitude and longitude coordinates of the municipalities
-(default: \code{"geobr"}). Options are:
+\item{coords_method}{(optional) A \code{\link[base:character]{character}} string
+indicating the method to retrieve the latitude and longitude coordinates of
+the municipalities (default: \code{"geobr"}). Options are:
 \itemize{
 \item \code{"geobr"}: Uses \code{\link[geobr:read_municipal_seat]{read_municipal_seat()}}
 from the \code{\link[geobr:geobr]{geobr}} package to retrieve the coordinates.
@@ -40,13 +40,13 @@ whether to force the download of the data again (default: \code{FALSE}).}
 \value{
 A \code{\link[tibble:tibble]{tibble}} with the following columns:
 \itemize{
-\item \code{region_code}: The region code.
-\item \code{region}: The region name.
-\item \code{state_code}: The state code.
-\item \code{state}: The state name.
-\item \code{federal_unit}: The state abbreviation.
-\item \code{municipality_code}: The municipality code.
 \item \code{municipality}: The municipality name.
+\item \code{municipality_code}: The municipality code.
+\item \code{state}: The state name.
+\item \code{state_code}: The state code.
+\item \code{federal_unit}: The state abbreviation.
+\item \code{region}: The region name.
+\item \code{region_code}: The region code.
 \item \code{latitude}: The municipality latitude.
 \item \code{longitude}: The municipality longitude.
 }
