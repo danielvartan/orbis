@@ -114,6 +114,12 @@ brazil_municipality <- function(
       brazil_municipalities_file |>
       readr::read_rds()
   } else {
+    brazil_municipalities_data <- dplyr::tibble()
+  }
+
+  if (nrow(brazil_municipalities_data) > 5000) {
+    brazil_municipalities_data
+  } else {
     brazil_municipalities_data <-
       read_municipality(
         year = year |>
