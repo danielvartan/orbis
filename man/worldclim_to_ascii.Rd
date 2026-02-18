@@ -10,7 +10,7 @@ worldclim_to_ascii(
   box = NULL,
   shift_longitude = TRUE,
   dx = -45,
-  extreme_outlier_fix = TRUE,
+  remove_extreme_outliers = TRUE,
   overwrite = TRUE,
   na_flag = -99,
   dir = dirname(file[1])
@@ -42,7 +42,7 @@ the date line (e.g. the Russian territory). See
 horizontal distance in degrees to shift the raster data. This is only
 relevant if \code{shift_longitude} is set to \code{TRUE} (default: \code{-45}).}
 
-\item{extreme_outlier_fix}{(optional) A \code{\link[base:logical]{logical}} flag
+\item{remove_extreme_outliers}{(optional) A \code{\link[base:logical]{logical}} flag
 indicating whether to transform to \code{NA} values 10 times the interquartile
 range (\href{https://en.wikipedia.org/wiki/Interquartile_range}{IQR}) below the
 first quartile or above the third quartile of the data values without
@@ -88,9 +88,8 @@ and the lowest temperature ever recorded on Earth is above that threshold.
 \examples{
 # Set the Environment -----
 
-library(curl)
 library(fs)
-library(httr)
+library(httr2)
 library(magrittr)
 library(readr)
 library(rvest)
@@ -99,7 +98,7 @@ library(zip)
 # Download a WorldClim Dataset -----
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     tif_file <-
       worldclim_download(
         series = "hcd",
@@ -114,7 +113,7 @@ library(zip)
 # Transform Data to Esri ASCII -----
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     asc_file <- tif_file |> worldclim_to_ascii()
   }
 }
@@ -122,7 +121,7 @@ library(zip)
 # Check the Output -----
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     asc_file |> read_lines(n_max = 11)
   }
 }

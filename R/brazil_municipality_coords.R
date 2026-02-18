@@ -28,28 +28,28 @@
 #' @export
 #'
 #' @examples
-#' library(curl)
+#' library(httr2)
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_coords()
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_coords(municipality_code = 3550308)
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_coords(municipality_code = 3550)
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_coords(municipality_code = c(3550308, 3304557))
 #'   }
 #' }

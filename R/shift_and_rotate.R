@@ -32,10 +32,10 @@
 #' @examples
 #' # Set the Environment -----
 #'
-#' library(curl)
 #' library(dplyr)
 #' library(geodata)
 #' library(ggplot2)
+#' library(httr2)
 #' library(magrittr)
 #' library(terra)
 #' library(tidyterra)
@@ -73,7 +73,7 @@
 #' ## Define the Vector
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 #'   }
 #' }
@@ -81,7 +81,7 @@
 #' ## Visualize the Vector
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     russia_vector |> plot_vector()
 #'   }
 #' }
@@ -89,7 +89,7 @@
 #' ## Shift and Rotate the Vector -45 Degrees to the Left
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     russia_vector |> shift_and_rotate(-45) |> plot_vector()
 #'   }
 #' }
@@ -97,7 +97,7 @@
 #' ## Shift and Rotate the Vector 45 Degrees to the Right
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     russia_vector |> shift_and_rotate(45) |> plot_vector()
 #'   }
 #' }
@@ -107,7 +107,7 @@
 #' ## Define the Raster
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster <-
 #'       expand.grid(
 #'         seq(-179.75, 179.75, by = 0.5),
@@ -128,7 +128,7 @@
 #' ## Visualize the Raster
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> plot_raster()
 #'   }
 #' }
@@ -136,7 +136,7 @@
 #' ## Shift and Rotate the Vector -45 Degrees to the Left
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(-45) |> plot_raster()
 #'   }
 #' }
@@ -144,7 +144,7 @@
 #' ## Shift and Rotate the Vector -90 Degrees to the Left
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(-90) |> plot_raster()
 #'   }
 #' }
@@ -152,7 +152,7 @@
 #' ## Shift and Rotate the Vector -135 Degrees to the Left
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(-135) |> plot_raster()
 #'   }
 #' }
@@ -160,7 +160,7 @@
 #' ## Shift and Rotate the Vector -180 Degrees to the Left
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(-180) |> plot_raster()
 #'   }
 #' }
@@ -168,7 +168,7 @@
 #' ## Visualize the Raster
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> plot_raster()
 #'   }
 #' }
@@ -176,7 +176,7 @@
 #' ## Shift and Rotate the Vector 45 Degrees to the Right
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(45) |> plot_raster()
 #'   }
 #' }
@@ -184,7 +184,7 @@
 #' ## Shift and Rotate the Vector 90 Degrees to the Right
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(90) |> plot_raster()
 #'   }
 #' }
@@ -192,7 +192,7 @@
 #' ## Shift and Rotate the Vector 135 Degrees to the Right
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(135) |> plot_raster()
 #'   }
 #' }
@@ -200,7 +200,7 @@
 #' ## Shift and Rotate the Vector 180 Degrees to the Right
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> shift_and_rotate(180) |> plot_raster()
 #'   }
 #' }

@@ -55,11 +55,11 @@
 #' @export
 #'
 #' @examples
-#' library(curl)
 #' library(dplyr)
+#' library(httr2)
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     sidra_download_by_year(
 #'       years = 2010:2011,
 #'       api_start = "/t/1612/n6/all/v/109/p/",

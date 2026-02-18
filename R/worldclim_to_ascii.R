@@ -67,7 +67,6 @@
 #' @examples
 #' # Set the Environment -----
 #'
-#' library(curl)
 #' library(fs)
 #' library(httr2)
 #' library(magrittr)
@@ -78,7 +77,7 @@
 #' # Download a WorldClim Dataset -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     tif_file <-
 #'       worldclim_download(
 #'         series = "hcd",
@@ -93,7 +92,7 @@
 #' # Transform Data to Esri ASCII -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     asc_file <- tif_file |> worldclim_to_ascii()
 #'   }
 #' }
@@ -101,7 +100,7 @@
 #' # Check the Output -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     asc_file |> read_lines(n_max = 11)
 #'   }
 #' }

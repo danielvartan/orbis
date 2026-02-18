@@ -24,28 +24,28 @@
 #' @export
 #'
 #' @examples
-#' library(curl)
+#' library(httr2)
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_code(municipality = "Belém")
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_code(municipality = "Belém", names = FALSE)
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_code(municipality = "Belém", state = "Pará")
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
 #'   }
 #' }
@@ -77,7 +77,8 @@ brazil_municipality_code <- function(
       dplyr::pull(municipality_code) |>
       magrittr::set_names(
         paste0(
-          out |> dplyr::pull(municipality), "-",
+          out |> dplyr::pull(municipality),
+          "-",
           out |> dplyr::pull(federal_unit)
         )
       )

@@ -1,6 +1,6 @@
 get_sidra <- function(...) sidrar::get_sidra(...)
 
-has_internet <- function(...) curl::has_internet()
+is_online <- function(...) httr2::is_online()
 
 read_country <- function(...) geobr::read_country(...)
 

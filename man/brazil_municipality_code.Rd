@@ -56,28 +56,28 @@ Brazilian Institute of Geography and Statistics
 \code{\link[geobr:list_geobr]{geobr::list_geobr()}}.
 }
 \examples{
-library(curl)
+library(httr2)
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_code(municipality = "Belém")
   }
 }
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_code(municipality = "Belém", names = FALSE)
   }
 }
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_code(municipality = "Belém", state = "Pará")
   }
 }
 
 \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
   }
 }

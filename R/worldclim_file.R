@@ -5,8 +5,6 @@
 #' `worldclim_file()` returns the file path(s) of a
 #' [WorldClim](https://worldclim.org/) data series.
 #'
-#'
-#'
 #' @return A [`character`][base::character()] vector with the file path(s) of
 #'   the [WorldClim](https://worldclim.org/) data series.
 #'
@@ -15,16 +13,16 @@
 #' @export
 #'
 #' @examples
-#' library(curl)
+#' library(httr2)
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     worldclim_file(series = "hcd")
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     worldclim_file(
 #'       series = "hcd",
 #'       resolution = c("10m", "30s"),
@@ -33,7 +31,7 @@
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     worldclim_file(
 #'       series = "hmwd",
 #'       resolution = c("10m", "5m"),
@@ -44,7 +42,7 @@
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     worldclim_file(
 #'       series = "fcd",
 #'       resolution = c("2.5m", "30s"),
@@ -93,7 +91,7 @@ worldclim_file.scalar <- function(
   ssp = NULL,
   year = NULL
 ) {
-  require_pkg("curl", "rvest")
+  require_pkg("httr2", "rvest")
 
   assert_internet()
 

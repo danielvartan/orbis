@@ -2,9 +2,9 @@ testthat::test_that("`get_sidra()` | General test", {
   get_sidra() |> testthat::expect_error()
 })
 
-testthat::test_that("`has_internet()` | General test", {
-  has_internet() |>
-    testthat::expect_equal(curl::has_internet())
+testthat::test_that("`is_online()` | General test", {
+  is_online() |>
+    testthat::expect_equal(httr2::is_online())
 })
 
 testthat::test_that("`read_country()` | General test", {

@@ -29,7 +29,7 @@
 #' @examples
 #' # Set the Environment -----
 #'
-#' library(curl)
+#' library(httr2)
 #' library(dplyr)
 #' library(geodata)
 #' library(ggplot2)
@@ -61,7 +61,7 @@
 #' # Define the SpatVector -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 #'
 #'     russia_vector |> plot_vector()
@@ -71,7 +71,7 @@
 #' # Define the SpatRaster -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster <-
 #'       expand.grid(
 #'         seq(-179.75, 179.75, by = 0.5),
@@ -92,7 +92,7 @@
 #' # Visualize the SpatRaster -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> plot_raster()
 #'   }
 #' }
@@ -100,7 +100,7 @@
 #' # Shift, Rotate and Crop the SpatRaster -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster <- raster |> shift_and_crop(russia_vector, -45)
 #'   }
 #' }
@@ -108,7 +108,7 @@
 #' # Visualize the SpatRaster After Shift and Crop -----
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     raster |> plot_raster()
 #'   }
 #' }

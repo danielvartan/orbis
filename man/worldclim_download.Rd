@@ -11,7 +11,10 @@ worldclim_download(
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data")
+  dir = here::here("data"),
+  timeout = 100,
+  max_tries = 3,
+  retry_on_failure = TRUE
 )
 }
 \arguments{
@@ -118,8 +121,17 @@ Data} series:
 \code{"2081-2100"}
 }}
 
-\item{dir}{A string specifying the directory where to save the downloaded
-files (default: \code{here::here("data")}).}
+\item{dir}{A \code{\link[base:character]{character}} string specifying the directory
+where to save the downloaded files (default: \code{here::here("data")}).}
+
+\item{timeout}{A \code{\link[base:numeric]{numeric}} value specifying the timeout
+(in seconds) for requests (default: \code{100}).}
+
+\item{max_tries}{A \code{\link[base:numeric]{numeric}} value specifying the maximum
+number of retry attempts (default: \code{3}).}
+
+\item{retry_on_failure}{A \code{\link[base:logical]{logical}} value indicating
+whether to retry on failure (default: \code{TRUE}).}
 }
 \value{
 An invisible \code{\link[base:character]{character}} vector with the file
@@ -136,9 +148,8 @@ See \code{\link[geodata:worldclim]{worldclim_global()}},
 alternative ways to download WorldClim data.
 
 \strong{Note:} This function requires an active internet connection and the
-\href{https://CRAN.R-project.org/package=curl}{\code{curl}},
 \href{https://CRAN.R-project.org/package=fs}{\code{fs}},
-\href{https://CRAN.R-project.org/package=httr}{\code{httr}},
+\href{https://CRAN.R-project.org/package=httr2}{\code{httr2}},
 \href{https://CRAN.R-project.org/package=rvest}{\code{rvest}}, and
 \href{https://CRAN.R-project.org/package=zip}{\code{zip}} packages to be
 installed.

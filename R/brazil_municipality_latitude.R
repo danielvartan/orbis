@@ -25,28 +25,28 @@
 #' @export
 #'
 #' @examples
-#' library(curl)
+#' library(httr2)
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_latitude(3550308)
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_latitude(c(3550308, 3500204))
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_latitude(c(3550308, 1000, 3500204))
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality_latitude(c(3550308, NA, 3500204))
 #'   }
 #' }

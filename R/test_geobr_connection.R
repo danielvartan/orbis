@@ -16,10 +16,10 @@
 #'
 #' @examples
 #' \dontrun{
-#'   library(curl)
 #'   library(geobr)
+#'   library(httr2)
 #'
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     test_geobr_connection()
 #'   }
 #' }

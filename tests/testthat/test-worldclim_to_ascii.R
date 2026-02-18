@@ -74,7 +74,7 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
     shape = vector,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(files[1])
@@ -88,7 +88,7 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
     shape = NULL,
     box = c(2, 5, 2, 5),
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(files[1])
@@ -129,7 +129,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -142,7 +142,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -154,7 +154,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -167,7 +167,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = "I do not exist 1234567890"
@@ -180,7 +180,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = 1,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -193,7 +193,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = "",
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -205,7 +205,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = 1:3,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -218,20 +218,20 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = "",
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
   ) |>
     testthat::expect_error()
 
-  # checkmate::assert_flag(extreme_outlier_fix)
+  # checkmate::assert_flag(remove_extreme_outliers)
   worldclim_to_ascii(
     file = temp_tif_file,
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = "",
+    remove_extreme_outliers = "",
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -244,7 +244,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = "",
     na_flag = -99,
     dir = dirname(temp_tif_file[1])
@@ -257,7 +257,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = NULL,
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = pi,
     dir = dirname(temp_tif_file[1])
@@ -271,7 +271,7 @@ testthat::test_that("`worldclim_to_ascii()` | Error test", {
     shape = rbind(c(-2, 5)) |> terra::vect(type = "point"),
     box = NULL,
     shift_longitude = TRUE,
-    extreme_outlier_fix = TRUE,
+    remove_extreme_outliers = TRUE,
     overwrite = TRUE,
     na_flag = -99,
     dir = dirname(temp_tif_file[1])

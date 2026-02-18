@@ -1,5 +1,5 @@
 # Borrowed from `rutils`: github.com/danielvartan/prettycheck
-test_internet <- function() has_internet()
+test_internet <- function() is_online()
 
 # Borrowed from `rutils`: github.com/danielvartan/prettycheck
 check_internet <- function() {
@@ -68,7 +68,9 @@ double_quote_ <- function(x) paste0("\"", x, "\"")
 # Borrowed from `rutils`: github.com/danielvartan/rutils
 shush <- function(x, quiet = TRUE) {
   if (isTRUE(quiet)) {
-    suppressMessages(suppressWarnings(x))
+    x |>
+      suppressMessages() |>
+      suppressWarnings()
   } else {
     x
   }
@@ -313,7 +315,7 @@ download_file <- function(
   max_tries = 3,
   retry_on_failure = TRUE
 ) {
-  require_pkg("curl", "fs")
+  require_pkg("fs", "httr2")
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",

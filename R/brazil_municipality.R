@@ -49,29 +49,29 @@
 #' @export
 #'
 #' @examples
-#' library(curl)
+#' library(httr2)
 #' library(dplyr)
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality() |> glimpse()
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality(municipality = "Belém") |> glimpse()
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality(municipality = "Belém", state = "Pará") |> glimpse()
 #'   }
 #' }
 #'
 #' \dontrun{
-#'   if (has_internet()) {
+#'   if (is_online()) {
 #'     brazil_municipality(municipality = c("Belém", "São Paulo")) |> glimpse()
 #'   }
 #' }

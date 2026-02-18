@@ -12,7 +12,6 @@
 #' alternative ways to download WorldClim data.
 #'
 #' **Note:** This function requires an active internet connection and the
-#' [`curl`](https://CRAN.R-project.org/package=curl),
 #' [`fs`](https://CRAN.R-project.org/package=fs),
 #' [`httr2`](https://CRAN.R-project.org/package=httr2),
 #' [`rvest`](https://CRAN.R-project.org/package=rvest), and
@@ -75,7 +74,7 @@ worldclim_download <- function(
   max_tries = 3,
   retry_on_failure = TRUE
 ) {
-  require_pkg("curl", "fs", "httr2", "rvest", "zip")
+  require_pkg("fs", "httr2", "rvest", "zip")
 
   assert_internet()
   checkmate::assert_string(series)
