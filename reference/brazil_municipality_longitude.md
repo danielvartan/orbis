@@ -115,11 +115,8 @@ library(httr2)
     brazil_municipality_longitude(3550308)
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Using year/date 2024
-#> Problem connecting to data server. Please try again in a few minutes.
-#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `municipality = to_title_case_pt(...)`.
-#> Caused by error in `to_title_case_pt()`:
-#> ! Assertion on 'x' failed: Must be of type 'character', not 'NULL'.
+#> São Paulo-SP 
+#> -46.57038318 
 # }
 
 # \dontrun{
@@ -127,11 +124,8 @@ library(httr2)
     brazil_municipality_longitude(c(3550308, 3500204))
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Using year/date 2024
-#> Problem connecting to data server. Please try again in a few minutes.
-#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `municipality = to_title_case_pt(...)`.
-#> Caused by error in `to_title_case_pt()`:
-#> ! Assertion on 'x' failed: Must be of type 'character', not 'NULL'.
+#> São Paulo-SP    Adolfo-SP 
+#> -46.57038318 -49.64972143 
 # }
 
 # \dontrun{
@@ -139,11 +133,8 @@ library(httr2)
     brazil_municipality_longitude(c(3550308, 1000, 3500204))
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Using year/date 2024
-#> Problem connecting to data server. Please try again in a few minutes.
-#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `municipality = to_title_case_pt(...)`.
-#> Caused by error in `to_title_case_pt()`:
-#> ! Assertion on 'x' failed: Must be of type 'character', not 'NULL'.
+#> São Paulo-SP         <NA>    Adolfo-SP 
+#> -46.57038318           NA -49.64972143 
 # }
 
 # \dontrun{
@@ -151,10 +142,7 @@ library(httr2)
     brazil_municipality_longitude(c(3550308, NA, 3500204))
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Using year/date 2024
-#> Problem connecting to data server. Please try again in a few minutes.
-#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `municipality = to_title_case_pt(...)`.
-#> Caused by error in `to_title_case_pt()`:
-#> ! Assertion on 'x' failed: Must be of type 'character', not 'NULL'.
+#> São Paulo-SP         <NA>    Adolfo-SP 
+#> -46.57038318           NA -49.64972143 
 # }
 ```

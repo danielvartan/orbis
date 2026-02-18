@@ -157,11 +157,8 @@ Brazilian Institute of Geography and Statistics
 <span class="r-in"><span>    <span class="fu">brazil_municipality_latitude</span><span class="op">(</span><span class="fl">3550308</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2024</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Problem connecting to data server. Please try again in a few minutes.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `municipality = to_title_case_pt(...)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `to_title_case_pt()`:</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Assertion on 'x' failed: Must be of type 'character', not 'NULL'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  -23.5673865 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
@@ -169,11 +166,8 @@ Brazilian Institute of Geography and Statistics
 <span class="r-in"><span>    <span class="fu">brazil_municipality_latitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2024</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Problem connecting to data server. Please try again in a few minutes.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `municipality = to_title_case_pt(...)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `to_title_case_pt()`:</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Assertion on 'x' failed: Must be of type 'character', not 'NULL'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP    Adolfo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -23.56738650 -21.23272978 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
@@ -181,11 +175,8 @@ Brazilian Institute of Geography and Statistics
 <span class="r-in"><span>    <span class="fu">brazil_municipality_latitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">1000</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2024</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Problem connecting to data server. Please try again in a few minutes.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `municipality = to_title_case_pt(...)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `to_title_case_pt()`:</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Assertion on 'x' failed: Must be of type 'character', not 'NULL'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP         &lt;NA&gt;    Adolfo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -23.56738650           NA -21.23272978 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
@@ -193,11 +184,8 @@ Brazilian Institute of Geography and Statistics
 <span class="r-in"><span>    <span class="fu">brazil_municipality_latitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="cn">NA</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2024</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Problem connecting to data server. Please try again in a few minutes.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `municipality = to_title_case_pt(...)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `to_title_case_pt()`:</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Assertion on 'x' failed: Must be of type 'character', not 'NULL'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP         &lt;NA&gt;    Adolfo-SP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -23.56738650           NA -21.23272978 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

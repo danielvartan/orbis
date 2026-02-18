@@ -28,9 +28,10 @@ worldclim_download(
   ssp = NULL,
   year = NULL,
   dir = here::here("data"),
-  timeout = 100,
+  connection_timeout = 60,
   max_tries = 3,
-  retry_on_failure = TRUE
+  retry_on_failure = TRUE,
+  backoff = function(attempt) 5^attempt
 )
 ```
 
@@ -188,24 +189,32 @@ worldclim_download(
 
 - dir:
 
-  A [`character`](https://rdrr.io/r/base/character.html) string
-  specifying the directory where to save the downloaded files (default:
-  `here::here("data")`).
+  (optional) A [`character`](https://rdrr.io/r/base/character.html)
+  string specifying the directory where to save the downloaded files
+  (default: `here::here("data")`).
 
-- timeout:
+- connection_timeout:
 
-  A [`numeric`](https://rdrr.io/r/base/numeric.html) value specifying
-  the timeout (in seconds) for requests (default: `100`).
+  (optional) A [`numeric`](https://rdrr.io/r/base/numeric.html) value
+  specifying the connection timeout in seconds for HTTP requests
+  (default: `60`).
 
 - max_tries:
 
-  A [`numeric`](https://rdrr.io/r/base/numeric.html) value specifying
-  the maximum number of retry attempts (default: `3`).
+  (optional) A [`numeric`](https://rdrr.io/r/base/numeric.html) value
+  specifying the maximum number of retry attempts (default: `3`).
 
 - retry_on_failure:
 
-  A [`logical`](https://rdrr.io/r/base/logical.html) value indicating
-  whether to retry on failure (default: `TRUE`).
+  (optional) A [`logical`](https://rdrr.io/r/base/logical.html) value
+  indicating whether to retry on failure (default: `TRUE`).
+
+- backoff:
+
+  (optional) A [`function`](https://rdrr.io/r/base/function.html) that
+  takes the current attempt number as input and returns the number of
+  seconds to wait before the next attempt (default:
+  `\(attempt) 5^attempt`).
 
 ## Value
 

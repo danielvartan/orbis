@@ -94,9 +94,10 @@ installed.</p>
 <span>  ssp <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  year <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  dir <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span>,</span>
-<span>  timeout <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  connection_timeout <span class="op">=</span> <span class="fl">60</span>,</span>
 <span>  max_tries <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  retry_on_failure <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  retry_on_failure <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  backoff <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">attempt</span><span class="op">)</span> <span class="fl">5</span><span class="op">^</span><span class="va">attempt</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -197,23 +198,31 @@ Data</em> series:</p><ul><li><p><em>Historical Monthly Weather Data</em>: <code>
 
 
 <dt id="arg-dir">dir<a class="anchor" aria-label="anchor" href="#arg-dir"></a></dt>
-<dd><p>A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> string specifying the directory
-where to save the downloaded files (default: <code>here::here("data")</code>).</p></dd>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> string specifying
+the directory where to save the downloaded files (default:
+<code>here::here("data")</code>).</p></dd>
 
 
-<dt id="arg-timeout">timeout<a class="anchor" aria-label="anchor" href="#arg-timeout"></a></dt>
-<dd><p>A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying the timeout
-(in seconds) for requests (default: <code>100</code>).</p></dd>
+<dt id="arg-connection-timeout">connection_timeout<a class="anchor" aria-label="anchor" href="#arg-connection-timeout"></a></dt>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value
+specifying the connection timeout in seconds for HTTP requests
+(default: <code>60</code>).</p></dd>
 
 
 <dt id="arg-max-tries">max_tries<a class="anchor" aria-label="anchor" href="#arg-max-tries"></a></dt>
-<dd><p>A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying the maximum
-number of retry attempts (default: <code>3</code>).</p></dd>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying
+the maximum number of retry attempts (default: <code>3</code>).</p></dd>
 
 
 <dt id="arg-retry-on-failure">retry_on_failure<a class="anchor" aria-label="anchor" href="#arg-retry-on-failure"></a></dt>
-<dd><p>A <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> value indicating
-whether to retry on failure (default: <code>TRUE</code>).</p></dd>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> value
+indicating whether to retry on failure (default: <code>TRUE</code>).</p></dd>
+
+
+<dt id="arg-backoff">backoff<a class="anchor" aria-label="anchor" href="#arg-backoff"></a></dt>
+<dd><p>(optional) A <code><a href="https://rdrr.io/r/base/function.html" class="external-link">function</a></code> that takes the
+current attempt number as input and returns the number of seconds to wait
+before the next attempt (default: <code>\(attempt) 5^attempt</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
