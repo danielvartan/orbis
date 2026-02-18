@@ -372,8 +372,12 @@ download_file <- function(
     )
 
     if (inherits(test, "try-error")) {
-      cli::cli_alert_info(
-        "The file {.strong {basename(i)}} could not be downloaded."
+      cli::cli_abort(
+        paste0(
+          "The file {.strong {basename(i)}} could not be downloaded. ",
+          "This may be due to temporary issues with the server hosting ",
+          "the file or your internet connection."
+        )
       )
 
       broken_links <- c(broken_links, i)
