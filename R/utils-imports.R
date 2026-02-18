@@ -313,7 +313,8 @@ download_file <- function(
   broken_links = FALSE,
   timeout = 10,
   max_tries = 3,
-  retry_on_failure = TRUE
+  retry_on_failure = TRUE,
+  backoff = \(attempt) 5^attempt
 ) {
   require_pkg("fs", "httr2")
 
@@ -328,6 +329,7 @@ download_file <- function(
   checkmate::assert_number(timeout, lower = 1)
   checkmate::assert_number(max_tries, lower = 1)
   checkmate::assert_flag(retry_on_failure)
+  checkmate::assert_function(backoff)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -362,7 +364,8 @@ download_file <- function(
         httr2::req_timeout(timeout) |>
         httr2::req_retry(
           max_tries = max_tries,
-          retry_on_failure = TRUE
+          retry_on_failure = retry_on_failure,
+          backoff = backoff
         ) |>
         httr2::req_progress() |>
         httr2::req_perform(
