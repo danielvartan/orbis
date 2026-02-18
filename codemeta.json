@@ -58,6 +58,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "brandr",
+      "name": "brandr",
+      "version": ">= 0.1.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=brandr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "bslib",
       "name": "bslib",
       "version": ">= 0.10.0",
@@ -224,6 +237,19 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rvest"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "showtext",
+      "name": "showtext",
+      "version": ">= 0.9.7",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=showtext"
     },
     {
       "@type": "SoftwareApplication",
@@ -494,7 +520,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "938.857KB",
+  "fileSize": "939.255KB",
   "citation": [
     {
       "@type": "CreativeWork",

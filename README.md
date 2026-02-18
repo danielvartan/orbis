@@ -104,7 +104,9 @@ world_vector |>
   geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
-![](man/figures/readme-shift-and-rotate-1-1.png)
+<img
+src="man/figures/readme-shift-and-rotate-1-1.png"
+data-fig-alt="World map" />
 
 #### Define a Country Vector
 
@@ -120,7 +122,9 @@ russia_vector |>
   geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
-![](man/figures/readme-shift-and-rotate-2-1.png)
+<img
+src="man/figures/readme-shift-and-rotate-2-1.png"
+data-fig-alt="Russia shape crossing the International Date Line" />
 
 #### Shift and Rotate the Country Vector 45 Degrees to the Left
 
@@ -131,7 +135,9 @@ russia_vector |>
   geom_spatvector(fill = "#3243A6", color = "white")
 ```
 
-![](man/figures/readme-shift-and-rotate-3-1.png)
+<img
+src="man/figures/readme-shift-and-rotate-3-1.png"
+data-fig-alt="Russia shape crossing the International Date Line, shifted and rotated 45 degrees to the left" />
 
 ### `remove_unique_outliers()`
 

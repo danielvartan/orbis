@@ -257,6 +257,20 @@ references:
   doi: 10.32614/CRAN.package.brand.yml
   version: '>= 0.1.0'
 - type: software
+  title: brandr
+  abstract: 'brandr: Brand Identity Management Using brand.yml Standard'
+  notes: Suggests
+  url: https://danielvartan.github.io/brandr/
+  repository: https://CRAN.R-project.org/package=brandr
+  authors:
+  - family-names: Vartanian
+    given-names: Daniel
+    email: danvartan@gmail.com
+    orcid: https://orcid.org/0000-0001-7782-759X
+  year: '2026'
+  doi: 10.32614/CRAN.package.brandr
+  version: '>= 0.1.0'
+- type: software
   title: bslib
   abstract: 'bslib: Custom ''Bootstrap'' ''Sass'' Themes for ''shiny'' and ''rmarkdown'''
   notes: Suggests
@@ -499,6 +513,20 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rvest
   version: '>= 1.0.5'
+- type: software
+  title: showtext
+  abstract: 'showtext: Using Fonts More Easily in R Graphs'
+  notes: Suggests
+  url: https://github.com/yixuan/showtext
+  repository: https://CRAN.R-project.org/package=showtext
+  authors:
+  - family-names: Qiu
+    given-names: Yixuan
+  - family-names: details.
+    given-names: authors/contributors of the included software. See file AUTHORS for
+  year: '2026'
+  doi: 10.32614/CRAN.package.showtext
+  version: '>= 0.9.7'
 - type: software
   title: sidrar
   abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
