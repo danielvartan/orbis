@@ -40,7 +40,7 @@
 #' @param dx (optional) A [`numeric`][base::numeric()] value specifying the
 #'   horizontal distance in degrees to shift the raster data. This is only
 #'   relevant if `shift_longitude` is set to `TRUE` (default: `-45`).
-#' @param extreme_outlier_fix (optional) A [`logical`][base::logical()] flag
+#' @param remove_extreme_outliers (optional) A [`logical`][base::logical()] flag
 #'   indicating whether to transform to `NA` values 10 times the interquartile
 #'   range ([IQR](https://en.wikipedia.org/wiki/Interquartile_range)) below the
 #'   first quartile or above the third quartile of the data values without
@@ -69,7 +69,7 @@
 #'
 #' library(curl)
 #' library(fs)
-#' library(httr)
+#' library(httr2)
 #' library(magrittr)
 #' library(readr)
 #' library(rvest)
@@ -111,7 +111,7 @@ worldclim_to_ascii <- function(
   box = NULL,
   shift_longitude = TRUE,
   dx = -45,
-  extreme_outlier_fix = TRUE,
+  remove_extreme_outliers = TRUE,
   overwrite = TRUE,
   na_flag = -99,
   dir = dirname(file[1])
@@ -125,7 +125,7 @@ worldclim_to_ascii <- function(
   checkmate::assert_numeric(box, len = 4, null.ok = TRUE)
   checkmate::assert_flag(shift_longitude)
   checkmate::assert_number(dx, finite = TRUE)
-  checkmate::assert_flag(extreme_outlier_fix)
+  checkmate::assert_flag(remove_extreme_outliers)
   checkmate::assert_flag(overwrite)
   checkmate::assert_int(na_flag)
 
@@ -218,7 +218,7 @@ worldclim_to_ascii <- function(
         verbose = FALSE
       )
 
-    if (isTRUE(extreme_outlier_fix)) {
+    if (isTRUE(remove_extreme_outliers)) {
       remove_unique_outliers(asc_file, 10)
     }
 
