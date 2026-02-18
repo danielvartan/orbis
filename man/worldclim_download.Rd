@@ -12,9 +12,10 @@ worldclim_download(
   ssp = NULL,
   year = NULL,
   dir = here::here("data"),
-  timeout = 100,
+  connection_timeout = 60,
   max_tries = 3,
-  retry_on_failure = TRUE
+  retry_on_failure = TRUE,
+  backoff = function(attempt) 5^attempt
 )
 }
 \arguments{
@@ -121,17 +122,23 @@ Data} series:
 \code{"2081-2100"}
 }}
 
-\item{dir}{A \code{\link[base:character]{character}} string specifying the directory
-where to save the downloaded files (default: \code{here::here("data")}).}
+\item{dir}{(optional) A \code{\link[base:character]{character}} string specifying
+the directory where to save the downloaded files (default:
+\code{here::here("data")}).}
 
-\item{timeout}{A \code{\link[base:numeric]{numeric}} value specifying the timeout
-(in seconds) for requests (default: \code{100}).}
+\item{connection_timeout}{(optional) A \code{\link[base:numeric]{numeric}} value
+specifying the connection timeout in seconds for HTTP requests
+(default: \code{60}).}
 
-\item{max_tries}{A \code{\link[base:numeric]{numeric}} value specifying the maximum
-number of retry attempts (default: \code{3}).}
+\item{max_tries}{(optional) A \code{\link[base:numeric]{numeric}} value specifying
+the maximum number of retry attempts (default: \code{3}).}
 
-\item{retry_on_failure}{A \code{\link[base:logical]{logical}} value indicating
-whether to retry on failure (default: \code{TRUE}).}
+\item{retry_on_failure}{(optional) A \code{\link[base:logical]{logical}} value
+indicating whether to retry on failure (default: \code{TRUE}).}
+
+\item{backoff}{(optional) A \code{\link[base:function]{function}} that takes the
+current attempt number as input and returns the number of seconds to wait
+before the next attempt (default: \verb{\\(attempt) 5^attempt}).}
 }
 \value{
 An invisible \code{\link[base:character]{character}} vector with the file

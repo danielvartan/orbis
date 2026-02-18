@@ -209,14 +209,14 @@ to_title_case_pt <- function(
 # Borrowed from `rutils`: github.com/danielvartan/rutils
 get_file_size <- function(
   file,
-  timeout = 10,
+  connection_timeout = 10,
   max_tries = 3,
   retry_on_failure = TRUE
 ) {
   require_pkg("fs", "httr2")
 
   checkmate::assert_character(file)
-  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(connection_timeout, lower = 1)
   checkmate::assert_number(max_tries, lower = 1)
   checkmate::assert_flag(retry_on_failure)
 
@@ -233,7 +233,7 @@ get_file_size <- function(
       out[i] <-
         file[i] |>
         get_file_size_by_url(
-          timeout = timeout,
+          connection_timeout = connection_timeout,
           max_tries = max_tries,
           retry_on_failure = retry_on_failure
         )
@@ -248,7 +248,7 @@ get_file_size <- function(
 # Borrowed from `rutils`: github.com/danielvartan/rutils
 get_file_size_by_url <- function(
   file,
-  timeout = 10,
+  connection_timeout = 10,
   max_tries = 3,
   retry_on_failure = TRUE
 ) {
@@ -261,7 +261,7 @@ get_file_size_by_url <- function(
 
   assert_internet()
   checkmate::assert_character(file, pattern = url_pattern)
-  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(connection_timeout, lower = 1)
   checkmate::assert_number(max_tries, lower = 1)
   checkmate::assert_flag(retry_on_failure)
 
@@ -273,7 +273,7 @@ get_file_size_by_url <- function(
         file[i] |>
           httr2::request() |>
           httr2::req_method("HEAD") |>
-          httr2::req_timeout(timeout) |>
+          httr2::req_options(connecttimeout = connection_timeout) |>
           httr2::req_retry(
             max_tries = max_tries,
             retry_on_failure = TRUE
@@ -310,8 +310,7 @@ count_na <- function(x) {
 download_file <- function(
   url,
   dir = tempdir(),
-  broken_links = FALSE,
-  timeout = 10,
+  connection_timeout = 10,
   max_tries = 3,
   retry_on_failure = TRUE,
   backoff = \(attempt) 5^attempt
@@ -326,7 +325,7 @@ download_file <- function(
   checkmate::assert_character(url, pattern = url_pattern, any.missing = FALSE)
   checkmate::assert_string(dir)
   checkmate::assert_directory_exists(dir, access = "w")
-  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(connection_timeout, lower = 1)
   checkmate::assert_number(max_tries, lower = 1)
   checkmate::assert_flag(retry_on_failure)
   checkmate::assert_function(backoff)
@@ -335,6 +334,14 @@ download_file <- function(
   # nolint start
   . <- NULL
   # nolint end
+
+  file_sizes <-
+    url |>
+    get_file_size_by_url(
+      connection_timeout = connection_timeout,
+      max_tries = max_tries,
+      retry_on_failure = retry_on_failure
+    )
 
   cli::cli_alert_info(
     paste0(
@@ -361,7 +368,7 @@ download_file <- function(
     test <- try(
       i |>
         httr2::request() |>
-        httr2::req_timeout(timeout) |>
+        httr2::req_options(connecttimeout = connection_timeout) |>
         httr2::req_retry(
           max_tries = max_tries,
           retry_on_failure = retry_on_failure,
@@ -375,12 +382,12 @@ download_file <- function(
     )
 
     if (inherits(test, "try-error")) {
-      cli::cli_abort(
+      cli::cli_alert_warning(
         paste0(
-          "The file {.strong {basename(i)}} could not be downloaded. ",
-          "This may be due to temporary issues with the server hosting ",
-          "the file or your internet connection."
-        )
+          "The file {.strong {cli::col_red(basename(i))}} ",
+          "could not be downloaded."
+        ),
+        wrap = TRUE
       )
 
       broken_links <- c(broken_links, i)
@@ -391,14 +398,10 @@ download_file <- function(
 
   cli::cli_progress_done()
 
-  if (isTRUE(broken_links)) {
-    invisible(broken_links)
-  } else {
-    url |>
-      magrittr::extract(!url %in% broken_links) %>%
-      fs::path(dir, basename(.)) |>
-      invisible()
-  }
+  url |>
+    magrittr::extract(!url %in% broken_links) %>%
+    fs::path(dir, basename(.)) |>
+    invisible()
 }
 
 # Borrowed from `rutils`: github.com/danielvartan/rutils

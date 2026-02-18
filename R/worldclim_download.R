@@ -23,14 +23,19 @@
 #'   - `"hcd"` = Historical Climate Data
 #'   - `"hmwd"` = Historical Monthly Weather Data
 #'   - `"fcd"` = Future Climate Data
-#' @param dir A [`character`][base::character()] string specifying the directory
-#'   where to save the downloaded files (default: `here::here("data")`).
-#' @param timeout A [`numeric`][base::numeric()] value specifying the timeout
-#'   (in seconds) for requests (default: `100`).
-#' @param max_tries A [`numeric`][base::numeric()] value specifying the maximum
-#'   number of retry attempts (default: `3`).
-#' @param retry_on_failure A [`logical`][base::logical()] value indicating
-#'   whether to retry on failure (default: `TRUE`).
+#' @param dir (optional) A [`character`][base::character()] string specifying
+#'   the directory where to save the downloaded files (default:
+#'   `here::here("data")`).
+#' @param connection_timeout (optional) A [`numeric`][base::numeric()] value
+#'   specifying the connection timeout in seconds for HTTP requests
+#'   (default: `60`).
+#' @param max_tries (optional) A [`numeric`][base::numeric()] value specifying
+#'   the maximum number of retry attempts (default: `3`).
+#' @param retry_on_failure (optional) A [`logical`][base::logical()] value
+#'   indicating whether to retry on failure (default: `TRUE`).
+#' @param backoff (optional) A [`function`][base::function()] that takes the
+#'   current attempt number as input and returns the number of seconds to wait
+#'   before the next attempt (default: `\(attempt) 5^attempt`).
 #'
 #' @return An invisible [`character`][base::character()] vector with the file
 #'   path(s) of the downloaded data.
@@ -70,9 +75,10 @@ worldclim_download <- function(
   ssp = NULL,
   year = NULL,
   dir = here::here("data"),
-  timeout = 100,
+  connection_timeout = 60,
   max_tries = 3,
-  retry_on_failure = TRUE
+  retry_on_failure = TRUE,
+  backoff = \(attempt) 5^attempt
 ) {
   require_pkg("fs", "httr2", "rvest", "zip")
 
@@ -80,9 +86,10 @@ worldclim_download <- function(
   checkmate::assert_string(series)
   checkmate::assert_string(resolution)
   checkmate::assert_path_for_output(dir, overwrite = TRUE)
-  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(connection_timeout, lower = 1)
   checkmate::assert_number(max_tries, lower = 1)
   checkmate::assert_flag(retry_on_failure)
+  checkmate::assert_function(backoff)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -117,7 +124,9 @@ worldclim_download <- function(
         size = urls |>
           purrr::map_dbl(
             get_file_size,
-            timeout = timeout
+            connection_timeout = connection_timeout,
+            max_tries = max_tries,
+            retry_on_failure = retry_on_failure
           )
       ) |>
       dplyr::arrange(size) |>
@@ -180,7 +189,15 @@ worldclim_download <- function(
 
   cli::cli_progress_step("Downloading Files")
 
-  metadata |> dplyr::pull(url) |> download_file(dir = dir_series)
+  metadata |>
+    dplyr::pull(url) |>
+    download_file(
+      dir = dir_series,
+      connection_timeout = connection_timeout,
+      max_tries = max_tries,
+      retry_on_failure = retry_on_failure,
+      backoff = backoff
+    )
 
   cli::cli_progress_step("Unzipping Files")
 
