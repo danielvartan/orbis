@@ -14,18 +14,24 @@
 #' **Note:** This function requires an active internet connection and the
 #' [`curl`](https://CRAN.R-project.org/package=curl),
 #' [`fs`](https://CRAN.R-project.org/package=fs),
-#' [`httr`](https://CRAN.R-project.org/package=httr),
+#' [`httr2`](https://CRAN.R-project.org/package=httr2),
 #' [`rvest`](https://CRAN.R-project.org/package=rvest), and
 #' [`zip`](https://CRAN.R-project.org/package=zip) packages to be
 #' installed.
 #'
-#' @param series A string with the name of the WorldClim data series. The
-#'   following options are available:
+#' @param series A [`character`][base::character()] string with the name of the
+#'   WorldClim data series. The following options are available:
 #'   - `"hcd"` = Historical Climate Data
 #'   - `"hmwd"` = Historical Monthly Weather Data
 #'   - `"fcd"` = Future Climate Data
-#' @param dir A string specifying the directory where to save the downloaded
-#'   files (default: `here::here("data")`).
+#' @param dir A [`character`][base::character()] string specifying the directory
+#'   where to save the downloaded files (default: `here::here("data")`).
+#' @param timeout A [`numeric`][base::numeric()] value specifying the timeout
+#'   (in seconds) for requests (default: `100`).
+#' @param max_tries A [`numeric`][base::numeric()] value specifying the maximum
+#'   number of retry attempts (default: `3`).
+#' @param retry_on_failure A [`logical`][base::logical()] value indicating
+#'   whether to retry on failure (default: `TRUE`).
 #'
 #' @return An invisible [`character`][base::character()] vector with the file
 #'   path(s) of the downloaded data.
@@ -64,14 +70,20 @@ worldclim_download <- function(
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data")
+  dir = here::here("data"),
+  timeout = 100,
+  max_tries = 3,
+  retry_on_failure = TRUE
 ) {
-  require_pkg("curl", "fs", "httr", "rvest", "zip")
+  require_pkg("curl", "fs", "httr2", "rvest", "zip")
 
   assert_internet()
   checkmate::assert_string(series)
   checkmate::assert_string(resolution)
   checkmate::assert_path_for_output(dir, overwrite = TRUE)
+  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -103,7 +115,11 @@ worldclim_download <- function(
       dplyr::tibble(
         file = basename(urls),
         url = urls,
-        size = urls |> purrr::map_dbl(get_file_size) |> fs::as_fs_bytes()
+        size = urls |>
+          purrr::map_dbl(
+            get_file_size,
+            timeout = timeout
+          )
       ) |>
       dplyr::arrange(size) |>
       dplyr::mutate(
@@ -120,10 +136,9 @@ worldclim_download <- function(
     cli::cli_abort(
       paste0(
         "{.strong {cli::col_red('worldclim_download()')}} ",
-        "encountered issues when ",
-        "trying to get the size of some files. ",
-        "Please report this issue at ",
-        "<https://github.com/danielvartan/orbis>."
+        "encountered issues when trying to get the size of one or more ",
+        "files. This may be due to temporary issues with the WorldClim ",
+        "website or your internet connection.",
       )
     )
   }

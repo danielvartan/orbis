@@ -41,7 +41,7 @@ Suggests:
     geodata (>= 0.6.6),
     ggplot2 (>= 4.0.1),
     glue (>= 1.8.0),
-    httr (>= 1.4.7),
+    httr2 (>= 1.2.2),
     ISOcodes (>= 2025.5.18),
     knitr (>= 1.51),
     rvest (>= 1.0.5),

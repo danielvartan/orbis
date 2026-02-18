@@ -205,24 +205,38 @@ to_title_case_pt <- function(
 }
 
 # Borrowed from `rutils`: github.com/danielvartan/rutils
-get_file_size <- function(file) {
-  require_pkg("fs", "httr")
+get_file_size <- function(
+  file,
+  timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
+) {
+  require_pkg("fs", "httr2")
 
   checkmate::assert_character(file)
+  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
     "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
   )
 
-  file <- stringr::str_trim(file)
+  file <- file |> stringr::str_trim()
   out <- character()
 
   for (i in seq_along(file)) {
     if (stringr::str_detect(file[i], url_pattern)) {
-      out[i] <- get_file_size_by_url(file[i])
+      out[i] <-
+        file[i] |>
+        get_file_size_by_url(
+          timeout = timeout,
+          max_tries = max_tries,
+          retry_on_failure = retry_on_failure
+        )
     } else {
-      out[i] <- fs::file_size(file[i])
+      out[i] <- file[i] |> fs::file_size()
     }
   }
 
@@ -230,8 +244,13 @@ get_file_size <- function(file) {
 }
 
 # Borrowed from `rutils`: github.com/danielvartan/rutils
-get_file_size_by_url <- function(file) {
-  require_pkg("fs", "httr")
+get_file_size_by_url <- function(
+  file,
+  timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
+) {
+  require_pkg("fs", "httr2")
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
@@ -240,21 +259,36 @@ get_file_size_by_url <- function(file) {
 
   assert_internet()
   checkmate::assert_character(file, pattern = url_pattern)
+  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
 
   out <- character()
 
   for (i in seq_along(file)) {
-    request <- try(
+    response <- try(
       {
-        file[i] |> httr::HEAD()
+        file[i] |>
+          httr2::request() |>
+          httr2::req_method("HEAD") |>
+          httr2::req_timeout(timeout) |>
+          httr2::req_retry(
+            max_tries = max_tries,
+            retry_on_failure = TRUE
+          ) |>
+          httr2::req_perform()
       },
       silent = TRUE
     )
 
-    if (inherits(request, "try-error")) {
+    if (inherits(response, "try-error")) {
       out[i] <- NA
-    } else if (!is.null(request$headers$`Content-Length`)) {
-      out[i] <- as.numeric(request$headers$`content-length`)
+    } else if (!is.null(response$headers$`Content-Length`)) {
+      out[i] <-
+        response |>
+        httr2::resp_headers() |>
+        purrr::pluck("Content-Length") |>
+        as.numeric()
     } else {
       out[i] <- NA
     }
@@ -273,8 +307,11 @@ count_na <- function(x) {
 # Borrowed from `rutils`: github.com/danielvartan/rutils
 download_file <- function(
   url,
-  dir = ".",
-  broken_links = FALSE
+  dir = tempdir(),
+  broken_links = FALSE,
+  timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
 ) {
   require_pkg("curl", "fs")
 
@@ -286,6 +323,9 @@ download_file <- function(
   checkmate::assert_character(url, pattern = url_pattern, any.missing = FALSE)
   checkmate::assert_string(dir)
   checkmate::assert_directory_exists(dir, access = "w")
+  checkmate::assert_number(timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -316,9 +356,15 @@ download_file <- function(
   for (i in url) {
     test <- try(
       i |>
-        curl::curl_download(
-          destfile = fs::path(dir, basename(i)),
-          quiet = TRUE
+        httr2::request() |>
+        httr2::req_timeout(timeout) |>
+        httr2::req_retry(
+          max_tries = max_tries,
+          retry_on_failure = TRUE
+        ) |>
+        httr2::req_progress() |>
+        httr2::req_perform(
+          path = fs::path(dir, basename(i)),
         ),
       silent = TRUE
     )
