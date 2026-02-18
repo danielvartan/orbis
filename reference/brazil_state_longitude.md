@@ -26,9 +26,7 @@ longitude of Brazilian state capitals.
 ## Details
 
 The data from this function is based on Google's Geocoding API gathered
-via the
-[`tidygeocoder`](https://jessecambon.github.io/tidygeocoder/reference/tidygeocoder-package.html)
-R package.
+via the `tidygeocoder` R package.
 
 ## See also
 

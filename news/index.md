@@ -2,6 +2,12 @@
 
 ## orbis 0.2.1.9000 (development version)
 
+- [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.md)
+  now accepts `timeout`, `max_tries`, `retry_on_failure`, and `backoff`
+  arguments to handle slow response times from UCDavis servers.
+- [`worldclim_to_ascii()`](https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.md):
+  parameter `extreme_outlier_fix` has been renamed to
+  `remove_extreme_outliers`.
 - A [Zenodo](https://zenodo.org/) DOI has been registered to provide
   persistent citation and archiving for future releases.
 

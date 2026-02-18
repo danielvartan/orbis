@@ -107,66 +107,53 @@ Other Brazil functions:
 ## Examples
 
 ``` r
-library(curl)
+library(httr2)
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_coords()
   }
 #> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
-#> # A tibble: 5,565 × 3
-#>   municipality_code latitude longitude
-#>               <int>    <dbl>     <dbl>
-#> 1           1100015   -11.9      -62.0
-#> 2           1100023    -9.91     -63.0
-#> 3           1100031   -13.5      -60.5
-#> 4           1100049   -11.4      -61.4
-#> 5           1100056   -13.2      -60.8
-#> 6           1100064   -13.1      -60.6
-#> # ℹ 5,559 more rows
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::as_tibble(geobr::read_municipal_seat(year = closest_geobr_year(year,     type = "municipal_seat"), showProgress = FALSE, cache = !force)),     municipality_code = code_muni), municipality_code = as.integer(municipality_code),     geom = as.list(dplyr::as_tibble(terra::crds(terra::vect(geom))) %>%         split(., seq_len(nrow(.)))), latitude = purrr::map_dbl(geom,         function(x) x$y), longitude = purrr::map_dbl(geom, function(x) x$x)): ℹ In argument: `geom = as.list(...)`.
+#> Caused by error in `h()`:
+#> ! error in evaluating the argument 'x' in selecting a method for function 'crds': unable to find an inherited method for function ‘vect’ for signature ‘x = "NULL"’
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_coords(municipality_code = 3550308)
   }
 #> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
-#> # A tibble: 1 × 3
-#>   municipality_code latitude longitude
-#>               <int>    <dbl>     <dbl>
-#> 1           3550308    -23.6     -46.6
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::as_tibble(geobr::read_municipal_seat(year = closest_geobr_year(year,     type = "municipal_seat"), showProgress = FALSE, cache = !force)),     municipality_code = code_muni), municipality_code = as.integer(municipality_code),     geom = as.list(dplyr::as_tibble(terra::crds(terra::vect(geom))) %>%         split(., seq_len(nrow(.)))), latitude = purrr::map_dbl(geom,         function(x) x$y), longitude = purrr::map_dbl(geom, function(x) x$x)): ℹ In argument: `geom = as.list(...)`.
+#> Caused by error in `h()`:
+#> ! error in evaluating the argument 'x' in selecting a method for function 'crds': unable to find an inherited method for function ‘vect’ for signature ‘x = "NULL"’
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_coords(municipality_code = 3550)
   }
 #> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
-#> # A tibble: 10 × 3
-#>   municipality_code latitude longitude
-#>               <int>    <dbl>     <dbl>
-#> 1           3550001    -23.2     -45.3
-#> 2           3550100    -22.7     -48.6
-#> 3           3550209    -23.9     -48.0
-#> 4           3550308    -23.6     -46.6
-#> 5           3550407    -22.5     -47.9
-#> 6           3550506    -22.8     -49.7
-#> # ℹ 4 more rows
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::as_tibble(geobr::read_municipal_seat(year = closest_geobr_year(year,     type = "municipal_seat"), showProgress = FALSE, cache = !force)),     municipality_code = code_muni), municipality_code = as.integer(municipality_code),     geom = as.list(dplyr::as_tibble(terra::crds(terra::vect(geom))) %>%         split(., seq_len(nrow(.)))), latitude = purrr::map_dbl(geom,         function(x) x$y), longitude = purrr::map_dbl(geom, function(x) x$x)): ℹ In argument: `geom = as.list(...)`.
+#> Caused by error in `h()`:
+#> ! error in evaluating the argument 'x' in selecting a method for function 'crds': unable to find an inherited method for function ‘vect’ for signature ‘x = "NULL"’
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality_coords(municipality_code = c(3550308, 3304557))
   }
 #> ! The closest map year to 2026 is 2010. Using year 2010 instead.
 #> Using year/date 2010
-#> # A tibble: 2 × 3
-#>   municipality_code latitude longitude
-#>               <int>    <dbl>     <dbl>
-#> 1           3304557    -22.9     -43.2
-#> 2           3550308    -23.6     -46.6
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::as_tibble(geobr::read_municipal_seat(year = closest_geobr_year(year,     type = "municipal_seat"), showProgress = FALSE, cache = !force)),     municipality_code = code_muni), municipality_code = as.integer(municipality_code),     geom = as.list(dplyr::as_tibble(terra::crds(terra::vect(geom))) %>%         split(., seq_len(nrow(.)))), latitude = purrr::map_dbl(geom,         function(x) x$y), longitude = purrr::map_dbl(geom, function(x) x$x)): ℹ In argument: `municipality_code = as.integer(municipality_code)`.
+#> Caused by error:
+#> ! `municipality_code` must be size 0 or 1, not 2.
 # }
 ```

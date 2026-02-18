@@ -185,10 +185,10 @@ Other WorldClim functions:
 ## Examples
 
 ``` r
-library(curl)
+library(httr2)
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     worldclim_file(series = "hcd")
   }
 #>  [1] "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmin.zip" 
@@ -230,7 +230,7 @@ library(curl)
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     worldclim_file(
       series = "hcd",
       resolution = c("10m", "30s"),
@@ -243,7 +243,7 @@ library(curl)
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     worldclim_file(
       series = "hmwd",
       resolution = c("10m", "5m"),
@@ -258,7 +258,7 @@ library(curl)
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     worldclim_file(
       series = "fcd",
       resolution = c("2.5m", "30s"),

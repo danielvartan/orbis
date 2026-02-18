@@ -78,7 +78,7 @@ Other terra functions:
 ``` r
 # Set the Environment -----
 
-library(curl)
+library(httr2)
 library(dplyr)
 library(geodata)
 library(ggplot2)
@@ -115,7 +115,7 @@ plot_raster <- function(raster) {
 # Define the SpatVector -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 
     russia_vector |> plot_vector()
@@ -126,7 +126,7 @@ plot_raster <- function(raster) {
 # Define the SpatRaster -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     raster <-
       expand.grid(
         seq(-179.75, 179.75, by = 0.5),
@@ -147,7 +147,7 @@ plot_raster <- function(raster) {
 # Visualize the SpatRaster -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     raster |> plot_raster()
   }
 
@@ -156,7 +156,7 @@ plot_raster <- function(raster) {
 # Shift, Rotate and Crop the SpatRaster -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     raster <- raster |> shift_and_crop(russia_vector, -45)
   }
 # }
@@ -164,7 +164,7 @@ plot_raster <- function(raster) {
 # Visualize the SpatRaster After Shift and Crop -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     raster |> plot_raster()
   }
 

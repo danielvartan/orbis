@@ -77,11 +77,11 @@ changes.
 ## Examples
 
 ``` r
-library(curl)
 library(dplyr)
+library(httr2)
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     sidra_download_by_year(
       years = 2010:2011,
       api_start = "/t/1612/n6/all/v/109/p/",
@@ -91,11 +91,11 @@ library(dplyr)
   }
 #> ⠙ Downloading data from 2010
 #> All others arguments are desconsidered when 'api' is informed
-#> ✔ Downloading data from 2010 [9s]
+#> ✔ Downloading data from 2010 [7.2s]
 #> 
 #> ⠙ Downloading data from 2011
 #> All others arguments are desconsidered when 'api' is informed
-#> ✔ Downloading data from 2011 [9.7s]
+#> ✔ Downloading data from 2011 [6.1s]
 #> 
 #> Rows: 11,126
 #> Columns: 13

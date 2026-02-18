@@ -11,9 +11,8 @@ from the [geodata](https://cran.r-project.org/package=geodata) package
 for alternative ways to download WorldClim data.
 
 **Note:** This function requires an active internet connection and the
-[`curl`](https://CRAN.R-project.org/package=curl),
 [`fs`](https://CRAN.R-project.org/package=fs),
-[`httr`](https://CRAN.R-project.org/package=httr),
+[`httr2`](https://CRAN.R-project.org/package=httr2),
 [`rvest`](https://CRAN.R-project.org/package=rvest), and
 [`zip`](https://CRAN.R-project.org/package=zip) packages to be
 installed.
@@ -28,7 +27,10 @@ worldclim_download(
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data")
+  dir = here::here("data"),
+  timeout = 100,
+  max_tries = 3,
+  retry_on_failure = TRUE
 )
 ```
 
@@ -186,8 +188,24 @@ worldclim_download(
 
 - dir:
 
-  A string specifying the directory where to save the downloaded files
-  (default: `here::here("data")`).
+  A [`character`](https://rdrr.io/r/base/character.html) string
+  specifying the directory where to save the downloaded files (default:
+  `here::here("data")`).
+
+- timeout:
+
+  A [`numeric`](https://rdrr.io/r/base/numeric.html) value specifying
+  the timeout (in seconds) for requests (default: `100`).
+
+- max_tries:
+
+  A [`numeric`](https://rdrr.io/r/base/numeric.html) value specifying
+  the maximum number of retry attempts (default: `3`).
+
+- retry_on_failure:
+
+  A [`logical`](https://rdrr.io/r/base/logical.html) value indicating
+  whether to retry on failure (default: `TRUE`).
 
 ## Value
 

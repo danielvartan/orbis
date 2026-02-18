@@ -128,8 +128,12 @@ Other Brazil functions:
 ## Examples
 
 ``` r
-library(curl)
-#> Using libcurl 8.5.0 with OpenSSL/3.0.13
+library(httr2)
+#> 
+#> Attaching package: ‘httr2’
+#> The following object is masked from ‘package:xml2’:
+#> 
+#>     url_parse
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’
@@ -141,75 +145,50 @@ library(dplyr)
 #>     intersect, setdiff, setequal, union
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality() |> glimpse()
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
 #> Using year/date 2024
-#> Rows: 5,571
-#> Columns: 9
-#> $ municipality      <chr> "Alta Floresta D'Oeste", "Ariquemes", "Cabixi", "…
-#> $ municipality_code <int> 1100015, 1100023, 1100031, 1100049, 1100056, 1100…
-#> $ state             <chr> "Rondônia", "Rondônia", "Rondônia", "Rondônia", "…
-#> $ state_code        <int> 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 1…
-#> $ federal_unit      <chr> "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "…
-#> $ region            <chr> "North", "North", "North", "North", "North", "Nor…
-#> $ region_code       <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-#> $ latitude          <dbl> -11.935540305, -9.908462867, -13.499763460, -11.4…
-#> $ longitude         <dbl> -61.99982390, -63.03326928, -60.54431358, -61.442…
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `municipality = to_title_case_pt(...)`.
+#> Caused by error in `to_title_case_pt()`:
+#> ! Assertion on 'x' failed: Must be of type 'character', not 'NULL'.
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality(municipality = "Belém") |> glimpse()
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Rows: 3
-#> Columns: 9
-#> $ municipality      <chr> "Belém", "Belém", "Belém"
-#> $ municipality_code <int> 1501402, 2501906, 2700805
-#> $ state             <chr> "Pará", "Paraíba", "Alagoas"
-#> $ state_code        <int> 15, 25, 27
-#> $ federal_unit      <chr> "PA", "PB", "AL"
-#> $ region            <chr> "North", "Northeast", "Northeast"
-#> $ region_code       <int> 1, 2, 2
-#> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231
-#> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799
+#> Using year/date 2024
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `state = brazil_state(federal_unit)`.
+#> Caused by error:
+#> ! `state` must be size 0 or 1, not 27.
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality(municipality = "Belém", state = "Pará") |> glimpse()
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Rows: 1
-#> Columns: 9
-#> $ municipality      <chr> "Belém"
-#> $ municipality_code <int> 1501402
-#> $ state             <chr> "Pará"
-#> $ state_code        <int> 15
-#> $ federal_unit      <chr> "PA"
-#> $ region            <chr> "North"
-#> $ region_code       <int> 1
-#> $ latitude          <dbl> -1.459845
-#> $ longitude         <dbl> -48.48782569
+#> Using year/date 2024
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `state = brazil_state(federal_unit)`.
+#> Caused by error:
+#> ! `state` must be size 0 or 1, not 27.
 # }
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     brazil_municipality(municipality = c("Belém", "São Paulo")) |> glimpse()
   }
 #> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Rows: 4
-#> Columns: 9
-#> $ municipality      <chr> "Belém", "Belém", "Belém", "São Paulo"
-#> $ municipality_code <int> 1501402, 2501906, 2700805, 3550308
-#> $ state             <chr> "Pará", "Paraíba", "Alagoas", "São Paulo"
-#> $ state_code        <int> 15, 25, 27, 35
-#> $ federal_unit      <chr> "PA", "PB", "AL", "SP"
-#> $ region            <chr> "North", "Northeast", "Northeast", "Southeast"
-#> $ region_code       <int> 1, 2, 2, 3
-#> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231, -23.567…
-#> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799, -46.570…
+#> Using year/date 2024
+#> Problem connecting to data server. Please try again in a few minutes.
+#> Error in dplyr::mutate(dplyr::rename(dplyr::select(dplyr::as_tibble(read_municipality(year = closest_geobr_year(year,     type = "municipality", verbose = FALSE), showProgress = FALSE,     cache = !force)), name_muni, code_muni, code_state, abbrev_state),     municipality = name_muni, municipality_code = code_muni,     state_code = code_state, federal_unit = abbrev_state), municipality = to_title_case_pt(municipality,     articles = TRUE, conjunctions = FALSE, oblique_pronouns = FALSE,     prepositions = FALSE, custom_rules = c(`(.)\\bE( )\\b` = "\\1e\\2",         `(.)\\bÀ(s)?\\b` = "\\1à\\2", `(.)\\bD(((a|o)(s)?)|(e))\\b` = "\\1d\\2",         `(.)\\bE(m)\\b` = "\\1e\\2", `(.)\\bN((a|o)(s)?)\\b` = "\\1n\\2",         `(.)\\bD(el)\\b` = "\\1d\\2")), municipality_code = as.integer(municipality_code),     state = brazil_state(federal_unit), state_code = as.integer(state_code),     region = brazil_region(federal_unit), region_code = brazil_region_code(region)): ℹ In argument: `municipality = to_title_case_pt(...)`.
+#> Caused by error:
+#> ! `municipality` must be size 0 or 1, not 2.
 # }
 ```

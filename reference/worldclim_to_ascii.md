@@ -14,7 +14,7 @@ worldclim_to_ascii(
   box = NULL,
   shift_longitude = TRUE,
   dx = -45,
-  extreme_outlier_fix = TRUE,
+  remove_extreme_outliers = TRUE,
   overwrite = TRUE,
   na_flag = -99,
   dir = dirname(file[1])
@@ -62,7 +62,7 @@ worldclim_to_ascii(
   data. This is only relevant if `shift_longitude` is set to `TRUE`
   (default: `-45`).
 
-- extreme_outlier_fix:
+- remove_extreme_outliers:
 
   (optional) A [`logical`](https://rdrr.io/r/base/logical.html) flag
   indicating whether to transform to `NA` values 10 times the
@@ -124,14 +124,8 @@ Other WorldClim functions:
 ``` r
 # Set the Environment -----
 
-library(curl)
 library(fs)
-library(httr)
-#> 
-#> Attaching package: ‘httr’
-#> The following object is masked from ‘package:curl’:
-#> 
-#>     handle_reset
+library(httr2)
 library(magrittr)
 library(readr)
 library(rvest)
@@ -150,7 +144,7 @@ library(zip)
 # Download a WorldClim Dataset -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     tif_file <-
       worldclim_download(
         series = "hcd",
@@ -161,30 +155,30 @@ library(zip)
         magrittr::extract(1)
   }
 #> ℹ Scraping WorldClim Website
-#> ✔ Scraping WorldClim Website [47ms]
+#> ✔ Scraping WorldClim Website [72ms]
 #> 
 #> ℹ Calculating File Sizes
 #> ℹ Total download size (compressed): 6.92M.
 #> ℹ Calculating File Sizes
-#> ✔ Calculating File Sizes [284ms]
+#> ✔ Calculating File Sizes [34.3s]
 #> 
 #> ℹ Creating LICENSE and README Files
-#> ✔ Creating LICENSE and README Files [19ms]
+#> ✔ Creating LICENSE and README Files [16ms]
 #> 
 #> ℹ Downloading Files
-#> ℹ Downloading 1 file to /tmp/RtmpsHKHcB/historical-climate-data
+#> ℹ Downloading 1 file to /tmp/RtmpOG17RR/historical-climate-data
 #> ℹ Downloading Files
-#> ✔ Downloading Files [838ms]
+#> ✔ Downloading Files [460ms]
 #> 
 #> ℹ Unzipping Files
-#> ✔ Unzipping Files [14ms]
+#> ✔ Unzipping Files [13ms]
 #> 
 # }
 
 # Transform Data to Esri ASCII -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     asc_file <- tif_file |> worldclim_to_ascii()
   }
 # }
@@ -192,7 +186,7 @@ library(zip)
 # Check the Output -----
 
 # \dontrun{
-  if (has_internet()) {
+  if (is_online()) {
     asc_file |> read_lines(n_max = 11)
   }
 #>  [1] "ncols        2160"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

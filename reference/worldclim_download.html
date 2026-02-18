@@ -13,9 +13,8 @@ worldclim_tile() from the
 geodata package for
 alternative ways to download WorldClim data.
 Note: This function requires an active internet connection and the
-curl,
 fs,
-httr,
+httr2,
 rvest, and
 zip packages to be
 installed."><meta property="og:description" content="worldclim_download() downloads and unzips data from the
@@ -26,9 +25,8 @@ worldclim_tile() from the
 geodata package for
 alternative ways to download WorldClim data.
 Note: This function requires an active internet connection and the
-curl,
 fs,
-httr,
+httr2,
 rvest, and
 zip packages to be
 installed."><meta property="og:image" content="https://danielvartan.github.io/orbis/reference/figures/og-image.png"><meta property="og:image:alt" content="orbis"></head><body>
@@ -79,9 +77,8 @@ installed."><meta property="og:image" content="https://danielvartan.github.io/or
 <a href="https://cran.r-project.org/package=geodata" class="external-link">geodata</a> package for
 alternative ways to download WorldClim data.</p>
 <p><strong>Note:</strong> This function requires an active internet connection and the
-<a href="https://CRAN.R-project.org/package=curl" class="external-link"><code>curl</code></a>,
 <a href="https://CRAN.R-project.org/package=fs" class="external-link"><code>fs</code></a>,
-<a href="https://CRAN.R-project.org/package=httr" class="external-link"><code>httr</code></a>,
+<a href="https://CRAN.R-project.org/package=httr2" class="external-link"><code>httr2</code></a>,
 <a href="https://CRAN.R-project.org/package=rvest" class="external-link"><code>rvest</code></a>, and
 <a href="https://CRAN.R-project.org/package=zip" class="external-link"><code>zip</code></a> packages to be
 installed.</p>
@@ -96,7 +93,10 @@ installed.</p>
 <span>  model <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ssp <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  year <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  dir <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
+<span>  dir <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span>,</span>
+<span>  timeout <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  max_tries <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  retry_on_failure <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -197,8 +197,23 @@ Data</em> series:</p><ul><li><p><em>Historical Monthly Weather Data</em>: <code>
 
 
 <dt id="arg-dir">dir<a class="anchor" aria-label="anchor" href="#arg-dir"></a></dt>
-<dd><p>A string specifying the directory where to save the downloaded
-files (default: <code>here::here("data")</code>).</p></dd>
+<dd><p>A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> string specifying the directory
+where to save the downloaded files (default: <code>here::here("data")</code>).</p></dd>
+
+
+<dt id="arg-timeout">timeout<a class="anchor" aria-label="anchor" href="#arg-timeout"></a></dt>
+<dd><p>A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying the timeout
+(in seconds) for requests (default: <code>100</code>).</p></dd>
+
+
+<dt id="arg-max-tries">max_tries<a class="anchor" aria-label="anchor" href="#arg-max-tries"></a></dt>
+<dd><p>A <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code> value specifying the maximum
+number of retry attempts (default: <code>3</code>).</p></dd>
+
+
+<dt id="arg-retry-on-failure">retry_on_failure<a class="anchor" aria-label="anchor" href="#arg-retry-on-failure"></a></dt>
+<dd><p>A <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> value indicating
+whether to retry on failure (default: <code>TRUE</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">

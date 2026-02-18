@@ -58,11 +58,6 @@ Other utility functions:
 # Set the Environment -----
 
 library(readr)
-#> 
-#> Attaching package: ‘readr’
-#> The following object is masked from ‘package:curl’:
-#> 
-#>     parse_date
 library(terra)
 #> terra 1.8.93
 #> 

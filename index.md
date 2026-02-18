@@ -207,7 +207,7 @@ citation("orbis")
 [![](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ``` text
-Copyright (C) 2025 Daniel Vartanian
+Copyright (C) 2026 Daniel Vartanian
 
 orbis is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
