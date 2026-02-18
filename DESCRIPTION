@@ -46,6 +46,7 @@ Suggests:
     ISOcodes (>= 2025.5.18),
     knitr (>= 1.51),
     rvest (>= 1.0.5),
+    showtext (>= 0.9.7),
     sidrar (>= 0.2.9),
     spelling (>= 2.3.2),
     stats (>= 4.4),

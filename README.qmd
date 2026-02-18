@@ -134,6 +134,7 @@ world_vector <- world(path = tempdir())
 
 ```{r}
 #| label: readme-shift-and-rotate-1
+#| fig-alt: World map
 
 world_vector |>
   ggplot() +
@@ -152,6 +153,7 @@ russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 
 ```{r}
 #| label: readme-shift-and-rotate-2
+#| fig-alt: Russia shape crossing the International Date Line
 
 russia_vector |>
   ggplot() +
@@ -162,6 +164,7 @@ russia_vector |>
 
 ```{r}
 #| label: readme-shift-and-rotate-3
+#| fig-alt: Russia shape crossing the International Date Line, shifted and rotated 45 degrees to the left
 
 russia_vector |>
   shift_and_rotate(-45) |>
