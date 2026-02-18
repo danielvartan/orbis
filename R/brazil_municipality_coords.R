@@ -82,7 +82,7 @@ brazil_municipality_coords.geobr <- function(
   year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   force = FALSE
 ) {
-  require_pkg("geobr")
+  require_package("geobr")
 
   assert_internet()
   checkmate::assert_integerish(municipality_code, null.ok = TRUE)
@@ -138,7 +138,7 @@ brazil_municipality_coords.geocodebr <- function(
   year = Sys.Date() |> substr(1, 4) |> as.numeric(),
   force = FALSE
 ) {
-  require_pkg("geobr", "geocodebr")
+  require_package("geobr", "geocodebr")
 
   assert_internet()
   checkmate::assert_integerish(municipality_code, null.ok = TRUE)

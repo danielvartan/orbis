@@ -11,7 +11,7 @@ testthat::test_that("`brazil_municipality()` | General test", {
   )
 
   testthat::local_mocked_bindings(
-    require_pkg = function(...) TRUE,
+    require_package = function(...) TRUE,
     assert_internet = function(...) TRUE,
     read_municipality = function(...) test_data_1,
     brazil_municipality_coords = function(...) test_data_2

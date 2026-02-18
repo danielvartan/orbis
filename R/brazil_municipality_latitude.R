@@ -58,7 +58,7 @@ brazil_municipality_latitude <- function(
   names = TRUE,
   ...
 ) {
-  require_pkg("geobr")
+  require_package("geobr")
 
   assert_internet()
   checkmate::assert_integerish(municipality_code)

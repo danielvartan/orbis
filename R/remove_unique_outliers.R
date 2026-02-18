@@ -69,7 +69,7 @@
 #'
 #' temp_file |> rast() |> values(mat = FALSE)
 remove_unique_outliers <- function(file, n_iqr = 1.5) {
-  require_pkg("fs", "stats")
+  require_package("fs", "stats")
 
   file_extension_choices <- c("tif", "tiff", "asc")
 
@@ -99,8 +99,9 @@ remove_unique_outliers <- function(file, n_iqr = 1.5) {
   invisible()
 }
 
-remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) { #nolint
-  require_pkg("fs", "stats")
+remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) {
+  #nolint
+  require_package("fs", "stats")
 
   checkmate::assert_string(file)
   checkmate::assert_file_exists(file, access = "rw")
@@ -147,8 +148,9 @@ remove_unique_outliers.tiff <- function(file, n_iqr = 1.5) { #nolint
   invisible()
 }
 
-remove_unique_outliers.asc <- function(file, n_iqr = 1.5) { #nolint
-  require_pkg("fs", "stats")
+remove_unique_outliers.asc <- function(file, n_iqr = 1.5) {
+  #nolint
+  require_package("fs", "stats")
 
   checkmate::assert_string(file)
   checkmate::assert_file_exists(file, access = "rw")

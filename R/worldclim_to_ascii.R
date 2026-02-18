@@ -115,7 +115,7 @@ worldclim_to_ascii <- function(
   na_flag = -99,
   dir = dirname(file[1])
 ) {
-  require_pkg("stats")
+  require_package("stats")
 
   checkmate::assert_character(file)
   checkmate::assert_file_exists(file, access = "r", extension = "tif")

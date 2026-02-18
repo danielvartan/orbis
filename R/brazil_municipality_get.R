@@ -1,4 +1,5 @@
-brazil_municipality_get <- function( #nolint
+brazil_municipality_get <- function(
+  #nolint
   x,
   col_filter,
   col_return,
@@ -6,7 +7,7 @@ brazil_municipality_get <- function( #nolint
   names = TRUE,
   ...
 ) {
-  require_pkg("geobr")
+  require_package("geobr")
 
   assert_internet()
   checkmate::assert_atomic(x)
@@ -39,7 +40,8 @@ brazil_municipality_get <- function( #nolint
             dplyr::pull(!!as.symbol(col_return)) |>
             magrittr::set_names(
               paste0(
-                data_i |> dplyr::pull(municipality), "-",
+                data_i |> dplyr::pull(municipality),
+                "-",
                 data_i |> dplyr::pull(federal_unit)
               )
             )

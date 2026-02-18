@@ -41,10 +41,15 @@
 #' @examples
 #' country_names(format = "alpha 3")
 country_names <- function(format = "common name") {
-  require_pkg("ISOcodes")
+  require_package("ISOcodes")
 
   format_options <- c(
-    "alpha 2", "alpha 3", "numeric", "name", "official name", "common name"
+    "alpha 2",
+    "alpha 3",
+    "numeric",
+    "name",
+    "official name",
+    "common name"
   )
 
   checkmate::assert_choice(format, format_options)

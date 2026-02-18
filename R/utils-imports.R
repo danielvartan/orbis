@@ -23,7 +23,7 @@ assert_internet <- function() {
 }
 
 # Borrowed from `rutils`: github.com/danielvartan/rutils
-require_pkg <- function(...) {
+require_package <- function(...) {
   out <- list(...)
 
   lapply(
@@ -33,30 +33,35 @@ require_pkg <- function(...) {
   )
 
   if (!identical(unique(unlist(out)), unlist(out))) {
-    cli::cli_abort("'...' cannot have duplicated values.")
+    cli::cli_abort(
+      "{.strong {cli::col_red('...')}} cannot have duplicated values."
+    )
   }
 
-  pkg <- unlist(out)
+  package <- unlist(out)
+
   namespace <- vapply(
-    pkg,
+    package,
     require_namespace,
     logical(1),
     quietly = TRUE,
     USE.NAMES = FALSE
   )
-  pkg <- pkg[!namespace]
 
-  if (length(pkg) == 0) {
-    invisible(NULL)
+  package <- package[!namespace]
+
+  if (length(package) == 0) {
+    invisible()
   } else {
     cli::cli_abort(
       paste0(
-        "This function requires the {.strong {pkg}} package{?s} ",
+        "This function requires the ",
+        "{.strong {cli::col_red(package)}} package{?s} ",
         "to run. You can install {?it/them} by running:",
         "\n\n",
-        "install.packages(c(",
-        "{paste(double_quote_(pkg), collapse = ', ')}",
-        "))"
+        "install.packages(",
+        "c({paste(glue::double_quote(package), collapse = ', ')})",
+        ")"
       )
     )
   }
@@ -213,7 +218,7 @@ get_file_size <- function(
   max_tries = 3,
   retry_on_failure = TRUE
 ) {
-  require_pkg("fs", "httr2")
+  require_package("fs", "httr2")
 
   checkmate::assert_character(file)
   checkmate::assert_number(connection_timeout, lower = 1)
@@ -252,7 +257,7 @@ get_file_size_by_url <- function(
   max_tries = 3,
   retry_on_failure = TRUE
 ) {
-  require_pkg("fs", "httr2")
+  require_package("fs", "httr2")
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
@@ -315,7 +320,7 @@ download_file <- function(
   retry_on_failure = TRUE,
   backoff = \(attempt) 5^attempt
 ) {
-  require_pkg("fs", "httr2")
+  require_package("fs", "httr2")
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",

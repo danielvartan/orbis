@@ -61,7 +61,7 @@ worldclim_file <- function(
   ssp = NULL,
   year = NULL
 ) {
-  require_pkg("rvest")
+  require_package("rvest")
 
   # R CMD Check variable bindings fix
   # nolint start
@@ -91,7 +91,7 @@ worldclim_file.scalar <- function(
   ssp = NULL,
   year = NULL
 ) {
-  require_pkg("httr2", "rvest")
+  require_package("httr2", "rvest")
 
   assert_internet()
 

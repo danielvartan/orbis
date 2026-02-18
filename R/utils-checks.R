@@ -24,7 +24,7 @@ test_date_line <- function(vector) {
 }
 
 test_geometry <- function(geometry) {
-  require_pkg("sf")
+  require_package("sf")
 
   test <-
     geometry |>
@@ -54,7 +54,7 @@ check_geometry <- function(geometry, .name = NULL) {
 }
 
 assert_geometry <- function(geometry) {
-  require_pkg("sf")
+  require_package("sf")
 
   .name <- deparse(substitute(geometry))
 

@@ -34,7 +34,7 @@
 #' c(1:10, 100L) |> unique_outliers(n_iqr = 1000)
 #' #> integer(0) # Expected
 unique_outliers <- function(x, n_iqr = 1.5) {
-  require_pkg("stats")
+  require_package("stats")
 
   checkmate::assert_numeric(x, min.len = 4)
   checkmate::assert_number(n_iqr, lower = 0)

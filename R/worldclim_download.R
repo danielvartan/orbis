@@ -80,7 +80,7 @@ worldclim_download <- function(
   retry_on_failure = TRUE,
   backoff = \(attempt) 5^attempt
 ) {
-  require_pkg("fs", "httr2", "rvest", "zip")
+  require_package("fs", "httr2", "rvest", "zip")
 
   assert_internet()
   checkmate::assert_string(series)

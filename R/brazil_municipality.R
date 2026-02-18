@@ -82,7 +82,7 @@ brazil_municipality <- function(
   coords_method = "geobr",
   force = FALSE
 ) {
-  require_pkg("geobr", "tools")
+  require_package("geobr", "tools")
 
   assert_internet()
   checkmate::assert_character(municipality, null.ok = TRUE)

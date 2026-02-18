@@ -43,7 +43,7 @@ brazil_render_address <- function(
   state = NA_character_,
   postal_code = NA_character_
 ) {
-  require_pkg("glue")
+  require_package("glue")
 
   checkmate::assert_character(street)
   checkmate::assert_character(complement)
@@ -55,7 +55,12 @@ brazil_render_address <- function(
     pattern = "^\\d{8}$|^\\d{5}-\\d{3}$"
   )
   assert_identical(
-    street, complement, neighborhood, municipality, state, postal_code,
+    street,
+    complement,
+    neighborhood,
+    municipality,
+    state,
+    postal_code,
     type = "length"
   )
 

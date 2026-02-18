@@ -2,7 +2,7 @@ testthat::test_that("`sidra_download_by_year()` | General test", {
   test_data <- dplyr::tibble(test = "test")
 
   testthat::local_mocked_bindings(
-    require_pkg = function(...) TRUE,
+    require_package = function(...) TRUE,
     assert_internet = function(...) TRUE,
     get_sidra = function(...) test_data
   )
@@ -18,7 +18,7 @@ testthat::test_that("`sidra_download_by_year()` | General test", {
 
 testthat::test_that("`sidra_download_by_year()` | Error test", {
   testthat::local_mocked_bindings(
-    require_pkg = function(...) TRUE,
+    require_package = function(...) TRUE,
     assert_internet = function(...) TRUE,
     get_sidra = function(...) stop("Test!")
   )

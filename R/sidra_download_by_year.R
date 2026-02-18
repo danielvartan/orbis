@@ -69,7 +69,7 @@
 #'   }
 #' }
 sidra_download_by_year <- function(years, api_start, api_end) {
-  require_pkg("sidrar")
+  require_package("sidrar")
 
   assert_internet()
   checkmate::assert_integerish(years)

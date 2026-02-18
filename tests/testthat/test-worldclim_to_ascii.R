@@ -1,6 +1,6 @@
 testthat::test_that("`worldclim_to_ascii()` | General test", {
   testthat::local_mocked_bindings(
-    require_pkg = function(...) TRUE
+    require_package = function(...) TRUE
   )
 
   asc_content <- c(
@@ -54,7 +54,7 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
   # if (isTRUE(shift_longitude) && isTRUE(test_date_line(shape))) { [...]
 
   testthat::local_mocked_bindings(
-    require_pkg = function(...) TRUE,
+    require_package = function(...) TRUE,
     test_date_line = function(...) TRUE
   )
 
@@ -98,7 +98,7 @@ testthat::test_that("`worldclim_to_ascii()` | General test", {
 
 testthat::test_that("`worldclim_to_ascii()` | Error test", {
   testthat::local_mocked_bindings(
-    require_pkg = function(...) TRUE
+    require_package = function(...) TRUE
   )
 
   asc_content <- c(

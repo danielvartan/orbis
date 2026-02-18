@@ -24,7 +24,7 @@
 #'   }
 #' }
 test_geobr_connection <- function() {
-  require_pkg("geobr")
+  require_package("geobr")
 
   assert_internet()
 
