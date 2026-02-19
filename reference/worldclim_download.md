@@ -27,7 +27,7 @@ worldclim_download(
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data"),
+  dir = tempdir(),
   connection_timeout = 60,
   max_tries = 3,
   retry_on_failure = TRUE,
@@ -191,7 +191,7 @@ worldclim_download(
 
   (optional) A [`character`](https://rdrr.io/r/base/character.html)
   string specifying the directory where to save the downloaded files
-  (default: `here::here("data")`).
+  (default: [`tempdir()`](https://rdrr.io/r/base/tempfile.html)).
 
 - connection_timeout:
 

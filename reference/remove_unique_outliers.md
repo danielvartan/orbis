@@ -49,6 +49,7 @@ An invisible `NULL` value. This function is used for its side effects.
 Other utility functions:
 [`closest_geobr_year()`](https://danielvartan.github.io/orbis/reference/closest_geobr_year.md),
 [`fix_postal_code()`](https://danielvartan.github.io/orbis/reference/fix_postal_code.md),
+[`test_date_line()`](https://danielvartan.github.io/orbis/reference/test_date_line.md),
 [`test_geobr_connection()`](https://danielvartan.github.io/orbis/reference/test_geobr_connection.md),
 [`unique_outliers()`](https://danielvartan.github.io/orbis/reference/unique_outliers.md)
 

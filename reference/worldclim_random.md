@@ -69,16 +69,16 @@ worldclim_random("hcd")
 #>                               "5m" 
 #> 
 #> $variable
-#> Total Precipitation (mm) 
-#>                   "prec" 
+#> Average Temperature (°C) 
+#>                   "tavg" 
 #> 
 #> $year
 #> 1970-2000 
-#>      1971 
+#>      1996 
 #> 
 #> $month
-#> February 
-#>        2 
+#> August 
+#>      8 
 #> 
 
 worldclim_random("hmwd")
@@ -87,20 +87,20 @@ worldclim_random("hmwd")
 #>                          "hmwd" 
 #> 
 #> $resolution
-#> 2.5 Minutes (~21 km2 at the Equator) 
-#>                               "2.5m" 
+#> 5 Minutes (~85 km2 at the Equator) 
+#>                               "5m" 
 #> 
 #> $variable
 #> Average Maximum Temperature (°C) 
 #>                           "tmax" 
 #> 
 #> $year
-#> 2010-2019 
-#>      2011 
+#> 1950-1959 
+#>      1952 
 #> 
 #> $month
-#> September 
-#>         9 
+#> August 
+#>      8 
 #> 
 
 worldclim_random("fcd")
@@ -109,27 +109,31 @@ worldclim_random("fcd")
 #>               "fcd" 
 #> 
 #> $resolution
-#> 2.5 Minutes (~21 km2 at the Equator) 
-#>                               "2.5m" 
+#> 30 Seconds (~1 km2  at the Equator) 
+#>                               "30s" 
 #> 
 #> $variable
-#> Average Minimum Temperature (°C) 
-#>                           "tmin" 
+#> Bioclimatic Variables 
+#>                "bioc" 
+#> 
+#> $bioclimatic_variable
+#> BIO1 - Annual Mean Temperature 
+#>                              1 
 #> 
 #> $model
-#> Model for Interdisciplinary Research on Climate, Japan 
-#>                                               "MIROC6" 
+#> First Institute of Oceanography Earth System Model, China 
+#>                                             "FIO-ESM-2-0" 
 #> 
 #> $ssp
 #>  SSP-585 
 #> "ssp585" 
 #> 
 #> $year
-#> 2021-2040 
-#>      2023 
+#> 2081-2100 
+#>      2088 
 #> 
 #> $month
-#> August 
-#>      8 
+#> February 
+#>        2 
 #> 
 ```

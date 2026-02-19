@@ -154,24 +154,24 @@ library(zip)
       ) |>
         magrittr::extract(1)
   }
-#> ℹ Scraping WorldClim Website
-#> ✔ Scraping WorldClim Website [41ms]
+#> ℹ Scraping WorldClim website
+#> ✔ Scraping WorldClim website [67ms]
 #> 
-#> ℹ Calculating File Sizes
+#> ℹ Calculating file sizes
 #> ℹ Total download size (compressed): 6.92M.
-#> ℹ Calculating File Sizes
-#> ✔ Calculating File Sizes [223ms]
+#> ℹ Calculating file sizes
+#> ✔ Calculating file sizes [158ms]
 #> 
-#> ℹ Creating LICENSE and README Files
-#> ✔ Creating LICENSE and README Files [16ms]
+#> ℹ Creating LICENSE and README files
+#> ✔ Creating LICENSE and README files [16ms]
 #> 
-#> ℹ Downloading Files
-#> ℹ Downloading 1 file to /tmp/RtmpQHazHS/historical-climate-data
-#> ℹ Downloading Files
-#> ✔ Downloading Files [666ms]
+#> ℹ Downloading files
+#> ℹ Downloading 1 file to /tmp/Rtmpn6v5Cp/historical-climate-data
+#> ℹ Downloading files
+#> ✔ Downloading files [603ms]
 #> 
-#> ℹ Unzipping Files
-#> ✔ Unzipping Files [12ms]
+#> ℹ Unzipping files
+#> ✔ Unzipping files [13ms]
 #> 
 # }
 

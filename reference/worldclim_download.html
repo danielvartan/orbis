@@ -93,7 +93,7 @@ installed.</p>
 <span>  model <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ssp <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  year <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  dir <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span>,</span>
+<span>  dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  connection_timeout <span class="op">=</span> <span class="fl">60</span>,</span>
 <span>  max_tries <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>  retry_on_failure <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -199,8 +199,8 @@ Data</em> series:</p><ul><li><p><em>Historical Monthly Weather Data</em>: <code>
 
 <dt id="arg-dir">dir<a class="anchor" aria-label="anchor" href="#arg-dir"></a></dt>
 <dd><p>(optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> string specifying
-the directory where to save the downloaded files (default:
-<code>here::here("data")</code>).</p></dd>
+the directory where to save the downloaded files
+(default: <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir()</a></code>).</p></dd>
 
 
 <dt id="arg-connection-timeout">connection_timeout<a class="anchor" aria-label="anchor" href="#arg-connection-timeout"></a></dt>
