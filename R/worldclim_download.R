@@ -24,8 +24,8 @@
 #'   - `"hmwd"` = Historical Monthly Weather Data
 #'   - `"fcd"` = Future Climate Data
 #' @param dir (optional) A [`character`][base::character()] string specifying
-#'   the directory where to save the downloaded files (default:
-#'   `here::here("data")`).
+#'   the directory where to save the downloaded files
+#'   (default: `tempdir()`).
 #' @param connection_timeout (optional) A [`numeric`][base::numeric()] value
 #'   specifying the connection timeout in seconds for HTTP requests
 #'   (default: `60`).
@@ -74,7 +74,7 @@ worldclim_download <- function(
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data"),
+  dir = tempdir(),
   connection_timeout = 60,
   max_tries = 3,
   retry_on_failure = TRUE,
@@ -103,7 +103,7 @@ worldclim_download <- function(
     if (!fs::dir_exists(i)) fs::dir_create(i, recurse = TRUE)
   }
 
-  cli::cli_progress_step("Scraping WorldClim Website")
+  cli::cli_progress_step("Scraping WorldClim website")
 
   urls <- worldclim_file(
     series = series,
@@ -114,7 +114,7 @@ worldclim_download <- function(
     year = year
   )
 
-  cli::cli_progress_step("Calculating File Sizes")
+  cli::cli_progress_step("Calculating file sizes")
 
   for (i in seq_len(3)) {
     metadata <-
@@ -174,7 +174,7 @@ worldclim_download <- function(
     cli::cli_li(metadata$file[is.na(metadata$size)])
   }
 
-  cli::cli_progress_step("Creating LICENSE and README Files")
+  cli::cli_progress_step("Creating LICENSE and README files")
 
   for (i in dirs) {
     worldclim_download.license() |>
@@ -187,7 +187,7 @@ worldclim_download <- function(
   worldclim_download.readme(series) |>
     readr::write_lines(fs::path(dir_series, "README.md"))
 
-  cli::cli_progress_step("Downloading Files")
+  cli::cli_progress_step("Downloading files")
 
   metadata |>
     dplyr::pull(url) |>
@@ -199,7 +199,7 @@ worldclim_download <- function(
       backoff = backoff
     )
 
-  cli::cli_progress_step("Unzipping Files")
+  cli::cli_progress_step("Unzipping files")
 
   if (any(stringr::str_detect(metadata$file, ".zip$"))) {
     zip_files <-

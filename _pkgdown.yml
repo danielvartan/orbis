@@ -92,6 +92,7 @@ reference:
   - closest_geobr_year
   - fix_postal_code
   - remove_unique_outliers
+  - test_date_line
   - test_geobr_connection
   - unique_outliers
 

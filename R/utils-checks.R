@@ -1,28 +1,3 @@
-test_date_line <- function(vector) {
-  checkmate::assertMultiClass(vector, c("sf", "SpatVector"))
-
-  if (inherits(vector, "sf")) {
-    vector <- terra::vect(vector)
-  }
-
-  vector_x_min <- round(terra::ext(vector)[1])
-  vector_x_max <- round(terra::ext(vector)[2])
-
-  if ((vector_x_max - vector_x_min) > 270) {
-    if ("GID_0" %in% names(vector)) {
-      if ("Antarctica" %in% vector$GID_0) {
-        FALSE
-      } else {
-        TRUE
-      }
-    } else {
-      TRUE
-    }
-  } else {
-    FALSE
-  }
-}
-
 test_geometry <- function(geometry) {
   require_package("sf")
 

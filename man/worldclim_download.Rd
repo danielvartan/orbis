@@ -11,7 +11,7 @@ worldclim_download(
   model = NULL,
   ssp = NULL,
   year = NULL,
-  dir = here::here("data"),
+  dir = tempdir(),
   connection_timeout = 60,
   max_tries = 3,
   retry_on_failure = TRUE,
@@ -123,8 +123,8 @@ Data} series:
 }}
 
 \item{dir}{(optional) A \code{\link[base:character]{character}} string specifying
-the directory where to save the downloaded files (default:
-\code{here::here("data")}).}
+the directory where to save the downloaded files
+(default: \code{tempdir()}).}
 
 \item{connection_timeout}{(optional) A \code{\link[base:numeric]{numeric}} value
 specifying the connection timeout in seconds for HTTP requests

@@ -90,6 +90,7 @@ fix_postal_code(NA, max_char = 8, zero_na = TRUE)
 Other utility functions: 
 \code{\link{closest_geobr_year}()},
 \code{\link{remove_unique_outliers}()},
+\code{\link{test_date_line}()},
 \code{\link{test_geobr_connection}()},
 \code{\link{unique_outliers}()}
 }

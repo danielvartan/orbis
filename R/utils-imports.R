@@ -357,10 +357,6 @@ download_file <- function(
     )
   )
 
-  if (length(url) > 1) {
-    cli::cat_line()
-  }
-
   cli::cli_progress_bar(
     name = "Downloading files",
     total = length(url),
