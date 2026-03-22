@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/danielvartan/orbis/",
   "issueTracker": "https://github.com/danielvartan/orbis/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.1",
+  "version": "0.2.2.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -520,7 +520,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "942.859KB",
+  "fileSize": "942.864KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -544,5 +544,5 @@
   "readme": "https://github.com/danielvartan/orbis/blob/main/README.md",
   "contIntegration": ["https://github.com/danielvartan/orbis/actions", "https://app.codecov.io/gh/danielvartan/orbis"],
   "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "sidra", "spatial-analysis", "terra", "ibge"]
+  "keywords": ["brazil", "rstats", "spatial-data", "worldclim", "api-clients", "r-packages", "sidra", "spatial-analysis", "terra", "ibge", "geospatial-data-science", "r-programming", "raster-data", "spatial-data-science", "vector-data"]
 }

@@ -8,7 +8,7 @@ message: 'To cite package "orbis" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'orbis: Spatial Data Analysis Tools'
-version: 0.2.1
+version: 0.2.2.9000
 doi: 10.5281/zenodo.18240800
 identifiers:
 - type: url

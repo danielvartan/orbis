@@ -14,5 +14,6 @@
 /data-raw/
 /docs/
 /revdep/
+/README_files/
 /vignettes/*.html
 /vignettes/*.pdf
