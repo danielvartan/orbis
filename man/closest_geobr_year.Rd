@@ -11,37 +11,50 @@ closest_geobr_year(year, type = "country", verbose = TRUE)
 year to find the closest available year in the \code{geobr} package.}
 
 \item{type}{(optional) A \code{\link[base:character]{character}} string indicating
-the type of data to find the closest year for. It can be one of the
-following: \code{"municipality"}, \code{"municipal_seat"}, \code{"state"}, or \code{"country"}
+the type of data to find the closest year for. It must match one of the
+suffixes from the \code{\link[geobr:geobr]{geobr}} package \verb{read_*()} functions, for
+example: \code{"municipality"}, \code{"municipal_seat"}, \code{"state"}, or \code{"country"}
 (default: \code{"country"}).}
 
 \item{verbose}{(optional) A \code{\link[base:logical]{logical}} flag indicating
 whether to print a warning message if the specified year is not available
-in the \code{geobr} package. Only applicable if \code{year} is a single value
-(default: \code{TRUE}).}
+in the \code{\link[geobr:geobr]{geobr}} package. Only applicable if \code{year} is a
+single value (default: \code{TRUE}).}
 }
 \value{
 A \code{\link[base:numeric]{numeric}} vector with the closest year available
-in the geobr package for the specified type of data.
+in the \code{\link[geobr:geobr]{geobr}} package for the specified type of data.
 }
 \description{
 \code{closest_geobr_year()} returns the closest year available in the
-\code{\link[geobr:geobr]{geobr}} package for a specified type of data.
+\code{\link[geobr:geobr]{geobr}} package \verb{read_*()} functions.
 }
 \examples{
-closest_geobr_year(2025, type = "municipality")
+closest_geobr_year(2026, type = "amazon")
+#> [1] 2012 # Expected
+
+closest_geobr_year(2026, type = "biomes")
+#> [1] 2019 # Expected
+
+closest_geobr_year(2026, type = "census_tract")
+#> [1] 2022 # Expected
+
+closest_geobr_year(2026, type = "municipality")
 #> [1] 2024 # Expected
 
-closest_geobr_year(2025, type = "municipal_seat")
+closest_geobr_year(2026, type = "municipal_seat")
 #> [1] 2010 # Expected
 
-closest_geobr_year(2025, type = "state")
+closest_geobr_year(2026, type = "state")
 #> [1] 2020 # Expected
 
-closest_geobr_year(2025, type = "country")
+closest_geobr_year(2026, type = "region")
 #> [1] 2020 # Expected
 
-closest_geobr_year(c(2025, 1999, NA, 1800), type = "country")
+closest_geobr_year(2026, type = "country")
+#> [1] 2020 # Expected
+
+closest_geobr_year(c(2026, 1999, NA, 1800), type = "country")
 #> [1] 2020 2000   NA 1872 # Expected
 }
 \seealso{
