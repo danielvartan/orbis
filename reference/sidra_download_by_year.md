@@ -91,11 +91,11 @@ library(httr2)
   }
 #> ⠙ Downloading data from 2010
 #> All others arguments are desconsidered when 'api' is informed
-#> ✔ Downloading data from 2010 [17.3s]
+#> ✔ Downloading data from 2010 [9.9s]
 #> 
 #> ⠙ Downloading data from 2011
 #> All others arguments are desconsidered when 'api' is informed
-#> ✔ Downloading data from 2011 [22.2s]
+#> ✔ Downloading data from 2011 [9.7s]
 #> 
 #> Rows: 11,126
 #> Columns: 13

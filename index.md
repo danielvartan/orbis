@@ -13,15 +13,10 @@ ecosystem](https://tidyverse.org/).
 > [![GitHub Repository
 > Stars](https://img.shields.io/github/stars/danielvartan/orbis)](https://github.com/danielvartan/orbis/)
 
-> The continuous development of `orbis` depends on community support. If
-> you find this project useful, and can afford to do so, please consider
-> becoming a sponsor.  
-> [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
-
 ## Installation
 
 You can install `orbis` using the
-[`remotes`](https://github.com/r-lib/remotes) package:
+[`remotes`](https://remotes.r-lib.org/) package:
 
 ``` r
 # install.packages("remotes")
@@ -39,7 +34,8 @@ such as:
   Remove unique outliers from raster files
 - [`sidra_download_by_year()`](https://danielvartan.github.io/orbis/reference/sidra_download_by_year.html):
   Download and aggregate data by year from
-  [SIDRA](https://sidra.ibge.gov.br/) API (to avoid overloading)
+  [SIDRA](https://sidra.ibge.gov.br/) API to avoid overloading the
+  server
 - [`worldclim_download()`](https://danielvartan.github.io/orbis/reference/worldclim_download.html):
   Download [WorldClim](https://worldclim.org/) data
 - [`worldclim_to_ascii()`](https://danielvartan.github.io/orbis/reference/worldclim_to_ascii.html):
@@ -179,6 +175,18 @@ file |> read_stars() |> pull(1) |> as.vector()
 Click [here](https://danielvartan.github.io/orbis/reference/) to see the
 full list of `orbis` functions.
 
+## Contributing
+
+[![](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/)
+
+Contributions are always welcome! Whether you want to report bugs,
+suggest new features, or help improve the code or documentation, your
+input makes a difference.
+
+Before opening a new issue, please check the [issues
+tab](https://github.com/danielvartan/orbis/issues) to see if your topic
+has already been reported.
+
 ## Citation
 
 If you use this package in your research, please cite it to acknowledge
@@ -221,22 +229,3 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program. If not, see <https://www.gnu.org/licenses/>.
 ```
-
-## Contributing
-
-[![](https://img.shields.io/badge/Contributor%20Covenant-3.0-4baaaa.svg)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/)
-
-Contributions are always welcome! Whether you want to report bugs,
-suggest new features, or help improve the code or documentation, your
-input makes a difference.
-
-Before opening a new issue, please check the [issues
-tab](https://github.com/danielvartan/orbis/issues) to see if your topic
-has already been reported.
-
-[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/danielvartan)
-
-You can also support the development of `orbis` by becoming a sponsor.
-
-Click [here](https://github.com/sponsors/danielvartan) to make a
-donation. Please mention `orbis` in your donation message.

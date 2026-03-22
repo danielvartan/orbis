@@ -65,8 +65,8 @@ worldclim_random("hcd")
 #>                   "hcd" 
 #> 
 #> $resolution
-#> 5 Minutes (~85 km2 at the Equator) 
-#>                               "5m" 
+#> 2.5 Minutes (~21 km2 at the Equator) 
+#>                               "2.5m" 
 #> 
 #> $variable
 #> Average Temperature (°C) 
@@ -74,11 +74,11 @@ worldclim_random("hcd")
 #> 
 #> $year
 #> 1970-2000 
-#>      1996 
+#>      1986 
 #> 
 #> $month
-#> August 
-#>      8 
+#> June 
+#>    6 
 #> 
 
 worldclim_random("hmwd")
@@ -91,16 +91,16 @@ worldclim_random("hmwd")
 #>                               "5m" 
 #> 
 #> $variable
-#> Average Maximum Temperature (°C) 
-#>                           "tmax" 
+#> Total Precipitation (mm) 
+#>                   "prec" 
 #> 
 #> $year
-#> 1950-1959 
-#>      1952 
+#> 1960-1969 
+#>      1962 
 #> 
 #> $month
-#> August 
-#>      8 
+#> September 
+#>         9 
 #> 
 
 worldclim_random("fcd")
@@ -109,31 +109,27 @@ worldclim_random("fcd")
 #>               "fcd" 
 #> 
 #> $resolution
-#> 30 Seconds (~1 km2  at the Equator) 
-#>                               "30s" 
+#> 5 Minutes (~85 km2 at the Equator) 
+#>                               "5m" 
 #> 
 #> $variable
-#> Bioclimatic Variables 
-#>                "bioc" 
-#> 
-#> $bioclimatic_variable
-#> BIO1 - Annual Mean Temperature 
-#>                              1 
+#> Average Minimum Temperature (°C) 
+#>                           "tmin" 
 #> 
 #> $model
-#> First Institute of Oceanography Earth System Model, China 
-#>                                             "FIO-ESM-2-0" 
+#> Australian Community Climate and Earth-System Simulator, Australia 
+#>                                                       "ACCESS-CM2" 
 #> 
 #> $ssp
-#>  SSP-585 
-#> "ssp585" 
+#>  SSP-126 
+#> "ssp126" 
 #> 
 #> $year
 #> 2081-2100 
-#>      2088 
+#>      2089 
 #> 
 #> $month
-#> February 
-#>        2 
+#> June 
+#>    6 
 #> 
 ```
