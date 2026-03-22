@@ -8,7 +8,7 @@ message: 'To cite package "orbis" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'orbis: Spatial Data Analysis Tools'
-version: 0.2.1.9000
+version: 0.2.1
 doi: 10.5281/zenodo.18240800
 identifiers:
 - type: url
@@ -102,20 +102,6 @@ references:
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.2.0'
 - type: software
-  title: here
-  abstract: 'here: A Simpler Way to Find Your Files'
-  notes: Imports
-  url: https://here.r-lib.org/
-  repository: https://CRAN.R-project.org/package=here
-  authors:
-  - family-names: Müller
-    given-names: Kirill
-    email: kirill@cynkra.com
-    orcid: https://orcid.org/0000-0002-1416-3412
-  year: '2026'
-  doi: 10.32614/CRAN.package.here
-  version: '>= 1.0.2'
-- type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
@@ -166,7 +152,7 @@ references:
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2026'
   doi: 10.32614/CRAN.package.readr
-  version: '>= 2.1.6'
+  version: '>= 2.2.0'
 - type: software
   title: rlang
   abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
@@ -459,6 +445,20 @@ references:
   doi: 10.32614/CRAN.package.glue
   version: '>= 1.8.0'
 - type: software
+  title: here
+  abstract: 'here: A Simpler Way to Find Your Files'
+  notes: Suggests
+  url: https://here.r-lib.org/
+  repository: https://CRAN.R-project.org/package=here
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  year: '2026'
+  doi: 10.32614/CRAN.package.here
+  version: '>= 1.0.2'
+- type: software
   title: httr2
   abstract: 'httr2: Perform HTTP Requests and Process the Responses'
   notes: Suggests
@@ -581,7 +581,7 @@ references:
     orcid: https://orcid.org/0000-0001-8049-7069
   year: '2026'
   doi: 10.32614/CRAN.package.stars
-  version: '>= 0.7.0'
+  version: '>= 0.7.1'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'

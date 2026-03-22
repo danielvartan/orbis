@@ -1,10 +1,13 @@
 # orbis 0.2.1.9000 (development version)
 
+# orbis 0.2.1 (2026-03-22)
+
+- `closest_geobr_year()` now parses [`geobr`](https://ipeagit.github.io/geobr/) R package error messages to extract the closest available year, extending its support to any `read_*()` function.
 - `worldclim_download()` now accepts `timeout`, `max_tries`, `retry_on_failure`, and `backoff` arguments to handle slow response times from UCDavis servers.
 - `worldclim_to_ascii()`: parameter `extreme_outlier_fix` has been renamed to `remove_extreme_outliers`.
 - A [Zenodo](https://zenodo.org/) DOI has been registered to provide persistent citation and archiving for future releases.
 
-# orbis 0.2.0
+# orbis 0.2.0 (2026-01-14)
 
 - All geocoding functions have been removed. Users should use [tidygeocoder](https://jessecambon.github.io/tidygeocoder/) or [geocodebr](https://ipeagit.github.io/geocodebr/) instead.
 - Several redundant functions have been removed for better alignment with the [`r-spatial`](https://r-spatial.org/) ecosystem.
@@ -21,9 +24,9 @@
 - Error messages, documentation, and test coverage have been improved throughout the package.
 - Documentation has been updated to reflect these changes.
 
-# orbis 0.1.0
+# orbis 0.1.0 (2025-06-11)
 
-- First release! 🎉
+First release! 🎉
 
 # orbis 0.0.0.9000
 

@@ -1,6 +1,6 @@
 Package: orbis
 Title: Spatial Data Analysis Tools
-Version: 0.2.1.9000
+Version: 0.2.1
 Authors@R: c(
         person(
             given = "Daniel",
@@ -23,7 +23,7 @@ Imports:
     dplyr (>= 1.2.0),
     magrittr (>= 2.0.4),
     purrr (>= 1.2.1),
-    readr (>= 2.1.6),
+    readr (>= 2.2.0),
     rlang (>= 1.1.7),
     sf (>= 1.0.24),
     stringr (>= 1.6.0),
@@ -50,7 +50,7 @@ Suggests:
     sidrar (>= 0.2.9),
     spelling (>= 2.3.2),
     stats (>= 4.4),
-    stars (>= 0.7.0),
+    stars (>= 0.7.1),
     testthat (>= 3.3.2),
     tibble (>= 3.3.1),
     tidyterra (>= 1.0.0),

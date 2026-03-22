@@ -101,5 +101,4 @@ authors:
     href: https://github.com/danielvartan/
 
 development:
-  mode: unreleased
-  version_label: warning
+  mode: auto
