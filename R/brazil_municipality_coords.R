@@ -110,8 +110,12 @@ brazil_municipality_coords.geobr <- function(
     dplyr::rename(municipality_code = code_muni) |>
     dplyr::mutate(
       municipality_code = municipality_code |> as.integer(),
-      longitude = sf::st_coordinates(.)[, 1],
-      latitude = sf::st_coordinates(.)[, 2],
+      longitude = geometry |>
+        sf::st_coordinates() |>
+        magrittr::extract(, 1),
+      latitude = geometry |>
+        sf::st_coordinates() |>
+        magrittr::extract(, 2)
     ) |>
     dplyr::as_tibble() |>
     dplyr::select(municipality_code, latitude, longitude)
