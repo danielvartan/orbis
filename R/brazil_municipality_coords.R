@@ -98,7 +98,7 @@ brazil_municipality_coords.geobr <- function(
 
   # R CMD Check variable bindings fix
   # nolint start
-  . <- code_muni <- latitude <- longitude <- geom <- NULL
+  . <- code_muni <- latitude <- longitude <- geometry <- NULL
   # nolint end
 
   out <-
@@ -107,19 +107,13 @@ brazil_municipality_coords.geobr <- function(
       showProgress = FALSE,
       cache = !force
     ) |>
-    dplyr::as_tibble() |>
     dplyr::rename(municipality_code = code_muni) |>
     dplyr::mutate(
-      municipality_code = as.integer(municipality_code),
-      geom = geom |> #nolint
-        terra::vect() |>
-        terra::crds() |>
-        dplyr::as_tibble() %>%
-        split(., seq_len(nrow(.))) |>
-        as.list(),
-      latitude = geom |> purrr::map_dbl(\(x) x$y),
-      longitude = geom |> purrr::map_dbl(\(x) x$x)
+      municipality_code = municipality_code |> as.integer(),
+      longitude = sf::st_coordinates(.)[, 1],
+      latitude = sf::st_coordinates(.)[, 2],
     ) |>
+    dplyr::as_tibble() |>
     dplyr::select(municipality_code, latitude, longitude)
 
   if (!is.null(municipality_code)) {
@@ -155,7 +149,7 @@ brazil_municipality_coords.geocodebr <- function(
   # R CMD Check variable bindings fix
   # nolint start
   . <- code_muni <- latitude <- longitude <- lat <- lon <- NULL
-  name_state <- state <- geom <- NULL
+  name_state <- state <- geometry <- NULL
   # nolint end
 
   out <-

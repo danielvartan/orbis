@@ -66,14 +66,14 @@ for (i in seq_along(brandr_options)) {
 
 # Set and Load Fonts -----
 
-font_paths(here("ttf")) |> invisible()
+font_paths(here("fonts")) |> invisible()
 
 font_add(
   family = "poppins",
-  regular = here("ttf", "poppins-regular.ttf"),
-  bold = here("ttf", "poppins-bold.ttf"),
-  italic = here("ttf", "poppins-italic.ttf"),
-  bolditalic = here("ttf", "poppins-bolditalic.ttf"),
+  regular = here("fonts", "poppins-regular.ttf"),
+  bold = here("fonts", "poppins-bold.ttf"),
+  italic = here("fonts", "poppins-italic.ttf"),
+  bolditalic = here("fonts", "poppins-bolditalic.ttf"),
   symbol = NULL
 )
 

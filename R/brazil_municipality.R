@@ -94,7 +94,7 @@ brazil_municipality <- function(
 
   # R CMD Check variable bindings fix
   # nolint start
-  geom <- code_state <- abbrev_state <- code_muni <- name_muni <- NULL
+  geometry <- code_state <- abbrev_state <- code_muni <- name_muni <- NULL
   region <- region_code <- state_code <- federal_unit <- NULL
   municipality_code <- .env <- NULL
   # nolint end
