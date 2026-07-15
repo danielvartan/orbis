@@ -2,6 +2,11 @@
 
 ## orbis 0.2.2.9000 (development version)
 
+### Changes
+
+- Updated functions to new standards and datasets used in
+  [`geobr`](https://ipea.github.io/geobr/) R package v2.
+
 ## orbis 0.2.1 (2026-03-22)
 
 - [`closest_geobr_year()`](https://danielvartan.github.io/orbis/dev/reference/closest_geobr_year.md)

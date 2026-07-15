@@ -36,6 +36,6 @@ Other utility functions:
   if (is_online()) {
     test_geobr_connection()
   }
-#> [1] TRUE
+#> [1] FALSE
 # }
 ```

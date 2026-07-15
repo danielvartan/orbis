@@ -44,10 +44,9 @@ brazil_municipality_latitude(
   coordinates of the municipalities (default: `"geobr"`). Options are:
 
   - `"geobr"`: Uses
-    [`read_municipal_seat()`](https://ipeagit.github.io/geobr/reference/read_municipal_seat.html)
-    from the
-    [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-    package to retrieve the coordinates.
+    [`read_municipal_seat()`](https://rdrr.io/pkg/geobr/man/read_municipal_seat.html)
+    from the [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package
+    to retrieve the coordinates.
 
   - `"geocodebr"`: Uses the
     [`geocode()`](https://ipeagit.github.io/geocodebr/reference/geocode.html)
@@ -75,17 +74,15 @@ latitude of the Brazilian municipalities.
 
 Data from this function is based on data from the Brazilian Institute of
 Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) via the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) R
-package.
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) R package.
 
-The [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-package is produced by Brazil's Institute for Applied Economic Research
+The [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package is
+produced by Brazil's Institute for Applied Economic Research
 ([IPEA](https://www.ipea.gov.br/)) and access the Brazilian Institute of
 Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) data. You
 can see a list of all
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) datasets
-by running
-[`geobr::list_geobr()`](https://ipeagit.github.io/geobr/reference/list_geobr.html).
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) datasets by running
+[`geobr::list_geobr()`](https://rdrr.io/pkg/geobr/man/list_geobr.html).
 
 ## See also
 
@@ -114,35 +111,35 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_latitude(3550308)
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> São Paulo-SP 
-#>  -23.5673865 
+#>   -23.554753 
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality_latitude(c(3550308, 3500204))
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> São Paulo-SP    Adolfo-SP 
-#> -23.56738650 -21.23272978 
+#>   -23.554753   -21.235606 
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality_latitude(c(3550308, 1000, 3500204))
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> São Paulo-SP         <NA>    Adolfo-SP 
-#> -23.56738650           NA -21.23272978 
+#>   -23.554753           NA   -21.235606 
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality_latitude(c(3550308, NA, 3500204))
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> São Paulo-SP         <NA>    Adolfo-SP 
-#> -23.56738650           NA -21.23272978 
+#>   -23.554753           NA   -21.235606 
 # }
 ```

@@ -120,6 +120,7 @@ plot_raster <- function(raster) {
 
     russia_vector |> plot_vector()
   }
+#> Cached as: /tmp/RtmpHTVud2/gadm/gadm41_RUS_0_pk.rds
 
 # }
 
@@ -142,6 +143,7 @@ plot_raster <- function(raster) {
 
     raster <- raster |> crop(world_shape, mask = TRUE)
   }
+#> Cached as: /tmp/RtmpHTVud2/gadm/gadm36_adm0_r5_pk.rds
 # }
 
 # Visualize the SpatRaster -----

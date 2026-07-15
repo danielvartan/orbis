@@ -19,6 +19,7 @@ You can install `orbis` using the
 [`remotes`](https://remotes.r-lib.org/) package:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("danielvartan/orbis")
 ```
@@ -57,6 +58,7 @@ Russian territory).
 #### Set the Environment
 
 ``` r
+
 library(orbis)
 
 library(dplyr)
@@ -69,12 +71,14 @@ library(tidyterra)
 #### Define a World Vector
 
 ``` r
+
 world_vector <- world(path = tempdir())
 ```
 
 #### Visualize the World Vector
 
 ``` r
+
 world_vector |>
   ggplot() +
   geom_spatvector(fill = "#3243A6", color = "white")
@@ -85,12 +89,14 @@ world_vector |>
 #### Define a Country Vector
 
 ``` r
+
 russia_vector <- gadm(country = "rus", level = 0, path = tempdir())
 ```
 
 #### Visualize the Country Vector
 
 ``` r
+
 russia_vector |>
   ggplot() +
   geom_spatvector(fill = "#3243A6", color = "white")
@@ -101,6 +107,7 @@ russia_vector |>
 #### Shift and Rotate the Country Vector 45 Degrees to the Left
 
 ``` r
+
 russia_vector |>
   shift_and_rotate(-45) |>
   ggplot() +
@@ -121,6 +128,7 @@ raster formats.
 #### Set the Environment
 
 ``` r
+
 library(orbis)
 
 library(dplyr)
@@ -131,6 +139,7 @@ library(stars)
 #### Create a Fictional Esri ASCII File
 
 ``` r
+
 asc_content <- c(
   "ncols         5",
   "nrows         5",
@@ -147,6 +156,7 @@ asc_content <- c(
 ```
 
 ``` r
+
 file <- tempfile(fileext = ".asc")
 
 asc_content |> write_lines(file)
@@ -155,6 +165,7 @@ asc_content |> write_lines(file)
 #### Visualize Values Before `remove_unique_outliers()`
 
 ``` r
+
 file |> read_stars() |> pull(1) |> as.vector()
 #>  [1]    1    2    3    4    5    6    7    8    9   10   11   12 1000   14
 #> [15]   15   16    1   18   19   20   21   22   23   24   25
@@ -163,10 +174,12 @@ file |> read_stars() |> pull(1) |> as.vector()
 #### Visualize Values After `remove_unique_outliers()`
 
 ``` r
+
 file |> remove_unique_outliers()
 ```
 
 ``` r
+
 file |> read_stars() |> pull(1) |> as.vector()
 #>  [1]  1  2  3  4  5  6  7  8  9 10 11 12 NA 14 15 16  1 18 19 20 21 22 23 24
 #> [25] 25
@@ -194,6 +207,7 @@ the effort put into its development and maintenance. Your citation helps
 support its continued improvement.
 
 ``` r
+
 citation("orbis")
 #> To cite orbis in publications use:
 #> 

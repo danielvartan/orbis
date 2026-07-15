@@ -45,10 +45,9 @@ brazil_municipality_coords(
   coordinates of the municipalities (default: `"geobr"`). Options are:
 
   - `"geobr"`: Uses
-    [`read_municipal_seat()`](https://ipeagit.github.io/geobr/reference/read_municipal_seat.html)
-    from the
-    [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-    package to retrieve the coordinates.
+    [`read_municipal_seat()`](https://rdrr.io/pkg/geobr/man/read_municipal_seat.html)
+    from the [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package
+    to retrieve the coordinates.
 
   - `"geocodebr"`: Uses the
     [`geocode()`](https://ipeagit.github.io/geocodebr/reference/geocode.html)
@@ -77,7 +76,7 @@ the following columns:
 
 Data from this function is based on data from the Brazilian Institute of
 Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) via the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) and
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) and
 [`geocodebr`](https://ipeagit.github.io/geocodebr/reference/geocodebr.html)
 R packages.
 
@@ -113,26 +112,26 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_coords()
   }
-#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
-#> Using year/date 2010
-#> # A tibble: 5,565 × 3
+#> ! The closest map year to 2026 is 2022. Using year 2022 instead.
+#> ℹ Using year/date 2022
+#> # A tibble: 5,570 × 3
 #>   municipality_code latitude longitude
 #>               <int>    <dbl>     <dbl>
 #> 1           1100015   -11.9      -62.0
 #> 2           1100023    -9.91     -63.0
 #> 3           1100031   -13.5      -60.5
-#> 4           1100049   -11.4      -61.4
+#> 4           1100049   -11.4      -61.5
 #> 5           1100056   -13.2      -60.8
-#> 6           1100064   -13.1      -60.6
-#> # ℹ 5,559 more rows
+#> 6           1100064   -13.1      -60.5
+#> # ℹ 5,564 more rows
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality_coords(municipality_code = 3550308)
   }
-#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
-#> Using year/date 2010
+#> ! The closest map year to 2026 is 2022. Using year 2022 instead.
+#> ℹ Using year/date 2022
 #> # A tibble: 1 × 3
 #>   municipality_code latitude longitude
 #>               <int>    <dbl>     <dbl>
@@ -143,8 +142,8 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_coords(municipality_code = 3550)
   }
-#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
-#> Using year/date 2010
+#> ! The closest map year to 2026 is 2022. Using year 2022 instead.
+#> ℹ Using year/date 2022
 #> # A tibble: 10 × 3
 #>   municipality_code latitude longitude
 #>               <int>    <dbl>     <dbl>
@@ -152,8 +151,8 @@ library(httr2)
 #> 2           3550100    -22.7     -48.6
 #> 3           3550209    -23.9     -48.0
 #> 4           3550308    -23.6     -46.6
-#> 5           3550407    -22.5     -47.9
-#> 6           3550506    -22.8     -49.7
+#> 5           3550407    -22.6     -47.9
+#> 6           3550506    -22.7     -49.7
 #> # ℹ 4 more rows
 # }
 
@@ -161,8 +160,8 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_coords(municipality_code = c(3550308, 3304557))
   }
-#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
-#> Using year/date 2010
+#> ! The closest map year to 2026 is 2022. Using year 2022 instead.
+#> ℹ Using year/date 2022
 #> # A tibble: 2 × 3
 #>   municipality_code latitude longitude
 #>               <int>    <dbl>     <dbl>

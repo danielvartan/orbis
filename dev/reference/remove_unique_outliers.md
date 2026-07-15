@@ -60,7 +60,7 @@ Other utility functions:
 
 library(readr)
 library(terra)
-#> terra 1.9.1
+#> terra 1.9.34
 #> 
 #> Attaching package: ‘terra’
 #> The following objects are masked from ‘package:magrittr’:

@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get and aggregate data by year from SIDRA API — sidra_download_by_year"><meta name="description" content="sidra_download_by_year() retrieves data from the Brazilian Institute of
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get and aggregate data by year from SIDRA API — sidra_download_by_year"><meta name="description" content="sidra_download_by_year() retrieves data from the Brazilian Institute of
 Geography and Statistics (IBGE) Automatic
 Retrieval System (SIDRA) API for a specified
 range of years.
@@ -140,27 +140,22 @@ table settings, selecting different years, and examining how the URL changes.</p
 <span class="r-in"><span>  <span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Downloading data from 2010</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> All others arguments are desconsidered when 'api' is informed</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading data from 2010 <span style="color: #B2B2B2;">[10.6s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Failed to get data for year <span style="color: #BB0000; font-weight: bold;">2010</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Error message</span>: <span style="color: #555555;">Timeout was reached [apisidra.ibge.gov.br]: Failed to connect to apisidra.ibge.gov.br port 443 after 10001 ms: Timeout was reached</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Downloading data from 2010</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading data from 2010 <span style="color: #B2B2B2;">[10s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Downloading data from 2011</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> All others arguments are desconsidered when 'api' is informed</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading data from 2011 <span style="color: #B2B2B2;">[8.6s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Failed to get data for year <span style="color: #BB0000; font-weight: bold;">2011</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 11,126</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Nível Territorial (Código)`               </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "6"<span style="color: #949494;">, </span>"6"<span style="color: #949494;">, </span>"6"<span style="color: #949494;">, </span>"6"<span style="color: #949494;">, </span>"6"…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Nível Territorial`                        </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Município"<span style="color: #949494;">, </span>"Município…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Unidade de Medida (Código)`               </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1006"<span style="color: #949494;">, </span>"1006"<span style="color: #949494;">, </span>"1006"<span style="color: #949494;">,</span>…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Unidade de Medida`                        </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Hectares"<span style="color: #949494;">, </span>"Hectares"<span style="color: #949494;">,</span>…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">Valor                                      </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 750<span style="color: #949494;">, </span>5706<span style="color: #949494;">, </span>700<span style="color: #949494;">, </span>1230<span style="color: #949494;">, </span>3…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Município (Código)`                       </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1100015"<span style="color: #949494;">, </span>"1100023"<span style="color: #949494;">, </span>"…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">Município                                  </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Alta Floresta D'Oeste …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Variável (Código)`                        </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "109"<span style="color: #949494;">, </span>"109"<span style="color: #949494;">, </span>"109"<span style="color: #949494;">, </span>"1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">Variável                                   </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Área plantada"<span style="color: #949494;">, </span>"Área …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Ano (Código)`                             </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2010"<span style="color: #949494;">, </span>"2010"<span style="color: #949494;">, </span>"2010"<span style="color: #949494;">,</span>…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">Ano                                        </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2010"<span style="color: #949494;">, </span>"2010"<span style="color: #949494;">, </span>"2010"<span style="color: #949494;">,</span>…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Produto das lavouras temporárias (Código)`</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2692"<span style="color: #949494;">, </span>"2692"<span style="color: #949494;">, </span>"2692"<span style="color: #949494;">,</span>…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">`Produto das lavouras temporárias`         </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Arroz (em casca)"<span style="color: #949494;">, </span>"Ar…</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Error message</span>: <span style="color: #555555;">Timeout was reached [apisidra.ibge.gov.br]: Failed to connect to apisidra.ibge.gov.br port 443 after 10002 ms: Timeout was reached</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Downloading data from 2011</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading data from 2011 <span style="color: #B2B2B2;">[10s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 0</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -173,7 +168,7 @@ table settings, selecting different years, and examining how the URL changes.</p
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

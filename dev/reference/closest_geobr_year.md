@@ -1,8 +1,8 @@
 # Get the closest year available in the `geobr` package
 
 `closest_geobr_year()` returns the closest year available in the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) package
-`read_*()` functions.
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package `read_*()`
+functions.
 
 ## Usage
 
@@ -24,25 +24,24 @@ closest_geobr_year(year, type = "country", verbose = TRUE)
   (optional) A [`character`](https://rdrr.io/r/base/character.html)
   string indicating the type of data to find the closest year for. It
   must match one of the suffixes from the
-  [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-  package `read_*()` functions, for example: `"municipality"`,
-  `"municipal_seat"`, `"state"`, or `"country"` (default: `"country"`).
+  [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package `read_*()`
+  functions, for example: `"municipality"`, `"municipal_seat"`,
+  `"state"`, or `"country"` (default: `"country"`).
 
 - verbose:
 
   (optional) A [`logical`](https://rdrr.io/r/base/logical.html) flag
   indicating whether to print a warning message if the specified year is
   not available in the
-  [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-  package. Only applicable if `year` is a single value (default:
-  `TRUE`).
+  [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package. Only
+  applicable if `year` is a single value (default: `TRUE`).
 
 ## Value
 
 A [`numeric`](https://rdrr.io/r/base/numeric.html) vector with the
 closest year available in the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) package
-for the specified type of data.
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package for the
+specified type of data.
 
 ## See also
 
@@ -57,13 +56,13 @@ Other utility functions:
 
 ``` r
 closest_geobr_year(2026, type = "amazon")
-#> ! The closest map year to 2026 is 2012. Using year 2012 instead.
-#> [1] 2012
+#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> [1] 2024
 #> [1] 2012 # Expected
 
 closest_geobr_year(2026, type = "biomes")
-#> ! The closest map year to 2026 is 2019. Using year 2019 instead.
-#> [1] 2019
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
+#> [1] 2025
 #> [1] 2019 # Expected
 
 closest_geobr_year(2026, type = "census_tract")
@@ -72,31 +71,31 @@ closest_geobr_year(2026, type = "census_tract")
 #> [1] 2022 # Expected
 
 closest_geobr_year(2026, type = "municipality")
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> [1] 2024
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
+#> [1] 2025
 #> [1] 2024 # Expected
 
 closest_geobr_year(2026, type = "municipal_seat")
-#> ! The closest map year to 2026 is 2010. Using year 2010 instead.
-#> [1] 2010
+#> ! The closest map year to 2026 is 2022. Using year 2022 instead.
+#> [1] 2022
 #> [1] 2010 # Expected
 
 closest_geobr_year(2026, type = "state")
-#> ! The closest map year to 2026 is 2020. Using year 2020 instead.
-#> [1] 2020
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
+#> [1] 2025
 #> [1] 2020 # Expected
 
 closest_geobr_year(2026, type = "region")
-#> ! The closest map year to 2026 is 2020. Using year 2020 instead.
-#> [1] 2020
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
+#> [1] 2025
 #> [1] 2020 # Expected
 
 closest_geobr_year(2026, type = "country")
-#> ! The closest map year to 2026 is 2020. Using year 2020 instead.
-#> [1] 2020
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
+#> [1] 2025
 #> [1] 2020 # Expected
 
 closest_geobr_year(c(2026, 1999, NA, 1800), type = "country")
-#> [1] 2020 2000   NA 1872
+#> [1] 2025 2000   NA 1872
 #> [1] 2020 2000   NA 1872 # Expected
 ```

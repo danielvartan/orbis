@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Brazilian municipalities longitude — brazil_municipality_longitude"><meta name="description" content="brazil_municipality_longitude() returns the longitude of Brazilian
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Brazilian municipalities longitude — brazil_municipality_longitude"><meta name="description" content="brazil_municipality_longitude() returns the longitude of Brazilian
 municipalities.
 Note: This function requires an internet connection to work and the
 geobr or
@@ -94,8 +94,8 @@ indicating the year of the data regarding the municipalities
 <dt id="arg-coords-method">coords_method<a class="anchor" aria-label="anchor" href="#arg-coords-method"></a></dt>
 <dd><p>(optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> string
 indicating the method to retrieve the latitude and longitude coordinates of
-the municipalities (default: <code>"geobr"</code>). Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://ipeagit.github.io/geobr/reference/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
-from the <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package to retrieve the coordinates.</p></li>
+the municipalities (default: <code>"geobr"</code>). Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://rdrr.io/pkg/geobr/man/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
+from the <code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> package to retrieve the coordinates.</p></li>
 <li><p><code>"geocodebr"</code>: Uses the <code><a href="https://ipeagit.github.io/geocodebr/reference/geocode.html" class="external-link">geocode()</a></code> from the
 <code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> package to retrieve the coordinates.</p></li>
 </ul></dd>
@@ -121,13 +121,13 @@ Brazilian municipalities.</p>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (<a href="https://www.ibge.gov.br/" class="external-link">IBGE</a>) via the
-<code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> R package.</p>
-<p>The <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package is produced by Brazil's Institute for
+<code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> R package.</p>
+<p>The <code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> package is produced by Brazil's Institute for
 Applied Economic Research (<a href="https://www.ipea.gov.br/" class="external-link">IPEA</a>) and access the
 Brazilian Institute of Geography and Statistics
 (<a href="https://www.ibge.gov.br/" class="external-link">IBGE</a>) data. You can see a list of all
-<code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> datasets by running
-<code><a href="https://ipeagit.github.io/geobr/reference/list_geobr.html" class="external-link">geobr::list_geobr()</a></code>.</p>
+<code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> datasets by running
+<code><a href="https://rdrr.io/pkg/geobr/man/list_geobr.html" class="external-link">geobr::list_geobr()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -156,36 +156,36 @@ Brazilian Institute of Geography and Statistics
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fl">3550308</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -46.579009 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP    Adolfo-SP </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318 -49.64972143 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -46.579009   -49.642761 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="fl">1000</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP         &lt;NA&gt;    Adolfo-SP </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318           NA -49.64972143 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -46.579009           NA   -49.642761 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality_longitude</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3550308</span>, <span class="cn">NA</span>, <span class="fl">3500204</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> São Paulo-SP         &lt;NA&gt;    Adolfo-SP </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -46.57038318           NA -49.64972143 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -46.579009           NA   -49.642761 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -198,7 +198,7 @@ Brazilian Institute of Geography and Statistics
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

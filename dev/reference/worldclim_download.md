@@ -4,9 +4,10 @@
 [WorldClim](https://worldclim.org/) website.
 
 See
-[`worldclim_global()`](https://rdrr.io/pkg/geodata/man/worldclim.html),
-[`worldclim_country()`](https://rdrr.io/pkg/geodata/man/worldclim.html),
-and [`worldclim_tile()`](https://rdrr.io/pkg/geodata/man/worldclim.html)
+[`worldclim_global()`](https://rspatial.github.io/geodata/reference/worldclim.html),
+[`worldclim_country()`](https://rspatial.github.io/geodata/reference/worldclim.html),
+and
+[`worldclim_tile()`](https://rspatial.github.io/geodata/reference/worldclim.html)
 from the [geodata](https://cran.r-project.org/package=geodata) package
 for alternative ways to download WorldClim data.
 

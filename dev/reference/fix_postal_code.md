@@ -4,7 +4,7 @@
 
 This function was designed to work with any postal code format. For
 Brazilian postal codes (CEP), see
-[`padronizar_ceps()`](https://ipeagit.github.io/enderecobr/reference/padronizar_ceps.html).
+[`padronizar_ceps()`](https://rdrr.io/pkg/enderecobr/man/padronizar_ceps.html).
 
 ## Usage
 

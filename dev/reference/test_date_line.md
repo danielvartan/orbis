@@ -42,11 +42,13 @@ Other utility functions:
    library(geodata)
 
    brazil_shape <- gadm(country = "BRA", level = 0)
+#> Error in .get_path(path, add = "gadm"): you need to provide a path, or set a default path with 'geodata_path()'
    russia_shape <- gadm(country = "RUS", level = 0)
+#> Error in .get_path(path, add = "gadm"): you need to provide a path, or set a default path with 'geodata_path()'
 
    test_date_line(brazil_shape)
-#> [1] FALSE
+#> Error: object 'brazil_shape' not found
    test_date_line(russia_shape)
-#> [1] TRUE
+#> Error: object 'russia_shape' not found
 # }
 ```

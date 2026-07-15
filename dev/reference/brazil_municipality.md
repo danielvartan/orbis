@@ -5,10 +5,10 @@
 about Brazilian municipalities.
 
 This function normalizes names and objects from the
-[`read_municipality()`](https://ipeagit.github.io/geobr/reference/read_municipality.html)
-function of the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) package,
-adding latitude and longitude coordinates for each municipality.
+[`read_municipality()`](https://rdrr.io/pkg/geobr/man/read_municipality.html)
+function of the [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html)
+package, adding latitude and longitude coordinates for each
+municipality.
 
 **Note:** This function requires an internet connection to work and the
 [`geobr`](https://ipeagit.github.io/geobr/) or
@@ -54,10 +54,9 @@ brazil_municipality(
   coordinates of the municipalities (default: `"geobr"`). Options are:
 
   - `"geobr"`: Uses
-    [`read_municipal_seat()`](https://ipeagit.github.io/geobr/reference/read_municipal_seat.html)
-    from the
-    [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-    package to retrieve the coordinates.
+    [`read_municipal_seat()`](https://rdrr.io/pkg/geobr/man/read_municipal_seat.html)
+    from the [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package
+    to retrieve the coordinates.
 
   - `"geocodebr"`: Uses the
     [`geocode()`](https://ipeagit.github.io/geocodebr/reference/geocode.html)
@@ -98,7 +97,7 @@ the following columns:
 
 Data from this function is based on data from the Brazilian Institute of
 Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) via the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) and
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) and
 [`geocodebr`](https://ipeagit.github.io/geocodebr/reference/geocodebr.html)
 R packages.
 
@@ -148,8 +147,12 @@ library(dplyr)
   if (is_online()) {
     brazil_municipality() |> glimpse()
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
-#> Using year/date 2024
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
+#> duckdb is keeping downloaded extensions in a temporary directory:
+#> ℹ /tmp/RtmpHTVud2/duckdb/extensions
+#> This is removed when the R session ends, so extensions are re-downloaded each session.
+#> ℹ To keep them, point `options(duckdb.extension_directory =)` or the `DUCKDB_EXTENSION_DIRECTORY` environment variable at a permanent path.
+#> ℹ Using year/date 2025
 #> Rows: 5,571
 #> Columns: 9
 #> $ municipality      <chr> "Alta Floresta D'Oeste", "Ariquemes", "Cabixi", "…
@@ -159,15 +162,15 @@ library(dplyr)
 #> $ federal_unit      <chr> "RO", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "…
 #> $ region            <chr> "North", "North", "North", "North", "North", "Nor…
 #> $ region_code       <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-#> $ latitude          <dbl> -11.935540305, -9.908462867, -13.499763460, -11.4…
-#> $ longitude         <dbl> -61.99982390, -63.03326928, -60.54431358, -61.442…
+#> $ latitude          <dbl> -11.933005, -9.911969, -13.494500, -11.435600, -1…
+#> $ longitude         <dbl> -62.003686, -63.033808, -60.542900, -61.451200, -…
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality(municipality = "Belém") |> glimpse()
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> Rows: 3
 #> Columns: 9
 #> $ municipality      <chr> "Belém", "Belém", "Belém"
@@ -177,15 +180,15 @@ library(dplyr)
 #> $ federal_unit      <chr> "PA", "PB", "AL"
 #> $ region            <chr> "North", "Northeast", "Northeast"
 #> $ region_code       <int> 1, 2, 2
-#> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231
-#> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799
+#> $ latitude          <dbl> -1.455383, -6.696600, -9.570500
+#> $ longitude         <dbl> -48.505145, -35.537800, -36.493200
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality(municipality = "Belém", state = "Pará") |> glimpse()
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> Rows: 1
 #> Columns: 9
 #> $ municipality      <chr> "Belém"
@@ -195,15 +198,15 @@ library(dplyr)
 #> $ federal_unit      <chr> "PA"
 #> $ region            <chr> "North"
 #> $ region_code       <int> 1
-#> $ latitude          <dbl> -1.459845
-#> $ longitude         <dbl> -48.48782569
+#> $ latitude          <dbl> -1.455383
+#> $ longitude         <dbl> -48.505145
 # }
 
 # \dontrun{
   if (is_online()) {
     brazil_municipality(municipality = c("Belém", "São Paulo")) |> glimpse()
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> Rows: 4
 #> Columns: 9
 #> $ municipality      <chr> "Belém", "Belém", "Belém", "São Paulo"
@@ -213,7 +216,7 @@ library(dplyr)
 #> $ federal_unit      <chr> "PA", "PB", "AL", "SP"
 #> $ region            <chr> "North", "Northeast", "Northeast", "Southeast"
 #> $ region_code       <int> 1, 2, 2, 3
-#> $ latitude          <dbl> -1.459845000, -6.694042610, -9.568648231, -23.567…
-#> $ longitude         <dbl> -48.48782569, -35.53627408, -36.49449799, -46.570…
+#> $ latitude          <dbl> -1.455383, -6.696600, -9.570500, -23.554753
+#> $ longitude         <dbl> -48.505145, -35.537800, -36.493200, -46.579009
 # }
 ```

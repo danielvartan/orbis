@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Brazilian municipalities data — brazil_municipality"><meta name="description" content="brazil_municipality() returns a tibble with data
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Poppins-0.4.10/font.css" rel="stylesheet"><link href="../deps/DM_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Brazilian municipalities data — brazil_municipality"><meta name="description" content="brazil_municipality() returns a tibble with data
 about Brazilian municipalities.
 This function normalizes names and objects from the
 read_municipality() function of the
@@ -66,8 +66,8 @@ installed, depending on the chosen method for retrieving coordinates."><meta pro
     <p><code>brazil_municipality()</code> returns a <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></code> with data
 about Brazilian municipalities.</p>
 <p>This function normalizes names and objects from the
-<code><a href="https://ipeagit.github.io/geobr/reference/read_municipality.html" class="external-link">read_municipality()</a></code> function of the
-<code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package, adding latitude and longitude
+<code><a href="https://rdrr.io/pkg/geobr/man/read_municipality.html" class="external-link">read_municipality()</a></code> function of the
+<code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> package, adding latitude and longitude
 coordinates for each municipality.</p>
 <p><strong>Note:</strong> This function requires an internet connection to work and the
 <a href="https://ipeagit.github.io/geobr/" class="external-link"><code>geobr</code></a> or
@@ -110,8 +110,8 @@ indicating the year of the data regarding the municipalities
 <dt id="arg-coords-method">coords_method<a class="anchor" aria-label="anchor" href="#arg-coords-method"></a></dt>
 <dd><p>(optional) A <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> string
 indicating the method to retrieve the latitude and longitude coordinates of
-the municipalities (default: <code>"geobr"</code>). Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://ipeagit.github.io/geobr/reference/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
-from the <code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> package to retrieve the coordinates.</p></li>
+the municipalities (default: <code>"geobr"</code>). Options are:</p><ul><li><p><code>"geobr"</code>: Uses <code><a href="https://rdrr.io/pkg/geobr/man/read_municipal_seat.html" class="external-link">read_municipal_seat()</a></code>
+from the <code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> package to retrieve the coordinates.</p></li>
 <li><p><code>"geocodebr"</code>: Uses the <code><a href="https://ipeagit.github.io/geocodebr/reference/geocode.html" class="external-link">geocode()</a></code> from the
 <code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> package to retrieve the coordinates.</p></li>
 </ul></dd>
@@ -138,7 +138,7 @@ whether to force the download of the data again (default: <code>FALSE</code>).</
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Data from this function is based on data from the Brazilian Institute
 of Geography and Statistics (<a href="https://www.ibge.gov.br/" class="external-link">IBGE</a>) via the
-<code><a href="https://ipeagit.github.io/geobr/reference/geobr.html" class="external-link">geobr</a></code> and <code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> R packages.</p>
+<code><a href="https://rdrr.io/pkg/geobr/man/geobr.html" class="external-link">geobr</a></code> and <code><a href="https://ipeagit.github.io/geocodebr/reference/geocodebr.html" class="external-link">geocodebr</a></code> R packages.</p>
 <p>Both packages are produced by Brazil's Institute for Applied Economic
 Research (<a href="https://www.ipea.gov.br/" class="external-link">IPEA</a>) and access the Brazilian
 Institute of Geography and Statistics (<a href="https://www.ibge.gov.br/" class="external-link">IBGE</a>)
@@ -185,8 +185,12 @@ data.</p>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using year/date 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> duckdb is keeping downloaded extensions in a temporary directory:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">ℹ</span> /tmp/RtmpHTVud2/duckdb/extensions</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> This is removed when the R session ends, so extensions are re-downloaded each session.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">ℹ</span> To keep them, point `options(duckdb.extension_directory =)` or the `DUCKDB_EXTENSION_DIRECTORY` environment variable at a permanent path.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using year/date 2025</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 5,571</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">municipality     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Alta Floresta D'Oeste"<span style="color: #949494;">, </span>"Ariquemes"<span style="color: #949494;">, </span>"Cabixi"<span style="color: #949494;">, </span>"…</span>
@@ -196,15 +200,15 @@ data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">federal_unit     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"RO"<span style="color: #949494;">, </span>"…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region           </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "North"<span style="color: #949494;">, </span>"North"<span style="color: #949494;">, </span>"North"<span style="color: #949494;">, </span>"North"<span style="color: #949494;">, </span>"North"<span style="color: #949494;">, </span>"Nor…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region_code      </span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -11.935540305<span style="color: #949494;">, </span>-9.908462867<span style="color: #949494;">, </span>-13.499763460<span style="color: #949494;">, </span>-11.4…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -61.99982390<span style="color: #949494;">, </span>-63.03326928<span style="color: #949494;">, </span>-60.54431358<span style="color: #949494;">, </span>-61.442…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -11.933005<span style="color: #949494;">, </span>-9.911969<span style="color: #949494;">, </span>-13.494500<span style="color: #949494;">, </span>-11.435600<span style="color: #949494;">, </span>-1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -62.003686<span style="color: #949494;">, </span>-63.033808<span style="color: #949494;">, </span>-60.542900<span style="color: #949494;">, </span>-61.451200<span style="color: #949494;">, </span>-…</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality</span><span class="op">(</span>municipality <span class="op">=</span> <span class="st">"Belém"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">municipality     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Belém"<span style="color: #949494;">, </span>"Belém"<span style="color: #949494;">, </span>"Belém"</span>
@@ -214,15 +218,15 @@ data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">federal_unit     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "PA"<span style="color: #949494;">, </span>"PB"<span style="color: #949494;">, </span>"AL"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region           </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "North"<span style="color: #949494;">, </span>"Northeast"<span style="color: #949494;">, </span>"Northeast"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region_code      </span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1.459845000<span style="color: #949494;">, </span>-6.694042610<span style="color: #949494;">, </span>-9.568648231</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -48.48782569<span style="color: #949494;">, </span>-35.53627408<span style="color: #949494;">, </span>-36.49449799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1.455383<span style="color: #949494;">, </span>-6.696600<span style="color: #949494;">, </span>-9.570500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -48.505145<span style="color: #949494;">, </span>-35.537800<span style="color: #949494;">, </span>-36.493200</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality</span><span class="op">(</span>municipality <span class="op">=</span> <span class="st">"Belém"</span>, state <span class="op">=</span> <span class="st">"Pará"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">municipality     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Belém"</span>
@@ -232,15 +236,15 @@ data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">federal_unit     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "PA"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region           </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "North"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region_code      </span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1.459845</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -48.48782569</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1.455383</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -48.505145</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://httr2.r-lib.org/reference/is_online.html" class="external-link">is_online</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>    <span class="fu">brazil_municipality</span><span class="op">(</span>municipality <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Belém"</span>, <span class="st">"São Paulo"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2024</span>. Using year <span style="font-weight: bold;">2024</span> instead.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> The closest map year to <span style="color: #BB0000; font-weight: bold;">2026</span> is <span style="font-weight: bold;">2025</span>. Using year <span style="font-weight: bold;">2025</span> instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">municipality     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Belém"<span style="color: #949494;">, </span>"Belém"<span style="color: #949494;">, </span>"Belém"<span style="color: #949494;">, </span>"São Paulo"</span>
@@ -250,8 +254,8 @@ data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">federal_unit     </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "PA"<span style="color: #949494;">, </span>"PB"<span style="color: #949494;">, </span>"AL"<span style="color: #949494;">, </span>"SP"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region           </span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "North"<span style="color: #949494;">, </span>"Northeast"<span style="color: #949494;">, </span>"Northeast"<span style="color: #949494;">, </span>"Southeast"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">region_code      </span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1.459845000<span style="color: #949494;">, </span>-6.694042610<span style="color: #949494;">, </span>-9.568648231<span style="color: #949494;">, </span>-23.567…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -48.48782569<span style="color: #949494;">, </span>-35.53627408<span style="color: #949494;">, </span>-36.49449799<span style="color: #949494;">, </span>-46.570…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">latitude         </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -1.455383<span style="color: #949494;">, </span>-6.696600<span style="color: #949494;">, </span>-9.570500<span style="color: #949494;">, </span>-23.554753</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ <span style="font-weight: bold;">longitude        </span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -48.505145<span style="color: #949494;">, </span>-35.537800<span style="color: #949494;">, </span>-36.493200<span style="color: #949494;">, </span>-46.579009</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -264,7 +268,7 @@ data.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

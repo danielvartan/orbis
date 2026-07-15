@@ -65,20 +65,20 @@ worldclim_random("hcd")
 #>                   "hcd" 
 #> 
 #> $resolution
-#> 2.5 Minutes (~21 km2 at the Equator) 
-#>                               "2.5m" 
+#> 10 Minutes (~340 km2 at the Equator) 
+#>                                "10m" 
 #> 
 #> $variable
-#> Average Temperature (°C) 
-#>                   "tavg" 
+#> Average Minimum Temperature (°C) 
+#>                           "tmin" 
 #> 
 #> $year
 #> 1970-2000 
-#>      1986 
+#>      1982 
 #> 
 #> $month
-#> June 
-#>    6 
+#> May 
+#>   5 
 #> 
 
 worldclim_random("hmwd")
@@ -96,11 +96,11 @@ worldclim_random("hmwd")
 #> 
 #> $year
 #> 1960-1969 
-#>      1962 
+#>      1965 
 #> 
 #> $month
-#> September 
-#>         9 
+#> June 
+#>    6 
 #> 
 
 worldclim_random("fcd")
@@ -109,27 +109,27 @@ worldclim_random("fcd")
 #>               "fcd" 
 #> 
 #> $resolution
-#> 5 Minutes (~85 km2 at the Equator) 
-#>                               "5m" 
+#> 2.5 Minutes (~21 km2 at the Equator) 
+#>                               "2.5m" 
 #> 
 #> $variable
 #> Average Minimum Temperature (°C) 
 #>                           "tmin" 
 #> 
 #> $model
-#> Australian Community Climate and Earth-System Simulator, Australia 
-#>                                                       "ACCESS-CM2" 
+#> Meteorological Research Institute, Japan 
+#>                             "MRI-ESM2-0" 
 #> 
 #> $ssp
 #>  SSP-126 
 #> "ssp126" 
 #> 
 #> $year
-#> 2081-2100 
-#>      2089 
+#> 2021-2040 
+#>      2037 
 #> 
 #> $month
-#> June 
-#>    6 
+#> February 
+#>        2 
 #> 
 ```

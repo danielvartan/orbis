@@ -59,17 +59,15 @@ codes of Brazilian municipalities.
 
 Data from this function is based on data from the Brazilian Institute of
 Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) via the
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) R
-package.
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) R package.
 
-The [`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html)
-package is produced by Brazil's Institute for Applied Economic Research
+The [`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) package is
+produced by Brazil's Institute for Applied Economic Research
 ([IPEA](https://www.ipea.gov.br/)) and access the Brazilian Institute of
 Geography and Statistics ([IBGE](https://www.ibge.gov.br/)) data. You
 can see a list of all
-[`geobr`](https://ipeagit.github.io/geobr/reference/geobr.html) datasets
-by running
-[`geobr::list_geobr()`](https://ipeagit.github.io/geobr/reference/list_geobr.html).
+[`geobr`](https://rdrr.io/pkg/geobr/man/geobr.html) datasets by running
+[`geobr::list_geobr()`](https://rdrr.io/pkg/geobr/man/list_geobr.html).
 
 ## See also
 
@@ -98,7 +96,7 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_code(municipality = "Belém")
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> Belém-PA Belém-PB Belém-AL 
 #>  1501402  2501906  2700805 
 # }
@@ -107,7 +105,7 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_code(municipality = "Belém", names = FALSE)
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> [1] 1501402 2501906 2700805
 # }
 
@@ -115,7 +113,7 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_code(municipality = "Belém", state = "Pará")
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> Belém-PA 
 #>  1501402 
 # }
@@ -124,7 +122,7 @@ library(httr2)
   if (is_online()) {
     brazil_municipality_code(c("Rio de Janeiro", "São Paulo"))
   }
-#> ! The closest map year to 2026 is 2024. Using year 2024 instead.
+#> ! The closest map year to 2026 is 2025. Using year 2025 instead.
 #> Rio de Janeiro-RJ      São Paulo-SP 
 #>           3304557           3550308 
 # }
